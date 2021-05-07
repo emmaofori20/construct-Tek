@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "construct-tek": {
+      "hosting": {
+        "construct-tek": [
+          "construct-tek"
+        ]
+      }
+    }
+  }
+}

@@ -121,8 +121,16 @@
               "devServerTarget": "construct-tek:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
-  "defaultProject": "construct-tek"
+    }
+  },
+  "defaultProject": "construct-tek",
+  "cli": {
+    "analytics": "7fe83429-c7bd-42af-9f5f-ff61ba5d49e9"
+  }
 }
