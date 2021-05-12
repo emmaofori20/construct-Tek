@@ -5,7 +5,6 @@ export interface User{
   password:string,
   photo:string,
   isWorker:boolean,
-  skill:any,
 }
 
 export interface SystemUser{

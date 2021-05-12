@@ -13,7 +13,7 @@ export class UserServiceService {
 
   }
 
-  newUSer(surname, othernames, email, iswoker, skill, photo, password) {
+  newUSer(surname, othernames, email, iswoker, photo, password) {
     //new users
     let user: User = {
       firstName: othernames,
@@ -22,7 +22,6 @@ export class UserServiceService {
       password: password,
       photo: photo,
       isWorker: iswoker,
-      skill: skill,
     };
     //All system users
     let _systemuser: SystemUser = {

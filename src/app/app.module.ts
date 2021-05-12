@@ -34,7 +34,7 @@ import { LoaderInterceptor } from 'src/interceptors/loading.interceptor';
     AngularFireStorageModule,//for storage
     ReactiveFormsModule
   ],
-  providers: [    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
+  providers: [    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }, LoaderService
   ],
   bootstrap: [AppComponent]
 })
