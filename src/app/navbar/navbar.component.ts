@@ -12,4 +12,14 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onLogOut(){
+
+  }
+
+  onChange($event){
+
+  }
+  reset(){
+
+  }
 }
