@@ -38,4 +38,10 @@ export class AuthService {
     return this.afAuth.sendPasswordResetEmail(email);
   }
 
+  isLoggedIn() : boolean {
+    console.log("CURRENT USER",localStorage.getItem("user"));
+    if(localStorage.getItem("user")) return true;
+    else return false;
+  }
+
 }

@@ -15,7 +15,11 @@ export class LoginComponent implements OnInit {
   errorMessage=false;
   LogInForm: FormGroup;
 
-  constructor(private auth: AuthService, private router: Router, private loaderService: LoaderService) { }
+  constructor(private auth: AuthService, private router: Router, private loaderService: LoaderService) {
+    if(auth.isLoggedIn()){
+      router.navigate(["home-page"]);
+    }
+  }
 
   ngOnInit(): void {
     this.LogInForm = new FormGroup({
