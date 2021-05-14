@@ -33,10 +33,10 @@ export class LoginComponent implements OnInit {
     this.loaderService.setHttpProgressStatus(true);
 
   await this.auth.SignIn(this.LogInForm.value.email, this.LogInForm.value.password).then(res=>{
-    console.log("sucessful loglin", res);
-    this.loaderService.setHttpProgressStatus(false);
-    this.router.navigate(['home-page']);
 
+    console.log("sucessful loglin", res);
+    this.router.navigate(['home-page']);
+    this.loaderService.setHttpProgressStatus(false);
 
   }).catch(err=>{
     console.log("error", err)

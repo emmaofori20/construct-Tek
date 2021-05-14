@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoaderService } from 'src/interceptors/loader.service';
 import { UserServiceService } from '../services/user-service.service';
 
 @Component({
@@ -19,12 +20,14 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private userservice: UserServiceService
+    private userservice: UserServiceService,
+    private loaderService:LoaderService,
   ) {}
 
   ngOnInit(): void {}
 
   onSubnmit() {
+    this.loaderService.setHttpProgressStatus(true);
     this.userservice.newUSer(
       this.signupForm.value.Othername,
       this.signupForm.value.Surname,
@@ -34,8 +37,9 @@ export class SignupComponent implements OnInit {
       this.signupForm.value.Confirmpassword,
 
     );
-
     //routes you to the login page after a successful sign up
     this.router.navigate(['login']);
+    this.loaderService.setHttpProgressStatus(false);
+
   }
 }
