@@ -1,6 +1,7 @@
 .navbar {
     justify-content: space-between;
     display: flex;
+    padding: 0px 10px;
     .left-side {
         display: flex;
         text-align: center;
@@ -8,8 +9,27 @@
         align-items: center;
         grid-gap: 5px;
         h1 {
-            font-size: 24px;
+            font-size: 20px;
             color: #00000087;
+            font-family: "Poppins";
+        }
+        img {
+            height: 30px;
+            width: 40px;
+        }
+    }
+    .right-side {
+        .item {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            grid-gap: 5px;
+        }
+        span {
+            font-size: 35px;
+        }
+        h4 {
+            font-size: 16px;
             font-family: "Poppins";
         }
     }

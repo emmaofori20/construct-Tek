@@ -5,7 +5,6 @@ import { environment } from 'src/environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import { SmartTooltipAngularModule } from 'smart-tooltip-angular';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -36,11 +35,12 @@ import { NavbarComponent } from './navbar/navbar.component';
     AngularFireAuthModule, // for auth features
     AngularFireStorageModule, //for storage
     ReactiveFormsModule,
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
     LoaderService,
-    SmartTooltipAngularModule
+
   ],
   bootstrap: [AppComponent],
 })
