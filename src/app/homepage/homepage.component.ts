@@ -12,4 +12,8 @@ export class HomepageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  updateSearch($event){
+
+  }
+
 }

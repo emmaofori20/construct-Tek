@@ -1,1 +1,41 @@
-<app-navbar></app-navbar>
+<div>
+    <app-navbar></app-navbar>
+
+    <div class="contents">
+
+        <div class="search-box">
+            <!-- <label for="searchbox"><span class="material-icons"> search </span></label> -->
+            <input type="search" name="search-box" id="search" placeholder="Search for a worker" (keyup)="updateSearch($event.target.value)" />
+        </div>
+
+        <div class="workers-container">
+            <div class="worker">
+
+            </div>
+            <div class="worker">
+
+            </div>
+            <div class="worker">
+
+            </div>
+            <div class="worker">
+
+            </div>
+            <div class="worker">
+
+            </div>
+
+            <div class="worker">
+
+            </div>
+            <div class="worker">
+
+            </div>
+
+            <div class="worker">
+
+            </div>
+        </div>
+
+    </div>
+</div>
