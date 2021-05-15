@@ -1,6 +1,8 @@
 import { Component, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoaderService } from 'src/interceptors/loader.service';
+import { DataService } from './services/data.service';
+import { UserServiceService } from './services/user-service.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +14,8 @@ export class AppComponent {
   user:any;
   constructor(private loaderService: LoaderService,
     private renderer:Renderer2,
-    private router:Router
+    private router:Router,
+    private dataservice:DataService
     ){
     this.loaderService.httpProgress().subscribe((status: boolean) => {
       if (status) {
@@ -22,7 +25,7 @@ export class AppComponent {
       }
     });
 
-
+    this.CheckingUser();
   }
 
   CheckingUser() {
@@ -30,11 +33,13 @@ export class AppComponent {
     if (!_user) {
       //this.router.navigate(["login"]);
       if (!window.location.href.includes("not-found"))
-        this.router.navigate(["welcome"]);
+        this.router.navigate(["login"]);
       console.log("no user");
     } else {
-      console.log("user");
-      this.user = JSON.parse(_user);
+      console.log("user", _user);
+      this.dataservice.setuserid(_user);
+      this.router.navigate(['home-page'])
+
     }
   }
 }

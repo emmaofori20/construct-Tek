@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { DataService } from '../services/data.service';
 import { UserServiceService } from '../services/user-service.service';
 
 @Component({
@@ -12,10 +13,11 @@ export class NavbarComponent implements OnInit {
 
   user:any;
   _userId;
-  constructor(private auth:AuthService, private router: Router, private userservice: UserServiceService) {
+  constructor(private auth:AuthService, private router: Router, private userservice: UserServiceService, private dataservice:DataService) {
+
+    this._userId= this.dataservice.getuserid();
     //getting the current user id
-    this.auth.userid.subscribe(res=>this._userId=res);
-    this.user=this.userservice.getActiveUser().subscribe(res=>{
+    this.user=this.userservice.getActiveUser(this.dataservice.getuserid()).subscribe(res=>{
       this.user=res;
       console.log("user details", this.user)
     })
@@ -36,6 +38,11 @@ export class NavbarComponent implements OnInit {
 
   }
 
+  changeProfile(e){
+    console.log(e);
+    document.getElementById("file-upload").click();
+  }
+
   onChange(event){
     let file = (event.target as HTMLInputElement).files[0];
     if(file){
@@ -46,8 +53,5 @@ export class NavbarComponent implements OnInit {
 
   }
 
-  changeProfile(e){
-    console.log(e);
-    document.getElementById("file-upload").click();
-  }
+
 }

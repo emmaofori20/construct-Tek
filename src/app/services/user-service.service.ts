@@ -4,6 +4,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 import { SystemUser, User } from '../model/model';
 import { AuthService } from './auth.service';
+import { DataService } from './data.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,10 +16,7 @@ export class UserServiceService {
   userdetails:any
   UsersCollection: any;
   constructor(private auth: AuthService, private afs: AngularFirestore, private afStorage: AngularFireStorage) {
-    //getting the current user id
-    this.auth.userid.subscribe(res=>this.User_id=res);
-  //   //getting the details of the current logged in user
-  //  this.userdetails= this.afs.collection('Users').doc(this.User_id).get();
+
   }
 
   //setting up a new user to firebase
@@ -67,6 +65,7 @@ export class UserServiceService {
   //user uploading an image
   UserProfilePhoto(file,userid){
     this.uploadFile(file,userid);
+    console.log(file,userid);
   }
 
 
@@ -74,7 +73,7 @@ export class UserServiceService {
    private  basePath="uploads/profiles"
    async uploadFile(fileItem,userid)//: Observable<number>
     {
-      const filePath = `${this.basePath}/${this.userdetails.firstName}`;
+      const filePath = `${this.basePath}/${userid}`;
       const storageRef = this.afStorage.ref(filePath);
       const uploadTask = this.afStorage.upload(filePath, fileItem);
 
@@ -90,11 +89,8 @@ export class UserServiceService {
 
   }
 
-  setuser(obj){
-    this.User_id=obj;
-  }
   //getting the active user
-  getActiveUser(){
-    return this.afs.collection('Users').doc(this.User_id).valueChanges();
+  getActiveUser(uid){
+    return this.afs.collection('Users').doc(uid).valueChanges();
   }
 }

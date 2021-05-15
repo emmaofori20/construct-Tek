@@ -14,7 +14,7 @@
             <h3 style="top: 40px; right: 1px; text-align: center" class="smart-tooltip stay-left stick-300 stayonhover" id="hiddenText">
                 <div class="profile">
                     <h3 *ngIf="!user.photo" class="material-icons">account_circle</h3>
-                    <img *ngIf="user.photo" style="height: 40px;width: 40px;border-radius: 50%;" src={{user.photo}}>
+                    <img *ngIf="user.photo" style="height: 70px;width: 70px;border-radius: 50%;" src={{user.photo}}>
                     <!-- <img *ngIf="user.photo" style="height: 70px;width: 70px;border-radius: 50%;" src={{user.photo}}> -->
                     <i class="fa fa-camera" (click)="changeProfile($event)"></i>
                     <input id="file-upload" type="file" accept="image/*" (change)="onChange($event)" />

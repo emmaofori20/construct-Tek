@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     //successful login user is routed to the homepage
     console.log("sucessful loglin", res);
     //setting a user after login
-    this.dataservice._setActiveUser(res);
+    await this.dataservice._setActiveUser(res);
     this.router.navigate(['home-page']);
     this.loaderService.setHttpProgressStatus(false);
 

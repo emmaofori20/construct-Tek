@@ -15,10 +15,17 @@ export class DataService {
 
   async _setActiveUser(userInfo){
     this.systemUser =  userInfo;
-    console.log("this is the user info from volatile data",userInfo);
-    this.user_id = this.userservice.setuser(userInfo.user.uid);
-    this.user= await this.userservice.getActiveUser();
-    localStorage.setItem("user", JSON.stringify({...this.user}));
 
+    console.log("this is the user info from volatile data",userInfo);
+    this.user_id =(userInfo.user.uid);
+    localStorage.setItem("user", userInfo.user.uid);
+  }
+
+  getuserid(){
+    return this.user_id;
+  }
+
+  setuserid(userid){
+    this.user_id=userid;
   }
 }

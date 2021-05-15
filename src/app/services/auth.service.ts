@@ -8,19 +8,8 @@ import { UserServiceService } from './user-service.service';
 })
 export class AuthService {
 
-  userid=new Subject<any>();
-
   constructor(public afAuth:AngularFireAuth) {
-    //listening to changes when user is logged in or not
-    // this.afAuth.onAuthStateChanged(user=>{
-    //   if(user){
-    //     console.log("user logged in",user);
-    //     this.userid.next(user.uid)
-    //   }
-    //   else{
-    //     console.log("user logged out")
-    //   }
-    // })
+
    }
 
   //create a user account
@@ -54,11 +43,6 @@ export class AuthService {
   ResetPassword(email){
     return this.afAuth.sendPasswordResetEmail(email);
   }
-
-  // //getting user id if loggin in
-  // getUserid(){
-  //   this.userid;
-  // }
 
   isLoggedIn() : boolean {
     console.log("CURRENT USER",localStorage.getItem("user"));
