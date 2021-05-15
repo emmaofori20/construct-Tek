@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoaderService } from 'src/interceptors/loader.service';
 import { AuthService } from '../services/auth.service';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   errorMessage=false;
   LogInForm: FormGroup;
 
-  constructor(private auth: AuthService, private router: Router, private loaderService: LoaderService) {
+  constructor(private auth: AuthService, private router: Router, private loaderService: LoaderService, private dataservice:DataService) {
     if(auth.isLoggedIn()){
       router.navigate(["home-page"]);
     }
@@ -31,10 +32,12 @@ export class LoginComponent implements OnInit {
 
   async onSubmit(){
     this.loaderService.setHttpProgressStatus(true);
-
-  await this.auth.SignIn(this.LogInForm.value.email, this.LogInForm.value.password).then(res=>{
-
+    //user is authenticated
+    await this.auth.SignIn(this.LogInForm.value.email, this.LogInForm.value.password).then( async res=>{
+    //successful login user is routed to the homepage
     console.log("sucessful loglin", res);
+    //setting a user after login
+    this.dataservice._setActiveUser(res);
     this.router.navigate(['home-page']);
     this.loaderService.setHttpProgressStatus(false);
 
@@ -46,6 +49,8 @@ export class LoginComponent implements OnInit {
   })
 
   }
+
+  //opens the forget modal password
   onToggle(){
     this.forgot = !this.forgot;
   }

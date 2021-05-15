@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { UserServiceService } from '../services/user-service.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,9 +10,22 @@ import { AuthService } from '../services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private auth:AuthService, private router: Router) { }
+  user:any;
+  _userId;
+  constructor(private auth:AuthService, private router: Router, private userservice: UserServiceService) {
+    //getting the current user id
+    this.auth.userid.subscribe(res=>this._userId=res);
+    this.user=this.userservice.getActiveUser().subscribe(res=>{
+      this.user=res;
+      console.log("user details", this.user)
+    })
+
+  }
 
   ngOnInit(): void {
+  }
+  open(){
+    console.log(this.user)
   }
 
   onLogOut(){
@@ -19,17 +33,21 @@ export class NavbarComponent implements OnInit {
       localStorage.clear();
       this.router.navigate(["login"]);}
     );
-    console.log("i work")
+
   }
 
-  onChange($event){
-
+  onChange(event){
+    let file = (event.target as HTMLInputElement).files[0];
+    if(file){
+      this.userservice.UserProfilePhoto(file,this._userId);
+    }
   }
   reset(){
 
   }
 
-  changeProfile($event){
-
+  changeProfile(e){
+    console.log(e);
+    document.getElementById("file-upload").click();
   }
 }

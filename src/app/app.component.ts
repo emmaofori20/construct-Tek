@@ -1,4 +1,5 @@
 import { Component, Renderer2 } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoaderService } from 'src/interceptors/loader.service';
 
 @Component({
@@ -8,9 +9,10 @@ import { LoaderService } from 'src/interceptors/loader.service';
 })
 export class AppComponent {
   title = 'construct-tek';
-
+  user:any;
   constructor(private loaderService: LoaderService,
-    private renderer:Renderer2
+    private renderer:Renderer2,
+    private router:Router
     ){
     this.loaderService.httpProgress().subscribe((status: boolean) => {
       if (status) {
@@ -19,5 +21,20 @@ export class AppComponent {
         this.renderer.removeClass(document.body, 'busy');
       }
     });
+
+
+  }
+
+  CheckingUser() {
+    let _user = localStorage.getItem("user");
+    if (!_user) {
+      //this.router.navigate(["login"]);
+      if (!window.location.href.includes("not-found"))
+        this.router.navigate(["welcome"]);
+      console.log("no user");
+    } else {
+      console.log("user");
+      this.user = JSON.parse(_user);
+    }
   }
 }
