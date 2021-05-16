@@ -5,11 +5,11 @@ import { DataService } from '../services/data.service';
 import { UserServiceService } from '../services/user-service.service';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: 'app-topmenu',
+  templateUrl: './topmenu.component.html',
+  styleUrls: ['./topmenu.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class TopmenuComponent implements OnInit {
 
   user:any;
   _userId;
@@ -38,6 +38,7 @@ export class NavbarComponent implements OnInit {
   }
 
   changeProfile(e){
+    e.stopPropagatio();
     console.log(e);
     document.getElementById("file-upload").click();
   }
@@ -53,5 +54,4 @@ export class NavbarComponent implements OnInit {
   onDashboard(){
     this.router.navigate(['dashboard'])
   }
-
 }

@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   forgot=false;
   errorMessage=false;
   LogInForm: FormGroup;
-
+  _errormessage='';
   constructor(private auth: AuthService, private router: Router, private loaderService: LoaderService, private dataservice:DataService) {
     if(auth.isLoggedIn()){
       router.navigate(["home-page"]);
@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
   }).catch(err=>{
     console.log("error", err)
     this.loaderService.setHttpProgressStatus(false);
+    this._errormessage=err.message;
     this.errorMessage = true;
     this.isValid = true;
   })

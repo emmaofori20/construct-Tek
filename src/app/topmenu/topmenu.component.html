@@ -1,10 +1,10 @@
 <div class="navbar">
     <div class="left-side">
-        <img src="../../assets/Construction Helmet Mockup 1 1.png" alt="" />
-        <h1>Construct-Tek</h1>
+        <h1>Dashboard</h1>
     </div>
 
     <div class="right-side">
+        <i class="far fa-bell" style=" font-size: 25px; padding: 5px;"></i>
         <div id="item" smart-tooltip-container class="clicktoshow">
             <span *ngIf="!user.photo" class="material-icons"> account_circle </span>
             <img *ngIf="user.photo" style="height: 40px;width: 40px;border-radius: 50%;" src={{user.photo}}>
@@ -24,7 +24,7 @@
                 <hr />
                 <p (click)="onDashboard()">Dashboard</p>
                 <!-- <hr/>
-            <p (click)="reset()" routerLinkActive="active" style="padding: 10px;"> Reset password</p> -->
+          <p (click)="reset()" routerLinkActive="active" style="padding: 10px;"> Reset password</p> -->
                 <hr />
                 <p class="ta" (click)="onLogOut()">logout</p>
             </h3>

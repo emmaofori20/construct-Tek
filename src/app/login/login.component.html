@@ -12,7 +12,7 @@
                     color: #00000073;">Please enter the details you used during registration</h4>
                 </div>
 
-                <span class="email-checker" *ngIf="errorMessage"> Email or Password is invalid. Please try again</span>
+                <span class="email-checker" *ngIf="errorMessage">{{_errormessage}}</span>
 
                 <input type="email" placeholder="email" formControlName="email">
 

@@ -1,0 +1,70 @@
+.Mycontainer {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-areas: "side head head head head" "side main main main main" "side main main main main" "side main main main main" "side main main main main";
+}
+
+app-login {
+    margin: 0px;
+    padding: 0px;
+}
+
+app-menu {
+    grid-area: side;
+    display: grid;
+    grid-auto-flow: row;
+    // grid-template-rows: 1fr 6.5fr 1.2fr;
+}
+
+.app-nav-bar {
+    grid-area: head;
+}
+
+.app-content {
+    grid-area: main;
+}
+
+.menu {
+    display: block;
+    // grid-row: -1;
+}
+
+input {
+    position: absolute;
+    display: none;
+}
+
+
+/******************MEDIA QUERIES**************************/
+
+@media screen and (max-width: 800px) {
+    .Mycontainer {
+        background-color: white;
+        grid-template-areas: "head head head head head" "main main main main main" "main main main main main" "main main main main main" "main main main main main";
+    }
+    .menu {
+        background: rgba(0, 0, 0, 0.21);
+        position: absolute;
+        width: 100vw;
+        height: 120vh;
+        z-index: 100;
+        transition: all 500ms linear;
+        display: none;
+    }
+    app-menu {
+        position: absolute;
+        background-color: white;
+        width: 30rem;
+        height: 120vh;
+    }
+    .app-nav-bar {
+        height: 4rem;
+    }
+    #check:checked~.menu {
+        display: block;
+    }
+}

@@ -21,6 +21,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderInterceptor } from 'src/interceptors/loading.interceptor';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { TopmenuComponent } from './topmenu/topmenu.component';
+import { MenuComponent } from './menu/menu.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +32,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HomepageComponent,
     NavbarComponent,
     DashboardComponent,
+    TopmenuComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
