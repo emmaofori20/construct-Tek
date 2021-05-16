@@ -65,7 +65,6 @@ export class UserServiceService {
   //user uploading an image
   UserProfilePhoto(file,userid){
     this.uploadFile(file,userid);
-    console.log(file,userid);
   }
 
 

@@ -20,6 +20,7 @@ import { LoaderService } from '../interceptors/loader.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderInterceptor } from 'src/interceptors/loading.interceptor';
 import { NavbarComponent } from './navbar/navbar.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     PasswordComponent,
     HomepageComponent,
     NavbarComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

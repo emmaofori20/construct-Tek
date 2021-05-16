@@ -7,7 +7,6 @@ import { UserServiceService } from './user-service.service';
 export class DataService {
   systemUser: any;
   user_id: any;
-  user:any;
 
   constructor(private userservice : UserServiceService) {
 

@@ -19,8 +19,7 @@ export class NavbarComponent implements OnInit {
     //getting the current user id
     this.user=this.userservice.getActiveUser(this.dataservice.getuserid()).subscribe(res=>{
       this.user=res;
-      console.log("user details", this.user)
-    })
+    });
 
   }
 
