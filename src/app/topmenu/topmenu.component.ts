@@ -54,4 +54,8 @@ export class TopmenuComponent implements OnInit {
   onDashboard(){
     this.router.navigate(['dashboard'])
   }
+
+  onHompage(){
+    this.router.navigate(['home-page'])
+  }
 }
