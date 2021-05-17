@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ContentsComponent } from './contents/contents.component';
 import { HomeComponent } from './contents/home/home.component';
 import { ProjectsComponent } from './contents/projects/projects.component';
+import { WorkerComponent } from './contents/worker/worker.component'
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent,children:[
     {path: 'content', component: ContentsComponent, children :[
       {path: 'home', component: HomeComponent},
-      {path: 'projects', component: ProjectsComponent}
+      {path: 'projects', component: ProjectsComponent},
+      {path: 'worker', component: WorkerComponent}
     ] }
   ]},
 

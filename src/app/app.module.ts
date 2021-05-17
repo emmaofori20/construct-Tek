@@ -26,6 +26,7 @@ import { MenuComponent } from './menu/menu.component';
 import { ContentsComponent } from './contents/contents.component';
 import { HomeComponent } from './contents/home/home.component';
 import { ProjectsComponent } from './contents/projects/projects.component';
+import { WorkerComponent } from './contents/worker/worker.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { ProjectsComponent } from './contents/projects/projects.component';
     ContentsComponent,
     HomeComponent,
     ProjectsComponent,
+    WorkerComponent,
   ],
   imports: [
     BrowserModule,
