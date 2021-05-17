@@ -2,7 +2,7 @@
     height: 100vh;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: auto repeat(5, 1fr);
+    grid-template-rows: 40px auto;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     grid-template-areas: "side head head head head" "side main main main main" "side main main main main" "side main main main main" "side main main main main";
@@ -20,8 +20,12 @@ app-menu {
     // grid-template-rows: 1fr 6.5fr 1.2fr;
 }
 
+// app-topmenu {
+//     grid-area: head;
+// }
 .app-nav-bar {
     grid-area: head;
+    display: block;
 }
 
 .app-content {

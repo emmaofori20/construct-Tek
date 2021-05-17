@@ -1,0 +1,62 @@
+@mixin active() {
+    // background-color: #FFFFFF;
+    // -webkit-box-shadow: -7px 2px 30px -16px rgba(0, 0, 0, 0.75);
+    // -moz-box-shadow: -7px 2px 30px -16px rgba(0, 0, 0, 0.75);
+    // box-shadow: -7px 2px 30px -16px rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    span,
+    p {
+        color: #459ce3;
+    }
+}
+
+.menu {
+    background-color: #9696f0c7;
+    padding: 5px 20px;
+    display: grid;
+    grid-template-rows: 1fr 22.5fr;
+    grid-gap: 35px;
+    .left-side {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        grid-gap: 5px;
+        h1 {
+            font-size: 20px;
+            color: #00000087;
+            font-family: "Poppins";
+        }
+        img {
+            height: 30px;
+            width: 40px;
+        }
+    }
+    .menu-contents {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+    }
+}
+
+a {
+    display: flex;
+    flex-direction: row;
+    // justify-content: center;
+    padding: 20px 20px;
+    grid-gap: 28px;
+    font-size: 20px;
+}
+
+a:hover {
+    background-color: #ffffff;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.active {
+    @include active();
+    background-color: #e5e5e5;
+}

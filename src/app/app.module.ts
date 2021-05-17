@@ -23,6 +23,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TopmenuComponent } from './topmenu/topmenu.component';
 import { MenuComponent } from './menu/menu.component';
+import { ContentsComponent } from './contents/contents.component';
+import { HomeComponent } from './contents/home/home.component';
+import { ProjectsComponent } from './contents/projects/projects.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +37,9 @@ import { MenuComponent } from './menu/menu.component';
     DashboardComponent,
     TopmenuComponent,
     MenuComponent,
+    ContentsComponent,
+    HomeComponent,
+    ProjectsComponent,
   ],
   imports: [
     BrowserModule,
