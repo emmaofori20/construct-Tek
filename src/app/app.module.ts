@@ -8,7 +8,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { SmartTooltipAngularModule } from 'smart-tooltip-angular';
 
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -53,6 +53,7 @@ import { WokerModalComponent } from './woker-modal/woker-modal.component';
     AngularFireAuthModule, // for auth features
     AngularFireStorageModule, //for storage
     ReactiveFormsModule,
+    FormsModule,
     SmartTooltipAngularModule
   ],
   providers: [

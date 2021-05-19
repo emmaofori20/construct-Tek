@@ -67,3 +67,56 @@ button {
     color: aliceblue;
     border: none;
 }
+
+.wokerbox {
+    h1 {
+        font-size: 24px;
+        font-family: "Roboto";
+        align-items: center;
+        margin-left: 35%;
+    }
+    form {
+        margin-top: 10px;
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-columns: 7fr 6fr;
+        box-sizing: border-box;
+        padding-left: 40px;
+        grid-gap: 10px;
+    }
+}
+
+.right-side {
+    input[type=email],
+    input[type=text],
+    input[type=number] {
+        width: 85%;
+        padding: 0px 10px;
+        margin: 8px 0;
+        /* display: inline-block; */
+        box-sizing: border-box;
+        font-family: "Poppins";
+        font-size: 1.2rem;
+        font-style: normal;
+        font-weight: 100;
+        /* line-height: 30px; */
+        letter-spacing: 0em;
+        border: none;
+        border-bottom: 2px solid #00000085;
+    }
+    select,
+    label {
+        color: rgba(0, 0, 0, 0.548);
+        width: 82%;
+        padding: 9px 15px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        font-family: "Poppins";
+        font-size: 1.2rem;
+        font-style: normal;
+    }
+}
+
+.left-side {
+    margin-top: 10px;
+}

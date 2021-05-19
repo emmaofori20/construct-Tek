@@ -4,7 +4,50 @@
 
     </div>
     <div class="modal-content">
-        <h1>banku is sweet</h1>
+        <div class="wokerbox">
+            <h1>Add Profession Details</h1>
+
+            <div class="woker-content">
+                <form>
+                    <div class="right-side">
+                        <input type="text" placeholder="Name or Name of Company">
+
+                        <div style="display: block;">
+                            <label for="profession">Select Profession: </label>
+                            <select name="profession" id="profession">
+                      <option value="{{item}}" *ngFor="let item of profession" >{{item}}</option>
+                    </select>
+                        </div>
+
+
+                        <input type="text" placeholder="Other Profession">
+
+                        <input type="number" placeholder="Phone(+233)">
+
+                        <input type="email" placeholder="Email">
+
+                        <div style="display: block;">
+                            <label for="gender">Select Gender: </label>
+                            <select name="Gender" id="Gender">
+                       <option value="Male">Male</option>
+                       <option value="Female">Female</option>
+                    </select>
+                        </div>
+
+
+                    </div>
+                    <div class="left-side">
+                        <div style="display: flex;color: green;    cursor: pointer;
+                        grid-gap: 5px;"> <i class="fas fa-plus"></i>
+                            <h3>Add pics to showcase your work</h3>
+                        </div>
+
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
     </div>
 
 </div>
