@@ -27,6 +27,7 @@ import { ContentsComponent } from './contents/contents.component';
 import { HomeComponent } from './contents/home/home.component';
 import { ProjectsComponent } from './contents/projects/projects.component';
 import { WorkerComponent } from './contents/worker/worker.component';
+import { WokerModalComponent } from './woker-modal/woker-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +43,7 @@ import { WorkerComponent } from './contents/worker/worker.component';
     HomeComponent,
     ProjectsComponent,
     WorkerComponent,
+    WokerModalComponent,
   ],
   imports: [
     BrowserModule,

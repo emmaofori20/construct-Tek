@@ -1,0 +1,20 @@
+.container {
+    // border: 1px solid black;
+    margin: 12px 12px 12px 40px;
+    h1 {
+        font-family: "poppins";
+        font-size: 18px;
+        color: #00000091;
+    }
+    .add {
+        display: flex;
+        margin-top: 10px;
+        grid-gap: 10px;
+        color: #008000de;
+    }
+}
+
+.add :hover {
+    cursor: pointer;
+    color: greenyellow;
+}

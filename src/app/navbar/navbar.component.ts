@@ -51,7 +51,7 @@ export class NavbarComponent implements OnInit {
 
 
   onDashboard(){
-    this.router.navigate(['dashboard'])
+    this.router.navigate(['dashboard/content/home'])
   }
 
 }

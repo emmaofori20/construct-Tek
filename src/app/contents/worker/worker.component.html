@@ -1,1 +1,12 @@
-<p>worker works!</p>
+<div class="container">
+    <h1>Worker</h1>
+
+    <div class="add" (click)="onWorker()">
+        <i class="fas fa-plus"></i>
+        <h3>Add a worker profile</h3>
+    </div>
+</div>
+
+<div *ngIf="worker">
+    <app-woker-modal (onResultWorker)='onModalResult($event)'></app-woker-modal>
+</div>
