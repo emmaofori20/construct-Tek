@@ -5,10 +5,22 @@ export interface User{
   password:string,
   photo:string,
   isWorker:boolean,
+  skill,
 }
 
 export interface SystemUser{
   Surname: string,
   email:string,
   FirstName: string,
+}
+
+export interface Worker{
+  name?: string,
+  profession?: string,
+  location?: string,
+  phonenumber?: string,
+  email?:string,
+  gender?:string,
+  workerImages,
+  ratings?:Number
 }

@@ -15,7 +15,7 @@ export class UserServiceService {
   //user details
   userdetails:any
   UsersCollection: any;
-  constructor(private auth: AuthService, private afs: AngularFirestore, private afStorage: AngularFireStorage) {
+  constructor(private auth: AuthService, private afs: AngularFirestore, private afStorage: AngularFireStorage, ) {
 
   }
 
@@ -29,6 +29,7 @@ export class UserServiceService {
       password: password,
       photo: photo,
       isWorker: iswoker,
+      skill: null
     };
     //All system users
     let _systemuser: SystemUser = {
@@ -37,7 +38,7 @@ export class UserServiceService {
       FirstName: user.firstName,
     };
 
-    console.log('USer email and', user.email, user.password);
+    // console.log('USer email and', user.email, user.password);
 
     //sigining up a new user
     return this.auth
@@ -65,6 +66,8 @@ export class UserServiceService {
   //user uploading an image
   UserProfilePhoto(file,userid){
     this.uploadFile(file,userid);
+    console.log("some file", file)
+    this.User_id=userid;
   }
 
 
@@ -92,4 +95,6 @@ export class UserServiceService {
   getActiveUser(uid){
     return this.afs.collection('Users').doc(uid).valueChanges();
   }
+
+
 }

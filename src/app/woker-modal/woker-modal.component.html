@@ -8,27 +8,28 @@
             <h1>Add Profession Details</h1>
 
             <div class="woker-content">
-                <form>
+                <form [formGroup]='workerForm' (ngSubmit)='onsubmit()'>
                     <div class="right-side">
-                        <input type="text" placeholder="Name or Name of Company">
+                        <input type="text" placeholder="Name or Name of Company" formControlName='name'>
 
                         <div style="display: block;">
                             <label for="profession">Select Profession: </label>
-                            <select name="profession" id="profession">
+                            <select name="profession" id="profession" formControlName='profession'>
                       <option value="{{item}}" *ngFor="let item of profession" >{{item}}</option>
                     </select>
                         </div>
 
+                        <input type="text" placeholder="Other Profession" formControlName='profession'>
 
-                        <input type="text" placeholder="Other Profession">
+                        <input type="text" placeholder="Location(kumasi, Region)" formControlName='location'>
 
-                        <input type="number" placeholder="Phone(+233)">
+                        <input type="number" placeholder="Phone(+233)" formControlName='phoneNumber'>
 
-                        <input type="email" placeholder="Email">
+                        <input type="email" placeholder="Email" formControlName='email'>
 
                         <div style="display: block;">
                             <label for="gender">Select Gender: </label>
-                            <select name="Gender" id="Gender">
+                            <select name="Gender" id="Gender" formControlName='gender'>
                        <option value="Male">Male</option>
                        <option value="Female">Female</option>
                     </select>
@@ -37,14 +38,17 @@
 
                     </div>
                     <div class="left-side">
-                        <div style="display: flex;color: green;    cursor: pointer;
+                        <div (click)="onAddpic()" style="display: flex;color: green;    cursor: pointer;
                         grid-gap: 5px;"> <i class="fas fa-plus"></i>
                             <h3>Add pics to showcase your work</h3>
                         </div>
+                        <input id="image-upload" type="file" accept="image/*" (change)="onChange($event)" style="display: none;" multiple="" />
+
+                        <img *ngFor='let url of images' [src]="url" style="margin: 3px; height: 150px; width:200px"> <br/>
 
                     </div>
 
-
+                    <button type="submit">Submit</button>
                 </form>
             </div>
         </div>
