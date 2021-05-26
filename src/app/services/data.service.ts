@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { finalize } from 'rxjs/operators';
 import { UserServiceService } from './user-service.service';
 
 @Injectable({
@@ -10,7 +11,7 @@ export class DataService {
   systemUser: any;
   user_id: any;
 
-  downloadURL;
+  downloadURL=[];
 
   constructor(private userservice : UserServiceService, private afs: AngularFirestore, private afStorage: AngularFireStorage,) {
 
@@ -32,73 +33,75 @@ export class DataService {
     this.user_id=userid;
   }
 
-  private basePath = "uploads/worker";
+  // private basePath = "uploads/worker";
   async uploadFile(
     fileItem,
     userId,
   ) {
-    const filePath = `${this.basePath}/${userId}/${Date.now()}_${fileItem.name}`;
-    const storageRef = this.afStorage.ref(filePath);
-    console.log('checking item',fileItem)
-    let uploadTask;
-    // uploading a file to firebase
+    // const filePath = `${this.basePath}/${userId}/${Date.now()}_${fileItem.name}`;
+    // const storageRef = this.afStorage.ref(filePath);
+    console.log('checking item',fileItem);
 
-    // fileItem.forEach(element => {
-    //   this.afStorage.upload(filePath, element);
-    // });
+    // debugger;
     for (let i = 0; i < fileItem.length; i++) {
-       uploadTask = this.afStorage.upload(filePath, fileItem[i].name);
-
-       console.log('upload task', uploadTask);
-
-       console.log('index',i)
+         //checking the length of the file
+         if(i<fileItem.length){
+           await this.uploadFile2(fileItem[i],userId);
+          console.log("check", fileItem[i]);
+         }else{
+          console.log("done uploading");
+         }
     }
 
+    };
+
+    private basePath = "uploads/worker";
+  async uploadFile2(
+    fileItem,
+    userId,
+  ) {
+    const filePath = `${this.basePath}/${userId}/${fileItem.name}`;
+    const storageRef = this.afStorage.ref(filePath);
+    console.log('loading item ',fileItem);
+
+    // uploading a file to firebase
+   await this.afStorage.upload(filePath, fileItem);
 
 
-
-    // getting the upload progress
-
-
-    let uploadResult = await uploadTask.snapshotChanges().toPromise();
-
-     await storageRef.getDownloadURL().subscribe(res=>{
-       this.downloadURL=res;
-       console.log("response", res);
-     });
-
-    console.log("File available at", this.downloadURL);
+    //getting link to the images
+    this.downloadURL.push(await storageRef.getDownloadURL().toPromise());
+    console.log("url", this.downloadURL);
 
     };
 
 
 
-//upload
-    // return uploadTask.percentageChanges();
-
-
 //new worker
- async newWorker(worker, images){
+  async newWorker(worker, images){
 
   let _userid = localStorage.getItem("user")
    this.afs.collection('Users').doc(_userid).update({"isWorker": true}).then( res=>{
-     console.log("wokerimages", images);
-     this.afs.collection('Users').doc(_userid).update({"skill": worker}).then(  workerres=>{
-        this.uploadFile(images, _userid).then(res=>{
+    //  console.log("wokerimages", images);
+     this.afs.collection('Users').doc(_userid).update({"skill": worker}).then( workerres=>{
+       this.uploadFile(images, _userid).then(res1=>{
          this.afs.collection('Users').doc(_userid).update({
           ['skill.Wokerimages']: this.downloadURL
+
         });
+        console.log("wokerresponse", res1);
+        //clearing the link that holds the url
+        this.downloadURL=[];
        });
-      console.log("worker successful", workerres);
+      console.log("setting worker field successful", workerres);
 
     }).catch(err=>{
-      console.log("error occured", err);
+      console.log("error occured at setting up worker field", err);
     });
 
-    console.log("success", res);
+    console.log("success of setting a user to true", res);
 
   }).catch(res=>{
-    console.log("err", res)
+    console.log("err occured setting a user to true", res)
   });
 }
 }

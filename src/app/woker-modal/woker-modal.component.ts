@@ -40,7 +40,14 @@ export class WokerModalComponent implements OnInit {
     async onsubmit(){
       console.log('this is the workers details',this.workerForm.value);
 
-      this.data.newWorker(this.workerForm.value, this.workerimages);
+      try {
+       let res= await this.data.newWorker(this.workerForm.value, this.workerimages);
+       console.log("response from woker ipload", res);
+
+      } catch (error) {
+        console.log("rerror from upload", error);
+      }
+
 
     }
 
@@ -48,24 +55,20 @@ export class WokerModalComponent implements OnInit {
       document.getElementById("image-upload").click();
     }
 
-    onChange(event){
+    onChange(event1){
 
-      if (event.target.files && event.target.files[0]) {
-        var filesAmount = event.target.files.length;
-        let file =(event.target as HTMLInputElement).files[0]
+      if (event1.target.files && event1.target.files[0]) {
+        var filesAmount = event1.target.files.length;
+        let file =(event1.target as HTMLInputElement).files[0]
         for (let i = 0; i < filesAmount; i++) {
                 var reader = new FileReader();
 
                 reader.onload = (event:any) => {
-                  this.workerimages.push(file);
+                  this.workerimages.push((event1.target as HTMLInputElement).files[i]);
                    this.images.push(event.target.result);
-
-                  //  this.workerForm.patchValue({
-                  //   Wokerimages: this.images
-                  //  });
                 }
 
-                reader.readAsDataURL(event.target.files[i]);
+                reader.readAsDataURL(event1.target.files[i]);
         }
 
     }
