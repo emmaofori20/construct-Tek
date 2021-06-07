@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { LoaderService } from 'src/interceptors/loader.service';
 import { DataService } from '../services/data.service';
 import { UserServiceService } from '../services/user-service.service';
 
@@ -27,7 +28,8 @@ export class WokerModalComponent implements OnInit {
     ratings: new FormControl(0)
   })
 
-  constructor(private userservice: UserServiceService, private data: DataService) { }
+  constructor(private userservice: UserServiceService, private data: DataService, private loaderService: LoaderService,
+    ) { }
 
   ngOnInit(): void {
   }
@@ -41,11 +43,14 @@ export class WokerModalComponent implements OnInit {
       console.log('this is the workers details',this.workerForm.value);
 
       try {
-       let res= await this.data.newWorker(this.workerForm.value, this.workerimages);
+        this.loaderService.setHttpProgressStatus(true);
+       let res= this.data.newWorker(this.workerForm.value, this.workerimages);
+       this.onBack(false);
        console.log("response from woker ipload", res);
 
       } catch (error) {
         console.log("rerror from upload", error);
+        this.loaderService.setHttpProgressStatus(false);
       }
 
 

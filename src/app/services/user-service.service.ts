@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
+import { LoaderService } from 'src/interceptors/loader.service';
 import { SystemUser, User } from '../model/model';
 import { AuthService } from './auth.service';
 import { DataService } from './data.service';
@@ -15,12 +16,12 @@ export class UserServiceService {
   //user details
   userdetails:any
   UsersCollection: any;
-  constructor(private auth: AuthService, private afs: AngularFirestore, private afStorage: AngularFireStorage, ) {
+  constructor(private auth: AuthService, private afs: AngularFirestore, private afStorage: AngularFireStorage,private loaderService: LoaderService ) {
 
   }
 
   //setting up a new user to firebase
-  newUSer( othernames,surname, email, iswoker, photo, password) {
+  async newUSer( othernames,surname, email, iswoker, photo, password) {
     //new users
     let user: User = {
       firstName: othernames,
@@ -39,9 +40,11 @@ export class UserServiceService {
     };
 
     // console.log('USer email and', user.email, user.password);
-
+// debugger;
     //sigining up a new user
-    return this.auth
+    this.loaderService.setHttpProgressStatus(true);
+
+    this.auth
       .signUp(user.email, user.password)
       .then((res) => {
 
@@ -55,10 +58,13 @@ export class UserServiceService {
 
       //adding user to the users collection
       this.afs.collection('Users').doc(res.user.uid).set(user);
+      this.loaderService.setHttpProgressStatus(false);
 
       })
       .catch((err) => {
         console.log(err);
+        this.loaderService.setHttpProgressStatus(false);
+
       });
   }
 

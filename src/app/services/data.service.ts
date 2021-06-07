@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
+import { LoaderService } from 'src/interceptors/loader.service';
 import { UserServiceService } from './user-service.service';
 
 @Injectable({
@@ -13,7 +14,7 @@ export class DataService {
 
   downloadURL=[];
 
-  constructor(private userservice : UserServiceService, private afs: AngularFirestore, private afStorage: AngularFireStorage,) {
+  constructor(private userservice : UserServiceService, private afs: AngularFirestore, private afStorage: AngularFireStorage, private loaderService: LoaderService) {
 
   }
 
@@ -33,7 +34,7 @@ export class DataService {
     this.user_id=userid;
   }
 
-  // private basePath = "uploads/worker";
+
   async uploadFile(
     fileItem,
     userId,
@@ -78,7 +79,7 @@ export class DataService {
 
 //new worker
   async newWorker(worker, images){
-
+    this.loaderService.setHttpProgressStatus(true);
   let _userid = localStorage.getItem("user")
    this.afs.collection('Users').doc(_userid).update({"isWorker": true}).then( res=>{
     //  console.log("wokerimages", images);
@@ -89,6 +90,8 @@ export class DataService {
 
         });
         console.log("wokerresponse", res1);
+        this.loaderService.setHttpProgressStatus(false);
+
         //clearing the link that holds the url
         this.downloadURL=[];
        });
@@ -103,5 +106,11 @@ export class DataService {
   }).catch(res=>{
     console.log("err occured setting a user to true", res)
   });
+}
+
+
+//workerdetails
+workerDetails(uid){
+  return this.afs.collection('Users').doc(uid).valueChanges();
 }
 }
