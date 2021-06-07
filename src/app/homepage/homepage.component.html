@@ -4,11 +4,11 @@
     <div class="contents">
 
         <div class="search-box">
-            <!-- <label for="searchbox"><span class="material-icons"> search </span></label> -->
+            <span class="material-icons"> search </span>
             <input type="search" name="search-box" id="search" placeholder="Search for a worker" (keyup)="updateSearch($event.target.value)" />
         </div>
 
-        <div class="workers-container">
+        <div class="workers-container" id="workers">
 
             <div class="worker" *ngFor="let worker of allWokers">
                 <div class="img-container">
@@ -21,6 +21,6 @@
                 </div>
             </div>
         </div>
-
+        <app-search id="searchResults" style="display: none;"></app-search>
     </div>
 </div>

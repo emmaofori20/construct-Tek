@@ -1,6 +1,7 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { LoaderService } from 'src/interceptors/loader.service';
+import { DataService } from '../services/data.service';
 import { WorkerService } from '../services/woker.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class HomepageComponent implements OnInit {
 
   allWokers:any=[]
 
-  constructor(private worker: WorkerService,private loaderService:LoaderService,) {
+  constructor(private worker: WorkerService,private loaderService:LoaderService, private data: DataService) {
 
 
     //all the workers
@@ -38,8 +39,16 @@ export class HomepageComponent implements OnInit {
     }
 
   }
-  updateSearch($event){
-
+  updateSearch(searchTextValue: string){
+    if(searchTextValue){
+      document.getElementById('workers').style.display='none';
+      document.getElementById('searchResults').style.display="flex";
+    this.data.search(searchTextValue);
+    console.log(searchTextValue);
+  }else{
+    document.getElementById('workers').style.display='flex';
+    document.getElementById('searchResults').style.display="none";
+  }
   }
 
 
