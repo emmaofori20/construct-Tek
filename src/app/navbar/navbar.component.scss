@@ -107,3 +107,27 @@
     color: blue;
     cursor: pointer;
 }
+
+.right-side:hover {
+    cursor: pointer;
+}
+
+#image:hover {
+    cursor: pointer;
+    border: 2px solid black;
+}
+
+#imagedisplay {
+    display: none;
+    height: 140px;
+    width: 140px;
+    position: absolute;
+    right: 90%;
+    top: 1%;
+}
+
+.imgdisp :hover {
+    #imagedisplay {
+        display: block;
+    }
+}

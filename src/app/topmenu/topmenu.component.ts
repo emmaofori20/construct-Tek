@@ -38,7 +38,7 @@ export class TopmenuComponent implements OnInit {
   }
 
   changeProfile(e){
-    e.stopPropagatio();
+
     console.log(e);
     document.getElementById("file-upload").click();
   }
