@@ -1,1 +1,12 @@
-<p>projects works!</p>
+<div class="container">
+    <h1>Projects</h1>
+
+    <div class="add" (click)="onCreateProject()">
+        <i class="fas fa-plus"></i>
+        <h3>Add a New Project</h3>
+    </div>
+</div>
+
+<div *ngIf="project">
+    <app-project-modal (onResult)='onModalResult($event)'></app-project-modal>
+</div>

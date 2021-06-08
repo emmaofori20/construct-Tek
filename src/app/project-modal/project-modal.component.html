@@ -4,13 +4,14 @@
 
     </div>
     <div class="modal-content">
-        <form [formGroup]="forgotPassword" (ngSubmit)="onSubmit()">
+        <form [formGroup]="ProjectForm" (ngSubmit)="onSubmit()">
 
             <div>
 
             </div>
-            <input type="email" placeholder="Please enter your Email" formControlName="forgotPassword">
-            <p>{{errormessage}}</p>
+            <input type="email" placeholder="Name" formControlName="name">
+            <input type="email" placeholder="Description" formControlName="description">
+
             <div class="psd">
                 <button type="submit">send</button>
             </div>
