@@ -32,13 +32,15 @@ export class AppComponent {
     let _user = localStorage.getItem("user");
     if (!_user) {
       //this.router.navigate(["login"]);
-      if (!window.location.href.includes("not-found"))
-        this.router.navigate(["login"]);
+      if (!window.location.href.includes("not-found") && (window.location.href.includes("login") || window.location.href.includes("SignUp")))
+      this.dataservice.setuserid(_user);
+      console.log("user", _user);
+      this.router.navigate(["login"]);
       console.log("no user");
     } else {
-      console.log("user", _user);
+      // console.log("user", _user);
       this.dataservice.setuserid(_user);
-      this.router.navigate(['home-page'])
+      // this.router.navigate(['home-page'])
 
     }
   }

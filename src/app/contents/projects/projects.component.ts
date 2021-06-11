@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectService } from 'src/app/services/project.service';
 
 @Component({
   selector: 'app-projects',
@@ -7,19 +8,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsComponent implements OnInit {
 
-  project= false;
-  constructor() { }
+  toggle= false;
+  allprojects=[];
+  constructor(private projectservice: ProjectService) { }
 
   ngOnInit(): void {
+
+    this.projectservice.getUserproject().subscribe(res=>{
+      console.log("users projects", res);
+
+     this.allprojects=res;
+    });
+
+
+
   }
 
   onCreateProject(){
-    this.project=!this.project;
+    this.toggle=!this.toggle;
   }
 
   onModalResult(result: boolean){
     console.log(result);
-    this.project=result;
-    // this.worker=false;
+    this.toggle=result;
+
   }
+
+  //clicked project
+    onprojectclicked(project){
+      console.log("clicked project",project)
+    }
+
 }

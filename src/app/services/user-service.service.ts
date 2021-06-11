@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import {
+  AngularFirestore,
+  AngularFirestoreDocument,
+} from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 import { LoaderService } from 'src/interceptors/loader.service';
@@ -12,16 +15,19 @@ import { DataService } from './data.service';
 })
 export class UserServiceService {
   //a variable to hold the user id
-  User_id:any;
+  User_id: any;
   //user details
-  userdetails:any
+  userdetails: any;
   UsersCollection: any;
-  constructor(private auth: AuthService, private afs: AngularFirestore, private afStorage: AngularFireStorage,private loaderService: LoaderService ) {
-
-  }
+  constructor(
+    private auth: AuthService,
+    private afs: AngularFirestore,
+    private afStorage: AngularFireStorage,
+    private loaderService: LoaderService
+  ) {}
 
   //setting up a new user to firebase
-  async newUSer( othernames,surname, email, iswoker, photo, password) {
+  async newUSer(othernames, surname, email, iswoker, photo, password) {
     //new users
     let user: User = {
       firstName: othernames,
@@ -30,7 +36,7 @@ export class UserServiceService {
       password: password,
       photo: photo,
       isWorker: iswoker,
-      skill: null
+      skill: null,
     };
     //All system users
     let _systemuser: SystemUser = {
@@ -40,67 +46,67 @@ export class UserServiceService {
     };
 
     // console.log('USer email and', user.email, user.password);
-// debugger;
+    // debugger;
     //sigining up a new user
     this.loaderService.setHttpProgressStatus(true);
 
     this.auth
       .signUp(user.email, user.password)
       .then((res) => {
+        console.log('checking results', res.user.uid);
+        //kepping user details
+        this.userdetails = user;
+        //  if email already exist or invalid
+        if (res == 'auth/email-already-in-use' || res == 'auth/invalid-email') {
+          return res;
+        }
 
-      console.log('checking results', res.user.uid);
-      //kepping user details
-      this.userdetails= user;
-      //  if email already exist or invalid
-      if(res=="auth/email-already-in-use" || res=="auth/invalid-email"){
-        return res;
-      }
+        //adding user to the users collection
+        this.afs.collection('Users').doc(res.user.uid).set(user);
 
-      //adding user to the users collection
-      this.afs.collection('Users').doc(res.user.uid).set(user);
-      this.loaderService.setHttpProgressStatus(false);
-
+        this.loaderService.setHttpProgressStatus(false);
       })
       .catch((err) => {
         console.log(err);
         this.loaderService.setHttpProgressStatus(false);
-
       });
   }
 
-
   //user uploading an image
-  UserProfilePhoto(file,userid){
-    this.uploadFile(file,userid);
-    console.log("some file", file)
-    this.User_id=userid;
+  UserProfilePhoto(file, userid) {
+    this.uploadFile(file, userid);
+    console.log('some file', file);
+    this.User_id = userid;
   }
 
+  // upload file
+  private basePath = 'uploads/profiles';
+  async uploadFile(
+    fileItem,
+    userid //: Observable<number>
+  ) {
+    const filePath = `${this.basePath}/${userid}`;
+    const storageRef = this.afStorage.ref(filePath);
+    const uploadTask = this.afStorage.upload(filePath, fileItem);
 
-   // upload file
-   private  basePath="uploads/profiles"
-   async uploadFile(fileItem,userid)//: Observable<number>
-    {
-      const filePath = `${this.basePath}/${userid}`;
-      const storageRef = this.afStorage.ref(filePath);
-      const uploadTask = this.afStorage.upload(filePath, fileItem);
-
-      uploadTask.snapshotChanges().pipe(
+    uploadTask
+      .snapshotChanges()
+      .pipe(
         finalize(() => {
-          storageRef.getDownloadURL().subscribe(downloadURL => {
+          storageRef.getDownloadURL().subscribe((downloadURL) => {
             console.log('File available at', downloadURL);
-            this.afs.collection('Users').doc(userid).update({"photo":downloadURL});
-
+            this.afs
+              .collection('Users')
+              .doc(userid)
+              .update({ photo: downloadURL });
           });
         })
-      ).subscribe();
-
+      )
+      .subscribe();
   }
 
   //getting the active user
-  getActiveUser(uid){
+  getActiveUser(uid) {
     return this.afs.collection('Users').doc(uid).valueChanges();
   }
-
-
 }

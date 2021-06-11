@@ -24,3 +24,11 @@ export interface Worker{
   workerImages,
   ratings?:Number
 }
+
+export interface project{
+  name:string,
+  description:string,
+  tasks:number,
+  workers:number,
+  color:string
+}
