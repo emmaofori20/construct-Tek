@@ -8,7 +8,7 @@
 
     <div class="Project_container">
 
-        <div class="project" *ngFor="let item of allprojects" (click)="onprojectclicked(item.projectId)">
+        <div class="project" *ngFor="let item of allprojects" (click)="onprojectclicked(item)">
             <div class="top" [ngStyle]="{'background-color': item.project.color}">
                 <h1>{{item.project.name}}</h1>
                 <h4>{{item.project.description}}</h4>
@@ -22,7 +22,6 @@
                     <i class="fas fa-tasks"><span>{{ item.project.tasks}}</span></i>
                     <i class="far fa-trash-alt"></i>
                 </div>
-
             </div>
         </div>
 

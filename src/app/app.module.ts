@@ -30,6 +30,7 @@ import { WorkerComponent } from './contents/worker/worker.component';
 import { WokerModalComponent } from './woker-modal/woker-modal.component';
 import { SearchComponent } from './search/search.component';
 import { ProjectModalComponent } from './project-modal/project-modal.component';
+import { WorkboardComponent } from './contents/workboard/workboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +49,7 @@ import { ProjectModalComponent } from './project-modal/project-modal.component';
     WokerModalComponent,
     SearchComponent,
     ProjectModalComponent,
+    WorkboardComponent,
   ],
   imports: [
     BrowserModule,
