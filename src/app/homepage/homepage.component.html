@@ -10,7 +10,7 @@
 
         <div class="workers-container" id="workers">
 
-            <div class="worker" *ngFor="let worker of allWokers">
+            <div class="worker" *ngFor="let worker of allWokers" (click)="openWorker(worker)">
                 <div class="img-container">
                     <img [src]="worker.photo" alt="">
                 </div>

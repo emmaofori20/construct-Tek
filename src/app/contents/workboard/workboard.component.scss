@@ -4,3 +4,30 @@
     /* width: 95vw; */
     overflow: hidden;
 }
+
+.container {
+    border: 1px solid black;
+    height: 500px;
+    padding: 30px 0px 0px 40px;
+    .container_top {
+        display: flex;
+        grid-gap: 22px;
+        align-items: center;
+        h1 {
+            font-size: 19px;
+            color: #111010c7;
+            background: #ffffffa6;
+            padding: 10px;
+            font-weight: 700;
+            font-family: sans-serif;
+        }
+        h2 {
+            color: #111010;
+            background: #ffffffa3;
+            padding: 10px;
+            font-size: 13px;
+            font-family: fangsong;
+            font-weight: 600;
+        }
+    }
+}

@@ -55,4 +55,10 @@ export class ProjectService {
   oneproject(item){
     this.project.next(item);
   }
+
+  //getting a project
+  userproject(projectId){
+    let Userid = localStorage.getItem("user");
+    return this.afs.collection('Users').doc(Userid).collection('Projects').doc(projectId).get();
+  }
 }

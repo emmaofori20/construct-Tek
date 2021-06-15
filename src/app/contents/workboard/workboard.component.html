@@ -1,3 +1,17 @@
 <div class="content" [style.background-image]="'url(/img/' +  _projects.backgroundImage + ')'" [ngStyle]="{'background-size': 'cover', 'background-repeat':'repeat'}">
+    <div class="container">
+        <div class="container_top">
+            <h1>{{_projects.project.name}}</h1>
+            <h2>Invite</h2>
+        </div>
 
+        <div class="workarea">
+            <div class="add" style="display: flex;color: green;    cursor: pointer;
+            grid-gap: 5px;">
+                <i class="fas fa-plus"></i>
+                <h3>Add list</h3>
+            </div>
+
+        </div>
+    </div>
 </div>

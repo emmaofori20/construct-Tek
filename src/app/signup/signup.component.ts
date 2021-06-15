@@ -39,8 +39,8 @@ export class SignupComponent implements OnInit {
 
     );
     //routes you to the login page after a successful sign up
-    this.router.navigate(['login']);
-    this.loaderService.setHttpProgressStatus(false);
+    // this.router.navigate(['login']);
+    // this.loaderService.setHttpProgressStatus(false);
 
   }
 }

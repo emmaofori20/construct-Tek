@@ -26,7 +26,8 @@ export class TopmenuComponent implements OnInit {
   ngOnInit(): void {
   }
   open(){
-    console.log(this.user)
+    console.log(this.user.user.firstName);
+    console.log("clicked")
   }
 
   onLogOut(){

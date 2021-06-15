@@ -1,5 +1,6 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoaderService } from 'src/interceptors/loader.service';
 import { DataService } from '../services/data.service';
 import { WorkerService } from '../services/woker.service';
@@ -13,7 +14,7 @@ export class HomepageComponent implements OnInit {
 
   allWokers:any=[]
 
-  constructor(private worker: WorkerService,private loaderService:LoaderService, private data: DataService) {
+  constructor(private worker: WorkerService,private loaderService:LoaderService, private data: DataService, private router:Router) {
 
 
     //all the workers
@@ -23,6 +24,11 @@ export class HomepageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+  //open worker
+  openWorker(worker){
+    console.log("worker", worker);
+    this.router.navigate(['worker', worker.id])
   }
 
   getallwokers(){

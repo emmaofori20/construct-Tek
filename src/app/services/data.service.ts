@@ -78,7 +78,7 @@ export class DataService {
     this.afs
       .collection('Users')
       .doc(_userid)
-      .update({ isWorker: true })
+      .update({ isWorker: true, id:_userid })
       .then((res) => {
         //  console.log("wokerimages", images);
         this.afs

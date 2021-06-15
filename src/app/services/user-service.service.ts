@@ -4,6 +4,7 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
 import { LoaderService } from 'src/interceptors/loader.service';
 import { SystemUser, User } from '../model/model';
@@ -23,7 +24,8 @@ export class UserServiceService {
     private auth: AuthService,
     private afs: AngularFirestore,
     private afStorage: AngularFireStorage,
-    private loaderService: LoaderService
+    private loaderService: LoaderService,
+    private router: Router
   ) {}
 
   //setting up a new user to firebase
@@ -63,7 +65,8 @@ export class UserServiceService {
 
         //adding user to the users collection
         this.afs.collection('Users').doc(res.user.uid).set(user);
-
+        this.router.navigate(['login']);
+        // this.loaderService.setHttpProgressStatus(false);
         this.loaderService.setHttpProgressStatus(false);
       })
       .catch((err) => {
