@@ -5,8 +5,8 @@
         <div class="worker-container">
             <div class="left">
                 <div class="img-container">
-                    <i *ngIf="!workerdetails.photo" class="far fa-user"></i>
-                    <img *ngIf="workerdetails.photo" src="{{workerdetails.photo}}" alt="">
+                    <i *ngIf="!workerdetails?.photo" class="far fa-user"></i>
+                    <img *ngIf="workerdetails?.photo" [src]="workerdetails.photo" alt="">
                 </div>
 
             </div>
@@ -15,10 +15,10 @@
 
                 <div class="top">
                     <div class="top-name">
-                        <h1>{{workerdetails.skill.name}}</h1>
+                        <h1>{{workerdetails.skill?.name}}</h1>
                         <div>
                             <i class="fas fa-map-marker-alt"></i>
-                            <h3>{{workerdetails.skill.location}}</h3>
+                            <h3>{{workerdetails.skill?.location}}</h3>
                         </div>
                     </div>
 
@@ -31,7 +31,7 @@
                 color: #4283E4;
                 font-size: 20px;
                 font-family: 'Font Awesome 5 Free';
-                font-weight: 700;">{{workerdetails.skill.profession}}
+                font-weight: 700;">{{workerdetails.skill?.profession}}
                 </h2>
                 <div class="ratings">
                     <h3>Ratings</h3>
@@ -42,9 +42,13 @@
                         <span class="fa fa-star"></span>
                         <span class="fa fa-star"></span>
                     </div>
-                    <h2>{{workerdetails.skill.ratings}}</h2>
+                    <h2>{{workerdetails.skill?.ratings}}</h2>
                 </div>
+                <button (click)="chat.OpenChat()">Message a worker <i class="far fa-comments"></i></button>
             </div>
         </div>
     </div>
+
+    <app-chatbox id="chat" #chat></app-chatbox>
+
 </div>

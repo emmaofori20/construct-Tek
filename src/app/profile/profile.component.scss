@@ -67,7 +67,7 @@
             h2 {
                 font-size: 20px;
                 font-family: none;
-                color: rgba(0, 0, 0, 0.664);
+                color: rgba(0, 0, 0);
             }
             span {
                 font-size: 20px;
@@ -77,4 +77,14 @@
             }
         }
     }
+}
+
+button {
+    border: none;
+    background: #008000ba;
+    padding: 8px 8px;
+    font-size: 16px;
+    margin-top: 20px;
+    color: #eee;
+    font-family: initial;
 }

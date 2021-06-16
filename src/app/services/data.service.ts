@@ -121,4 +121,18 @@ export class DataService {
   search(searchParam:string){
     this.searchItem.next(searchParam);
   }
+
+   // chatbox listener
+   chatBox_is_open:boolean=false;
+   // set chatbox to open
+   set_Chatbox_to_open(){
+     this.chatBox_is_open=true;
+     console.log("chat box is open");
+   }
+
+   // set chatbox to close
+   set_Chatbox_to_close(){
+     this.chatBox_is_open=false;
+     console.log("chat box is closed");
+   }
 }

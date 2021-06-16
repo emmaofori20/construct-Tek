@@ -32,6 +32,7 @@ import { SearchComponent } from './search/search.component';
 import { ProjectModalComponent } from './project-modal/project-modal.component';
 import { WorkboardComponent } from './contents/workboard/workboard.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ChatboxComponent } from './chatbox/chatbox.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +53,7 @@ import { ProfileComponent } from './profile/profile.component';
     ProjectModalComponent,
     WorkboardComponent,
     ProfileComponent,
+    ChatboxComponent,
   ],
   imports: [
     BrowserModule,
