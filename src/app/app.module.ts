@@ -6,6 +6,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { SmartTooltipAngularModule } from 'smart-tooltip-angular';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
@@ -33,6 +34,7 @@ import { ProjectModalComponent } from './project-modal/project-modal.component';
 import { WorkboardComponent } from './contents/workboard/workboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ChatboxComponent } from './chatbox/chatbox.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +66,9 @@ import { ChatboxComponent } from './chatbox/chatbox.component';
     AngularFireStorageModule, //for storage
     ReactiveFormsModule,
     FormsModule,
-    SmartTooltipAngularModule
+    SmartTooltipAngularModule,
+    BrowserAnimationsModule,
+    DragDropModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
