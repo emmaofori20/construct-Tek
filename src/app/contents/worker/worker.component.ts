@@ -11,7 +11,7 @@ export class WorkerComponent implements OnInit {
   workerDetails:any;
   worker=false;
   _userId: any;
-
+  Editworker=false;
   constructor(private dataservice: DataService) {
 
     this._userId= this.dataservice.getuserid();
@@ -34,7 +34,12 @@ export class WorkerComponent implements OnInit {
   onModalResult(e){
     console.log(e);
     this.worker=false;
+    this.Editworker=false
   }
 
+  //Edit a worker details
+  onEdit(){
+    this.Editworker=true;
+  }
 
 }

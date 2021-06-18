@@ -7,7 +7,7 @@
 
 .container {
     // border: 1px solid black;
-    height: 500px;
+    // height: 500px;
     padding: 30px 0px 0px 40px;
     .container_top {
         display: flex;
@@ -30,6 +30,79 @@
             font-weight: 600;
         }
     }
+}
+
+.workarea {
+    display: flex;
+    grid-gap: 10px;
+    margin-top: 20px;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    .add {
+        display: flex;
+        cursor: pointer;
+        grid-gap: 5px;
+        align-items: center;
+        background: #C4C4C4;
+        padding: 5px 15px;
+        border-radius: 10px 10px 0px 0px;
+        height: 30px;
+        width: 130px;
+        justify-content: space-between;
+    }
+    i {
+        // background-color: rgb(252 251 251 / 82%);
+        color: rgba(0, 0, 0, 0.788);
+        padding: 10px;
+        border-radius: 50%;
+    }
+}
+
+.list {
+    background-color: #C4C4C4;
+    /* min-height: 56px; */
+    min-width: 250px;
+    padding: 10px 15px;
+    border-radius: 10px 10px 0px 0px;
+    .control-button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.Listname {
+    input {
+        border: none;
+        height: 26px;
+        border-radius: 7px;
+        padding: 5px;
+        width: 96%;
+    }
+}
+
+.cardname {
+    input {
+        border: none;
+        height: 45px;
+        /* border-radius: 7px; */
+        padding: 5px;
+        width: 96%;
+    }
+}
+
+.add1 {
+    display: flex;
+    cursor: pointer;
+    /* grid-gap: 5px; */
+    align-items: center;
+    background: #C4C4C4;
+    /* padding: 5px 15px; */
+    border-radius: 10px 10px 0px 0px;
+    /* height: 30px; */
+    /* width: 130px; */
+    justify-content: space-between;
+    color: #000000b3;
 }
 
 ///

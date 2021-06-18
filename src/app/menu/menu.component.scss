@@ -16,15 +16,21 @@
     background-color: #9696f0c7;
     padding: 5px 20px;
     display: flex;
-    /* grid-template-rows: 1fr 22.5fr; */
     grid-gap: 35px;
-    height: 102.7vh;
+    height: 98.7vh;
     flex-direction: column;
-    background-color: #9696f0c7;
-    padding: 5px 20px;
-    display: grid;
-    grid-template-rows: 1fr 22.5fr;
-    grid-gap: 35px;
+    // background-color: #9696f0c7;
+    // padding: 5px 20px;
+    // display: flex;
+    // /* grid-template-rows: 1fr 22.5fr; */
+    // grid-gap: 35px;
+    // height: 102.7vh;
+    // flex-direction: column;
+    // background-color: #9696f0c7;
+    // padding: 5px 20px;
+    // display: grid;
+    // grid-template-rows: 1fr 22.5fr;
+    // grid-gap: 35px;
     .left-side {
         display: flex;
         text-align: center;

@@ -117,6 +117,10 @@ export class DataService {
     return this.afs.collection('Users').doc(uid).valueChanges();
   }
 
+  //Edit worker
+  EditWorker(){
+    // return this.afs.collection('Users')
+  }
   //search worker
   search(searchParam:string){
     this.searchItem.next(searchParam);

@@ -9,6 +9,8 @@ import { SmartTooltipAngularModule } from 'smart-tooltip-angular';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
+
+
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -35,6 +37,7 @@ import { WorkboardComponent } from './contents/workboard/workboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ChatboxComponent } from './chatbox/chatbox.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EditWorkerModalComponent } from './edit-worker-modal/edit-worker-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +59,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     WorkboardComponent,
     ProfileComponent,
     ChatboxComponent,
+    EditWorkerModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +72,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     SmartTooltipAngularModule,
     BrowserAnimationsModule,
-    DragDropModule
+    DragDropModule,
+
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },

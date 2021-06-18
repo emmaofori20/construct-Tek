@@ -6,13 +6,67 @@
         </div>
 
         <div class="workarea">
-            <div class="add" style="display: flex;color: green;    cursor: pointer;
-            grid-gap: 5px;">
-                <i class="fas fa-plus"></i>
+            <div class="add" (click)="Addlist()">
                 <h3>Add list</h3>
+                <i class="fas fa-plus"></i>
             </div>
 
-            <div class="example-container">
+            <div class="list" *ngFor="let task of listoftasks; let i= index ">
+
+                <div>
+                    <div>
+                        <div class="control-button" *ngIf="hooks[i];else Data;">
+                            <h3 (click)="toggle(i)">{{task.taskname}}</h3>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+
+                    <!-- template for list of Task title -->
+                    <ng-template #Data>
+                        <div class="Listname">
+                            <input (keydown.enter)="onlistname()" type="text" placeholder="Title" #Listname>
+                        </div>
+                    </ng-template>
+                    <!-- template for list of Task title -->
+                </div>
+
+
+                <div *ngIf="!hooks2[i];else carddata">
+                    <div class="add1" (click)="togglecard(i)">
+                        <h3>Add card</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                </div>
+
+
+                <ng-template #carddata>
+                    <div class="cardname">
+                        <input (keydown.enter)="oncardname(i)" type="text" placeholder="Add a text" #Cardname>
+                        <!-- <span class="material-icons" (click)="toggle()">
+                      close
+                      </span> -->
+                    </div>
+
+                </ng-template>
+
+
+                <div cdkDropList #task.taskname="cdkDropList" [cdkDropListData]="task.taskname" [cdkDropListConnectedTo]="[task.taskname[i]]" class="example-list" (cdkDropListDropped)="drop($event)">
+                    <div class="example-box" *ngFor="let item of task.Task" cdkDrag>
+                        <span>{{item?.task}}</span>
+                        <i class="fas fa-ellipsis-v" style="padding: 5px ; cursor: pointer;"></i>
+                    </div>
+                </div>
+
+            </div>
+            <!-- <div class="example-container">
+                <h2>Done</h2> -->
+
+            <!-- <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]" class="example-list" (cdkDropListDropped)="drop($event)">
+                    <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+                </div>
+            </div> -->
+
+            <!-- <div class="example-container">
                 <h2>To do</h2>
 
                 <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[doneList]" class="example-list" (cdkDropListDropped)="drop($event)">
@@ -26,7 +80,7 @@
                 <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]" class="example-list" (cdkDropListDropped)="drop($event)">
                     <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
                 </div>
-            </div>
+            </div> -->
 
         </div>
     </div>
