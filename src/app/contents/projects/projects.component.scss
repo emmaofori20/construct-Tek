@@ -1,0 +1,83 @@
+.container {
+    // border: 1px solid black;
+    margin: 12px 12px 12px 40px;
+    h1 {
+        font-family: "poppins";
+        font-size: 18px;
+        color: #00000091;
+    }
+    .add {
+        display: flex;
+        margin-top: 10px;
+        grid-gap: 10px;
+        color: #008000de;
+    }
+}
+
+.add :hover {
+    cursor: pointer;
+    color: greenyellow;
+}
+
+.Project_container {
+    margin-top: 20px;
+    position: relative;
+    flex-wrap: wrap;
+    display: flex;
+    grid-gap: 43px 60px;
+    height: 83VH;
+    overflow: hidden;
+    .project {
+        position: relative;
+        background: #FFFFFF;
+        border: 1px solid rgba(0, 0, 0, 0.25);
+        box-sizing: border-box;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+        width: 290px;
+        height: 283px;
+        cursor: pointer;
+        .top {
+            // background-color: #38b438fa;
+            border-radius: 15px 15px 0px 0px;
+            padding: 15px 20px;
+            font-family: "Poppins";
+            color: black;
+            h1 {
+                text-transform: capitalize;
+                font-weight: bold;
+                color: black;
+            }
+            h4 {
+                text-transform: capitalize;
+                font-weight: 100;
+                font-family: 'emoji';
+                padding-top: 12px;
+            }
+        }
+        .bottom {
+            position: absolute;
+            bottom: 0px;
+            padding: 15px 20px;
+            width: 244px;
+            .controls {
+                font-family: 'Material Icons';
+                display: flex;
+                text-align: center;
+                justify-content: space-between;
+                i {
+                    color: rgba(0, 0, 0, 0.603);
+                    font-size: 16px;
+                    span {
+                        padding: 2px;
+                    }
+                }
+            }
+            .hl {
+                margin-bottom: 20px;
+                border-bottom: 3px solid #11101080;
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+<div class="workers-container" id="workers">
+
+    <div class="worker" *ngFor="let worker of listwokers">
+        <div class="img-container">
+            <img [src]="worker.photo" alt="">
+        </div>
+        <h4>{{worker.skill.ratings}}</h4>
+        <div class="details">
+            <h3>Name: <span>{{worker.skill.name}}</span></h3>
+            <h3>Profession: <span>{{worker.skill.profession}}</span></h3>
+        </div>
+    </div>
+
+    <div *ngIf="listwokers.length==0" style="padding-top:50px; margin:auto; font-size: 20px;
+    color: #fff;">
+        <p>No matched item found</p>
+    </div>
+
+</div>

@@ -1,0 +1,209 @@
+.content {
+    height: 92.8vh;
+    margin-top: 10px;
+    /* width: 95vw; */
+    overflow: hidden;
+}
+
+.container {
+    // border: 1px solid black;
+    // height: 500px;
+    padding: 30px 0px 0px 40px;
+    .container_top {
+        display: flex;
+        grid-gap: 22px;
+        align-items: center;
+        h1 {
+            font-size: 19px;
+            color: #111010c7;
+            background: #ffffffa6;
+            padding: 10px;
+            font-weight: 700;
+            font-family: sans-serif;
+        }
+        h2 {
+            color: #111010;
+            background: #ffffffa3;
+            padding: 10px;
+            font-size: 13px;
+            font-family: fangsong;
+            font-weight: 600;
+        }
+    }
+}
+
+.workarea {
+    display: flex;
+    grid-gap: 10px;
+    margin-top: 20px;
+    // flex-direction: row-reverse;
+    // justify-content: flex-end;
+    width: 90%;
+    /* border: 1px solid; */
+    overflow: auto;
+    height: 80vh;
+    .add {
+        display: flex;
+        cursor: pointer;
+        grid-gap: 5px;
+        align-items: center;
+        background: #C4C4C4;
+        padding: 5px 15px;
+        border-radius: 10px 10px 0px 0px;
+        height: 30px;
+        width: 130px;
+        justify-content: space-between;
+    }
+    i {
+        // background-color: rgb(252 251 251 / 82%);
+        color: rgba(0, 0, 0, 0.788);
+        padding: 10px;
+        border-radius: 50%;
+    }
+}
+
+.newlist-container {
+    display: none;
+    background: #C4C4C4;
+    padding: 5px 15px;
+    border-radius: 10px 10px 0px 0px;
+    width: 130px;
+    // height: max-content;
+    .newlist {
+        display: flex;
+        cursor: pointer;
+        grid-gap: 5px;
+        align-items: center;
+        justify-content: space-between;
+        i {
+            // background-color: rgb(252 251 251 / 82%);
+            color: rgba(0, 0, 0, 0.788);
+            padding: 10px;
+            border-radius: 50%;
+        }
+    }
+    .cardname {
+        input {
+            border: none;
+            height: 45px;
+            /* border-radius: 7px; */
+            padding: 5px;
+            width: 96%;
+        }
+    }
+}
+
+.list {
+    background-color: #C4C4C4;
+    /* min-height: 56px; */
+    min-width: 250px;
+    padding: 10px 15px;
+    border-radius: 10px 10px 0px 0px;
+    height: max-content;
+    .control-button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.Listname {
+    input {
+        border: none;
+        height: 26px;
+        border-radius: 7px;
+        padding: 5px;
+        width: 96%;
+    }
+}
+
+.cardname {
+    input {
+        border: none;
+        height: 45px;
+        /* border-radius: 7px; */
+        padding: 5px;
+        width: 96%;
+    }
+}
+
+.Taskadd {
+    display: none;
+    cursor: pointer;
+    grid-gap: 5px;
+    align-items: center;
+    background: #C4C4C4;
+    padding: 5px 15px;
+    border-radius: 10px 10px 0px 0px;
+    height: fit-content;
+    width: 130px;
+    justify-content: space-between;
+}
+
+.add1 {
+    display: flex;
+    cursor: pointer;
+    /* grid-gap: 5px; */
+    align-items: center;
+    background: #C4C4C4;
+    /* padding: 5px 15px; */
+    border-radius: 10px 10px 0px 0px;
+    /* height: 30px; */
+    /* width: 130px; */
+    justify-content: space-between;
+    color: #000000b3;
+}
+
+///
+.example-container {
+    width: 400px;
+    max-width: 100%;
+    margin: 0 25px 25px 0;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.example-list {
+    border: solid 1px #ccc;
+    min-height: 60px;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    display: block;
+}
+
+.example-box {
+    padding: 20px 10px;
+    border-bottom: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    background: white;
+    font-size: 14px;
+}
+
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box:last-child {
+    border: none;
+}
+
+.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

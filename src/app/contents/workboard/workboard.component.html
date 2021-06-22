@@ -1,0 +1,92 @@
+<div class="content" [style.background-image]="'url(/img/' +  _projects?.backgroundImage + ')'" [ngStyle]="{'background-size': 'cover', 'background-repeat':'repeat'}">
+    <div class="container">
+        <div class="container_top">
+            <h1>{{_projects?.project?.name}}</h1>
+            <h2>Invite</h2>
+        </div>
+
+        <div class="workarea">
+            <div class="add" (click)="Addlist()">
+                <h3>Add list</h3>
+                <i class="fas fa-plus"></i>
+            </div>
+
+            <div class="Taskadd" id="newTasklist">
+                <div *ngIf="listname;else listdata" (click)=" toggle()">
+                    <h3>{{Tittle}}</h3>
+                </div>
+
+
+
+                <ng-template #listdata>
+                    <div class="Listname">
+                        <input (keydown.enter)="onaddlistname()" type="text" placeholder="Title" #Listname>
+                    </div>
+                </ng-template>
+            </div>
+
+
+            <div style="    display: flex;
+            grid-gap: 10px;">
+                <div class="list" *ngFor="let task of listoftasks; let i= index ">
+
+                    <div>
+                        <div>
+                            <div class="control-button" *ngIf="!hooks[i];else Data;" (click)="toggle3(i)">
+                                <h3>{{task.taskname}}</h3>
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+
+                        <!-- template for list of Task title -->
+                        <ng-template #Data>
+                            <div class="Listname">
+                                <input (keydown.enter)="onlistname()" type="text" placeholder="New title" #changeListname>
+                            </div>
+                        </ng-template>
+                        <!-- template for list of Task title -->
+                    </div>
+
+
+
+                    <div>
+                        <div class="add1" (click)="Addcard(i)" *ngIf="!hooks2[i];else carddata">
+                            <h3>Add card</h3>
+                            <i class="fas fa-plus"></i>
+                        </div>
+
+
+                        <ng-template #carddata>
+                            <div class="cardname">
+                                <input (keydown.enter)="oncardname(i)" type="text" placeholder="Add a text" #Cardname>
+                            </div>
+
+                        </ng-template>
+                    </div>
+
+
+
+
+
+
+
+                    <div cdkDropList #task.taskname="cdkDropList" [cdkDropListData]="task.taskname" [cdkDropListConnectedTo]="[task.taskname[i]]" class="example-list" (cdkDropListDropped)="drop($event)">
+                        <div>
+                            <div class="example-box" *ngFor="let item of task.Task" cdkDrag>
+                                <div *ngIf="item.Task>0">
+                                    <span>{{item?.task}}</span>
+                                    <i class="fas fa-ellipsis-v" style="padding: 5px ; cursor: pointer;"></i>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>

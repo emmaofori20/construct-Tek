@@ -1,0 +1,90 @@
+// .content {
+//     margin-top: 2px;
+// }
+.worker-container {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 30px;
+    padding: 15px 55px;
+    .left {
+        .img-container {
+            height: 250px;
+            width: 200px;
+            img,
+            i {
+                height: 100%;
+                width: 100%;
+                font-size: 100%;
+                background-color: rgb(199, 212, 212);
+            }
+        }
+    }
+    .right {
+        .top {
+            display: flex;
+            justify-content: space-between;
+            .top-name {
+                display: flex;
+                grid-gap: 40px;
+                align-items: flex-end;
+                h1 {
+                    font-family: initial;
+                    text-transform: capitalize;
+                    font-size: 29px;
+                    font-weight: 500;
+                }
+                div {
+                    display: flex;
+                    grid-gap: 5px;
+                    margin-bottom: 5px;
+                    h3 {
+                        font-family: initial;
+                        color: #00000073;
+                    }
+                    i {
+                        color: rgba(0, 0, 0, 0.644);
+                    }
+                }
+            }
+            .control {
+                display: flex;
+                grid-gap: 10px;
+                align-items: flex-end;
+                color: #0000008a;
+            }
+        }
+        .ratings {
+            margin-top: 20px;
+            padding: 0px 0px;
+            display: grid;
+            grid-gap: 15px;
+            h3 {
+                font-size: 16px;
+                font-family: none;
+                color: rgba(0, 0, 0, 0.493);
+            }
+            h2 {
+                font-size: 20px;
+                font-family: none;
+                color: rgba(0, 0, 0);
+            }
+            span {
+                font-size: 20px;
+            }
+            .checked {
+                color: orange;
+            }
+        }
+    }
+}
+
+button {
+    border: none;
+    background: #008000ba;
+    padding: 8px 8px;
+    font-size: 16px;
+    margin-top: 20px;
+    color: #eee;
+    font-family: initial;
+}

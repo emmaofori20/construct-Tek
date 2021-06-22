@@ -1,0 +1,24 @@
+<div class="menu">
+    <div class="left-side" (click)="onhome()">
+        <img src="../../assets/Construction Helmet Mockup 1 1.png" alt="" />
+        <h1>Construct-Tek</h1>
+    </div>
+
+
+    <div class="menu-contents">
+        <a routerLinkActive="active" [routerLink]="['content/home']" class="home">
+            <i class="fas fa-home">
+            </i>
+            <h2>Home</h2>
+        </a>
+        <a routerLinkActive="active" [routerLink]="['content/projects']" class="projects">
+            <i class="fas fa-project-diagram"></i>
+            <h2>Project</h2>
+        </a>
+
+        <a routerLinkActive="active" [routerLink]="['content/worker']" class="worker">
+            <i class="fas fa-hard-hat"></i>
+            <h2>Worker</h2>
+        </a>
+    </div>
+</div>

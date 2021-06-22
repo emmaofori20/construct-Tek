@@ -1,0 +1,120 @@
+<div class="chat-container">
+    <div id="d-box" class="downbox" (click)="openChat()">
+        <div style="    display: flex;
+      align-items: baseline;
+      grid-gap: 5px;">
+            <h1>Chats</h1>
+            <!-- <h4 *ngIf="unReadMessages.length>0">{{unReadMessages.length}}</h4> -->
+        </div>
+
+        <span class="material-icons">
+        keyboard_arrow_up
+        </span>
+    </div>
+
+    <!-- LISTS OF CHATS -->
+    <div class="chatbox">
+        <div id="friends-list">
+
+            <div id="topmenu" (click)="closeChat()">
+                <div class="upbox">
+                    <h1>Chats</h1>
+                    <span class="material-icons">
+                  keyboard_arrow_down
+                  </span>
+                </div>
+            </div>
+            <div style="height: 85%;
+             overflow:auto">
+                <div id="friends">
+                    <div class="friend" (click)="OpenChat()">
+                        <!-- <span  class="material-icons" style="font-size: 55px;"> account_circle </span> -->
+                        <span class="material-icons">
+                          account_circle
+                      </span>
+                        <!-- <img /> -->
+                        <div class="tttt">
+
+                            <h6><strong>Emmanuel Ofori</strong></h6>
+                            <span>Emmanuelofori2638@gmail.com</span>
+                        </div>
+                        <!-- <div class="notice">
+
+                        </div> -->
+                    </div>
+                    <hr/>
+                </div>
+
+                <div id="search">
+                    <input type="text" (keyup)="searchUser($event.target.value)" id="searchfield" placeholder="Search contacts..." />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEWING A CHAT -->
+    <div id="chatview">
+        <div style="width: 100%;">
+            <div id="profile">
+
+                <div class="lft">
+                    <i class="fa fa-arrow-left" (click)="back()"></i>
+                    <span class="material-icons">
+                    account_circle
+                    </span>
+                    <img />
+                    <h4><strong>Emmanuel </strong></h4>
+
+                </div>
+                <div class="rft">
+                    <span class="material-icons">
+                videocam
+                </span>
+                    <span class="material-icons">
+                  local_phone
+                  </span>
+                </div>
+
+            </div>
+
+            <div id="sendMess" style="overflow: auto;
+              height: 77%;
+          ">
+                <div id="chat-messages">
+
+                    <!-- <div *ngIf="chat.sender==chatRecipient.email" class="message"> -->
+
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    <!-- <img *ngIf="chatRecipient.photo" src={{chatRecipient.photo}} /> -->
+                    <div class="bubble">
+                        <h5>
+                            chat.message
+                        </h5>
+                        <!-- <div class="corner"></div>
+                  <span>3 min</span> -->
+                    </div>
+                </div>
+
+                <div class="message-right">
+                    <div class="bubble">
+                        chat.message
+                        <div class="corner"></div>
+                        <span style="font-size: 11px;">chat.time</span>
+                    </div>
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    <!-- <img *ngIf="currentUserPhoto" src={{currentUserPhoto}} /> -->
+                </div>
+            </div>
+            <!-- <label>{{date}}</label> -->
+
+        </div>
+
+        <div id="sendmessage">
+            <input type="text" placeholder="Send message..." (keydown.enter)="sendMessage(true)" />
+            <!-- <button class="material-icons" id="send" (click)="sendMessage(chatRecipient.email)">
+                send
+              </button> -->
+        </div>
+    </div>
+
+</div>

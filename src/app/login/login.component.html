@@ -1,0 +1,51 @@
+<div class="login-container">
+    <div class="login-box">
+        <div class="logo">
+            <img src="../../assets/Construction Helmet Mockup 1 1.png" alt="" srcset="">
+            <h2>Construct-Tek</h2>
+        </div>
+        <form [formGroup]="LogInForm" (ngSubmit)="onSubmit()">
+            <div class="Mycontainer" [ngStyle]="{'grid-template-rows': isValid? '1fr .5fr .5fr .5fr .5fr .5fr1fr 1fr 1fr 1fr 1fr 1fr':'2fr 1.4fr 1.4fr 1.4fr' }">
+                <div class="details">
+                    <h1>Sign In</h1>
+                    <h4 style="font-size: 16px;
+                    color: #00000073;">Please enter the details you used during registration</h4>
+                </div>
+
+                <span class="email-checker" *ngIf="errorMessage">{{_errormessage}}</span>
+
+                <input type="email" placeholder="email" formControlName="email">
+
+                <input type="password" placeholder="Password" formControlName="password" autocomplete="on">
+
+                <div class="forgot-password">
+                    <div>
+                        <span class="psw" (click)="onToggle()"><a  >Forgot password?</a></span>
+                    </div>
+                </div>
+
+                <div class="change">
+                    <button type="submit">Sign In </button>
+                    <a routerLink="/sign-up">Dont have an account? <strong> Sign Up Here</strong>  </a>
+                </div>
+
+
+
+            </div>
+        </form>
+    </div>
+    <!-- <div style="background-image: url(../../assets/3.jpg);background-size: cover;background-repeat: no-repeat;background-position: center; background-color: #eaebfd;" class="right-side">
+
+  </div> -->
+    <div style="background-image: url(../../assets/signin.jpg);   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 47%;
+  background-color: #e7e7e7;">
+
+    </div>
+
+</div>
+
+<div *ngIf="forgot">
+    <app-password (onResult)='onModalResult($event)'></app-password>
+</div>

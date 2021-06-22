@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/****** base**************/
+
+@import './styles/base/base';
+@import './styles/components/loader';
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    // overflow: hidden;
+    min-width: 0px;
+}
+
+html,
+body {
+    min-width: 0px !important;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.smart-tooltip {
+    display: none;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
