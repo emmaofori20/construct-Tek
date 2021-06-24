@@ -84,9 +84,19 @@ export class WorkboardComponent implements OnInit {
     this.toggle();
   }
 
-  //for diplaying the name
-  onlistname(){
+  //for changing a list name
+  onlistname(i){
      console.log(' change title', this.changeListname.nativeElement.value);
+     for (let index = 0; index < this.listoftasks.length; index++) {
+            if(index==i)       {
+              this.listoftasks[i].taskname = this.changeListname.nativeElement.value;
+              console.log("new name",this.listoftasks[i].taskname);
+              console.log("entire list", this.listoftasks);
+              this.projectservice.UpdateTasks(this.listoftasks, this._projectid);
+              this.hooks[index]=false;
+            }
+     }
+
   }
 
 
@@ -108,7 +118,18 @@ export class WorkboardComponent implements OnInit {
      console.log("add tittle", this.hooks[index])
     console.log("index of the titl",index)
   }
+//deleteing a task
+deletelist(i){
+  let deletelist=this.listoftasks[i];
+  for (let index = 0; index < this.listoftasks.length; index++) {
+    if(i==index){
+      console.log("index of the item to be deleted",i);
+      this.listoftasks.splice(i,1)
+      this.projectservice.UpdateTasks(this.listoftasks, this._projectid);
 
+    }
+  }
+}
 //for adding a card to the list of a task
   Addcard(index) {
     console.log("index of the card",index);
@@ -126,68 +147,33 @@ export class WorkboardComponent implements OnInit {
       this.hooks2[index]=true;
     }
 
+    //for adding a new card
     oncardname(i){
 
-      console.log(' change title',i, this.CardName.nativeElement.value);
+      console.log(' change card',i, this.CardName.nativeElement.value);
+      let cardmessage= this.CardName.nativeElement.value
+      this.projectservice.onaddcard(this.listoftasks, i,this._projectid,cardmessage);
+      this.hooks2[i]=false;
+
 
     }
-  //for toggling the list of the tittle
-  // toggle(index) {
-  //   console.log(index);
-  //   // this.titlevisible = !this.titlevisible;
-  //   // console.log('clicked', this.titlevisible);
-  //   for (let i = 0; i < this.hooks.length; i++) {
-  //     if(i == index){
-  //       this.hooks[i]= false;
-  //     }else{
-  //       this.hooks[i]=true;
-  //     }
-  //   }
-  //  this.hooks[index] = false;
 
-  //  console.log("add tittle", this.hooks[index])
-  // }
+    drop(event: CdkDragDrop<string[]>,i) {
+      if (event.previousContainer === event.container) {
+        console.log('event container', event.container)
+        moveItemInArray(this.listoftasks[i].task, event.previousIndex, event.currentIndex);
+        this.projectservice.UpdateTasks(this.listoftasks, this._projectid);
 
-  // togglecard(index) {
-  //   for (let i = 0; i < this.hooks2.length; i++) {
-  //     if(i == index){
-  //       this.hooks[i]=true;
-  //       this.hooks2[i]=!this.hooks2[i]
+      } else {
+        transferArrayItem( this.listoftasks[i-1].task,//previous container
+                          this.listoftasks[i].task,//container
+                          event.previousIndex,
+                          event.currentIndex);
 
-  //     }else{
-  //       this.hooks[i]=true;
-  //       this.hooks2[i]=false;
-  //     }
-  //   }
-  //  console.log("add card",this.hooks[index])
+                          console.log('event previous container', event.previousContainer.data)
 
-  // }
-
-  // //adding the name of a list
-  // onlistname(i) {
-
-  //   console.log('title', this.nameInputRef.nativeElement.value);
-  //   this.listoftasks[i].taskname="";
-  //   this.listtitle = this.nameInputRef.nativeElement.value;
-  //   this.hooks[i]=true;
-
-  //   // this.titlevisible = !this.titlevisible;
-  // }
-
-  // //adding a card
-  // oncardname(i) {
-  //   console.log('card name', this.CardName.nativeElement.value,i);
-  //   for (let index = 0; index < this.listoftasks.length; index++) {
-  //     if (index==i) {
-  //      this.listoftasks[i].Task.push({By: 'wisest lore', task: this.CardName.nativeElement.value} );
-  //      this.hooks2[i]=false;
-  //     }
-
-  //   }
-  //   // this.listoftasks.push(this.CardName.nativeElement.value);
-  //   // this.Cardvisible = !this.Cardvisible;
-  // }
-
+      }
+    }
 
 
 

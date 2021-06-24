@@ -1,4 +1,4 @@
-<div class="container" *ngIf="!workerDetails.isWorker">
+<div class="container" *ngIf="!workerDetails?.user?.isWorker">
     <h1>Worker</h1>
 
     <div class="add" (click)="onWorker()">
@@ -7,14 +7,14 @@
     </div>
 </div>
 
-<div class="container" *ngIf="workerDetails.isWorker">
+<div class="container" *ngIf="workerDetails.user?.isWorker">
     <h1>Account</h1>
 
     <div class="profile">
         <div class="right_side">
             <div class="top">
-                <span *ngIf="!workerDetails.photo" class="material-icons"> account_circle </span>
-                <img *ngIf="workerDetails.photo" [src]='workerDetails.photo'>
+                <span *ngIf="!workerDetails.user.photo" class="material-icons"> account_circle </span>
+                <img *ngIf="workerDetails.user.photo" [src]='workerDetails.user.photo'>
 
                 <div class="controls">
                     <div class="controls_button" (click)="onEdit()">
@@ -33,28 +33,27 @@
                 <div class="details">
                     <div class="details_section">
                         <h4>Display Name</h4>
-                        <h3>{{workerDetails.skill.name}}</h3>
+                        <h3>{{workerDetails.user.skill.name}}</h3>
                     </div>
-
                     <div class="details_section">
                         <h4>Location</h4>
-                        <h3>{{workerDetails.skill.location}}</h3>
+                        <h3>{{workerDetails.user.skill.location}}</h3>
                     </div>
 
                     <div class="details_section">
                         <h4>Email</h4>
-                        <h3>{{workerDetails.skill.email}}</h3>
+                        <h3>{{workerDetails.user.skill.email}}</h3>
                     </div>
                     <div class="details_section">
                         <h4>Profession</h4>
-                        <h3>{{workerDetails.skill.profession}}</h3>
+                        <h3>{{workerDetails.user.skill.profession}}</h3>
                     </div>
                 </div>
             </div>
             <div class="timeline">
                 <h3>Timeline Photos</h3>
                 <div class="img_container">
-                    <div *ngFor="let image of workerDetails.skill.Wokerimages">
+                    <div *ngFor="let image of workerDetails.user.skill.Wokerimages">
 
                         <img [src]="image" alt="img.jpg">
 

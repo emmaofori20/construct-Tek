@@ -34,7 +34,7 @@ export class HomepageComponent implements OnInit {
   getallwokers(){
     try {
       this.loaderService.setHttpProgressStatus(true);
-      this.worker.getallwokers().subscribe(res=>{
+      this.worker.getallwokers().subscribe((res:any)=>{
         this.allWokers=res;
         console.log("all the workers", this.allWokers);
         this.loaderService.setHttpProgressStatus(false);

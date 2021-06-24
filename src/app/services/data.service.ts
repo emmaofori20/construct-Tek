@@ -78,20 +78,20 @@ export class DataService {
     this.afs
       .collection('Users')
       .doc(_userid)
-      .update({ isWorker: true, id:_userid })
+      .update({ 'user.isWorker': true,})
       .then((res) => {
         //  console.log("wokerimages", images);
         this.afs
           .collection('Users')
           .doc(_userid)
-          .update({ skill: worker })
+          .update({ 'user.skill': worker })
           .then((workerres) => {
             this.uploadFile(images, _userid).then((res1) => {
               this.afs
                 .collection('Users')
                 .doc(_userid)
                 .update({
-                  ['skill.Wokerimages']: this.downloadURL,
+                  ['user.skill.Wokerimages']: this.downloadURL,
                 });
               console.log('wokerresponse', res1);
               this.loaderService.setHttpProgressStatus(false);

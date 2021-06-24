@@ -52,6 +52,7 @@
                 grid-gap: 10px;
                 align-items: flex-end;
                 color: #0000008a;
+                align-items: center;
             }
         }
         .ratings {
@@ -84,7 +85,27 @@ button {
     background: #008000ba;
     padding: 8px 8px;
     font-size: 16px;
-    margin-top: 20px;
+    margin-top: 10px;
     color: #eee;
     font-family: initial;
+}
+
+#requests {
+    width: 90px;
+    background-color: rgb(192, 192, 192);
+    color: rgb(18, 18, 22);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    span {
+        cursor: pointer;
+    }
+    h5 {
+        padding: 5px;
+        font-size: 14px;
+    }
+    h5:hover {
+        background-color: white;
+        border-radius: 5px;
+    }
 }

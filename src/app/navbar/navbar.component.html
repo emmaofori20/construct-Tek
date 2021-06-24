@@ -6,23 +6,23 @@
 
     <div class="right-side">
         <div id="item" smart-tooltip-container class="clicktoshow">
-            <span *ngIf="!user.photo" class="material-icons"> account_circle </span>
-            <img *ngIf="user.photo" style="height: 40px;width: 40px;border-radius: 50%;" src={{user.photo}}>
-            <h4>{{user.firstName}}</h4>
+            <span *ngIf="!user.user?.photo" class="material-icons"> account_circle </span>
+            <img *ngIf="user.user?.photo" style="height: 40px;width: 40px;border-radius: 50%;" src={{user.user?.photo}}>
+            <h4>{{user.user?.firstName}}</h4>
             <i class="fas fa-caret-down"></i>
 
             <h3 style="top: 40px; right: 1px; text-align: center" class="smart-tooltip stay-left stick-300 stayonhover" id="hiddenText">
                 <div class="profile">
-                    <h3 *ngIf="!user.photo" class="material-icons">account_circle</h3>
+                    <h3 *ngIf="!user.user?.photo" class="material-icons">account_circle</h3>
                     <div class="imgdisp">
-                        <img *ngIf="user.photo" style="height: 70px;width: 70px;border-radius: 50%;" src={{user.photo}} id="image">
-                        <img *ngIf="user.photo" src={{user.photo}} id="imagedisplay">
+                        <img *ngIf="user.user?.photo" style="height: 70px;width: 70px;border-radius: 50%;" src={{user.user?.photo}} id="image">
+                        <img *ngIf="user?.photo" src={{user.user?.photo}} id="imagedisplay">
                     </div>
                     <!-- <img *ngIf="user.photo" style="height: 70px;width: 70px;border-radius: 50%;" src={{user.photo}}> -->
                     <i class="fa fa-camera" (click)="changeProfile($event)"></i>
                     <input id="file-upload" type="file" accept="image/*" (change)="onChange($event)" />
-                    <h5>{{user.firstName}} {{user.lastName}}</h5>
-                    <h6>{{user.email}}</h6>
+                    <h5>{{user?.user?.firstName}} {{user.user?.lastName}}</h5>
+                    <h6>{{user.user?.email}}</h6>
                 </div>
                 <hr />
                 <p (click)="onDashboard()">Dashboard</p>

@@ -25,7 +25,7 @@ export class ProjectModalComponent implements OnInit {
   }
 
   //creating a project
-  async  onSubmit(){
+  async onSubmit(){
     this.loaderService.setHttpProgressStatus(true);
     console.log("Project form",this.ProjectForm.value);
     await this.project.newproject(this.ProjectForm.value.name,this.ProjectForm.value.description);

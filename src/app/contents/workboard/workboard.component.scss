@@ -154,6 +154,20 @@
     color: #000000b3;
 }
 
+//tooltip styling
+#tts {
+    width: 83px;
+    background-color: #fcfafa;
+    color: black;
+    font-size: 14px;
+    span {
+        color: rgb(91, 91, 148);
+    }
+    span:hover {
+        cursor: pointer;
+    }
+}
+
 ///
 .example-container {
     width: 400px;

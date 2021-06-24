@@ -64,7 +64,7 @@ export class UserServiceService {
         }
 
         //adding user to the users collection
-        this.afs.collection('Users').doc(res.user.uid).set(user);
+        this.afs.collection('Users').doc(res.user.uid).set({user,id: res.user.uid});
         this.router.navigate(['login']);
         // this.loaderService.setHttpProgressStatus(false);
         this.loaderService.setHttpProgressStatus(false);
@@ -101,7 +101,7 @@ export class UserServiceService {
             this.afs
               .collection('Users')
               .doc(userid)
-              .update({ photo: downloadURL });
+              .update({ 'user.photo': downloadURL });
           });
         })
       )

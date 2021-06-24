@@ -27,21 +27,32 @@
 
 
             <div style="    display: flex;
-            grid-gap: 10px;">
+            grid-gap: 10px;" cdkDropListGroup>
                 <div class="list" *ngFor="let task of listoftasks; let i= index ">
 
                     <div>
                         <div>
-                            <div class="control-button" *ngIf="!hooks[i];else Data;" (click)="toggle3(i)">
-                                <h3>{{task.taskname}}</h3>
-                                <i class="fas fa-ellipsis-v"></i>
+                            <div class="control-button" *ngIf="!hooks[i];else Data;">
+                                <h3 (click)="toggle3(i)" style="width: 90%;">{{task.taskname}}</h3>
+                                <div smart-tooltip-container class="clicktoshow">
+                                    <i class="fas fa-ellipsis-v"></i>
+
+                                    <h3 class="smart-tooltip stay-buttom stick-300 stayonhover" id="tts">
+                                        <span (click)="deletelist(i)">Delete List</span>
+                                        <hr>
+                                        <span (click)="toggle3(i)">Rename</span>
+                                        <hr>
+                                        <span>Add Image</span>
+                                    </h3>
+                                </div>
+
                             </div>
                         </div>
 
                         <!-- template for list of Task title -->
                         <ng-template #Data>
                             <div class="Listname">
-                                <input (keydown.enter)="onlistname()" type="text" placeholder="New title" #changeListname>
+                                <input (keydown.enter)="onlistname(i)" type="text" placeholder="New title" #changeListname>
                             </div>
                         </ng-template>
                         <!-- template for list of Task title -->
@@ -70,14 +81,22 @@
 
 
 
-                    <div cdkDropList #task.taskname="cdkDropList" [cdkDropListData]="task.taskname" [cdkDropListConnectedTo]="[task.taskname[i]]" class="example-list" (cdkDropListDropped)="drop($event)">
+                    <div cdkDropList #task.taskname="cdkDropList" [cdkDropListData]="task.taskname" class="example-list" (cdkDropListDropped)="drop($event,i)" *ngIf="task.task!=0">
                         <div>
-                            <div class="example-box" *ngFor="let item of task.Task" cdkDrag>
-                                <div *ngIf="item.Task>0">
-                                    <span>{{item?.task}}</span>
-                                    <i class="fas fa-ellipsis-v" style="padding: 5px ; cursor: pointer;"></i>
-                                </div>
+                            <div class="example-box" *ngFor="let item of task.task" cdkDrag>
+                                <span>{{item.task}}</span>
 
+                                <div smart-tooltip-container class="clicktoshow">
+                                    <i class="fas fa-ellipsis-v" style="padding: 5px ; cursor: pointer;"></i>
+
+                                    <h3 class="smart-tooltip stay-left stick-300 stayonhover" id="tts">
+                                        <span>Delete card</span>
+                                        <hr>
+                                        <span>Assign to</span>
+
+                                    </h3>
+                                </div>
+                                <!-- <i class="fas fa-ellipsis-v" style="padding: 5px ; cursor: pointer;"></i> -->
                             </div>
                         </div>
 

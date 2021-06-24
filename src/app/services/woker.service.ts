@@ -17,7 +17,7 @@ export class WorkerService {
 
    //Getting all workers
   getallwokers(){
-  return this.afs.collection('Users',ref => ref.where("isWorker", "==", true)).valueChanges();
+  return this.afs.collection('Users',ref => ref.where("user.isWorker", "==", true)).valueChanges();
 
 }
 
@@ -29,6 +29,12 @@ export class WorkerService {
   //reloading a worker details
   _detailsWorker(workerid){
     return this.afs.collection('Users').doc(workerid).get();
+  }
+
+  //projects assifned to a worker
+  assignedprojects(){
+    let userid = localStorage.getItem('user')
+    return this.afs.collection("Users").doc(userid).collection('AssignedProjects').valueChanges();
   }
 
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
 import { BehaviorSubject } from 'rxjs';
 import { Card, project, Task } from '../model/model';
 import { DataService } from './data.service';
@@ -13,6 +13,7 @@ import { UserServiceService } from './user-service.service';
 export class ProjectService {
 
   private arrayUnion = firebase.default.firestore.FieldValue.arrayUnion;
+  private arrayRemove = firebase.default.firestore.FieldValue.arrayRemove;
 
   _userid: any;
   randomColor;
@@ -40,7 +41,7 @@ export class ProjectService {
     //getting the user details
     this.userservice.getActiveUser(this.Userid).subscribe((res: any) => {
       console.log(res);
-      this.username = res.lastName;
+      this.username = res.user.lastName;
     });
   }
 
@@ -69,14 +70,15 @@ export class ProjectService {
     };
     console.log('background image', this.backgroundImage[this.image]);
     console.log('created projects', project);
-    await this.afs
+    console.log('user id', this._userid)
+    this.afs
       .collection('Users')
       .doc(this._userid)
       .collection('Projects')
       .add({ project })
-      .then((docRef) => {
+      .then(async (docRef) => {
         //setting project id
-        this.afs
+        await this.afs
           .collection('Users')
           .doc(this._userid)
           .collection('Projects')
@@ -89,6 +91,8 @@ export class ProjectService {
           });
         console.log('Document written with ID: ', docRef.id);
         this.image = 0;
+      }).catch(res=>{
+        console.log("error occured",res)
       });
   }
 
@@ -119,12 +123,7 @@ export class ProjectService {
   }
   //for a new Task
   async newtask(taskname, projectid) {
-    // let _card: Card = {
-    //   issuedby: this.username,
-    //   assignedto: ' ',
-    //   task: card,
-    //   img: ' ',
-    // };
+
     let task: Task = {
       taskname: taskname,
       task: [],
@@ -139,11 +138,71 @@ export class ProjectService {
       .doc(this.Userid)
       .collection('Projects')
       .doc(projectid);
-    console.log("task",taskass.update({Tasks: this.arrayUnion(task)}));
+    taskass.update({Tasks: this.arrayUnion(task)});
+  }
+//deleting a list
+deletetask(i,task, projectid){
+  console.log('task',task)
+  this.afs
+  .collection('Users')
+  .doc(this.Userid)
+  .collection('Projects')
+  .doc(projectid).update({Task : this.arrayRemove(task.taskname)});
+}
+//adding a card
+onaddcard(listoftasks,index, projectid,cardmessage){
+  let _listoftasks=listoftasks
+let card:Card={
+  issuedby:this.username,
+  assignedto:"",
+  task: cardmessage,
+  img:""
+}
+for (let i = 0; i < listoftasks.length; i++) {
+  if(index==i)  {
+    // _listoftasks[i].task= _listoftasks.task[i].push(card);
+    console.log("updated task in firebase", _listoftasks[i].task.push(card))
+    console.log("updated task in firebase222", _listoftasks)
+
+    this.UpdateTasks(_listoftasks,projectid);
+
+  }
+}
+
+}
+
+//delete card
+deletecardonlist(){
+
+}
+
+//updating tasks
+UpdateTasks(updatedtasks:any, projectId){
+  let updatetask=this.afs.collection('Users').doc(this.Userid).collection('Projects').doc(projectId);
+  // updatetask.update({Tasks: updatedtasks });
+  console.log("the tasks", updatedtasks);
+  updatetask.update({'Tasks': updatedtasks})
+}
+
+//adding a worker to your project
+  addworker( projectid,workerid){
+    let Userid = localStorage.getItem('user');
+    console.log("wokerid and projectid", projectid,workerid)
+    this.afs
+      .collection('Users')
+      .doc(Userid)
+      .collection('Projects')
+      .doc(projectid)
+      .update({
+       Teams : [workerid]
+      })
+
   }
 
-  //getting all the tasks of a particular project
-  allTasksofproject(projectid) {
-    // return this.afs.collection('Users').doc(this.Userid).collection('Projects').doc(projectid).get();
+//assigning a project to a worker
+  assignproject(workerid, userprojectid){
+    let userid = localStorage.getItem('user')
+    console.log('workerid:', workerid, "userprojectid:", userprojectid)
+    this.afs.collection('Users').doc(workerid).collection("AssignedProjects").doc(userprojectid).set({userprojectid,'userid': userid});
   }
 }
