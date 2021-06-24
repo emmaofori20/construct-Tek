@@ -2,7 +2,6 @@
     <div class="container">
         <div class="container_top">
             <h1>{{_projects?.project?.name}}</h1>
-            <h2>Invite</h2>
         </div>
 
         <div class="workarea">
@@ -27,7 +26,7 @@
 
 
             <div style="    display: flex;
-            grid-gap: 10px;" cdkDropListGroup>
+          grid-gap: 10px;" cdkDropListGroup>
                 <div class="list" *ngFor="let task of listoftasks; let i= index ">
 
                     <div>
@@ -76,16 +75,21 @@
                     </div>
 
 
+
+
+
+
+
                     <div cdkDropList #task.taskname="cdkDropList" [cdkDropListData]="task.taskname" class="example-list" (cdkDropListDropped)="drop($event,i)" *ngIf="task.task!=0">
                         <div>
-                            <div class="example-box" *ngFor="let item of task.task; let a=index" cdkDrag>
+                            <div class="example-box" *ngFor="let item of task.task" cdkDrag>
                                 <span>{{item.task}}</span>
 
                                 <div smart-tooltip-container class="clicktoshow">
                                     <i class="fas fa-ellipsis-v" style="padding: 5px ; cursor: pointer;"></i>
 
                                     <h3 class="smart-tooltip stay-left stick-300 stayonhover" id="tts">
-                                        <span (click)="deletecard(item,a,i)">Delete card</span>
+                                        <span>Delete card</span>
                                         <hr>
                                         <span>Assign to</span>
 

@@ -7,6 +7,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class WorkerService {
 
+  //for holding the id of the user whose project is being viewed
+  useridproject= new BehaviorSubject<any>({});
 
   workerDetails= new BehaviorSubject<any>({});
   constructor(
@@ -34,7 +36,25 @@ export class WorkerService {
   //projects assifned to a worker
   assignedprojects(){
     let userid = localStorage.getItem('user')
-    return this.afs.collection("Users").doc(userid).collection('AssignedProjects').valueChanges();
+    return this.afs.collection("Users").doc(userid).collection('AssignedProjects').get();
+
+  }
+  //viewing the project assgined to the worker
+  viewuserproject(projectId, userid) {
+    return this.afs
+      .collection('Users')
+      .doc(userid)
+      .collection('Projects')
+      .doc(projectId)
+      .valueChanges();
   }
 
+   //viewing a particular project of the user
+  viewinguseridproject(userid){
+    console.log("the user id", userid)
+    this.useridproject.next(userid);
+  }
 }
+
+
+

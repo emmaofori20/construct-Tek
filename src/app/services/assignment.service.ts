@@ -6,4 +6,9 @@ import { Injectable } from '@angular/core';
 export class AssignmentService {
 
   constructor() { }
+
+  //loading all the projects assigned to a worker
+  assignedprojects(projects){
+
+  }
 }

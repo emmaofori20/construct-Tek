@@ -49,7 +49,7 @@ export class ProjectsComponent implements OnInit {
     onprojectclicked(projectitem){
       this.router.navigate(['/dashboard/content/projectboard/', projectitem.projectId]);
       //loading the project
-      this.projectservice.oneproject(projectitem);
+      // this.projectservice.oneproject(projectitem);
       console.log("clicked project",projectitem)
     }
 

@@ -64,7 +64,20 @@
         </div>
 
         <div class="left_side">
+            <h2>Assigned projects</h2>
 
+            <div class="container1" *ngFor="let item of asignedprojects;let i=index">
+                <div class="nameproject">
+                    <h3>{{item.project.name}}</h3>
+                    <h4>{{item.project.description}}</h4>
+                </div>
+
+                <div class="controlsproject">
+                    <button style="background-color: rgba(42, 177, 42, 0.836);" (click)="joinproject(item,i)">Join</button>
+                    <button style="background-color: rgba(199, 43, 43, 0.815);">Leave</button>
+
+                </div>
+            </div>
         </div>
     </div>
 </div>

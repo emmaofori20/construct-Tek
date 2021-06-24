@@ -38,6 +38,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ChatboxComponent } from './chatbox/chatbox.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditWorkerModalComponent } from './edit-worker-modal/edit-worker-modal.component';
+import { ViewboardComponent } from './contents/viewboard/viewboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +61,7 @@ import { EditWorkerModalComponent } from './edit-worker-modal/edit-worker-modal.
     ProfileComponent,
     ChatboxComponent,
     EditWorkerModalComponent,
+    ViewboardComponent,
   ],
   imports: [
     BrowserModule,

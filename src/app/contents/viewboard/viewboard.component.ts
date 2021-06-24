@@ -1,20 +1,16 @@
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectService } from 'src/app/services/project.service';
-import {
-  CdkDragDrop,
-  moveItemInArray,
-  transferArrayItem,
-} from '@angular/cdk/drag-drop';
-// import { MatCardHarness } from '@angular/material/card/testing';
-// import { Task} from 'src/app/model/model';
+import { WorkerService } from 'src/app/services/woker.service';
 
 @Component({
-  selector: 'app-workboard',
-  templateUrl: './workboard.component.html',
-  styleUrls: ['./workboard.component.scss'],
+  selector: 'app-viewboard',
+  templateUrl: './viewboard.component.html',
+  styleUrls: ['./viewboard.component.scss']
 })
-export class WorkboardComponent implements OnInit {
+export class ViewboardComponent implements OnInit {
+
   @ViewChild('Listname') nameInputRef: ElementRef;
   @ViewChild('Cardname') CardName: ElementRef;
   @ViewChild('changeListname') changeListname: ElementRef;
@@ -27,30 +23,30 @@ export class WorkboardComponent implements OnInit {
   Tittle= 'tittle'?? "";
   card="";
 
+  private useridproject;
+
   hooks:any;
   hooks2:any;
 
   listoftasks=[];
-  // titlevisible = true; // for editting the title of the list;
-  // Cardvisible = true; //for adding a new todo list;
 
-
-  constructor(
-    private projectservice: ProjectService,
-    private activatedroute: ActivatedRoute
-  ) {
-
-  }
+  constructor(private projectservice: ProjectService,
+    private activatedroute: ActivatedRoute,private workerservice:WorkerService) {
+      this.workerservice.useridproject.subscribe(id=>{
+        console.log("user id of the viewed project", id)
+        this.useridproject=id;
+      });
+    }
 
   ngOnInit(): void {
 
-        let Userid = localStorage.getItem('user');
-    //getting a project data after reloading
+
+
     this.activatedroute.params.subscribe((params) => {
       console.log('these are the activated route', params);
        this._projectid = params['projectId'];
       console.log('projectId',this._projectid);
-      this.projectservice.userproject(this._projectid,Userid).subscribe((results:any) => {
+      this.projectservice.userproject(this._projectid,this.useridproject).subscribe((results:any) => {
         console.log('these are the results', results);
         this._projects = results;
         this.listoftasks=this._projects.Tasks;
@@ -61,11 +57,10 @@ export class WorkboardComponent implements OnInit {
      //hooks
  this.hooks= this.listoftasks.map(i=>true);
  this.hooks2= this.listoftasks.map(i=>true);
-
   }
 
-  //adding a new list
-  Addlist(){
+   //adding a new list
+   Addlist(){
     // this.listoftasks.push({taskname:'',Task:[]});
     document.getElementById('newTasklist').style.display="block";
     console.log("clicked");
@@ -160,12 +155,6 @@ deletelist(i){
 
     }
 
-    //deleteing a card from a list
-    deletecard(card,indexofcard,indexoflistoflistoftasks){
-      // console.log("carfty index",card, indexofcard,indexoflistoflistoftasks)
-      this.projectservice.deletecardonlist(card, indexofcard,indexoflistoflistoftasks, this.listoftasks, this._projectid);
-    }
-
     drop(event: CdkDragDrop<string[]>,i) {
       if (event.previousContainer === event.container) {
         console.log('event container', event.container)
@@ -182,7 +171,5 @@ deletelist(i){
 
       }
     }
-
-
 
 }

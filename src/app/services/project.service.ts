@@ -112,11 +112,10 @@ export class ProjectService {
   }
 
   //getting a project
-  userproject(projectId) {
-    let Userid = localStorage.getItem('user');
+  userproject(projectId, userid) {
     return this.afs
       .collection('Users')
-      .doc(Userid)
+      .doc(userid)
       .collection('Projects')
       .doc(projectId)
       .valueChanges();
@@ -172,8 +171,17 @@ for (let i = 0; i < listoftasks.length; i++) {
 }
 
 //delete card
-deletecardonlist(){
+deletecardonlist(card,indexofcard, indexoflistoflistoftasks,listoftasks, projectid){
 
+  console.log("cliked",  listoftasks[indexoflistoflistoftasks].task)
+  for (let index = 0; index < listoftasks[indexoflistoflistoftasks].task.length; index++) {
+          if( index == indexofcard){
+            console.log("card and index", index, listoftasks[indexoflistoflistoftasks].task)
+            listoftasks[indexoflistoflistoftasks].task.splice(index,1);
+            this.UpdateTasks(listoftasks,projectid);
+          }
+
+  }
 }
 
 //updating tasks

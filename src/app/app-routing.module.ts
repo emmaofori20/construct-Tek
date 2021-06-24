@@ -10,6 +10,7 @@ import { ProjectsComponent } from './contents/projects/projects.component';
 import { WorkerComponent } from './contents/worker/worker.component';
 import { WorkboardComponent } from './contents/workboard/workboard.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ViewboardComponent} from './contents/viewboard/viewboard.component'
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -22,7 +23,8 @@ const routes: Routes = [
       {path: 'home', component: HomeComponent},
       {path: 'projects', component: ProjectsComponent},
       {path: 'worker', component: WorkerComponent},
-      {path: 'projectboard/:projectId', component:WorkboardComponent}
+      {path: 'projectboard/:projectId', component:WorkboardComponent},
+      {path: 'viewboard/:projectId', component: ViewboardComponent}
     ] }
   ]},
 
