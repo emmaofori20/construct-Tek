@@ -14,7 +14,8 @@
                 <div class="img-container">
                     <img [src]="worker.user.photo" alt="">
                 </div>
-                <h4>{{worker.user?.skill.ratings}}</h4>
+                <h4>{{worker.user?.skill.ratings}} <span class="fa fa-star"></span></h4>
+
                 <div class="details">
                     <h3>Name: <span>{{worker.user?.skill.name}}</span></h3>
                     <h3>Profession: <span>{{worker.user?.skill.profession}}</span></h3>

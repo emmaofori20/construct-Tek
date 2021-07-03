@@ -53,8 +53,55 @@
                     <h2>{{workerdetails.user.skill.ratings}}</h2>
                 </div>
                 <button (click)="chat.OpenChat()">Message a worker <i class="far fa-comments"></i></button>
+
+
+
+                <div class="details">
+                    <div class="headings">
+                        <h3 (click)="ontimeline()" id="timefont">Timeline</h3>
+                        <h3 (click)="onAbout()" id="aboutfont">About</h3>
+                    </div>
+                    <hr>
+
+                    <div class="about" id="about">
+                        <h3>Contact info</h3>
+
+                        <div>
+                            <div class="qqqq">
+                                <h4>Phone:</h4>
+                                <span>0{{workerdetails.user?.skill?.phoneNumber}}</span>
+                            </div>
+
+                            <div class="qqqq">
+                                <h4>Email:</h4>
+                                <span>{{workerdetails.user?.skill?.email}}</span>
+                            </div>
+                        </div>
+
+                        <h3>Other information</h3>
+                        <div>
+
+                            <div class="qqqq">
+                                <h4>Gender:</h4>
+                                <span>{{workerdetails.user?.skill?.gender}}</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="timeline" id="timeline">
+                        <h3>Timeline Photos</h3>
+                        <div class="img-container">
+                            <div *ngFor="let item of workerdetails.user.skill.Wokerimages" class="divdiv">
+                                <img [src]="item" alt="">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
 
     <app-chatbox #chat></app-chatbox>

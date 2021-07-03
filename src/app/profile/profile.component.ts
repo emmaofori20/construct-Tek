@@ -57,6 +57,24 @@ export class ProfileComponent implements OnInit {
     this.projectservice.assignproject(this._workerid, project.projectId)
     confirm(this.workerdetails.user.skill?.name + " has been added to your project " +" ' " + project.project.name +" ' ")
   }
+
+
+//toggling the timeline
+  ontimeline(){
+    document.getElementById('timeline').style.display='block';
+    document.getElementById('timefont').style.color='blue';
+    document.getElementById('aboutfont').style.color='black';
+    document.getElementById('about').style.display='none';
+
+  }
+//on about
+onAbout(){
+document.getElementById('about').style.display='block';
+document.getElementById('timefont').style.color='black';
+document.getElementById('aboutfont').style.color='blue';
+document.getElementById('timeline').style.display='none';
+
+}
   }
 
 
