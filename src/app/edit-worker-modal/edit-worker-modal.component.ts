@@ -38,14 +38,14 @@ export class EditWorkerModalComponent implements OnInit {
 
 
     this.dataservice.workerDetails(this.dataservice.getuserid()).subscribe((res:any)=>{
-      console.log("worker details", res.skill);
-      this.name=res.skill.name;
-      this.profession=res.skill.profession;
-      this.location=res.skill.location;
-      this.phoneNumber=res.skill.phoneNumber;
-      this.email=res.skill.email;
-      this.gender=res.skill.gender;
-      this.Wokerimages=res.skill.Wokerimages;
+      console.log("worker details", res.user.skill);
+      this.name=res.user.skill.name;
+      this.profession=res.user.skill.profession;
+      this.location=res.user.skill.location;
+      this.phoneNumber=res.user.skill.phoneNumber;
+      this.email=res.user.skill.email;
+      this.gender=res.user.skill.gender;
+      this.Wokerimages=res.user.skill.Wokerimages;
 
 
       this.EditWorkerForm= new FormGroup({

@@ -54,6 +54,15 @@ export class WorkerService {
     console.log("the user id", userid)
     this.useridproject.next(userid);
   }
+
+  //deleteing a worker profile
+  deleteprofile(userid){
+    console.log("the deleting user id", userid);
+    this.afs.collection('Users').doc(userid).update({
+      'user.skill' : null,
+      'user.isWorker': false
+     })
+  }
 }
 
 

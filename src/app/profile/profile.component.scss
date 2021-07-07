@@ -150,6 +150,10 @@ button {
         margin-top: 20px;
         display: flex;
         grid-gap: 20px;
+        height: 324px;
+        // border: 1px solid black;
+        flex-wrap: wrap;
+        overflow: auto;
     }
     .divdiv {
         height: 200px;

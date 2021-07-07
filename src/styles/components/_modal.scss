@@ -1,0 +1,62 @@
+.Modal {
+    /* Hidden by default */
+    position: fixed;
+    background-color: white !important;
+    /* Stay in place */
+    z-index: 200;
+    /* Sit on top */
+    // padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    .close {
+        width: 20px;
+        position: absolute;
+        right: 2rem;
+        top: 2rem;
+        color: red;
+        cursor: pointer;
+    }
+}
+
+
+/* Modal Content */
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 200px auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 260px;
+    border-radius: 10px;
+}
+
+h4 {
+    text-align: center;
+    color: #ED1E23;
+    font-size: 1.6rem;
+}
+
+button {
+    width: 87px;
+    height: 35px;
+    border-radius: 5px;
+    background: #4c9847;
+    border: none;
+}
+
+.submit {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}

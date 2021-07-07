@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
@@ -16,6 +16,9 @@ export class WorkerComponent implements OnInit {
   asignedprojects:any=[];
   _userId: any;
   Editworker = false;
+  @Output() message: string;
+  modalState: boolean;
+
   constructor(
     private dataservice: DataService,
     private workerservice: WorkerService,
@@ -37,7 +40,7 @@ export class WorkerComponent implements OnInit {
   ngOnInit(): void {
     //getting all the assigned projects of a worker
    this.workerservice.assignedprojects().subscribe((results: any) => {
-    console.log("res", results.docs[1].data())
+    // console.log("res", results.docs[1].data())
     for (let index = 0; index < results.docs.length; index++) {
 
         this.afs
@@ -77,11 +80,35 @@ export class WorkerComponent implements OnInit {
   joinproject(item,index){
     debugger;
     this.workerservice.assignedprojects().subscribe((data:any)=>{
-      console.log("userid of index",data.docs[index].data().userid);
+      // console.log("userid of index",data.docs[index].data().userid);
       console.log("project", item);
       this.workerservice.viewinguseridproject(data.docs[index].data().userid)
       this.router.navigate(['/dashboard/content/viewboard/', item.projectId]);
     })
 
+  }
+
+  //deleteing profession details
+  onDelete(){
+    this.modalState=true;
+    this.message="Are you sure you want to delete your profile?";
+  }
+
+  onModalResultdelete(results){
+    if(results){
+        console.log("the results is true", results);
+        let userid = localStorage.getItem("user");
+        this.workerservice.deleteprofile(userid);
+        this.workerDetails = this.dataservice
+      .workerDetails(userid)
+      .subscribe((res: any) => {
+        this.workerDetails = res;
+        // console.log("worker details", res.user.skill)
+        //  this.workerDetails.user.skill
+      });
+        this.modalState=false
+    }else{
+      this.modalState=results;
+    }
   }
 }

@@ -11,6 +11,7 @@
         margin-top: 10px;
         grid-gap: 10px;
         color: #008000de;
+        align-items: center;
     }
 }
 
@@ -91,7 +92,7 @@
                 flex-wrap: wrap;
                 grid-gap: 20px;
                 img {
-                    height: 200px
+                    height: 180px
                 }
             }
         }

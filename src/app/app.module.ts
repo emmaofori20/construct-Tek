@@ -39,6 +39,7 @@ import { ChatboxComponent } from './chatbox/chatbox.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditWorkerModalComponent } from './edit-worker-modal/edit-worker-modal.component';
 import { ViewboardComponent } from './contents/viewboard/viewboard.component';
+import { DeletemodalComponent } from './deletemodal/deletemodal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,6 +63,7 @@ import { ViewboardComponent } from './contents/viewboard/viewboard.component';
     ChatboxComponent,
     EditWorkerModalComponent,
     ViewboardComponent,
+    DeletemodalComponent,
   ],
   imports: [
     BrowserModule,
