@@ -44,6 +44,8 @@
             padding: 15px 20px;
             font-family: "Poppins";
             color: black;
+            display: flex;
+            justify-content: space-between;
             h1 {
                 text-transform: capitalize;
                 font-weight: bold;
@@ -54,6 +56,9 @@
                 font-weight: 100;
                 font-family: 'emoji';
                 padding-top: 12px;
+            }
+            i {
+                padding: 8px;
             }
         }
         .bottom {
@@ -81,4 +86,10 @@
             }
         }
     }
+}
+
+#tts {
+    padding: 10px;
+    background-color: rgba(46, 62, 150, 0.815);
+    width: 100px;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProjectService } from 'src/app/services/project.service';
 import { LoaderService } from 'src/interceptors/loader.service';
@@ -12,6 +12,10 @@ export class ProjectsComponent implements OnInit {
 
   toggle= false;
   allprojects=[];
+  modalState: boolean;
+  deletedproject:any;
+  @Output() message: string;
+
   constructor(private projectservice: ProjectService, private router:Router,private loaderService: LoaderService,
     ) { }
 
@@ -53,4 +57,23 @@ export class ProjectsComponent implements OnInit {
       console.log("clicked project",projectitem)
     }
 
+  //actions carried on a modal;
+    onModalResultdelete(results){
+      if(results){
+        console.log('the project', this.deletedproject.projectId);
+      this.projectservice.deleteproject(this.deletedproject.projectId);
+      this.modalState=false;
+      }else{
+        this.modalState=false;
+      }
+    }
+
+    //function to open modal
+    deleteproject(event,item){
+      event.stopPropagation();
+      this.modalState=true;
+      this.message="Are you sure you want to delete this project?";
+      this.deletedproject=item;
+
+    }
 }

@@ -213,4 +213,10 @@ UpdateTasks(updatedtasks:any, projectId){
     console.log('workerid:', workerid, "userprojectid:", userprojectid)
     this.afs.collection('Users').doc(workerid).collection("AssignedProjects").doc(userprojectid).set({userprojectid,'userid': userid});
   }
+
+//deleting a project
+deleteproject(projectid){
+  console.log("the delete project id", projectid);
+  this.afs.collection('Users').doc(this.Userid).collection('Projects').doc(projectid).delete();
+}
 }

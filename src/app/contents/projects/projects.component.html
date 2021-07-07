@@ -10,8 +10,20 @@
 
         <div class="project" *ngFor="let item of allprojects;" (click)="onprojectclicked(item)">
             <div class="top" [ngStyle]="{'background-color': item.project.color}">
-                <h1>{{item.project.name}}</h1>
-                <h4>{{item.project.description}}</h4>
+                <div>
+                    <h1>{{item.project.name}}</h1>
+                    <h4>{{item.project.description}}</h4>
+                </div>
+                <div smart-tooltip-container class="">
+                    <i class="fas fa-ellipsis-v" style="padding: 5px ; cursor: pointer;"></i>
+
+                    <h3 class="smart-tooltip stay-right stick-300 stayonhover" id="tts">
+                        <span (click)="deleteproject($event, item)">Delete project</span>
+                        <hr>
+                        <span>Edit project</span>
+
+                    </h3>
+                </div>
             </div>
 
             <div class="bottom">
@@ -31,4 +43,8 @@
 
 <div *ngIf="toggle">
     <app-project-modal (onResult)='onModalResult($event)'></app-project-modal>
+</div>
+
+<div class="Modal" *ngIf="modalState">
+    <app-deletemodal [title]="message" (onResult)="onModalResultdelete($event)"></app-deletemodal>
 </div>
