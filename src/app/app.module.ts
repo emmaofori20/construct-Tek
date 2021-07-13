@@ -40,6 +40,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditWorkerModalComponent } from './edit-worker-modal/edit-worker-modal.component';
 import { ViewboardComponent } from './contents/viewboard/viewboard.component';
 import { DeletemodalComponent } from './deletemodal/deletemodal.component';
+import { EditProjectComponent } from './edit-project/edit-project.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +65,7 @@ import { DeletemodalComponent } from './deletemodal/deletemodal.component';
     EditWorkerModalComponent,
     ViewboardComponent,
     DeletemodalComponent,
+    EditProjectComponent,
   ],
   imports: [
     BrowserModule,

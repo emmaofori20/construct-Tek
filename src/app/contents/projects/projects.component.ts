@@ -14,6 +14,7 @@ export class ProjectsComponent implements OnInit {
   allprojects=[];
   modalState: boolean;
   deletedproject:any;
+  isEdit:boolean;
   @Output() message: string;
 
   constructor(private projectservice: ProjectService, private router:Router,private loaderService: LoaderService,
@@ -76,4 +77,17 @@ export class ProjectsComponent implements OnInit {
       this.deletedproject=item;
 
     }
+
+  //edit project
+  oneditproject(item, event){
+    event.stopPropagation();
+    console.log('item to be edited', item.projectId);
+    this.projectservice.oneproject(item);
+    this.isEdit=true;
+  }
+
+  onModalResultEdit(results){
+    console.log(results);
+    this.isEdit=results;
+  }
 }

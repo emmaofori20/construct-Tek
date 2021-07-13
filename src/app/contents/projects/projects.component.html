@@ -20,7 +20,7 @@
                     <h3 class="smart-tooltip stay-right stick-300 stayonhover" id="tts">
                         <span (click)="deleteproject($event, item)">Delete project</span>
                         <hr>
-                        <span>Edit project</span>
+                        <span (click)="oneditproject(item, $event)">Edit project</span>
 
                     </h3>
                 </div>
@@ -47,4 +47,8 @@
 
 <div class="Modal" *ngIf="modalState">
     <app-deletemodal [title]="message" (onResult)="onModalResultdelete($event)"></app-deletemodal>
+</div>
+
+<div *ngIf="isEdit">
+    <app-edit-project (onResult)='onModalResultEdit($event)'></app-edit-project>
 </div>

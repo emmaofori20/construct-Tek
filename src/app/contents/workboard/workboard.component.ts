@@ -40,27 +40,32 @@ export class WorkboardComponent implements OnInit {
     private activatedroute: ActivatedRoute
   ) {
 
+    //loading the teams in the project
+
+
   }
 
   ngOnInit(): void {
 
-        let Userid = localStorage.getItem('user');
+      let Userid = localStorage.getItem('user');
     //getting a project data after reloading
-    this.activatedroute.params.subscribe((params) => {
+      this.activatedroute.params.subscribe((params) => {
       console.log('these are the activated route', params);
-       this._projectid = params['projectId'];
+      this._projectid = params['projectId'];
       console.log('projectId',this._projectid);
       this.projectservice.userproject(this._projectid,Userid).subscribe((results:any) => {
         console.log('these are the results', results);
         this._projects = results;
         this.listoftasks=this._projects.Tasks;
-        console.log("list of tasks", this.listoftasks);
+        console.log("Teams", results.Teams);
+          //laoding the team members
+          // this.projectservice.loadTeamMembers(results.Teams);
       });
     });
 
      //hooks
- this.hooks= this.listoftasks.map(i=>true);
- this.hooks2= this.listoftasks.map(i=>true);
+     this.hooks= this.listoftasks.map(i=>true);
+     this.hooks2= this.listoftasks.map(i=>true);
 
   }
 

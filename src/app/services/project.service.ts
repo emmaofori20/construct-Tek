@@ -45,7 +45,7 @@ export class ProjectService {
     });
   }
 
-  //creating a new project
+//creating a new project
   async newproject(name, description) {
     let project: project = {
       name: name,
@@ -96,7 +96,7 @@ export class ProjectService {
       });
   }
 
-  //getting all projects belonging to a user
+//getting all projects belonging to a user
   getUserproject() {
     let Userid = localStorage.getItem('user');
     return this.afs
@@ -106,12 +106,12 @@ export class ProjectService {
       .valueChanges();
   }
 
-  //loadparticular project
+//loadparticular project
   oneproject(item) {
     this.project.next(item);
   }
 
-  //getting a project
+//getting a project
   userproject(projectId, userid) {
     return this.afs
       .collection('Users')
@@ -120,6 +120,7 @@ export class ProjectService {
       .doc(projectId)
       .valueChanges();
   }
+
   //for a new Task
   async newtask(taskname, projectid) {
 
@@ -140,7 +141,7 @@ export class ProjectService {
     taskass.update({Tasks: this.arrayUnion(task)});
   }
 //deleting a list
-deletetask(i,task, projectid){
+  deletetask(i,task, projectid){
   console.log('task',task)
   this.afs
   .collection('Users')
@@ -149,7 +150,7 @@ deletetask(i,task, projectid){
   .doc(projectid).update({Task : this.arrayRemove(task.taskname)});
 }
 //adding a card
-onaddcard(listoftasks,index, projectid,cardmessage){
+  onaddcard(listoftasks,index, projectid,cardmessage){
   let _listoftasks=listoftasks
 let card:Card={
   issuedby:this.username,
@@ -171,7 +172,7 @@ for (let i = 0; i < listoftasks.length; i++) {
 }
 
 //delete card
-deletecardonlist(card,indexofcard, indexoflistoflistoftasks,listoftasks, projectid){
+  deletecardonlist(card,indexofcard, indexoflistoflistoftasks,listoftasks, projectid){
 
   console.log("cliked",  listoftasks[indexoflistoflistoftasks].task)
   for (let index = 0; index < listoftasks[indexoflistoflistoftasks].task.length; index++) {
@@ -185,7 +186,7 @@ deletecardonlist(card,indexofcard, indexoflistoflistoftasks,listoftasks, project
 }
 
 //updating tasks
-UpdateTasks(updatedtasks:any, projectId){
+  UpdateTasks(updatedtasks:any, projectId){
   let updatetask=this.afs.collection('Users').doc(this.Userid).collection('Projects').doc(projectId);
   // updatetask.update({Tasks: updatedtasks });
   console.log("the tasks", updatedtasks);
@@ -202,7 +203,8 @@ UpdateTasks(updatedtasks:any, projectId){
       .collection('Projects')
       .doc(projectid)
       .update({
-       Teams : [workerid]
+       Teams : this.arrayUnion(workerid)
+
       })
 
   }
@@ -214,9 +216,33 @@ UpdateTasks(updatedtasks:any, projectId){
     this.afs.collection('Users').doc(workerid).collection("AssignedProjects").doc(userprojectid).set({userprojectid,'userid': userid});
   }
 
+//loading the team
+  loadTeamMembers(TeamMembers:any){
+    let Team:any=[];
+    for (let index = 0; index < TeamMembers.length; index++) {
+     this.afs.collection('Users').doc(TeamMembers[index]).get().subscribe((res:any)=>{
+      // console.log(res)
+     });
+      // Team.push(member)
+    }
+    console.log("the team members", Team);
+  }
 //deleting a project
-deleteproject(projectid){
+  deleteproject(projectid){
   console.log("the delete project id", projectid);
   this.afs.collection('Users').doc(this.Userid).collection('Projects').doc(projectid).delete();
+}
+
+//get project to edit
+  _editproject(){
+
+}
+
+//editting a project
+  editproject(projectid){
+console.log('the id of the project to be editted', projectid);
+// this.afs.collection('Users').doc(this.Userid).collection('Projects').doc(projectid).update({
+
+// });
 }
 }
