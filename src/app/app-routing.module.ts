@@ -11,11 +11,10 @@ import { WorkerComponent } from './contents/worker/worker.component';
 import { WorkboardComponent } from './contents/workboard/workboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ViewboardComponent} from './contents/viewboard/viewboard.component'
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/login', pathMatch: 'full'},
-  {path: 'login', component: LoginComponent},
-  {path: 'sign-up', component: SignupComponent},
+
   {path: 'home-page', component: HomepageComponent},
   {path: 'worker/:id',component: ProfileComponent },
   {path: 'dashboard', component: DashboardComponent,children:[
@@ -27,6 +26,10 @@ const routes: Routes = [
       {path: 'viewboard/:projectId', component: ViewboardComponent}
     ] }
   ]},
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: 'welcome', component:LandingPageComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'sign-up', component: SignupComponent},
 
 ];
 

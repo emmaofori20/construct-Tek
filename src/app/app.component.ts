@@ -28,22 +28,24 @@ export class AppComponent {
     this.CheckingUser();
   }
 
-  CheckingUser() {
+  async CheckingUser() {
     let _user = localStorage.getItem("user");
-    this.dataservice.setuserid(_user);
+    // this.dataservice.setuserid(_user);
     if (!_user) {
       //this.router.navigate(["login"]);
       if (!window.location.href.includes("not-found") && (window.location.href.includes("login") || window.location.href.includes("SignUp")))
       // this.dataservice.setuserid(_user);
       console.log("user", _user);
-      this.router.navigate(["login"]);
+      this.router.navigate(["welcome"]);
       console.log("no user");
     }
-    // } else {
-    //   // console.log("user", _user);
-    //   // this.dataservice.setuserid(_user);
-    //   // this.router.navigate(['home-page'])
+     else {
+      // console.log("user", _user);
+      this.dataservice.setuserid(_user);
+      // await this.dataservice._setActiveUser(_user);
 
-    // }
+      // this.router.navigate(['home-page'])
+
+    }
   }
 }

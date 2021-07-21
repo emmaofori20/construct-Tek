@@ -41,6 +41,8 @@ import { EditWorkerModalComponent } from './edit-worker-modal/edit-worker-modal.
 import { ViewboardComponent } from './contents/viewboard/viewboard.component';
 import { DeletemodalComponent } from './deletemodal/deletemodal.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { IsLoggedInPipe } from './is-logged-in.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +68,8 @@ import { EditProjectComponent } from './edit-project/edit-project.component';
     ViewboardComponent,
     DeletemodalComponent,
     EditProjectComponent,
+    LandingPageComponent,
+    IsLoggedInPipe,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,105 @@
+$border-color: #dadce0;
+@mixin flex($side: "none") {
+    display: flex;
+    @if ($side=="none") {
+        justify-content: center;
+    }
+    @else {
+        justify-content: $side;
+    }
+    align-items: center;
+}
+
+.navbar {
+    justify-content: space-between;
+    display: flex;
+    padding: 5px 10px;
+    .left-side {
+        display: flex;
+        text-align: center;
+        justify-content: flex-end;
+        align-items: center;
+        grid-gap: 5px;
+        h1 {
+            font-size: 20px;
+            color: #00000087;
+            font-family: "Poppins";
+        }
+        img {
+            height: 30px;
+            width: 40px;
+        }
+    }
+}
+
+.nav-bar {
+    // display: flex;
+    // grid-gap: 10px;
+    button {
+        border: 1px solid rgba(36, 34, 34, 0.87);
+        border-radius: 0.5rem;
+        width: 60px;
+        height: 25px;
+        &:hover {
+            background-color: #f1f3f4;
+            cursor: pointer;
+        }
+        margin: 0rem 1rem
+    }
+}
+
+.landing {
+    background-image: url(../../assets/landingpage.jpg);
+    height: 95vh;
+    /* width: 100vw; */
+    background-size: cover;
+    background-position: 47%;
+    background-repeat: no-repeat;
+}
+
+.right {
+    background-color: #0907074d;
+    height: 95vh;
+    width: 50%;
+    .text {
+        padding: 90px 40px;
+        h1 {
+            font-weight: bold;
+            color: white;
+            font-size: 38px;
+            font-family: 'Poppins';
+            line-height: 50px;
+        }
+        .text2 {
+            margin: 50px 0px;
+            h2 {
+                font-weight: bold;
+                color: white;
+                font-size: 28px;
+                font-family: 'Poppins';
+                line-height: 35px;
+            }
+        }
+        .btn-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            grid-gap: 20px;
+            div {
+                border-left: 4px solid #ffffffd1;
+                height: 30px;
+            }
+            button {
+                background-color: white;
+                width: 125px;
+                height: 34px;
+                border: none;
+                border-radius: 5px;
+                color: blue;
+            }
+            h4 {
+                color: white;
+            }
+        }
+    }
+}

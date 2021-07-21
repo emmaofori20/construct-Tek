@@ -1,0 +1,39 @@
+<div>
+    <div class="navbar">
+        <div class="left-side">
+            <img src="../../assets/Construction Helmet Mockup 1 1.png" alt="" />
+            <h1>Construct-Tek</h1>
+        </div>
+
+        <div class="rightside">
+            <div *ngIf="!(true|isLoggedIn);else loggedInTemplate" class="nav-bar">
+                <button class="btn btn-sign-in " routerLink="/login">Sign In</button>
+                <button class="btn btn-sign-up" routerLink="/sign-up">Sign Up</button>
+            </div>
+            <ng-template #loggedInTemplate>
+                <div class="nav-bar__right">
+                    <button class="btn btn-sign-in " routerLink="/home/content/dashboard">Go to Dashboard</button>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+    <div style="background-image: url(../../assets/landingpage.jpg);" class="landing">
+        <div class="right">
+            <div class="text">
+                <h1>Construct-Tek allows you to manage your project </h1>
+
+                <div class="text2">
+                    <h2>Find skilled personnels to help you build your project with ease</h2>
+                </div>
+
+                <div class="btn-container">
+                    <button>Get Started</button>
+                    <div></div>
+                    <h4>Try demo</h4>
+                    <div></div>
+                    <h4>Watch video</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
