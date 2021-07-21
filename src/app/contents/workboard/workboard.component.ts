@@ -6,6 +6,7 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
+import { AngularFirestore } from '@angular/fire/firestore';
 // import { MatCardHarness } from '@angular/material/card/testing';
 // import { Task} from 'src/app/model/model';
 
@@ -29,20 +30,19 @@ export class WorkboardComponent implements OnInit {
 
   hooks:any;
   hooks2:any;
+  Team:any[]=[];//varaible for the team
 
   listoftasks=[];
-  // titlevisible = true; // for editting the title of the list;
-  // Cardvisible = true; //for adding a new todo list;
+
+  //variable for teh team id's
+  TeamId=[]
 
 
   constructor(
     private projectservice: ProjectService,
-    private activatedroute: ActivatedRoute
+    private activatedroute: ActivatedRoute,
+    private afs:AngularFirestore
   ) {
-
-    //loading the teams in the project
-
-
   }
 
   ngOnInit(): void {
@@ -57,9 +57,14 @@ export class WorkboardComponent implements OnInit {
         console.log('these are the results', results);
         this._projects = results;
         this.listoftasks=this._projects.Tasks;
-        console.log("Teams", results.Teams);
-          //laoding the team members
-          // this.projectservice.loadTeamMembers(results.Teams);
+        // console.log("Teams", results.Teams);
+        //laoding the team members
+        if(results.Teams!=null){
+         this.loadTeamMembers(results.Teams);
+        }else{
+
+        }
+
       });
     });
 
@@ -69,6 +74,21 @@ export class WorkboardComponent implements OnInit {
 
   }
 
+  //loading the team
+loadTeamMembers(TeamMembers:any){
+  let members=[];
+  this.Team=[]
+
+  for (let i = 0; i < TeamMembers.length; i++) {
+   this.afs.collection('Users').doc(TeamMembers[i]).get().subscribe((results)=>{
+     members.push(results.data())
+     this.Team.push(results.data())
+     console.log("members of the team", members)
+     console.log("membersssssss of the team", this.Team)
+   });
+  };
+
+}
   //adding a new list
   Addlist(){
     // this.listoftasks.push({taskname:'',Task:[]});

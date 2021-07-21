@@ -32,13 +32,49 @@
     }
 }
 
+.teamcontainer {
+    display: flex;
+    position: relative;
+    p {
+        // font-size: 12px;
+        position: absolute;
+        width: 40px;
+        overflow: hidden;
+        top: 14px;
+        // color: #050202;
+        margin-left: 12px !important;
+        // padding: 0px 10px;
+        // background: white;
+    }
+    img+p::first-letter {
+        color: white;
+        overflow: hidden;
+        width: 40px;
+        // background-color: black;
+        // border-radius: 2px;
+        // box-shadow: 3px 3px 0 red;
+        font-size: 200%;
+        padding: 6px 3px;
+        margin-right: 6px;
+        // float: left;
+    }
+}
+
+.team {
+    height: 48px;
+    border-radius: 50%;
+    width: 50px;
+    margin-right: -11px;
+    border: 1px solid white;
+}
+
 .workarea {
     display: flex;
     grid-gap: 10px;
     margin-top: 20px;
     // flex-direction: row-reverse;
     // justify-content: flex-end;
-    width: 90%;
+    width: 94%;
     /* border: 1px solid; */
     overflow: auto;
     height: 80vh;

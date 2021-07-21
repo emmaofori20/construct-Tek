@@ -3,6 +3,14 @@
         <div class="container_top">
             <h1>{{_projects?.project?.name}}</h1>
             <h2>Invite</h2>
+            <div class="teamcontainer">
+                <div *ngFor="let team of Team">
+
+                    <img [src]="team.user.photo" alt="" class="team">
+                    <p>{{team.user.firstName}}</p>
+                </div>
+            </div>
+
         </div>
 
         <div class="workarea">

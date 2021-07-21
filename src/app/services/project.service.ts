@@ -12,6 +12,8 @@ import { UserServiceService } from './user-service.service';
 })
 export class ProjectService {
 
+
+
   private arrayUnion = firebase.default.firestore.FieldValue.arrayUnion;
   private arrayRemove = firebase.default.firestore.FieldValue.arrayRemove;
 
@@ -40,7 +42,7 @@ export class ProjectService {
 
     //getting the user details
     this.userservice.getActiveUser(this.Userid).subscribe((res: any) => {
-      console.log(res);
+      // console.log(res);
       this.username = res.user.lastName;
     });
   }
@@ -216,17 +218,6 @@ for (let i = 0; i < listoftasks.length; i++) {
     this.afs.collection('Users').doc(workerid).collection("AssignedProjects").doc(userprojectid).set({userprojectid,'userid': userid});
   }
 
-//loading the team
-  loadTeamMembers(TeamMembers:any){
-    let Team:any=[];
-    for (let index = 0; index < TeamMembers.length; index++) {
-     this.afs.collection('Users').doc(TeamMembers[index]).get().subscribe((res:any)=>{
-      // console.log(res)
-     });
-      // Team.push(member)
-    }
-    console.log("the team members", Team);
-  }
 //deleting a project
   deleteproject(projectid){
   console.log("the delete project id", projectid);

@@ -21,7 +21,7 @@ export class ProjectsComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-
+    this.loaderService.setHttpProgressStatus(true);
     //getting user projects
     this.userprojects();
 
@@ -36,7 +36,7 @@ export class ProjectsComponent implements OnInit {
   userprojects(){
 
     this.loaderService.setHttpProgressStatus(true);
-    this.projectservice.getUserproject().subscribe(res=>{
+    this.projectservice.getUserproject().subscribe((res:any)=>{
       console.log("users projects", res);
      this.allprojects=res;
     });
@@ -69,9 +69,9 @@ export class ProjectsComponent implements OnInit {
       }
     }
 
-    //function to open modal
-    deleteproject(event,item){
-      event.stopPropagation();
+  //function to open modal
+    deleteproject(e,item){
+      e.stopPropagation();
       this.modalState=true;
       this.message="Are you sure you want to delete this project?";
       this.deletedproject=item;
