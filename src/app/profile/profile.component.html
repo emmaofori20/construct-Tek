@@ -28,9 +28,15 @@
                             <h3>Request</h3>
 
                             <h2 class="smart-tooltip stay-buttom stick-300 stayonhover" id="requests">
-                                <span *ngFor="let item of projects;">
+                                <div *ngIf="projects > 0;else pppp">
+                                    <span *ngFor="let item of projects;">
                                   <h5 (click)="onRequest(item)">{{item.project.name}}</h5>
                                 </span>
+                                </div>
+
+                                <ng-template #pppp>
+                                    <h5>No projects </h5>
+                                </ng-template>
                             </h2>
                         </div>
                     </div>
@@ -91,11 +97,16 @@
 
                     <div class="timeline" id="timeline">
                         <h3>Timeline Photos</h3>
-                        <div class="img-container">
-                            <div *ngFor="let item of workerdetails.user.skill.Wokerimages" class="divdiv">
+                        <div class="img-container" *ngIf="workerdetails.user.skill.Wokerimages.length > 0; else name">
+                            <div *ngFor="let item of workerdetails.user.skill.Wokerimages;" class="divdiv">
                                 <img [src]="item" alt="">
                             </div>
                         </div>
+                        <ng-template #name>
+                            <h3 style="    color: #00000099;
+                            margin: 200px;">No timeline photos available</h3>
+                        </ng-template>
+
 
                     </div>
                 </div>

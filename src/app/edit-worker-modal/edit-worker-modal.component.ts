@@ -74,7 +74,7 @@ export class EditWorkerModalComponent implements OnInit {
 
       try {
         this.loaderService.setHttpProgressStatus(true);
-       let res= this.dataservice.newWorker(this.EditWorkerForm.value, this.workerimages);
+       let res= this.dataservice.updateworkerdetails(this.EditWorkerForm.value);
        this.onBack(false);
        console.log("response from woker ipload", res);
 

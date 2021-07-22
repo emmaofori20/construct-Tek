@@ -106,22 +106,29 @@ export class WorkerComponent implements OnInit {
 
     if (event1.target.files && event1.target.files[0]) {
       var filesAmount = event1.target.files.length;
+
       let file =(event1.target as HTMLInputElement).files[0]
       for (let i = 0; i < filesAmount; i++) {
               var reader = new FileReader();
 
               reader.onload = (event:any) => {
                 // this.workerimages.push((event1.target as HTMLInputElement).files[i]);
-                 this.imagesupload.push(event.target.result);
-                 console.log("the uploaded images", this.imagesupload)
+                //  this.imagesupload.push((event1.target as HTMLInputElement).files[i]);
+                 console.log("the uploaded images", this.imagesupload);
+
+                 let Userid = localStorage.getItem('user');
+                 this.workerservice.uploadFile2((event1.target as HTMLInputElement).files[i],Userid);
               }
 
               reader.readAsDataURL(event1.target.files[i]);
       }
 
-  }
 
   }
+
+
+  }
+
   //deleteing profession details
   onDelete(){
     this.modalState=true;
@@ -153,6 +160,8 @@ export class WorkerComponent implements OnInit {
     this.message="Are you sure you want to leave this project?";
     this.itemproject=item;
   }
+
+  //modal perfoming leave a project
   onModalprojectdelete(results){
     if(results){
       this.workerservice.getdetailsofleaveproject(this.itemproject);

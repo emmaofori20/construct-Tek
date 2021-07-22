@@ -71,6 +71,7 @@ export class WokerModalComponent implements OnInit {
                 reader.onload = (event:any) => {
                   this.workerimages.push((event1.target as HTMLInputElement).files[i]);
                    this.images.push(event.target.result);
+
                 }
 
                 reader.readAsDataURL(event1.target.files[i]);

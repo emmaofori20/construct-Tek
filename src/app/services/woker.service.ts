@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
 import { BehaviorSubject } from 'rxjs';
+import { AngularFireStorage } from '@angular/fire/storage';
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +20,10 @@ export class WorkerService {
   useridproject= new BehaviorSubject<any>({});
 
   workerDetails= new BehaviorSubject<any>({});
+  downloadURL: any;
   constructor(
-    private afs: AngularFirestore
+    private afs: AngularFirestore,
+    private afStorage: AngularFireStorage,
   ) {
 
    }
@@ -99,6 +103,39 @@ export class WorkerService {
     this.afs.collection('Users').doc(userid).collection('Projects').doc(userprojectid).update({
       'Teams': this.arrayRemove(workerid)
     })
+  }
+
+
+  //uploading images to to worker profile
+  async uploadFile(fileItem, userId) {
+    // debugger;
+    console.log('checking item', fileItem);
+    for (let i = 0; i < fileItem.length; i++) {
+      //checking the length of the file
+      if (i < fileItem.length) {
+        await this.uploadFile2(fileItem[i], userId);
+        console.log('check', fileItem[i]);
+      } else {
+        console.log('done uploading');
+      }
+    }
+  }
+
+  private basePath = 'uploads/worker';
+  async uploadFile2(fileItem, userId) {
+    const filePath = `${this.basePath}/${userId}/${fileItem.name}`;
+    const storageRef = this.afStorage.ref(filePath);
+    console.log('loading item ', fileItem);
+
+    // uploading a file to firebase
+    await this.afStorage.upload(filePath, fileItem);
+
+    await this.afs.collection('Users').doc(userId).update({
+      'user.skill.Wokerimages': this.arrayUnion(await storageRef.getDownloadURL().toPromise())
+    })
+    //getting link to the images
+    // this.downloadURL.push(await storageRef.getDownloadURL().toPromise());
+    console.log('url',await storageRef.getDownloadURL().toPromise());
   }
 }
 

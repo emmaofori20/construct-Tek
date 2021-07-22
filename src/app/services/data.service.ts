@@ -112,6 +112,17 @@ export class DataService {
       });
   }
 
+  //update worker details
+  updateworkerdetails(worker){
+    let _userid = localStorage.getItem('user');
+    this.afs
+          .collection('Users')
+          .doc(_userid)
+          .update({ 'user.skill': worker })
+          this.loaderService.setHttpProgressStatus(false);
+
+  }
+
   //workerdetails
   workerDetails(uid) {
     return this.afs.collection('Users').doc(uid).valueChanges();
