@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import * as firebase from 'firebase';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -7,6 +8,12 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class WorkerService {
 
+  //varibles to hold the project we want to leave
+  _userIdproject;
+  projectid;
+
+  private arrayUnion = firebase.default.firestore.FieldValue.arrayUnion;
+  private arrayRemove = firebase.default.firestore.FieldValue.arrayRemove;
   //for holding the id of the user whose project is being viewed
   useridproject= new BehaviorSubject<any>({});
 
@@ -55,6 +62,14 @@ export class WorkerService {
     this.useridproject.next(userid);
   }
 
+  //deleting an image from the workers profession
+  onImagedelete(image){
+    let userid = localStorage.getItem('user');
+    this.afs.collection('Users').doc(userid).update({
+      'user.skill.Wokerimages': this.arrayRemove(image)
+    })
+  }
+
   //deleteing a worker profile
   deleteprofile(userid){
     console.log("the deleting user id", userid);
@@ -62,6 +77,28 @@ export class WorkerService {
       'user.skill' : null,
       'user.isWorker': false
      })
+  }
+
+
+  //leaving a project
+  getdetailsofleaveproject(project){
+    console.log('the project',project.projectId)
+    let userid = localStorage.getItem('user');
+    this.afs.collection('Users').doc(userid).collection('AssignedProjects').doc(project.projectId).get().subscribe(res=>{
+      console.log('the leaving data', res.data().userid);
+      let __userid=res.data().userid;
+      let __projectuserid= res.data().userprojectid;
+      this.removeworker(__userid,__projectuserid,userid);
+      this.afs.collection('Users').doc(userid).collection('AssignedProjects').doc(project.projectId).delete();
+
+    })
+  }
+
+  //removing the worker from the teams
+  removeworker(userid,userprojectid,workerid){
+    this.afs.collection('Users').doc(userid).collection('Projects').doc(userprojectid).update({
+      'Teams': this.arrayRemove(workerid)
+    })
   }
 }
 

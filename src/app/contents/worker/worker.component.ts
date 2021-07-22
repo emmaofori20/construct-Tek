@@ -16,8 +16,11 @@ export class WorkerComponent implements OnInit {
   asignedprojects:any=[];
   _userId: any;
   Editworker = false;
+  imagesupload=[];
   @Output() message: string;
   modalState: boolean;
+  modalState2:boolean;
+  itemproject:any;
 
   constructor(
     private dataservice: DataService,
@@ -50,7 +53,8 @@ export class WorkerComponent implements OnInit {
         .doc(results.docs[index].data().userprojectid)
         .get().subscribe((doc)=>{
           //  documentproject.push(doc);
-          this.asignedprojects.push(doc.data())
+          this.asignedprojects.push(doc.data());
+          console.log('tkhe assigned project',this.asignedprojects)
         });
 
 
@@ -88,6 +92,36 @@ export class WorkerComponent implements OnInit {
 
   }
 
+  //deleting image
+  imagedelete(image){
+    console.log("image url", image);
+    this.workerservice.onImagedelete(image)
+  }
+
+  //uploadingimage
+  Uploadimage(){
+    document.getElementById("file-upload3").click();
+  }
+  onChange(event1){
+
+    if (event1.target.files && event1.target.files[0]) {
+      var filesAmount = event1.target.files.length;
+      let file =(event1.target as HTMLInputElement).files[0]
+      for (let i = 0; i < filesAmount; i++) {
+              var reader = new FileReader();
+
+              reader.onload = (event:any) => {
+                // this.workerimages.push((event1.target as HTMLInputElement).files[i]);
+                 this.imagesupload.push(event.target.result);
+                 console.log("the uploaded images", this.imagesupload)
+              }
+
+              reader.readAsDataURL(event1.target.files[i]);
+      }
+
+  }
+
+  }
   //deleteing profession details
   onDelete(){
     this.modalState=true;
@@ -109,6 +143,23 @@ export class WorkerComponent implements OnInit {
         this.modalState=false
     }else{
       this.modalState=results;
+    }
+  }
+
+  //leaving a project
+  leaveproject(item,i){
+    this.modalState2=true;
+    console.log('the project leeave',item,i);
+    this.message="Are you sure you want to leave this project?";
+    this.itemproject=item;
+  }
+  onModalprojectdelete(results){
+    if(results){
+      this.workerservice.getdetailsofleaveproject(this.itemproject);
+      this.modalState2=false;
+    }
+    else{
+      this.modalState2=results;
     }
   }
 }

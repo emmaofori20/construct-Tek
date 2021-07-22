@@ -51,10 +51,11 @@ export class ProfileComponent implements OnInit {
   }
 // sending a request to add a woker to your project
   onRequest(project){
-    console.log('request', project.projectId, this._workerid);
+    console.log('request','the project id', project.projectId, 'worker id', this._workerid);
     this.projectservice.addworker(project.projectId,this._workerid);
     //assign the project to the worker
-    this.projectservice.assignproject(this._workerid, project.projectId)
+    this.projectservice.assignproject(this._workerid, project.projectId);
+
     confirm(this.workerdetails.user.skill?.name + " has been added to your project " +" ' " + project.project.name +" ' ")
   }
 

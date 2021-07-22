@@ -11,57 +11,70 @@
     <h1>Account</h1>
 
     <div class="profile">
-        <div class="right_side">
-            <div class="top">
-                <span *ngIf="!workerDetails.user.photo" class="material-icons"> account_circle </span>
-                <img *ngIf="workerDetails.user.photo" [src]='workerDetails.user.photo'>
+        <div>
+            <div class="right_side">
+                <div class="top">
+                    <span *ngIf="!workerDetails.user.photo" class="material-icons"> account_circle </span>
+                    <img *ngIf="workerDetails.user.photo" [src]='workerDetails.user.photo'>
 
-                <div class="controls">
-                    <div class="controls_button" (click)="onEdit()">
-                        <i class="far fa-edit"></i>
-                        <h3>Edit Details</h3>
+                    <div class="controls">
+                        <div class="controls_button" (click)="onEdit()">
+                            <i class="far fa-edit"></i>
+                            <h3>Edit Details</h3>
 
-                    </div>
-                    <div class="controls_button" (click)="onDelete()">
-                        <i class="far fa-trash-alt"></i>
-                        <h3>Delete Details</h3>
+                        </div>
+                        <div class="controls_button" (click)="onDelete()">
+                            <i class="far fa-trash-alt"></i>
+                            <h3>Delete Details</h3>
 
-                    </div>
-                </div>
-            </div>
-            <div class="down">
-                <div class="details">
-                    <div class="details_section">
-                        <h4>Display Name</h4>
-                        <h3>{{workerDetails.user.skill.name}}</h3>
-                    </div>
-                    <div class="details_section">
-                        <h4>Location</h4>
-                        <h3>{{workerDetails.user.skill.location}}</h3>
-                    </div>
-
-                    <div class="details_section">
-                        <h4>Email</h4>
-                        <h3>{{workerDetails.user.skill.email}}</h3>
-                    </div>
-                    <div class="details_section">
-                        <h4>Profession</h4>
-                        <h3>{{workerDetails.user.skill.profession}}</h3>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="timeline">
-                <h3>Timeline Photos</h3>
-                <div class="img_container">
-                    <div *ngFor="let image of workerDetails.user.skill.Wokerimages">
+                <div class="down">
+                    <div class="details">
+                        <div class="details_section">
+                            <h4>Display Name</h4>
+                            <h3>{{workerDetails.user.skill.name}}</h3>
+                        </div>
+                        <div class="details_section">
+                            <h4>Location</h4>
+                            <h3>{{workerDetails.user.skill.location}}</h3>
+                        </div>
 
-                        <img [src]="image" alt="img.jpg">
-
+                        <div class="details_section">
+                            <h4>Email</h4>
+                            <h3>{{workerDetails.user.skill.email}}</h3>
+                        </div>
+                        <div class="details_section">
+                            <h4>Profession</h4>
+                            <h3>{{workerDetails.user.skill.profession}}</h3>
+                        </div>
                     </div>
                 </div>
+                <div class="timeline">
+                    <h3>Timeline Photos</h3>
 
+                    <div style="    display: flex;
+                    align-items: center;grid-gap:5px;cursor: pointer;" (click)="Uploadimage( $event)">
+                        <h3>Upload images</h3>
+                        <i class="fa fa-camera" style="    color: #000000c2;"></i>
+                        <input id="file-upload3" type="file" accept="image/*" (change)="onChange($event)" style="display: none;" multiple/>
+                    </div>
+
+
+                    <div class="img_container">
+                        <div *ngFor="let image of workerDetails.user.skill.Wokerimages" style="position:relative">
+
+                            <i class="fas fa-times" (click)="imagedelete(image)"></i>
+                            <img style="width: 300px" [src]="image" alt="img.jpg">
+
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
+
 
         <div class="left_side">
             <h2>Assigned projects</h2>
@@ -74,7 +87,7 @@
 
                 <div class="controlsproject">
                     <button style="background-color: rgba(42, 177, 42, 0.836);" (click)="joinproject(item,i)">Join</button>
-                    <button style="background-color: rgba(199, 43, 43, 0.815);">Leave</button>
+                    <button style="background-color: rgba(199, 43, 43, 0.815);" (click)="leaveproject(item,i)">Leave</button>
 
                 </div>
             </div>
@@ -92,4 +105,8 @@
 
 <div class="Modal" *ngIf="modalState">
     <app-deletemodal [title]="message" (onResult)="onModalResultdelete($event)"></app-deletemodal>
+</div>
+
+<div class="Modal" *ngIf="modalState2">
+    <app-deletemodal [title]="message" (onResult)="onModalprojectdelete($event)"></app-deletemodal>
 </div>

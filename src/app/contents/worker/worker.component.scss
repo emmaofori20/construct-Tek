@@ -24,6 +24,8 @@
     margin-top: 30px;
     display: grid;
     grid-template-columns: 1fr auto;
+    max-height: 81.5vh;
+    overflow: auto;
     .right_side {
         // border: 1px solid black;
         .top {
@@ -91,8 +93,24 @@
                 display: flex;
                 flex-wrap: wrap;
                 grid-gap: 20px;
+                position: relative;
+                i {
+                    position: absolute;
+                    padding: 5px;
+                    background-color: #bebcbc;
+                    border-radius: 20%;
+                    // margin-right: 20px;
+                    z-index: 3;
+                    left: 5px;
+                    top: 5px;
+                    &:hover {
+                        cursor: pointer;
+                        background-color: #3129298c;
+                    }
+                }
                 img {
-                    height: 180px
+                    height: 180px;
+                    position: relative;
                 }
             }
         }
