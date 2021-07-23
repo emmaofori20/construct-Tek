@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage';
 import * as firebase from 'firebase/app';
 import { BehaviorSubject } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 import { Card, project, Task } from '../model/model';
 import { DataService } from './data.service';
 import { UserServiceService } from './user-service.service';
@@ -34,7 +36,9 @@ export class ProjectService {
   constructor(
     private afs: AngularFirestore,
     private data: DataService,
-    private userservice: UserServiceService
+    private userservice: UserServiceService,
+    private afStorage: AngularFireStorage,
+
   ) {
     this._userid = this.data.getuserid();
     this.randomColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -236,4 +240,59 @@ console.log('the id of the project to be editted', projectid);
 
 // });
 }
+
+//setting image in a task
+ //user/worker uploading an image
+ workerImageUpload(file, userid, projectId, maintaskindex, subtaskindex, listoftasks) {
+  this.uploadFile(file, userid, projectId,maintaskindex,subtaskindex,listoftasks);
+  console.log('some file', file,"main tasks index",maintaskindex,"sub tasks index", subtaskindex,"list of task", listoftasks );
+}
+
+// upload file
+private basePath = 'uploads/projectImages';
+async uploadFile(
+  fileItem,
+  userid,
+  projectId,
+  maintaskindex,
+  substaskindex,
+  listoftasks //: Observable<number>
+) {
+  const filePath = `${this.basePath}/${userid}/${projectId}/${fileItem.name}/`;
+  const storageRef = this.afStorage.ref(filePath);
+  const uploadTask = this.afStorage.upload(filePath, fileItem);
+  let __listoftasks:any= listoftasks;
+
+  uploadTask
+    .snapshotChanges()
+    .pipe(
+      finalize(() => {
+        storageRef.getDownloadURL().subscribe((downloadURL) => {
+          console.log('File available at', downloadURL);
+          for (let index = 0; index < __listoftasks[maintaskindex].task.length; index++) {
+            if( index == substaskindex){
+              console.log("card and index", index, __listoftasks[maintaskindex].task[substaskindex].img=downloadURL)
+              this.UpdateTasks(__listoftasks,projectId);
+            }
+
+        }
+        });
+      })
+    )
+    .subscribe();
+}
+
+//assigning tasks to a worker
+AssignTasktoWorker(workername, userid, projectid, mainindex, subtaskindex, listoftasks){
+  let __listoftasks:any= listoftasks;
+
+  for (let index = 0; index < __listoftasks[mainindex].task.length; index++) {
+    if( index == subtaskindex){
+      console.log("card and index", index, __listoftasks[mainindex].task[subtaskindex].assignedto=workername)
+      this.UpdateTasks(__listoftasks,projectid);
+    }
+
+}
+}
+
 }

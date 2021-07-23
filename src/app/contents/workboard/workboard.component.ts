@@ -37,11 +37,16 @@ export class WorkboardComponent implements OnInit {
   //variable for teh team id's
   TeamId=[]
 
+  MainTaskindex:any;
+  Subtaskindex:any;
+
+  //
+  modalstate:boolean;
 
   constructor(
     private projectservice: ProjectService,
     private activatedroute: ActivatedRoute,
-    private afs:AngularFirestore
+    private afs:AngularFirestore,
   ) {
   }
 
@@ -57,7 +62,7 @@ export class WorkboardComponent implements OnInit {
         console.log('these are the results', results);
         this._projects = results;
         this.listoftasks=this._projects.Tasks;
-        // console.log("Teams", results.Teams);
+        console.log("all the task", this.listoftasks);
         //laoding the team members
         if(results.Teams!=null){
          this.loadTeamMembers(results.Teams);
@@ -145,8 +150,9 @@ loadTeamMembers(TeamMembers:any){
      console.log("add tittle", this.hooks[index])
     console.log("index of the titl",index)
   }
-//deleteing a task
-deletelist(i){
+
+  //deleteing a task
+  deletelist(i){
   let deletelist=this.listoftasks[i];
   for (let index = 0; index < this.listoftasks.length; index++) {
     if(i==index){
@@ -156,8 +162,9 @@ deletelist(i){
 
     }
   }
-}
-//for adding a card to the list of a task
+  }
+
+  //for adding a card to the list of a task
   Addcard(index) {
     console.log("index of the card",index);
       for (let i = 0; i < this.hooks2.length; i++) {
@@ -172,10 +179,10 @@ deletelist(i){
         }
       }
       this.hooks2[index]=true;
-    }
+  }
 
-    //for adding a new card
-    oncardname(i){
+  //for adding a new card
+  oncardname(i){
 
       console.log(' change card',i, this.CardName.nativeElement.value);
       let cardmessage= this.CardName.nativeElement.value
@@ -183,13 +190,56 @@ deletelist(i){
       this.hooks2[i]=false;
 
 
-    }
+  }
 
-    //deleteing a card from a list
-    deletecard(card,indexofcard,indexoflistoflistoftasks){
+  //deleteing a card from a list
+  deletecard(card,indexofcard,indexoflistoflistoftasks){
       // console.log("carfty index",card, indexofcard,indexoflistoflistoftasks)
       this.projectservice.deletecardonlist(card, indexofcard,indexoflistoflistoftasks, this.listoftasks, this._projectid);
+  }
+
+  //uploading image unto a compledted task
+  uploadimage(a,i){
+    this.MainTaskindex=i;
+    this.Subtaskindex=a;
+    for (let index = 0; index < this.listoftasks[i].task.length; index++) {
+      if( index == a){
+        console.log('you clicking ' ,a)
+        document.getElementById("file-upload5").click();
+
+      }
+
+}
+  }
+
+  //upload event
+  onChange(event){
+    let Userid = localStorage.getItem('user');
+    let file = (event.target as HTMLInputElement).files[0];
+    if(file){
+      this.projectservice.workerImageUpload(file,Userid,this._projectid,this.MainTaskindex,this.Subtaskindex, this.listoftasks)
     }
+  }
+
+
+  //assigntask to team members
+  assigntaskmodal(a,i){
+    this.MainTaskindex=i;
+    this.Subtaskindex=a;
+    this.modalstate=true
+  }
+
+  onBack(value){
+    this.modalstate=false;
+  }
+
+  assigntask(item){
+    let WorkerName= item.user.skill.name;
+    let Userid = localStorage.getItem('user');
+
+   this.projectservice.AssignTasktoWorker(WorkerName,Userid,this._projectid,this.MainTaskindex,this.Subtaskindex,this.listoftasks);
+   this.modalstate=false
+  }
 
     drop(event: CdkDragDrop<string[]>,i) {
       if (event.previousContainer === event.container) {

@@ -50,7 +50,7 @@
                                         <hr>
                                         <span (click)="toggle3(i)">Rename</span>
                                         <hr>
-                                        <span>Add Image</span>
+                                        <span>Set Measure</span>
                                     </h3>
                                 </div>
 
@@ -65,7 +65,6 @@
                         </ng-template>
                         <!-- template for list of Task title -->
                     </div>
-
 
 
                     <div>
@@ -86,18 +85,49 @@
 
                     <div cdkDropList #task.taskname="cdkDropList" [cdkDropListData]="task.taskname" class="example-list" (cdkDropListDropped)="drop($event,i)" *ngIf="task.task!=0">
                         <div>
-                            <div class="example-box" *ngFor="let item of task.task; let a=index" cdkDrag>
-                                <span>{{item.task}}</span>
+                            <div *ngFor="let item of task.task; let a=index" cdkDrag>
+                                <div class="example-box1" style=" margin-bottom: 5px;">
+                                    <div class="example-box">
+                                        <span>{{item.task}}</span>
+                                        <!-- slide show -->
+                                        <div smart-tooltip-container class="clicktoshow">
+                                            <i class="fas fa-ellipsis-v" style="padding: 5px ; cursor: pointer;"></i>
 
-                                <div smart-tooltip-container class="clicktoshow">
-                                    <i class="fas fa-ellipsis-v" style="padding: 5px ; cursor: pointer;"></i>
+                                            <h3 class="smart-tooltip stay-left stick-300 stayonhover" id="tts">
+                                                <span (click)="deletecard(item,a,i)">Delete card<i class="fas fa-trash"></i></span>
+                                                <hr>
+                                                <span (click)="assigntaskmodal(a,i)">Assign to<i class="fas fa-tasks"></i></span>
+                                                <hr>
+                                                <span (click)="uploadimage(a,i)">Add Image <i class="fas fa-camera"></i></span>
+                                                <input id="file-upload5" type="file" accept="image/*" (change)="onChange($event)" style="display:none" />
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div class="img-container" *ngIf="item.img!=0">
 
-                                    <h3 class="smart-tooltip stay-left stick-300 stayonhover" id="tts">
-                                        <span (click)="deletecard(item,a,i)">Delete card</span>
-                                        <hr>
-                                        <span>Assign to</span>
+                                        <img [src]="item.img" alt="">
 
-                                    </h3>
+                                        <a [href]="item.img" [download]="filename">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+
+                                    </div>
+
+                                    <div class="example-box2">
+                                        <h4> IB:
+                                            <span>{{item.issuedby}} </span>
+                                        </h4>
+                                        <h4 style="display: flex;
+                                        align-items: center;">AT:
+                                            <h5 style="white-space: nowrap;
+                                            text-overflow: ellipsis;
+                                            overflow: hidden;
+                                            width: 65px;">{{item.assignedto}} </h5>
+                                        </h4>
+                                    </div>
+
+
+                                    <!-- <hr> -->
                                 </div>
                                 <!-- <i class="fas fa-ellipsis-v" style="padding: 5px ; cursor: pointer;"></i> -->
                             </div>
@@ -112,3 +142,29 @@
 
         </div>
     </div>
+</div>
+
+<!-- modal to display the list  of members -->
+
+<div id="myModal" class="Modal" *ngIf="modalstate">
+    <!-- forgot password details -->
+    <div (click)="onBack(false)" style="position: absolute; left: 0; top: 0;width: 100%; height: 100%;background-color: rgba(0, 0, 0, 0.4); z-index: -1;">
+
+    </div>
+    <div class="modal-content">
+        <div class="wokerbox">
+            <h1 style="text-align: center;">List of workers</h1>
+
+            <div class="woker-content" *ngFor="let item of Team" (click)="assigntask(item)">
+                <div class="nameworker">
+                    <h3>{{item.user.skill.name}}</h3>
+                    <h4>{{item.user.skill.ratings}}<span class="fa fa-star checked" style="    color: orange;"></span></h4>
+                </div>
+                <div class="controls">
+                    <i class="fas fa-user-minus"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -28,8 +28,8 @@
                             <h3>Request</h3>
 
                             <h2 class="smart-tooltip stay-buttom stick-300 stayonhover" id="requests">
-                                <div *ngIf="projects > 0;else pppp">
-                                    <span *ngFor="let item of projects;">
+                                <div *ngIf=" projects !=0;else pppp">
+                                    <span *ngFor="let item of projects">
                                   <h5 (click)="onRequest(item)">{{item.project.name}}</h5>
                                 </span>
                                 </div>

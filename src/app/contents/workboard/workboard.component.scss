@@ -192,7 +192,7 @@
 
 //tooltip styling
 #tts {
-    width: 83px;
+    width: 105px;
     background-color: #fcfafa;
     color: black;
     font-size: 14px;
@@ -216,10 +216,50 @@
 .example-list {
     border: solid 1px #ccc;
     min-height: 60px;
-    background: white;
+    // background: white;
     border-radius: 4px;
     overflow: hidden;
     display: block;
+}
+
+.img-container {
+    height: 160px;
+    width: 248px;
+    img {
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        /* padding: 2px; */
+        border-radius: 1px;
+        background-position: 45%;
+    }
+    a {
+        top: -36px;
+        left: 204px;
+        position: relative;
+        padding: 5px;
+        background: #c4b5b5;
+        &:hover {
+            cursor: pointer;
+            background-color: white;
+        }
+    }
+}
+
+.example-box2 {
+    padding: 13px 10px;
+    /* border-bottom: solid 1px #ccc; */
+    color: rgb(0 0 0 / 58%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    background: white;
+    font-size: 4px;
+    height: 0px;
+    border-radius: 0px 0px 10px 10px;
 }
 
 .example-box {
@@ -234,6 +274,7 @@
     cursor: move;
     background: white;
     font-size: 14px;
+    border-radius: 10px 10px 0px 0px;
 }
 
 .cdk-drag-preview {
@@ -256,4 +297,75 @@
 
 .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+// LIST OF WORKER MODAL//////////////////////////////
+// Register woker modal
+.Modal {
+    /*display: none;*/
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    // padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 200px auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    /* height: 40%; */
+    border-radius: 10px;
+}
+
+.woker-content {
+    background: #0000ff40;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    &:hover {
+        background: rgb(72, 72, 119);
+        cursor: pointer;
+    }
+    .nameworker {
+        h3 {
+            font-family: "Roboto";
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1;
+        }
+        h4 {
+            span {
+                .checked {
+                    color: orange;
+                }
+            }
+        }
+    }
+    .controls {
+        background: #d8d6d6f5;
+        padding: 11px;
+        border-radius: 50%;
+        &:hover {
+            cursor: pointer;
+            background-color: white;
+        }
+    }
 }

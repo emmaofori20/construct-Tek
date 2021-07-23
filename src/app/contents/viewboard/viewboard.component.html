@@ -41,7 +41,7 @@
                                         <hr>
                                         <span (click)="toggle3(i)">Rename</span>
                                         <hr>
-                                        <span>Add Image</span>
+                                        <span>Set Measure</span>
                                     </h3>
                                 </div>
 
@@ -82,18 +82,35 @@
 
                     <div cdkDropList #task.taskname="cdkDropList" [cdkDropListData]="task.taskname" class="example-list" (cdkDropListDropped)="drop($event,i)" *ngIf="task.task!=0">
                         <div>
-                            <div class="example-box" *ngFor="let item of task.task" cdkDrag>
-                                <span>{{item.task}}</span>
+                            <div *ngFor="let item of task.task" cdkDrag>
+                                <div class="example-box1" style=" margin-bottom: 5px;">
+                                    <div class="example-box">
+                                        <span>{{item.task}}</span>
+                                        <!-- slide show -->
+                                        <div smart-tooltip-container class="clicktoshow">
+                                            <i class="fas fa-ellipsis-v" style="padding: 5px ; cursor: pointer;"></i>
 
-                                <div smart-tooltip-container class="clicktoshow">
-                                    <i class="fas fa-ellipsis-v" style="padding: 5px ; cursor: pointer;"></i>
+                                            <h3 class="smart-tooltip stay-left stick-300 stayonhover" id="tts">
+                                                <span (click)="deletecard(item,a,i)">Delete card</span>
+                                                <hr>
+                                                <span>Assign to</span>
+                                                <hr>
+                                                <span>Add Image</span>
 
-                                    <h3 class="smart-tooltip stay-left stick-300 stayonhover" id="tts">
-                                        <span>Delete card</span>
-                                        <hr>
-                                        <span>Assign to</span>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="item.img!=0">
+                                        <img [src]="item.img" alt="">
+                                    </div>
 
-                                    </h3>
+                                    <div class="example-box2">
+                                        <h4><span>IB: </span>{{item.issuedby}}</h4>
+                                        <h4><span>AT: </span> {{item.assignedto}}</h4>
+                                    </div>
+
+
+                                    <!-- <hr> -->
                                 </div>
                                 <!-- <i class="fas fa-ellipsis-v" style="padding: 5px ; cursor: pointer;"></i> -->
                             </div>
