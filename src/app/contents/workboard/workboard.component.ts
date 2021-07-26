@@ -7,6 +7,7 @@ import {
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { LoaderService } from 'src/interceptors/loader.service';
 // import { MatCardHarness } from '@angular/material/card/testing';
 // import { Task} from 'src/app/model/model';
 
@@ -35,7 +36,10 @@ export class WorkboardComponent implements OnInit {
   listoftasks=[];
 
   //variable for teh team id's
-  TeamId=[]
+  TeamId=[];
+
+  //the number of subtasks
+  numbersubtask;
 
   MainTaskindex:any;
   Subtaskindex:any;
@@ -47,11 +51,13 @@ export class WorkboardComponent implements OnInit {
     private projectservice: ProjectService,
     private activatedroute: ActivatedRoute,
     private afs:AngularFirestore,
+    private loaderService: LoaderService,
+
   ) {
   }
 
   ngOnInit(): void {
-
+    this.loaderService.setHttpProgressStatus(true);
       let Userid = localStorage.getItem('user');
     //getting a project data after reloading
       this.activatedroute.params.subscribe((params) => {
@@ -63,6 +69,8 @@ export class WorkboardComponent implements OnInit {
         this._projects = results;
         this.listoftasks=this._projects.Tasks;
         console.log("all the task", this.listoftasks);
+        this.loaderService.setHttpProgressStatus(false);
+
         //laoding the team members
         if(results.Teams!=null){
          this.loadTeamMembers(results.Teams);
@@ -241,6 +249,34 @@ loadTeamMembers(TeamMembers:any){
    this.modalstate=false
   }
 
+  //setting a meaure to track the progress of the report
+  setmeasure(index){
+    let indexTosetMeasure=index;
+    let Userid = localStorage.getItem('user');
+    console.log('the index to set measure', indexTosetMeasure);
+    this.afs.collection("Users").doc(Userid).collection('Projects').doc(this._projectid).update({
+      'OnSetmeasure':true,
+      'indexedValue': index
+    });
+    document.getElementById('elemtrack').style.display='flex';
+    //calculating the subtasks
+    this.numbersubtask=this.projectservice.subtaskcalc(index, this.listoftasks);
+    console.log("the progress", this.numbersubtask);
+  }
+  // unsettting the measure
+  unsetmeasure(index){
+    let indexTosetMeasure=index;
+    document.getElementById('elemtrack').style.display='none';
+    let Userid = localStorage.getItem('user');
+    console.log('the index to set measure', indexTosetMeasure);
+    this.afs.collection("Users").doc(Userid).collection('Projects').doc(this._projectid).update({
+      'OnSetmeasure':false,
+      'indexedValue': null
+
+    });
+  }
+
+
     drop(event: CdkDragDrop<string[]>,i) {
       if (event.previousContainer === event.container) {
         console.log('event container', event.container)
@@ -252,6 +288,7 @@ loadTeamMembers(TeamMembers:any){
                           this.listoftasks[i].task,//container
                           event.previousIndex,
                           event.currentIndex);
+                          this.projectservice.UpdateTasks(this.listoftasks, this._projectid);
 
                           console.log('event previous container', event.previousContainer.data)
 

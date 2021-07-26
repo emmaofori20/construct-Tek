@@ -59,6 +59,7 @@ export class ProjectService {
       tasks: 0,
       workers: 0,
       color: '#' + this.randomColor,
+      projectProgress: '0'
     };
 
     // seeting a default task
@@ -94,6 +95,7 @@ export class ProjectService {
             project,
             Tasks: [task],
             backgroundImage: this.backgroundImage[this.image],
+            'isProjectComplete': false
           });
         console.log('Document written with ID: ', docRef.id);
         this.image = 0;
@@ -192,11 +194,32 @@ for (let i = 0; i < listoftasks.length; i++) {
 }
 
 //updating tasks
-  UpdateTasks(updatedtasks:any, projectId){
+ async UpdateTasks(updatedtasks:any, projectId){
   let updatetask=this.afs.collection('Users').doc(this.Userid).collection('Projects').doc(projectId);
   // updatetask.update({Tasks: updatedtasks });
   console.log("the tasks", updatedtasks);
   updatetask.update({'Tasks': updatedtasks})
+
+  //measureing progress
+  let indexvalue;
+  let alltask
+  await this.afs.collection("Users").doc(this.Userid).collection('Projects').doc(projectId).get().subscribe(async(res:any)=>{
+    console.log('the dtata recieved', res.data().Tasks);
+    indexvalue=res.data().indexedValue;
+    alltask= res.data().Tasks;
+
+    //calculate progresss
+   let Projectprogress=await this.subtaskcalc(indexvalue,alltask);
+
+    await this.afs.collection("Users").doc(this.Userid).collection('Projects').doc(projectId).update({
+      'project.projectProgress': Math.round(Projectprogress)
+    })
+
+
+  })
+
+
+
 }
 
 //adding a worker to your project
@@ -295,4 +318,24 @@ AssignTasktoWorker(workername, userid, projectid, mainindex, subtaskindex, listo
 }
 }
 
+//calculating the number of sub tasks in the list
+subtaskcalc(index, listoftasks){
+console.log('the list of the task', listoftasks, 'index cal', index);
+//the variable is for the number of task on the set measure list
+let y:any= listoftasks[index].task.length
+console.log('the why thing', y)
+
+//variable y is for the total number of task on the bord
+let x:any=0;
+for (let superindex = 0; superindex < listoftasks.length; superindex++) {
+  console.log('the index reached',superindex)
+  console.log('he  sdnkndkns', x=x+listoftasks[superindex].task.length)
+}
+
+
+let total= (y/x)*100;
+
+console.log('teh final total', total)
+return(total);
+}
 }

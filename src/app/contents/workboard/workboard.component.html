@@ -42,6 +42,13 @@
                         <div>
                             <div class="control-button" *ngIf="!hooks[i];else Data;">
                                 <h3 (click)="toggle3(i)" style="width: 90%;">{{task.taskname}}</h3>
+
+                                <div id="elemtrack" style='        height: 15px;
+                                width: 15px;
+                                background-color: rgb(17 117 10);
+                                border-radius: 50%;
+                                display: none;'></div>
+
                                 <div smart-tooltip-container class="clicktoshow">
                                     <i class="fas fa-ellipsis-v"></i>
 
@@ -50,7 +57,12 @@
                                         <hr>
                                         <span (click)="toggle3(i)">Rename</span>
                                         <hr>
-                                        <span>Set Measure</span>
+                                        <div *ngIf=" i+1 == listoftasks.length">
+                                            <span (click)="setmeasure(i)">Set Measure</span>
+                                            <hr>
+                                            <span (click)="unsetmeasure(i)">Unset Measure</span>
+                                        </div>
+
                                     </h3>
                                 </div>
 

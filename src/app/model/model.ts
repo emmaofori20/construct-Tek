@@ -30,7 +30,8 @@ export interface project{
   description:string,
   tasks:number,
   workers:number,
-  color:string
+  color:string,
+  projectProgress:string,
 }
 
 export interface Card{
