@@ -82,12 +82,11 @@ export class WorkerComponent implements OnInit {
 
   //join the project
   joinproject(item,index){
-    debugger;
     this.workerservice.assignedprojects().subscribe((data:any)=>{
       // console.log("userid of index",data.docs[index].data().userid);
       console.log("project", item);
       this.workerservice.viewinguseridproject(data.docs[index].data().userid)
-      this.router.navigate(['/dashboard/content/viewboard/', item.projectId]);
+      this.router.navigate(['/dashboard/content/viewboard/', item.projectId,data.docs[index].data().userid ]);
     })
 
   }
@@ -98,7 +97,7 @@ export class WorkerComponent implements OnInit {
     this.workerservice.onImagedelete(image)
   }
 
-  //uploadingimage
+  //uploadingimage for the workers profile
   Uploadimage(){
     document.getElementById("file-upload3").click();
   }

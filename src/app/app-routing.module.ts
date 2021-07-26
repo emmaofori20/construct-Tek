@@ -23,7 +23,7 @@ const routes: Routes = [
       {path: 'projects', component: ProjectsComponent},
       {path: 'worker', component: WorkerComponent},
       {path: 'projectboard/:projectId', component:WorkboardComponent},
-      {path: 'viewboard/:projectId', component: ViewboardComponent}
+      {path: 'viewboard/:projectId/:userid', component: ViewboardComponent}
     ] }
   ]},
   {path: '', redirectTo: '/login', pathMatch: 'full'},

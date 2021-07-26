@@ -29,6 +29,8 @@ export class ViewboardComponent implements OnInit {
   hooks2:any;
 
   listoftasks=[];
+  MainTaskindex: any;
+  Subtaskindex: any;
 
   constructor(private projectservice: ProjectService,
     private activatedroute: ActivatedRoute,private workerservice:WorkerService) {
@@ -45,7 +47,8 @@ export class ViewboardComponent implements OnInit {
     this.activatedroute.params.subscribe((params) => {
       console.log('these are the activated route', params);
        this._projectid = params['projectId'];
-      console.log('projectId',this._projectid);
+       this.useridproject=params['userid']
+      console.log('projectId',params);
       this.projectservice.userproject(this._projectid,this.useridproject).subscribe((results:any) => {
         console.log('these are the results', results);
         this._projects = results;
@@ -89,13 +92,18 @@ export class ViewboardComponent implements OnInit {
               this.listoftasks[i].taskname = this.changeListname.nativeElement.value;
               console.log("new name",this.listoftasks[i].taskname);
               console.log("entire list", this.listoftasks);
-              this.projectservice.UpdateTasks(this.listoftasks, this._projectid);
+              this.projectservice.UpdateTasksworkers(this.listoftasks, this._projectid,this.useridproject);
               this.hooks[index]=false;
             }
      }
 
   }
 
+// delete card worker
+deletecard(card,indexofcard,indexoflistoflistoftasks){
+  // console.log("carfty index",card, indexofcard,indexoflistoflistoftasks)
+  this.projectservice.deletecardonlistworker(card, indexofcard,indexoflistoflistoftasks, this.listoftasks, this._projectid, this.useridproject);
+}
 
   toggle3(index){
 
@@ -122,7 +130,7 @@ deletelist(i){
     if(i==index){
       console.log("index of the item to be deleted",i);
       this.listoftasks.splice(i,1)
-      this.projectservice.UpdateTasks(this.listoftasks, this._projectid);
+      this.projectservice.UpdateTasksworkers(this.listoftasks, this._projectid,this.useridproject);
 
     }
   }
@@ -149,24 +157,45 @@ deletelist(i){
 
       console.log(' change card',i, this.CardName.nativeElement.value);
       let cardmessage= this.CardName.nativeElement.value
-      this.projectservice.onaddcard(this.listoftasks, i,this._projectid,cardmessage);
+      this.projectservice.onaddcardworker(this.listoftasks, i,this._projectid,cardmessage,this.useridproject);
       this.hooks2[i]=false;
 
 
     }
 
+    //worker uploading image
+    uploadimage(a,i){
+      this.MainTaskindex=i;
+      this.Subtaskindex=a;
+      for (let index = 0; index < this.listoftasks[i].task.length; index++) {
+        if( index == a){
+          console.log('you clicking ' ,a)
+          document.getElementById("file-upload5").click();
+
+        }
+
+      }
+    }
+
+      //upload event
+  onChange(event){
+    let file = (event.target as HTMLInputElement).files[0];
+    if(file){
+      this.projectservice.workerImageUpload(file,this.useridproject,this._projectid,this.MainTaskindex,this.Subtaskindex, this.listoftasks)
+    }
+  }
     drop(event: CdkDragDrop<string[]>,i) {
       if (event.previousContainer === event.container) {
         console.log('event container', event.container)
         moveItemInArray(this.listoftasks[i].task, event.previousIndex, event.currentIndex);
-        this.projectservice.UpdateTasks(this.listoftasks, this._projectid);
+        this.projectservice.UpdateTasksworkers(this.listoftasks,this._projectid,this.useridproject);
 
       } else {
         transferArrayItem( this.listoftasks[i-1].task,//previous container
                           this.listoftasks[i].task,//container
                           event.previousIndex,
                           event.currentIndex);
-
+                          this.projectservice.UpdateTasksworkers(this.listoftasks,this._projectid,this.useridproject);
                           console.log('event previous container', event.previousContainer.data)
 
       }

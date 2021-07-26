@@ -179,7 +179,29 @@ for (let i = 0; i < listoftasks.length; i++) {
 
 }
 
-//delete card
+//worker addding a card
+onaddcardworker(listoftasks,index, projectid,cardmessage,userid){
+  let _listoftasks=listoftasks
+let card:Card={
+  issuedby:this.username,
+  assignedto:"",
+  task: cardmessage,
+  img:""
+}
+for (let i = 0; i < listoftasks.length; i++) {
+  if(index==i)  {
+    // _listoftasks[i].task= _listoftasks.task[i].push(card);
+    console.log("updated task in firebase", _listoftasks[i].task.push(card))
+    console.log("updated task in firebase222", _listoftasks)
+
+    this.UpdateTasksworkers(_listoftasks,projectid,userid);
+
+  }
+}
+
+}
+
+//delete card user
   deletecardonlist(card,indexofcard, indexoflistoflistoftasks,listoftasks, projectid){
 
   console.log("cliked",  listoftasks[indexoflistoflistoftasks].task)
@@ -188,6 +210,22 @@ for (let i = 0; i < listoftasks.length; i++) {
             console.log("card and index", index, listoftasks[indexoflistoflistoftasks].task)
             listoftasks[indexoflistoflistoftasks].task.splice(index,1);
             this.UpdateTasks(listoftasks,projectid);
+
+          }
+
+  }
+}
+
+//worker deleting tasks on a list
+deletecardonlistworker(card,indexofcard, indexoflistoflistoftasks,listoftasks, projectid,userid){
+  console.log("cliked",  listoftasks[indexoflistoflistoftasks].task);
+    debugger;
+  for (let index = 0; index < listoftasks[indexoflistoflistoftasks].task.length; index++) {
+          if( index == indexofcard){
+            console.log("card and index", index, listoftasks[indexoflistoflistoftasks].task)
+            listoftasks[indexoflistoflistoftasks].task.splice(index,1);
+            this.UpdateTasksworkers(listoftasks,projectid,userid);
+
           }
 
   }
@@ -217,10 +255,34 @@ for (let i = 0; i < listoftasks.length; i++) {
 
 
   })
-
-
-
 }
+
+//update task for teh workers
+async UpdateTasksworkers(updatedtasks:any, projectId, userid){
+  let updatetask=this.afs.collection('Users').doc(userid).collection('Projects').doc(projectId);
+  // updatetask.update({Tasks: updatedtasks });
+  console.log("the tasks", updatedtasks);
+  updatetask.update({'Tasks': updatedtasks})
+
+  //measureing progress
+  let indexvalue;
+  let alltask
+  await this.afs.collection("Users").doc(userid).collection('Projects').doc(projectId).get().subscribe(async(res:any)=>{
+    console.log('the dtata recieved', res.data().Tasks);
+    indexvalue=res.data().indexedValue;
+    alltask= res.data().Tasks;
+
+    //calculate progresss
+   let Projectprogress=await this.subtaskcalc(indexvalue,alltask);
+
+    await this.afs.collection("Users").doc(this.Userid).collection('Projects').doc(projectId).update({
+      'project.projectProgress': Math.round(Projectprogress)
+    })
+
+
+  })
+}
+
 
 //adding a worker to your project
   addworker( projectid,workerid){
@@ -295,7 +357,7 @@ async uploadFile(
           for (let index = 0; index < __listoftasks[maintaskindex].task.length; index++) {
             if( index == substaskindex){
               console.log("card and index", index, __listoftasks[maintaskindex].task[substaskindex].img=downloadURL)
-              this.UpdateTasks(__listoftasks,projectId);
+              this.UpdateTasksworkers(__listoftasks,projectId,userid);
             }
 
         }

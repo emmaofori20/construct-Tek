@@ -26,13 +26,20 @@
 
 
             <div style="    display: flex;
-          grid-gap: 10px;" cdkDropListGroup>
+              grid-gap: 10px;" cdkDropListGroup>
                 <div class="list" *ngFor="let task of listoftasks; let i= index ">
 
                     <div>
                         <div>
                             <div class="control-button" *ngIf="!hooks[i];else Data;">
                                 <h3 (click)="toggle3(i)" style="width: 90%;">{{task.taskname}}</h3>
+
+                                <div id="elemtrack" style='        height: 15px;
+                                  width: 15px;
+                                  background-color: rgb(17 117 10);
+                                  border-radius: 50%;
+                                  display: none;'></div>
+
                                 <div smart-tooltip-container class="clicktoshow">
                                     <i class="fas fa-ellipsis-v"></i>
 
@@ -41,7 +48,6 @@
                                         <hr>
                                         <span (click)="toggle3(i)">Rename</span>
                                         <hr>
-                                        <span>Set Measure</span>
                                     </h3>
                                 </div>
 
@@ -56,7 +62,6 @@
                         </ng-template>
                         <!-- template for list of Task title -->
                     </div>
-
 
 
                     <div>
@@ -75,14 +80,9 @@
                     </div>
 
 
-
-
-
-
-
                     <div cdkDropList #task.taskname="cdkDropList" [cdkDropListData]="task.taskname" class="example-list" (cdkDropListDropped)="drop($event,i)" *ngIf="task.task!=0">
                         <div>
-                            <div *ngFor="let item of task.task" cdkDrag>
+                            <div *ngFor="let item of task.task; let a=index" cdkDrag>
                                 <div class="example-box1" style=" margin-bottom: 5px;">
                                     <div class="example-box">
                                         <span>{{item.task}}</span>
@@ -91,22 +91,34 @@
                                             <i class="fas fa-ellipsis-v" style="padding: 5px ; cursor: pointer;"></i>
 
                                             <h3 class="smart-tooltip stay-left stick-300 stayonhover" id="tts">
-                                                <span (click)="deletecard(item,a,i)">Delete card</span>
+                                                <span (click)="deletecard(item,a,i)">Delete card<i class="fas fa-trash"></i></span>
                                                 <hr>
-                                                <span>Assign to</span>
-                                                <hr>
-                                                <span>Add Image</span>
-
+                                                <span (click)="uploadimage(a,i)">Add Image <i class="fas fa-camera"></i></span>
+                                                <input id="file-upload5" type="file" accept="image/*" (change)="onChange($event)" style="display:none" />
                                             </h3>
                                         </div>
                                     </div>
-                                    <div *ngIf="item.img!=0">
+                                    <div class="img-container" *ngIf="item.img!=0">
+
                                         <img [src]="item.img" alt="">
+
+                                        <a [href]="item.img" [download]="filename">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+
                                     </div>
 
                                     <div class="example-box2">
-                                        <h4><span>IB: </span>{{item.issuedby}}</h4>
-                                        <h4><span>AT: </span> {{item.assignedto}}</h4>
+                                        <h4> IB:
+                                            <span>{{item.issuedby}} </span>
+                                        </h4>
+                                        <h4 style="display: flex;
+                                          align-items: center;">AT:
+                                            <h5 style="white-space: nowrap;
+                                              text-overflow: ellipsis;
+                                              overflow: hidden;
+                                              width: 65px;">{{item.assignedto}} </h5>
+                                        </h4>
                                     </div>
 
 
@@ -125,3 +137,6 @@
 
         </div>
     </div>
+</div>
+
+<!-- modal to display the list  of members -->
