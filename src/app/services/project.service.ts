@@ -219,7 +219,6 @@ for (let i = 0; i < listoftasks.length; i++) {
 //worker deleting tasks on a list
 deletecardonlistworker(card,indexofcard, indexoflistoflistoftasks,listoftasks, projectid,userid){
   console.log("cliked",  listoftasks[indexoflistoflistoftasks].task);
-    debugger;
   for (let index = 0; index < listoftasks[indexoflistoflistoftasks].task.length; index++) {
           if( index == indexofcard){
             console.log("card and index", index, listoftasks[indexoflistoflistoftasks].task)
