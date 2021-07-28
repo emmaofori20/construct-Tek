@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit {
       this.signupForm.value.Surname,
       this.signupForm.value.email,
       false,
-      " ",
+      "null",
       this.signupForm.value.Confirmpassword,
 
     );
