@@ -11,12 +11,12 @@ import { UserServiceService } from './services/user-service.service';
 })
 export class AppComponent {
   title = 'construct-tek';
-  user:any;
+  user: any;
   constructor(private loaderService: LoaderService,
-    private renderer:Renderer2,
-    private router:Router,
-    private dataservice:DataService
-    ){
+    private renderer: Renderer2,
+    private router: Router,
+    private dataservice: DataService
+  ) {
     this.loaderService.httpProgress().subscribe((status: boolean) => {
       if (status) {
         this.renderer.addClass(document.body, 'busy');
@@ -34,12 +34,12 @@ export class AppComponent {
     if (!_user) {
       //this.router.navigate(["login"]);
       if (!window.location.href.includes("not-found") && (window.location.href.includes("login") || window.location.href.includes("SignUp")))
-      // this.dataservice.setuserid(_user);
-      console.log("user", _user);
-      this.router.navigate(["login"]);
+        // this.dataservice.setuserid(_user);
+        console.log("user", _user);
+      this.router.navigate(["welcome"]);
       console.log("no user");
     }
-     else {
+    else {
       // console.log("user", _user);
       this.dataservice.setuserid(_user);
       // await this.dataservice._setActiveUser(_user);
