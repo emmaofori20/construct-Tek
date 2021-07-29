@@ -33,7 +33,8 @@ export class DataService {
   }
 
   getuserid() {
-    return this.user_id;
+    let _userid = localStorage.getItem('user');
+    return _userid;
   }
 
   setuserid(userid) {

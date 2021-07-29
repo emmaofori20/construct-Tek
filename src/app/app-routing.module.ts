@@ -12,6 +12,7 @@ import { WorkboardComponent } from './contents/workboard/workboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ViewboardComponent} from './contents/viewboard/viewboard.component'
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { LoginSignupComponent } from './login-signup/login-signup.component';
 
 const routes: Routes = [
 
@@ -28,8 +29,10 @@ const routes: Routes = [
   ]},
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'welcome', component:LandingPageComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'sign-up', component: SignupComponent},
+  {path: 'login', component: LoginSignupComponent},
+  {path: 'sign-up', component: SignupComponent}
+  // {path: 'login', component: LoginComponent},
+  // {path: 'sign-up', component: SignupComponent},
 
 ];
 

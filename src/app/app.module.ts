@@ -43,6 +43,7 @@ import { DeletemodalComponent } from './deletemodal/deletemodal.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { IsLoggedInPipe } from './is-logged-in.pipe';
+import { LoginSignupComponent } from './login-signup/login-signup.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,6 +71,7 @@ import { IsLoggedInPipe } from './is-logged-in.pipe';
     EditProjectComponent,
     LandingPageComponent,
     IsLoggedInPipe,
+    LoginSignupComponent,
   ],
   imports: [
     BrowserModule,

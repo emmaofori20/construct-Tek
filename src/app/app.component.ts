@@ -36,7 +36,7 @@ export class AppComponent {
       if (!window.location.href.includes("not-found") && (window.location.href.includes("login") || window.location.href.includes("SignUp")))
       // this.dataservice.setuserid(_user);
       console.log("user", _user);
-      this.router.navigate(["welcome"]);
+      this.router.navigate(["login"]);
       console.log("no user");
     }
      else {

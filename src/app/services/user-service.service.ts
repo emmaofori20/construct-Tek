@@ -65,7 +65,17 @@ export class UserServiceService {
 
         //adding user to the users collection
         this.afs.collection('Users').doc(res.user.uid).set({user,id: res.user.uid});
-        this.router.navigate(['login']);
+
+        //logging the user in
+        this.auth.SignIn(user.email, user.password).then((res)=>{
+          this.loaderService.setHttpProgressStatus(true);
+          console.log('user log in ID', res.user.uid)
+          localStorage.setItem('user', res.user.uid);
+          this.router.navigate(['home-page']);
+          this.loaderService.setHttpProgressStatus(false);
+
+        })
+
         // this.loaderService.setHttpProgressStatus(false);
         this.loaderService.setHttpProgressStatus(false);
       })
