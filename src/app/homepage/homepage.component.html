@@ -1,29 +1,95 @@
 <div>
-    <app-navbar></app-navbar>
+  <app-navbar></app-navbar>
 
-    <div class="contents">
+  <div class="contents">
+    <!-- <div class="search-box"> 
+             <span class="material-icons"> search </span> 
+             <input type="search" name="search-box" id="search" placeholder="Search for a worker" (keyup)="updateSearch($event.target.value)" /> 
+         </div>  -->
 
-        <div class="search-box">
-            <span class="material-icons"> search </span>
-            <input type="search" name="search-box" id="search" placeholder="Search for a worker" (keyup)="updateSearch($event.target.value)" />
-        </div>
-
-        <div class="workers-container" id="workers">
-
-            <div class="worker" *ngFor="let worker of allWokers" (click)="openWorker(worker)">
-                <div class="img-container">
-                    <img [src]="worker.user.photo" alt="">
-                </div>
-                <h4>{{worker.user?.skill.ratings}} <span class="fa fa-star"></span></h4>
-
-                <div class="details">
-                    <h3>Name: <span>{{worker.user?.skill.name}}</span></h3>
-                    <h3>Profession: <span>{{worker.user?.skill.profession}}</span></h3>
-                </div>
-            </div>
-        </div>
-        <app-search id="searchResults" style="display: none;"></app-search>
+<div class="form">
+<div class = "form-group">
+  <div class="dropdown">
+    <div class="default-option">Category</div>
+    <div class="dropdown-list">
+      <ul>
+        <li>Image</li>
+        <li>Vector</li>
+        <li>Music</li>
+        <li>Videos</li>
+      </ul>
     </div>
+  </div>
+  <div class = "search">
+    <input type = "text" class = "Search-input" placeholder="search for images,video,music.....">
+  </div>
+  <button class = "btn" type = "submit"><i class="fas fa-search" ></i></button>
+</div>
+</div>
 
-    <!-- <app-chatbox></app-chatbox> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="allworkers">
+  <div
+  class="container"
+  style="padding: 20px"
+  *ngFor="let worker of allWokers"
+  (click)="openWorker(worker)"
+>
+  <div
+    class="row"
+    style="
+      display: flex;
+      margin-top: 20px;
+      flex-direction: row;
+      grid-gap: 48px;
+    "
+  >
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="our-team">
+        <div class="picture">
+          <img class="img-fluid" [src]="worker.user.photo" alt="" />
+        </div>
+        <div class="team-content">
+          <h3 class="name">{{ worker.user?.skill.name }}</h3>
+          <h4 class="title">{{ worker.user?.skill.name }}</h4>
+          <h4>
+            {{ worker.user?.skill.ratings }}
+            <span class="fa fa-star"></span>
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+   
+
+  </div>
 </div>

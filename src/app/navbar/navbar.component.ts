@@ -15,7 +15,10 @@ export class NavbarComponent implements OnInit {
   _userId;
   constructor(private auth:AuthService, private router: Router, private userservice: UserServiceService, private dataservice:DataService) {
 
-    this._userId= this.dataservice.getuserid();
+    // this._userId= this.dataservice.getuserid();
+    let _userid = localStorage.getItem('user');
+
+    console.log('user id of volitile',_userid)
     //getting the current user id
     this.user=this.userservice.getActiveUser(this.dataservice.getuserid()).subscribe(res=>{
       this.user=res;
