@@ -3,6 +3,9 @@
 
 /****** base**************/
 
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 @import './styles/base/base';
 @import './styles/components/loader';
 * {
@@ -33,5 +36,13 @@ body {
 .smart-tooltip {
     display: none;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
