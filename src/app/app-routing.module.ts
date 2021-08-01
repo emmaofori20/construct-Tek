@@ -29,9 +29,9 @@ const routes: Routes = [
       {path: 'viewboard/:projectId/:userid', component: ViewboardComponent}
     ] }
   ]},
-  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: '', redirectTo: '/welcome', pathMatch: 'full'},
   {path: 'welcome', component:LandingPageComponent},
-  {path: 'login', component: LoginSignupComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'sign-up', component: SignupComponent}
   // {path: 'login', component: LoginComponent},
   // {path: 'sign-up', component: SignupComponent},
