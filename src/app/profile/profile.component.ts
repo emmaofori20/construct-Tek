@@ -3,6 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../services/data.service';
 import { ProjectService } from '../services/project.service';
 import { WorkerService } from '../services/woker.service';
+import '../../assets/smtp.js'// file path
+declare let Email: any;
+
 
 @Component({
   selector: 'app-profile',
@@ -12,7 +15,8 @@ import { WorkerService } from '../services/woker.service';
 export class ProfileComponent implements OnInit {
   workerdetails:any;
   projects;
-  _workerid
+  _workerid;
+
 
   constructor(private activatedroute:ActivatedRoute, private workerservice:WorkerService, private dataservice:DataService, private projectservice: ProjectService) {
     this.workerservice.workerDetails.subscribe((results:any)=>{
@@ -55,6 +59,19 @@ export class ProfileComponent implements OnInit {
     this.projectservice.addworker(project.projectId,this._workerid);
     //assign the project to the worker
     this.projectservice.assignproject(this._workerid, project.projectId);
+
+    //sending the mail to a worker
+    Email.send({
+      Host : 'smtp.elasticemail.com',
+      Username : 'constructtek1@gmail.com',
+      Password : '9DE6B96C1B7D4D099B6CE591631527AF745A',
+      To : 'emmanuelofori2638@gmail.com',
+      From : 'constructtek1@gmail.com',
+      Subject : 'worm',
+      Body : `
+      <i>This is sent as a feedback from my resume page.</i> <br/> <b>Name: </b>${project.projectId} <br /> <b>Email: </b>${project.projectId}<br /> <b>Subject: </b>${project.projectId}<br /> <b>Message:</b> <br /> ${project.projectId} <br><br> <b>~End of Message.~</b> `
+      }).then( message => {alert(message); } );
+
 
     confirm(this.workerdetails.user.skill?.name + " has been added to your project " +" ' " + project.project.name +" ' ")
   }

@@ -46,7 +46,7 @@
         <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
             <!-- Nav Left Side -->
             <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-                <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase text-white" href="https://www.creative-tim.com/learning-lab/tailwindcss-starter-project#/presentation">
+                <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase text-white">
                     <!-- Nav Title -->
                     Construction-Tek
                 </a>
@@ -492,31 +492,35 @@
                                 <p class="leading-relaxed mt-1 mb-4 text-gray-600">
                                     Complete this form and we will get back to you in 24 hours.
                                 </p>
+                                <form [formGroup]='WorkwithusForm' (ngSubmit)='onsubmit()'>
+                                    <div class="relative w-full mb-3 mt-8">
+                                        <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="full-name">
+                  Full Name
+                </label><input type="text" class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full" placeholder="Full Name" style="transition: all 0.15s ease 0s;"
+                                            formControlName='name' />
+                                    </div>
+                                    <!-- Email -->
+                                    <div class="relative w-full mb-3">
+                                        <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="email">
+                  Email
+                </label><input type="email" class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full" placeholder="Email" style="transition: all 0.15s ease 0s;"
+                                            formControlName='email' />
+                                    </div>
+                                    <!-- Message -->
+                                    <div class="relative w-full mb-3">
+                                        <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="message">
+                  Message
+                </label><textarea rows="4" cols="80" class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full" placeholder="Type a message..."
+                                            formControlName='message'></textarea>
+                                    </div>
+                                    <div class="text-center mt-6">
+                                        <button class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1" type="submit" style="transition: all 0.15s ease 0s;">
+                  Send Message
+                </button>
+                                    </div>
+                                </form>
                                 <!-- Name -->
-                                <div class="relative w-full mb-3 mt-8">
-                                    <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="full-name">
-                    Full Name
-                  </label><input type="text" class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full" placeholder="Full Name" style="transition: all 0.15s ease 0s;"
-                                    />
-                                </div>
-                                <!-- Email -->
-                                <div class="relative w-full mb-3">
-                                    <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="email">
-                    Email
-                  </label><input type="email" class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full" placeholder="Email" style="transition: all 0.15s ease 0s;"
-                                    />
-                                </div>
-                                <!-- Message -->
-                                <div class="relative w-full mb-3">
-                                    <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="message">
-                    Message
-                  </label><textarea rows="4" cols="80" class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full" placeholder="Type a message..."></textarea>
-                                </div>
-                                <div class="text-center mt-6">
-                                    <button class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1" type="button" style="transition: all 0.15s ease 0s;">
-                    Send Message
-                  </button>
-                                </div>
+
                             </div>
                         </div>
                     </div>

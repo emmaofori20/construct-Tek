@@ -34,6 +34,12 @@ export class WorkerService {
 
 }
 
+//get worker from a particular category
+getcategoryworkers(nameofcategory){
+  console.log('recieved value',nameofcategory)
+  return this.afs.collection('Users',ref => ref.where("user.skill.profession", "==", `${nameofcategory}`)).valueChanges();
+}
+
   //selecting a particular worker
   selectedwoker(workerdetails){
     this.workerDetails.next(workerdetails)

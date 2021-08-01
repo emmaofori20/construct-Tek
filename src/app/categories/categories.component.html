@@ -1,0 +1,45 @@
+<div>
+    <app-navbar></app-navbar>
+
+    <div class="contents" style="background: url('../../assets/background.png')">
+
+        <div class="search-box">
+            <span class="material-icons"> search </span>
+            <input type="search" name="search-box" id="search" placeholder="Search for a worker" (keyup)="updateSearch($event.target.value)" />
+        </div>
+
+        <div class="workers-container" id="workers">
+
+            <!-- <div class="worker" *ngFor="let worker of allProfession" (click)="openWorker(worker)">
+              <div>{{worker.name}}</div>
+              <div class="img-container">
+                  <img [src]="worker.user.photo" alt="">
+              </div>
+              <h4>{{worker.user?.skill.ratings}} <span class="fa fa-star"></span></h4>
+
+              <div class="details">
+                  <h3>Name: <span>{{worker.user?.skill.name}}</span></h3>
+                  <h3>Profession: <span>{{worker.user?.skill.profession}}</span></h3>
+              </div>
+          </div> -->
+
+            <div class="worker" *ngFor="let worker of allProfessionCategory" (click)="opencategory(worker.name)">
+                <div style="    text-transform: capitalize;">{{worker.name}}s</div>
+                <div class="img-container" *ngIf="worker.name!='Plumber'">
+                    <img src="../../assets/andy.jpg" alt="">
+                </div>
+                <div class="img-container" *ngIf="worker.name=='Plumber'">
+                    <img src="../../assets/emma.jpg" alt="">
+                </div>
+                <!-- <h4>{{worker.user?.skill.ratings}} <span class="fa fa-star"></span></h4> -->
+
+                <div class="details">
+                    <h3>See more...</h3>
+                </div>
+            </div>
+        </div>
+        <app-search id="searchResults" style="display: none;"></app-search>
+    </div>
+
+    <!-- <app-chatbox></app-chatbox> -->
+</div>

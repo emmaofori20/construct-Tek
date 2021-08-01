@@ -13,11 +13,13 @@ import { ProfileComponent } from './profile/profile.component';
 import { ViewboardComponent} from './contents/viewboard/viewboard.component'
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginSignupComponent } from './login-signup/login-signup.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 const routes: Routes = [
 
-  {path: 'home-page', component: HomepageComponent},
+  {path: 'home-page', component: CategoriesComponent},
   {path: 'worker/:id',component: ProfileComponent },
+  {path: 'homepage/:name', component: HomepageComponent},
   {path: 'dashboard', component: DashboardComponent,children:[
     {path: 'content', component: ContentsComponent, children :[
       {path: 'home', component: HomeComponent},

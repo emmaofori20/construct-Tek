@@ -9,6 +9,7 @@ import { SmartTooltipAngularModule } from 'smart-tooltip-angular';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
@@ -44,6 +45,7 @@ import { EditProjectComponent } from './edit-project/edit-project.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { IsLoggedInPipe } from './is-logged-in.pipe';
 import { LoginSignupComponent } from './login-signup/login-signup.component';
+import { CategoriesComponent } from './categories/categories.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +74,7 @@ import { LoginSignupComponent } from './login-signup/login-signup.component';
     LandingPageComponent,
     IsLoggedInPipe,
     LoginSignupComponent,
+    CategoriesComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,6 +88,7 @@ import { LoginSignupComponent } from './login-signup/login-signup.component';
     SmartTooltipAngularModule,
     BrowserAnimationsModule,
     DragDropModule,
+    HttpClientModule
 
 
   ],

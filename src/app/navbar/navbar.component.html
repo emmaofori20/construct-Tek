@@ -9,7 +9,7 @@
             <span *ngIf="user.user?.photo=='null'" class="material-icons"> account_circle </span>
             <img *ngIf="user.user?.photo!='null'" style="height: 40px;width: 40px;border-radius: 50%;" src={{user.user?.photo}}>
             <h4>{{user.user?.firstName}}</h4>
-            <i class="fas fa-caret-down"></i>
+            <i style="color: white;font-size: 13px;" class="fas fa-caret-down"></i>
 
             <h3 style="top: 40px; right: 1px; text-align: center" class="smart-tooltip stay-left stick-300 stayonhover" id="hiddenText">
                 <div class="profile">
@@ -18,7 +18,6 @@
                         <img *ngIf="user.user?.photo!='null'" style="height: 70px;width: 70px;border-radius: 50%;" src={{user.user?.photo}} id="image">
                         <img *ngIf="user?.photo!" src={{user.user?.photo}} id="imagedisplay">
                     </div>
-                    <!-- <img *ngIf="user.photo" style="height: 70px;width: 70px;border-radius: 50%;" src={{user.photo}}> -->
                     <i class="fa fa-camera" (click)="changeProfile($event)"></i>
                     <input id="file-upload" type="file" accept="image/*" (change)="onChange($event)" />
                     <h5>{{user?.user?.firstName}} {{user.user?.lastName}}</h5>
@@ -26,11 +25,20 @@
                 </div>
                 <hr />
                 <p (click)="onDashboard()">Dashboard</p>
-                <!-- <hr/>
-            <p (click)="reset()" routerLinkActive="active" style="padding: 10px;"> Reset password</p> -->
+
                 <hr />
                 <p class="ta" (click)="onLogOut()">logout</p>
             </h3>
         </div>
     </div>
 </div>
+
+<!-- <div class="topnav" id="myTopnav">
+    <a href="#home" class="active">Home</a>
+    <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div> -->
