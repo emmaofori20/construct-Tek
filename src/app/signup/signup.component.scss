@@ -6,9 +6,10 @@
 }
 
 h1 {
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 800;
     margin-bottom: 40px;
+    font-family: 'Poppins';
 }
 
 .right-side {
@@ -29,8 +30,8 @@ h1 {
     align-items: flex-end;
     grid-gap: 20px;
     img {
-        width: 6.5rem;
-        height: 4rem;
+        width: 57px;
+        height: 50px;
         margin-top: 1.63rem;
         margin-left: 2.5rem;
     }
@@ -38,6 +39,7 @@ h1 {
         font-size: 26px;
         font-weight: 600;
         color: #00000094;
+        font-family: 'Poppins';
     }
 }
 
@@ -85,7 +87,7 @@ select {
     display: inline-block;
     box-sizing: border-box;
     font-family: "Poppins";
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
     border: none;
@@ -127,8 +129,7 @@ select {
 }
 
 button {
-    height: 4rem;
-    /* width: 18rem; */
+    height: 50px;
     border-radius: 8px;
     background: #459ce3;
     border: transparent;
@@ -136,12 +137,11 @@ button {
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    /* line-height: 32px; */
     letter-spacing: 0em;
     text-align: center;
     color: #FFFFFF;
     cursor: pointer;
-    width: 15rem;
+    width: 130px;
 }
 
 button:hover {
