@@ -18,7 +18,7 @@ export class CategoriesComponent implements OnInit {
   // Pagination parameters.
   p: Number = 1;
   c:Number=1
-  count: Number = 5;
+  count: Number = 4;
 
   //slideshow parameters
   title: string;
@@ -79,14 +79,14 @@ export class CategoriesComponent implements OnInit {
   //open worker
   openWorker(worker) {
     console.log('worker', worker);
-    this.router.navigate(['worker', worker.id]);
+    this.router.navigate(['dashboard/content/worker', worker.id]);
   }
 
   //opening a categorty
   opencategory(nameofcategory){
   this.worker.getcategoryworkers(nameofcategory)
   console.log('data 2', nameofcategory)
-  this.router.navigate(['homepage', nameofcategory]);
+  this.router.navigate(['dashboard/content/homepage', nameofcategory]);
 
   }
 

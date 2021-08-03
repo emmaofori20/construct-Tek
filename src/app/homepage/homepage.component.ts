@@ -42,7 +42,7 @@ export class HomepageComponent implements OnInit {
   //open worker
   openWorker(worker) {
     console.log('worker', worker);
-    this.router.navigate(['worker', worker.id]);
+    this.router.navigate(['dashboard/content/worker', worker.id]);
   }
 
   getallwokersofaCategory() {

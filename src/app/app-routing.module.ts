@@ -17,12 +17,14 @@ import { CategoriesComponent } from './categories/categories.component';
 
 const routes: Routes = [
 
-  {path: 'home-page', component: CategoriesComponent},
-  {path: 'worker/:id',component: ProfileComponent },
-  {path: 'homepage/:name', component: HomepageComponent},
+  // {path: 'home-page', component: CategoriesComponent},
+  // {path: 'worker/:id',component: ProfileComponent },
+  // {path: 'homepage/:name', component: HomepageComponent},
   {path: 'dashboard', component: DashboardComponent,children:[
     {path: 'content', component: ContentsComponent, children :[
-      {path: 'home', component: HomeComponent},
+      {path: 'home-page', component: CategoriesComponent},
+      {path: 'homepage/:name', component: HomepageComponent},
+      {path: 'worker/:id',component: ProfileComponent },
       {path: 'projects', component: ProjectsComponent},
       {path: 'worker', component: WorkerComponent},
       {path: 'projectboard/:projectId', component:WorkboardComponent},

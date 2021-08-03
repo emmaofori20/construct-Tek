@@ -1,14 +1,15 @@
 .content {
-    height: 92.8vh;
-    margin-top: 10px;
+    height: 100vh;
+    margin-top: 0px;
     /* width: 95vw; */
     overflow: hidden;
+    padding: 60px 0px;
 }
 
 .container {
     // border: 1px solid black;
     // height: 500px;
-    padding: 30px 0px 0px 40px;
+    padding: 30px 0px 0px 0px;
     .container_top {
         display: flex;
         grid-gap: 22px;

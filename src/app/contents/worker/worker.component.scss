@@ -1,6 +1,7 @@
 .container {
     // border: 1px solid black;
-    margin: 12px 12px 12px 40px;
+    padding: 90px 0px;
+    margin: 0px 22px;
     h1 {
         font-family: "poppins";
         font-size: 18px;
@@ -24,7 +25,7 @@
     margin-top: 30px;
     display: grid;
     grid-template-columns: 1fr auto;
-    max-height: 81.5vh;
+    // max-height: 81.5vh;
     overflow: auto;
     .right_side {
         // border: 1px solid black;
@@ -67,8 +68,8 @@
                     h3 {
                         color: #0000008c;
                         width: 75%;
-                        height: 17px;
-                        padding: 10px;
+                        height: 30px;
+                        padding: 0px 5px;
                         border: 1px solid #000000b3;
                         box-sizing: border-box;
                         white-space: nowrap;

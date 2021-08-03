@@ -1,7 +1,7 @@
 .contents {
     background: url('../../assets/background.png')!important;
     background-repeat: no-repeat;
-    padding: 0 0 70px 0px;
+    padding: 15px 0px 70px 0px;
     display: block!important;
     .search-box {
         position: relative;
@@ -29,7 +29,7 @@
         display: flex;
         flex-wrap: wrap;
         grid-gap: 23px;
-        padding: 0px 80px;
+        padding: 0px 60px;
         position: relative;
         .worker {
             background: #fff;

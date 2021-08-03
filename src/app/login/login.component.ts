@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
         console.log('sucessful loglin', res);
         //setting a user after login
         await this.dataservice._setActiveUser(res);
-        this.router.navigate(['home-page']);
+        this.router.navigate(['dashboard/content/home-page']);
         this.loaderService.setHttpProgressStatus(false);
       })
       .catch((err) => {
