@@ -1,44 +1,44 @@
 <div class="navbar">
-    <div class="left-side">
-        <img src="../../assets/Construction Helmet Mockup 1 1.png" alt="" />
-        <h1>Construct-Tek</h1>
-    </div>
+  <div class="left-side">
+      <img src="../../assets/Construction Helmet Mockup 1 1.png" alt="" />
+      <h1>Construct-Tek</h1>
+  </div>
 
-    <div class="right-side">
-        <div id="item" smart-tooltip-container class="clicktoshow">
-            <span *ngIf="user.user?.photo=='null'" class="material-icons"> account_circle </span>
-            <img *ngIf="user.user?.photo!='null'" style="height: 40px;width: 40px;border-radius: 50%;" src={{user.user?.photo}}>
-            <h4>{{user.user?.firstName}}</h4>
-            <i style="color: white;font-size: 13px;" class="fas fa-caret-down"></i>
+  <div class="right-side">
+      <div id="item" smart-tooltip-container class="clicktoshow">
+          <span *ngIf="user.user?.photo=='null'" class="material-icons"> account_circle </span>
+          <img *ngIf="user.user?.photo!='null'" style="height: 40px;width: 40px;border-radius: 50%;" src={{user.user?.photo}}>
+          <h4>{{user.user?.firstName}}</h4>
+          <i style="color: white;font-size: 13px;" class="fas fa-caret-down"></i>
 
-            <h3 style="top: 40px; right: 1px; text-align: center" class="smart-tooltip stay-left stick-300 stayonhover" id="hiddenText">
-                <div class="profile">
-                    <h3 *ngIf="user.user?.photo=='null'" class="material-icons">account_circle</h3>
-                    <div class="imgdisp">
-                        <img *ngIf="user.user?.photo!='null'" style="height: 70px;width: 70px;border-radius: 50%;" src={{user.user?.photo}} id="image">
-                        <img *ngIf="user?.photo!" src={{user.user?.photo}} id="imagedisplay">
-                    </div>
-                    <i class="fa fa-camera" (click)="changeProfile($event)"></i>
-                    <input id="file-upload" type="file" accept="image/*" (change)="onChange($event)" />
-                    <h5>{{user?.user?.firstName}} {{user.user?.lastName}}</h5>
-                    <h6>{{user.user?.email}}</h6>
-                </div>
-                <hr />
-                <p (click)="onDashboard()">Dashboard</p>
+          <h3 style="top: 40px; right: 1px; text-align: center" class="smart-tooltip stay-left stick-300 stayonhover" id="hiddenText">
+              <div class="profile">
+                  <h3 *ngIf="user.user?.photo=='null'" class="material-icons">account_circle</h3>
+                  <div class="imgdisp">
+                      <img *ngIf="user.user?.photo!='null'" style="height: 70px;width: 70px;border-radius: 50%;" src={{user.user?.photo}} id="image">
+                      <img *ngIf="user?.photo!" src={{user.user?.photo}} id="imagedisplay">
+                  </div>
+                  <i class="fa fa-camera" (click)="changeProfile($event)"></i>
+                  <input id="file-upload" type="file" accept="image/*" (change)="onChange($event)" />
+                  <h5>{{user?.user?.firstName}} {{user.user?.lastName}}</h5>
+                  <h6>{{user.user?.email}}</h6>
+              </div>
+              <hr />
+              <p (click)="onDashboard()">Dashboard</p>
 
-                <hr />
-                <p class="ta" (click)="onLogOut()">logout</p>
-            </h3>
-        </div>
-    </div>
+              <hr />
+              <p class="ta" (click)="onLogOut()">logout</p>
+          </h3>
+      </div>
+  </div>
 </div>
 
 <!-- <div class="topnav" id="myTopnav">
-    <a href="#home" class="active">Home</a>
-    <a href="#news">News</a>
-    <a href="#contact">Contact</a>
-    <a href="#about">About</a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-        <i class="fa fa-bars"></i>
-    </a>
+  <a href="#home" class="active">Home</a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+  </a>
 </div> -->

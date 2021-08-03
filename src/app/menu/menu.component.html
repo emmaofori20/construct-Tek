@@ -1,24 +1,66 @@
-<div class="menu">
-    <div class="left-side" (click)="onhome()">
-        <img src="../../assets/Construction Helmet Mockup 1 1.png" alt="" />
-        <h1>Construct-Tek</h1>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body id="body">
+    <div class="container">
+      <div id="sidebar">
+        <div class="sidebar__title">
+          <div class="sidebar__img">
+            <img
+              src="../../assets//Construction Helmet Mockup 1 1.png"
+              alt="logo"
+            />
+            <h1>Construck-Tek</h1>
+          </div>
+          <i
+            onclick="closeSidebar()"
+            class="fa fa-times"
+            id="sidebarIcon"
+            aria-hidden="true"
+          ></i>
+        </div>
 
-
-    <div class="menu-contents">
-        <a routerLinkActive="active" [routerLink]="['content/home']" class="home">
-            <i class="fas fa-home">
-            </i>
-            <h2>Home</h2>
-        </a>
-        <a routerLinkActive="active" [routerLink]="['content/projects']" class="projects">
-            <i class="fas fa-project-diagram"></i>
-            <h2>Project</h2>
-        </a>
-
-        <a routerLinkActive="active" [routerLink]="['content/worker']" class="worker">
+        <div class="sidebar__menu">
+          <div class="sidebar__link active_menu_link">
+            <i class="fa fa-home"></i>
+            <a routerLinkActive="active" [routerLink]="['content/home']" class="home">Dashboard</a>
+          </div>
+          <h2>CONTENT</h2>
+          <div class="sidebar__link">
+            <i class="fas fa-project-diagram" aria-hidden="true"></i>
+            <a routerLinkActive="active" [routerLink]="['content/projects']" class="projects">Project</a>
+          </div>
+          <div class="sidebar__link">
             <i class="fas fa-hard-hat"></i>
-            <h2>Worker</h2>
-        </a>
+            <a
+              routerLinkActive="active"
+              [routerLink]="['content/worker']"
+              class="worker"
+              >Worker</a
+            >
+          </div>
+          <div class="sidebar__link">
+            <i class="fa fa-tasks"></i>
+            <a href="#">Tasks</a>
+          </div>
+
+          <div class="sidebar__logout">
+            <i class="fa fa-power-off"></i>
+            <a href="#">Log out</a>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
