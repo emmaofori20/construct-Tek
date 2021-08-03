@@ -31,8 +31,13 @@ export class WorkerService {
    //Getting all workers
   getallwokers(){
   return this.afs.collection('Users',ref => ref.where("user.isWorker", "==", true)).valueChanges();
+  }
 
-}
+  //getting workers who have rating above 4.5
+
+  highratingworkers(){
+    return this.afs.collection('Users',ref => ref.where("user.skill.ratings", ">", 4.5)).valueChanges();
+  }
 
 //get worker from a particular category
 getcategoryworkers(nameofcategory){

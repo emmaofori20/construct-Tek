@@ -9,6 +9,7 @@ import { SmartTooltipAngularModule } from 'smart-tooltip-angular';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
+import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -75,6 +76,7 @@ import { CategoriesComponent } from './categories/categories.component';
     IsLoggedInPipe,
     LoginSignupComponent,
     CategoriesComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -88,8 +90,8 @@ import { CategoriesComponent } from './categories/categories.component';
     SmartTooltipAngularModule,
     BrowserAnimationsModule,
     DragDropModule,
-    HttpClientModule
-
+    HttpClientModule,
+    NgxPaginationModule
 
   ],
   providers: [
