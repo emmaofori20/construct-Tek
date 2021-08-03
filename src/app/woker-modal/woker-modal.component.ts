@@ -25,7 +25,8 @@ export class WokerModalComponent implements OnInit {
     email: new FormControl('',[Validators.required, Validators.email]),
     gender: new FormControl('', Validators.required),
     Wokerimages: new FormControl(),
-    ratings: new FormControl(2.5)
+    ratings: new FormControl(2.5),
+    reviews: new FormControl([{}])
   })
 
   constructor(private userservice: UserServiceService, private data: DataService, private loaderService: LoaderService,

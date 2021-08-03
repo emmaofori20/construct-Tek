@@ -39,11 +39,11 @@ export class WorkerService {
     return this.afs.collection('Users',ref => ref.where("user.skill.ratings", ">", 4.5)).valueChanges();
   }
 
-//get worker from a particular category
-getcategoryworkers(nameofcategory){
+  //get worker from a particular category
+  getcategoryworkers(nameofcategory){
   console.log('recieved value',nameofcategory)
   return this.afs.collection('Users',ref => ref.where("user.skill.profession", "==", `${nameofcategory}`)).valueChanges();
-}
+  }
 
   //selecting a particular worker
   selectedwoker(workerdetails){

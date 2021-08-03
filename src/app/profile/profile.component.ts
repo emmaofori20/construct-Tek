@@ -19,10 +19,6 @@ export class ProfileComponent implements OnInit {
 
 
   constructor(private activatedroute:ActivatedRoute, private workerservice:WorkerService, private dataservice:DataService, private projectservice: ProjectService) {
-    this.workerservice.workerDetails.subscribe((results:any)=>{
-      this.workerdetails=results;
-      console.log("project",results)
-    });
 
     // requesting a worker to join your project
     this.projectservice.getUserproject().subscribe((res:any)=>{
@@ -53,7 +49,7 @@ export class ProfileComponent implements OnInit {
   openchat(e){
     console.log(e)
   }
-// sending a request to add a woker to your project
+  // sending a request to add a woker to your project
   onRequest(project){
     console.log('request','the project id', project.projectId, 'worker id', this._workerid);
     this.projectservice.addworker(project.projectId,this._workerid);
@@ -77,22 +73,34 @@ export class ProfileComponent implements OnInit {
   }
 
 
-//toggling the timeline
+  //toggling the timeline
   ontimeline(){
     document.getElementById('timeline').style.display='block';
     document.getElementById('timefont').style.color='blue';
     document.getElementById('aboutfont').style.color='black';
     document.getElementById('about').style.display='none';
+    document.getElementById('review').style.display='none';
+
 
   }
-//on about
-onAbout(){
-document.getElementById('about').style.display='block';
-document.getElementById('timefont').style.color='black';
-document.getElementById('aboutfont').style.color='blue';
-document.getElementById('timeline').style.display='none';
+  //on about
+  onAbout(){
+  document.getElementById('about').style.display='block';
+  document.getElementById('timefont').style.color='black';
+  document.getElementById('aboutfont').style.color='blue';
+  document.getElementById('timeline').style.display='none';
+  document.getElementById('review').style.display='none';
 
+  }
+
+
+  onReviews(){
+  document.getElementById('review').style.display='block';
+  document.getElementById('reviewfont').style.color='blue';
+  document.getElementById('aboutfont').style.color='black';
+  document.getElementById('timeline').style.display='none';
+  document.getElementById('about').style.display='none';
+  }
 }
-  }
 
 

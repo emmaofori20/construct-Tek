@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoaderService } from 'src/interceptors/loader.service';
 import { DataService } from '../services/data.service';
+import { ProjectService } from '../services/project.service';
 import { WorkerService } from '../services/woker.service';
 
 @Component({
@@ -14,14 +15,19 @@ import { WorkerService } from '../services/woker.service';
 export class HomepageComponent implements OnInit {
   allWokers: any = [];
   nameofCategory:any;
+  projects: any;
   constructor(
     private worker: WorkerService,
     private activatedroute: ActivatedRoute,
     private loaderService: LoaderService,
     private data: DataService,
-    private router: Router
+    private router: Router,
+    private projectservice: ProjectService
   ) {
-
+    this.projectservice.getUserproject().subscribe((res:any)=>{
+      this.projects = res;
+      console.log("the projects of the user", res)
+    })
   }
 
   ngOnInit(): void {

@@ -20,6 +20,15 @@
                     <h3>Name: <span>{{worker.user?.skill.name}}</span></h3>
                     <h3>Profession: <span>{{worker.user?.skill.profession}}</span></h3>
                 </div>
+
+                <button style="    background-color: #006bd8;
+                height: 36px;
+                border-radius: 10px;" smart-tooltip-container>Add
+                <span class="smart-tooltip stay-buttom stick-300 stayonhover" *ngFor="let item of projects">{{item.project.name}}</span>
+                </button>
+                <button style="    background-color: #bcc2c9;
+                height: 36px;
+                border-radius: 10px;">View Proile</button>
             </div>
         </div>
         <app-search id="searchResults" style="display: none;"></app-search>
