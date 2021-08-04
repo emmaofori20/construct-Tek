@@ -1,39 +1,69 @@
-<div style="    padding: 84px 1px;
-">
-    <!-- <app-navbar></app-navbar> -->
+<div style="padding: 84px 1px">
+  <!-- <app-navbar></app-navbar> -->
 
-    <div class="contents" style="background: url('../../assets/background.png')">
-
-        <!-- <div class="search-box">
+  <div class="contents" style="background: url('../../assets/background.png')">
+    <!-- <div class="search-box">
             <span class="material-icons"> search </span>
             <input type="search" name="search-box" id="search" placeholder="Search for a worker" (keyup)="updateSearch($event.target.value)" />
         </div> -->
 
-        <div class="workers-container" id="workers">
-
-            <div class="worker" *ngFor="let worker of allWokers" (click)="openWorker(worker)">
-                <div class="img-container">
-                    <img [src]="worker.user.photo" alt="">
-                </div>
-                <h4>{{worker.user?.skill.ratings}} <span class="fa fa-star"></span></h4>
-
-                <div class="details">
-                    <h3>Name: <span>{{worker.user?.skill.name}}</span></h3>
-                    <h3>Profession: <span>{{worker.user?.skill.profession}}</span></h3>
-                </div>
-
-                <button style="    background-color: #003366; color:#fff;
-                height: 36px;
-                border-radius: 10px;" smart-tooltip-container>Add
-                <span class="smart-tooltip stay-buttom stick-300 stayonhover" *ngFor="let item of projects">{{item.project.name}}</span>
-                </button>
-                <button style="    background-color:#006bd8 ; color: #fff; 
-                height: 36px;
-                border-radius: 10px;">View Profile</button>
-            </div>
+    <div class="workers-container" id="workers">
+      <div
+        class="worker"
+        *ngFor="let worker of allWokers"
+        (click)="openWorker(worker)"
+      >
+        <div class="img-container">
+          <img [src]="worker.user.photo" alt="" />
         </div>
-        <app-search id="searchResults" style="display: none;"></app-search>
-    </div>
+        <h4>
+          {{ worker.user?.skill.ratings }} <span class="fa fa-star"></span>
+        </h4>
 
-    <!-- <app-chatbox></app-chatbox> -->
+        <div class="details">
+          <h3>
+            Name: <span>{{ worker.user?.skill.name }}</span>
+          </h3>
+          <h3>
+            Profession: <span>{{ worker.user?.skill.profession }}</span>
+          </h3>
+        </div>
+
+        <button
+          style="
+            background-color: #006bd8;
+            width: 80%;
+            height: 36px;
+            margin-left: 20px;
+            border-radius: 5px;
+            color: white;
+          "
+          smart-tooltip-container
+        >
+          Add
+          <span
+            class="smart-tooltip stay-buttom stick-300 stayonhover"
+            *ngFor="let item of projects"
+            >{{ item.project.name }}</span
+          >
+        </button>
+        <button
+          style="
+            background-color: #003366;
+            height: 36px;
+            width: 80%;
+            margin-left: 20px;
+            border-radius: 5px;
+            color: white;
+            margin-bottom: 10px;
+          "
+        >
+          View Profile
+        </button>
+      </div>
+    </div>
+    <app-search id="searchResults" style="display: none"></app-search>
+  </div>
+
+  <!-- <app-chatbox></app-chatbox> -->
 </div>

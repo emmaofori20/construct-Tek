@@ -66,6 +66,10 @@
 
 .sidebar .nav-links li a:hover {
   background: #081d45;
+  outline: none;
+  position: relative;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
 .sidebar .nav-links li i {
