@@ -7,10 +7,15 @@
     grid-template-columns: auto 1fr;
     grid-gap: 30px;
     padding: 35px 55px;
+	
     .left {
         .img-container {
             height: 250px;
             width: 200px;
+            
+           
+	overflow: hidden;
+
             img,
             i {
                 height: 100%;
@@ -151,7 +156,7 @@ button {
         display: flex;
         grid-gap: 20px;
         height: 324px;
-        // border: 1px solid black;
+       
         flex-wrap: wrap;
         overflow: auto;
     }
