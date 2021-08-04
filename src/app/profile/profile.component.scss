@@ -7,15 +7,11 @@
     grid-template-columns: auto 1fr;
     grid-gap: 30px;
     padding: 35px 55px;
-	
     .left {
         .img-container {
             height: 250px;
             width: 200px;
-            
-           
-	overflow: hidden;
-
+            overflow: hidden;
             img,
             i {
                 height: 100%;
@@ -95,6 +91,23 @@ button {
     font-family: initial;
 }
 
+.add-comment {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    grid-gap: 10px;
+    img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50px;
+    }
+    input {
+        height: 35px;
+        width: 88%;
+        border-radius: 20px;
+    }
+}
+
 #requests {
     width: 90px;
     background-color: rgb(192, 192, 192);
@@ -156,7 +169,6 @@ button {
         display: flex;
         grid-gap: 20px;
         height: 324px;
-       
         flex-wrap: wrap;
         overflow: auto;
     }
@@ -168,6 +180,29 @@ button {
             box-shadow: 3px 6px 14px -8px #000000;
             width: 100%;
             height: 100%
+        }
+    }
+}
+
+.comment {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    margin-top: 10px;
+    grid-gap: 20px;
+    width: 50%;
+    img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+    }
+    .cmt {
+        background-color: #e3e3e3;
+        padding: 5px 15px;
+        border-radius: 20px;
+        h4 {
+            font-size: 16px;
+            font-family: initial;
+            font-weight: 600;
         }
     }
 }

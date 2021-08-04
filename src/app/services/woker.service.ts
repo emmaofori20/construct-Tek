@@ -34,7 +34,6 @@ export class WorkerService {
   }
 
   //getting workers who have rating above 4.5
-
   highratingworkers(){
     return this.afs.collection('Users',ref => ref.where("user.skill.ratings", ">", 4.5)).valueChanges();
   }
@@ -116,7 +115,6 @@ export class WorkerService {
     })
   }
 
-
   //uploading images to to worker profile
   async uploadFile(fileItem, userId) {
     // debugger;
@@ -147,6 +145,15 @@ export class WorkerService {
     //getting link to the images
     // this.downloadURL.push(await storageRef.getDownloadURL().toPromise());
     console.log('url',await storageRef.getDownloadURL().toPromise());
+  }
+
+
+   //adding the reviews to a particular wokker
+   addreview(workerid, review){
+    this.afs.collection('Users').doc(workerid).update({
+      'user.skill.reviews': this.arrayUnion(review)
+    })
+    console.log('review added')
   }
 }
 

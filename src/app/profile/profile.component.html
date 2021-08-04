@@ -65,7 +65,7 @@
                         <h3 (click)="onAbout()" id="aboutfont">About</h3>
                         <h3 (click)="onReviews()" id="reviewfont">Reviews</h3>
                     </div>
-                   <hr>
+                    <hr>
 
                     <div class="about" id="about">
                         <h3>Contact info</h3>
@@ -109,7 +109,35 @@
                     </div>
 
                     <div class="review" id="review">
-                        
+
+                        <h1 style="
+                      font-size: 19px;
+                      font-weight: 400;
+                      ">Reviews</h1>
+                        <div class="comment" *ngFor="let review of workerdetails.user.skill.reviews">
+                            <div *ngIf="!workerdetails.user.skill.reviews">
+                                <i class="far fa-user-circle"></i>
+                            </div>
+                            <div *ngIf="workerdetails.user.skill.reviews">
+                                <img [src]="review.image" alt="image">
+                            </div>
+
+                            <div class="cmt">
+                                <h4>{{review.name}}</h4>
+                                <h3>{{review.comment}}</h3>
+                            </div>
+                        </div>
+
+                        <div class="add-comment">
+                            <img [src]="reviewimage" alt="">
+                            <form [formGroup]="ReviewForm" (ngSubmit)="onsend()">
+                                <input type="text" placeholder="Add a review" formControlName="comment">
+                                <i style="    margin-left: 5px;
+                              padding: 4px;
+                              color: blue;" class="far fa-paper-plane" (click)="onsend()"></i>
+                            </form>
+                        </div>
+
                     </div>
                 </div>
             </div>
