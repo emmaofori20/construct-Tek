@@ -1,10 +1,12 @@
 .displayworkers {
     width: 92%;
     margin: -69px 48px;
-    background: #ccc;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid #ccc;
+    background-color: white;
+    box-shadow: 2px 2px 6px 0px rgba(75, 4, 4, 0.8);
     /* border-radius: 20px; */
     // height: 300px;
+    
     padding: 10px 0px;
     height: max-content;
     h1 {
@@ -179,7 +181,7 @@ q {
 //footer
 .footer-clean {
     padding: 50px 0;
-    background-color: #fff;
+    background-color: #ccc;
     color: #4b4c4d;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
 }
