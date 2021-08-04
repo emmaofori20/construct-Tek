@@ -1,7 +1,8 @@
 .contents {
-    background: url('../../assets/background.png')!important;
+    background: #fff!important;
     background-repeat: no-repeat;
     padding: 15px 0px 70px 0px;
+    background-size: 300px 100px;
     display: block!important;
     .search-box {
         position: relative;
@@ -32,25 +33,24 @@
         padding: 0px 60px;
         position: relative;
         .worker {
-            background: #fff;
+            background: #999999;
             position: relative;
             /* height: 300px; */
             display: flex;
             grid-gap: 12px;
             padding: 10px 10px;
             flex-direction: column;
-            border-radius: 10px;
-            -webkit-box-shadow: 7px 8px 12px -8px rgba(0, 0, 0, 0.82);
-            box-shadow: 7px 8px 12px -8px rgba(0, 0, 0, 0.82);
+            border-radius: 25px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
             border: .5px solid #0000004d;
             h4 {
                 position: absolute;
                 top: 23px;
                 right: 25px;
                 width: 50px;
-                background-color: #d0b567;
+                background-color: #006bd8;
                 text-align: center;
-                color: #171717;
+                color: #fff;
                 padding: 3px 4px;
                 font-size: 14px;
                 border-radius: 5px;
@@ -59,10 +59,13 @@
         .img-container {
             height: 195px;
             width: 200px;
-            background-color: #d3d3d3bd;
+            background-color: #fff;
+            border-radius: 25px;
             img {
                 height: 100%;
                 width: 100%;
+                border-radius: 25px;
+               
             }
         }
         .details {
@@ -72,6 +75,7 @@
                 text-overflow: ellipsis;
                 overflow: hidden;
                 width: 196px;
+                color:#fff
             }
             span {
                 font-size: 13px;
@@ -84,5 +88,5 @@
 
 .worker:hover {
     cursor: pointer;
-    transform: scale(1.1, 1.1);
+    transform: scale(1.04, 1.04);
 }

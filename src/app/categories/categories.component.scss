@@ -1,17 +1,18 @@
 .displayworkers {
     width: 92%;
     margin: -69px 48px;
-    background: #f7fd9d;
+    background: #ccc;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
     /* border-radius: 20px; */
     // height: 300px;
     padding: 10px 0px;
     height: max-content;
     h1 {
-        color: #6e7786;
+        color: black;
         font-size: 1.7em;
         font-family: 'Lato', sans-serif;
         font-weight: 600;
-        margin-bottom: 1.2rem!important;
+        margin-bottom: 1.0rem!important;
         text-align: center;
         text-transform: uppercase;
     }
@@ -178,8 +179,9 @@ q {
 //footer
 .footer-clean {
     padding: 50px 0;
-    background-color: rgb(192, 189, 189);
+    background-color: #fff;
     color: #4b4c4d;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
 }
 
 .footer-clean h3 {
@@ -187,6 +189,7 @@ q {
     margin-bottom: 12px;
     font-weight: bold;
     font-size: 16px;
+    color: black;
 }
 
 .footer-clean ul {
@@ -195,6 +198,7 @@ q {
     line-height: 1.6;
     font-size: 14px;
     margin-bottom: 0;
+    color: black;
 }
 
 .footer-clean ul a {

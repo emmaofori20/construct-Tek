@@ -22,14 +22,14 @@
                     <h3>Profession: <span>{{worker.user?.skill.profession}}</span></h3>
                 </div>
 
-                <button style="    background-color: #006bd8;
+                <button style="    background-color: #003366; color:#fff;
                 height: 36px;
                 border-radius: 10px;" smart-tooltip-container>Add
                 <span class="smart-tooltip stay-buttom stick-300 stayonhover" *ngFor="let item of projects">{{item.project.name}}</span>
                 </button>
-                <button style="    background-color: #bcc2c9;
+                <button style="    background-color:#006bd8 ; color: #fff; 
                 height: 36px;
-                border-radius: 10px;">View Proile</button>
+                border-radius: 10px;">View Profile</button>
             </div>
         </div>
         <app-search id="searchResults" style="display: none;"></app-search>
