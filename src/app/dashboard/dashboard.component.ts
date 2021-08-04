@@ -47,17 +47,24 @@ export class DashboardComponent implements OnInit {
 
   }
 
+
+    //for search
+    updateSearch(searchTextValue: string){
+      if(searchTextValue){
+        // document.getElementById('workers').style.display='none';
+        // document.getElementById('searchResults').style.display="flex";
+      this.dataservice.search(searchTextValue);
+      console.log(searchTextValue);
+      this.router.navigate(['dashboard/content/search']);
+    }else{
+      // document.getElementById('workers').style.display='flex';
+      // document.getElementById('searchResults').style.display="none";
+      this.router.navigate(['dashboard/content/home-page']);
+
+    }
+    }
+
 }
 
 
-{/*  <script>
-   let sidebar = document.querySelector(".sidebar");
-let sidebarBtn = document.querySelector(".sidebarBtn");
-sidebarBtn.onclick = function() {
-  sidebar.classList.toggle("active");
-  if(sidebar.classList.contains("active")){
-  sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
-}else
-  sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
-}
-</script>}*/}
+

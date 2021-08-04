@@ -25,11 +25,11 @@
                 <span class="links_name">Worker</span>
             </a>
         </li>
-       
-       
-       
-       
-        
+
+
+
+
+
         <li>
             <a>
                 <i class="bx bx-cog"></i>
@@ -51,12 +51,16 @@
             <span class="dashboard">Dashboard</span>
         </div>
         <div class="search-box">
-            <input type="text" placeholder="Search..." />
+            <input type="text" placeholder="Search..." (keyup)="updateSearch($event.target.value)" />
             <i class="bx bx-search"></i>
         </div>
         <div class="profile-details">
-            <img *ngIf="user.user?.photo!='null'" src={{user.user?.photo}} id="image">
-            <img *ngIf="user?.photo!" src={{user.user?.photo}} id="imagedisplay">
+            <img style="width: 30%;
+            height: 90%;
+            object-fit: cover;" *ngIf="user.user?.photo!='null'" src={{user.user?.photo}} id="image">
+            <img style="width: 30%;
+            height: 90%;
+            object-fit: cover;" *ngIf="user?.photo!" src={{user.user?.photo}} id="imagedisplay">
             <span class="admin_name">{{user?.user?.firstName}} {{user.user?.lastName}}</span>
             <i class="bx bx-chevron-down"></i>
         </div>

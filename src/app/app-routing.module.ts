@@ -5,14 +5,13 @@ import { SignupComponent } from './signup/signup.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ContentsComponent } from './contents/contents.component';
-import { HomeComponent } from './contents/home/home.component';
 import { ProjectsComponent } from './contents/projects/projects.component';
 import { WorkerComponent } from './contents/worker/worker.component';
 import { WorkboardComponent } from './contents/workboard/workboard.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SearchComponent } from './search/search.component';
 import { ViewboardComponent} from './contents/viewboard/viewboard.component'
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { LoginSignupComponent } from './login-signup/login-signup.component';
 import { CategoriesComponent } from './categories/categories.component';
 
 const routes: Routes = [
@@ -28,7 +27,8 @@ const routes: Routes = [
       {path: 'projects', component: ProjectsComponent},
       {path: 'worker', component: WorkerComponent},
       {path: 'projectboard/:projectId', component:WorkboardComponent},
-      {path: 'viewboard/:projectId/:userid', component: ViewboardComponent}
+      {path: 'viewboard/:projectId/:userid', component: ViewboardComponent},
+      {path: 'search', component:SearchComponent}
     ] }
   ]},
   {path: '', redirectTo: '/welcome', pathMatch: 'full'},
