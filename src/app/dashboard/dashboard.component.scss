@@ -151,11 +151,12 @@ nav .search-box input {
     height: 100%;
     width: 100%;
     outline: none;
-    background: #f5f6fa;
+    background: #081d45;
     border: 2px solid #efeef1;
     border-radius: 6px;
     font-size: 18px;
     padding: 0 15px;
+    color: white;
 }
 
 nav .search-box .bx-search {
@@ -172,6 +173,10 @@ nav .search-box .bx-search {
     color: #fff;
     font-size: 22px;
     transition: all 0.4 ease;
+}
+
+.bx-search::placeholder {
+    color: white;
 }
 
 .home-section nav .profile-details {

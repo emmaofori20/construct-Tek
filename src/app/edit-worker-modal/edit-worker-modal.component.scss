@@ -1,35 +1,37 @@
 // Register woker modal
 .Modal {
-    /*display: none;*/
-    /* Hidden by default */
-    position: fixed;
-    /* Stay in place */
-    z-index: 1;
-    /* Sit on top */
-    // padding-top: 100px;
-    /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%;
-    /* Full width */
-    height: 100%;
-    /* Full height */
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
+  /*display: none;*/
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  // padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 200px auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 20%;
-    /* height: 40%; */
-    border-radius: 10px;
+  background-color: #003366;
+  margin: 50px 350px;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 45%;
+  /* height: 40%; */
+  border-radius: 10px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.9);
+  z-index: 1;
 }
 
 // h4 {
@@ -37,86 +39,112 @@
 //     color: #ED1E23;
 //     font-size: 20px;
 // }
+h1 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: uppercase;
+}
 .psd {
-    margin: 10px 115px 5px;
+  margin: 10px 115px 5px;
 }
 
 input {
-    width: 99%;
-    height: 50px;
-    border: none;
-    border-bottom: 2px solid black;
+  width: 99%;
+  height: 50px;
+  border: none;
+  border-bottom: 2px solid black;
+  margin-left: 25px;
 }
 
 .submit {
-    display: flex;
-    grid-gap: 0.94rem;
-    margin: 40px auto;
-    justify-content: center;
+  display: flex;
+  grid-gap: 0.94rem;
+  margin: 40px auto;
+  justify-content: center;
 }
 
 button {
-    height: 4.5rem;
-    width: 12.25rem;
-    border-radius: 1rem;
-    font-size: 1.5rem;
-    border: 2px solid;
-    outline: transparent;
-    cursor: pointer;
-    background-color: #2d2991ad;
-    color: aliceblue;
-    border: none;
+  background-color: #ff6801;
+  color: white;
+  height: 40px;
+  width: 140px;
+  font-size: 13px;
+  border: 2px solid;
+  outline: transparent;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Poppins";
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+  border: none;
+  margin-left: 25px;
 }
 
 .wokerbox {
-    h1 {
-        font-size: 24px;
-        font-family: "Roboto";
-        align-items: center;
-        margin-left: 35%;
-    }
-    form {
-        margin-top: 10px;
-        display: grid;
-        grid-auto-flow: row;
-        // grid-template-columns: 7fr 6fr;
-        box-sizing: border-box;
-        padding-left: 40px;
-        grid-gap: 10px;
-    }
+  h1 {
+    font-size: 24px;
+    font-family: "Roboto";
+    align-items: center;
+    margin-left: 25%;
+  }
+  form {
+    margin-top: 10px;
+    display: grid;
+    grid-auto-flow: row;
+    // grid-template-columns: 7fr 6fr;
+    box-sizing: border-box;
+    padding-left: 40px;
+    grid-gap: 10px;
+  }
 }
 
 .right-side {
-    input[type=email],
-    input[type=text],
-    input[type=number] {
-        width: 85%;
-        padding: 0px 10px;
-        margin: 8px 0;
-        /* display: inline-block; */
-        box-sizing: border-box;
-        font-family: "Poppins";
-        font-size: 1.2rem;
-        font-style: normal;
-        font-weight: 100;
-        /* line-height: 30px; */
-        letter-spacing: 0em;
-        border: none;
-        border-bottom: 2px solid #00000085;
-    }
-    select,
-    label {
-        color: rgba(0, 0, 0, 0.548);
-        width: 82%;
-        padding: 9px 15px;
-        margin: 8px 0;
-        box-sizing: border-box;
-        font-family: "Poppins";
-        font-size: 1.2rem;
-        font-style: normal;
-    }
+  input[type="email"],
+  input[type="text"],
+  input[type="number"] {
+    height: 46px;
+    padding: 0 16px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    outline: 0;
+    transition: 0.2s;
+    margin-top: 20px;
+    width: 85%;
+    font-family: "Poppins";
+
+    /* display: inline-block; */
+
+    /* line-height: 30px; */
+  }
+  select {
+    position: relative;
+    background: 0 0;
+    z-index: 10;
+    width: 85%;
+    background-color: #f9f9f9;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    font-family: "Poppins";
+    margin-left: 25px;
+  }
+  label{
+    color: #fff;
+    
+    font-family: "Poppins";
+    font-size: 0.9rem;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: block;
+    margin-left: 25px;
+  }
 }
 
 .left-side {
-    margin-top: 10px;
+  margin-top: 10px;
 }

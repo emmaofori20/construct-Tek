@@ -33,11 +33,10 @@
     padding: 0px 60px;
    
     .worker {
-      background: #fff;
+      background: #a9a9a9;
       position: relative;
       /* height: 300px; */
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       grid-gap: 20px;
       align-items: stretch;
       flex-direction: column;
