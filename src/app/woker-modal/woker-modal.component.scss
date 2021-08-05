@@ -1,58 +1,37 @@
 // Register woker modal
 .Modal {
-  /*display: none;*/
-  /* Hidden by default */
   position: fixed;
-  /* Stay in place */
   z-index: 1;
-  /* Sit on top */
-  // padding-top: 100px;
-  /* Location of the box */
   left: 0;
   top: 0;
   width: 100%;
-  /* Full width */
   height: 100%;
-  /* Full height */
   overflow: auto;
-  /* Enable scroll if needed */
   background-color: rgb(0, 0, 0);
-  /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4);
-  /* Black w/ opacity */
 }
 
 .modal-content {
-  background: linear-gradient(#141e30, #243b55);
-  margin: 60px auto;
+  background:#003366;
+  margin:10px 280px;
   padding: 20px;
   border: 1px solid #888;
   width: 75%;
-  height: 85%;
+  height: 95%;
   border-radius: 10px;
   box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.9);
+  z-index: 1;
+  line-height: 1.8;
 }
- h1 {
-    margin: 0 0 30px;
-    padding: 0;
-    color: #fff;
-  }
-
-// h4 {
-//     text-align: center;
-//     color: #ED1E23;
-//     font-size: 20px;
-// }
-.psd {
-  margin: 10px 115px 5px;
-}
-
-input {
-  width: 99%;
-  height: 50px;
-  border: none;
-  border-bottom: 2px solid black;
+h1 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: uppercase;
+  
 }
 
 .submit {
@@ -63,22 +42,21 @@ input {
 }
 
 button {
-    background-color: rgb(119, 202, 23);
-    color:white;
-    position: absolute;
-    bottom: 40px;
-    right: 20px;
-    width: 150px;
-    border-radius: 8px;
-    height: 42px;
-    font-size: 16px;
-    font-family: lato, 'helvetica-light', 'sans-serif';
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: bold;
-    outline: none;
-    border: none;
-    cursor: pointer;
+  background-color: #ff6801;
+  color: white;
+  position: absolute;
+  bottom: 60px;
+  right: 20px;
+  width: 140px;
+  display: inline-block;
+  height: 40px;
+  font-size: 13px;
+  font-family: "Poppins";
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
 }
 
 .wokerbox {
@@ -88,6 +66,7 @@ button {
     align-items: center;
     margin-left: 35%;
   }
+  
   form {
     margin-top: 10px;
     display: grid;
@@ -102,48 +81,65 @@ button {
 .right-side {
   input[type="email"],
   input[type="text"],
-  input[type="number"] {
+  input[type="number"]
+   {
     height: 46px;
     padding: 0 16px;
     border: 2px solid #ddd;
     border-radius: 4px;
-    font-family: 'Rubik', sans-serif;
+    font-family: "Rubik", sans-serif;
     outline: 0;
-    transition: .2s;
+    transition: 0.2s;
     margin-top: 20px;
     width: 85%;
     font-family: "Poppins";
-   
-    
   }
-  select
-  {
-    width: 57%;
-    margin-top: 16px;
-    line-height: 1.4;
+  select {
+    position: relative;
+    background: 0 0;
+    z-index: 10;
+     width: 85%;
     background-color: #f9f9f9;
     border: 1px solid #e5e5e5;
-    border-radius: 3px;
-    -webkit-transition: 0.35s ease-in-out;
-    -moz-transition: 0.35s ease-in-out;
-    -o-transition: 0.35s ease-in-out;
-    transition: 0.35s ease-in-out;
-    transition: all 0.35s ease-in-out;
-    padding: 9px 15px;
-    //margin: 8px 0;
-    //box-sizing: border-box;
-    //font-family: "Poppins";
-    //font-size: 1.2rem;
-    //font-style: normal;
+    border-radius: 4px; 
+    font-family: "Poppins";
+    
+  
   }
-  label{
-      color: #fff;
-      margin-right: 10px;
-      font-family: "Poppins";
-      font-size: 0.9rem;
+  label {
+    color: #fff;
+    margin-right: 10px;
+    font-family: "Poppins";
+    font-size: 0.9rem;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: block;
   }
 }
 
 .left-side {
   margin-top: 10px;
 }
+
+ input:focus, select:focus {
+    border: 1px solid #003366; }
+
+    @media screen and (max-width: 992px) {
+      .Modal {
+        width: calc(100% - 40px);
+        max-width: 100%; }
+    
+      .modal-content {
+        flex-direction: column;
+        -moz-flex-direction: column;
+        -webkit-flex-direction: column;
+        -o-flex-direction: column;
+        -ms-flex-direction: column; }
+        .worker-box {
+          width: 100%; } 
+      }
+      @media screen and (max-width: 768px) {
+        .right-side {
+          padding: 50px 40px 50px 40px; } }
