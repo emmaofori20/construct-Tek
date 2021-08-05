@@ -1,19 +1,56 @@
 <div class="workers-container" id="workers">
-
-    <div class="worker" *ngFor="let worker of listwokers">
-        <div class="img-container">
-            <img [src]="worker.user.photo" alt="">
-        </div>
-        <h4>{{worker.user.skill.ratings}}</h4>
-        <div class="details">
-            <h3>Name: <span>{{worker.user.skill.name}}</span></h3>
-            <h3>Profession: <span>{{worker.user.skill.profession}}</span></h3>
-        </div>
+  <div class="worker" *ngFor="let worker of listwokers" >
+    <div class="img-container">
+      <img [src]="worker.user.photo" alt="" />
+    </div>
+    <h4>{{ worker.user.skill.ratings }} <span class="fa fa-star"></span></h4>
+    <div class="details">
+      <h3>
+        Name: <span>{{ worker.user.skill.name }}</span>
+      </h3>
+      <h3>
+        Profession: <span>{{ worker.user.skill.profession }}</span>
+      </h3>
     </div>
 
-    <div *ngIf="listwokers.length==0" style="padding-top:50px; margin:auto; font-size: 20px;
-    color: #fff;">
-        <p>No matched item found</p>
-    </div>
+    <button
+    style="
+      background-color: #006bd8;
+      width: 80%;
+      height: 36px;
+      margin-left: 20px;
+      border-radius: 5px;
+      color: white;
+    "
+    smart-tooltip-container
+  >
+    Add
+    <span
+      class="smart-tooltip stay-buttom stick-300 stayonhover"
+      *ngFor="let item of projects"
+      >{{ item.project.name }}</span
+    >
+  </button>
+  <button
+    style="
+      background-color: #003366;
+      height: 36px;
+      width: 80%;
+      margin-left: 20px;
+      border-radius: 5px;
+      color: white;
+      margin-bottom: 10px;
+    "
+  >
+    View Profile
+  </button>
 
+  </div>
+
+  <div
+    *ngIf="listwokers.length == 0"
+    style="padding-top: 50px; margin: auto; font-size: 20px; color: #006bd8"
+  >
+    <p>No matched item found</p>
+  </div>
 </div>
