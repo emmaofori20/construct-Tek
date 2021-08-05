@@ -64,6 +64,20 @@ export class DashboardComponent implements OnInit {
     }
     }
 
+
+    //uploading profile pic
+    changeProfile(e){
+      console.log(e);
+      document.getElementById("file-upload").click();
+    }
+
+    onChange(event){
+      let file = (event.target as HTMLInputElement).files[0];
+      if(file){
+        this.userservice.UserProfilePhoto(file,this._userId);
+      }
+    }
+
 }
 
 
