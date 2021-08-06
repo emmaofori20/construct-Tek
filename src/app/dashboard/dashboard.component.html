@@ -1,73 +1,83 @@
-<link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+<link
+  href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+  rel="stylesheet"
+/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <div class="sidebar">
-    <div class="logo-details">
-        <i class="bx bxl-c-plus-plus"></i>
-        <span class="logo_name">Con-Tek</span>
-    </div>
-    <ul class="nav-links">
-        <li>
-            <a routerLink='/dashboard/content/home-page' routerLinkActive='active'>
-                <i class="bx bx-grid-alt"></i>
-                <span class="links_name">Dashboard</span>
-            </a>
-        </li>
-        <li>
-            <a routerLink='/dashboard/content/projects' routerLinkActive='active'>
-                <i class="bx bx-box"></i>
-                <span class="links_name">Project</span>
-            </a>
-        </li>
-        <li>
-            <a routerLink='/dashboard/content/worker' routerLinkActive='active'>
-                <i class="bx bx-list-ul"></i>
-                <span class="links_name">Worker</span>
-            </a>
-        </li>
+  <div class="logo-details">
+    <i class="bx bxl-c-plus-plus"></i>
+    <span class="logo_name">Con-Tek</span>
+  </div>
+  <ul class="nav-links">
+    <li>
+      <a routerLink="/dashboard/content/home-page" routerLinkActive="active">
+        <i class="bx bx-grid-alt"></i>
+        <span class="links_name">Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/dashboard/content/projects" routerLinkActive="active">
+        <i class="bx bx-box"></i>
+        <span class="links_name">Project</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/dashboard/content/worker" routerLinkActive="active">
+        <i class="bx bx-list-ul"></i>
+        <span class="links_name">Worker</span>
+      </a>
+    </li>
 
-
-
-
-
-        <li>
-            <a>
-                <i class="bx bx-cog"></i>
-                <span class="links_name">Tasks</span>
-            </a>
-        </li>
-        <li class="log_out">
-            <a (click)="onLogOut()">
-                <i class="bx bx-log-out"></i>
-                <span class="links_name">Log out</span>
-            </a>
-        </li>
-    </ul>
+    <li>
+      <a>
+        <i class="bx bx-cog"></i>
+        <span class="links_name">Tasks</span>
+      </a>
+    </li>
+    <li class="log_out">
+      <a (click)="onLogOut()">
+        <i class="bx bx-log-out"></i>
+        <span class="links_name">Log out</span>
+      </a>
+    </li>
+  </ul>
 </div>
 <section class="home-section">
-    <nav>
-        <div class="sidebar-button">
-            <i class="bx bx-menu sidebarBtn" (click)="onOpensidebar()"></i>
-            <span class="dashboard">Dashboard</span>
-        </div>
-        <div class="search-box">
-            <input type="text" placeholder="Search..." (keyup)="updateSearch($event.target.value)" />
-            <i class="bx bx-search"></i>
-        </div>
-        <div class="profile-details">
-            <img style="width: 30%;
-            height: 90%;
-            object-fit: cover;" *ngIf="user.user?.photo!='null'" src={{user.user?.photo}} id="image">
-            <img style="width: 30%;
-            height: 90%;
-            object-fit: cover;" *ngIf="user?.photo!" src={{user.user?.photo}} id="imagedisplay">
-            <span class="admin_name">{{user?.user?.firstName}} {{user.user?.lastName}}</span>
-            <i class="bx bx-chevron-down"></i>
-        </div>
-    </nav>
-
-    <div class="home-content">
-        <router-outlet></router-outlet>
-
+  <nav>
+    <div class="sidebar-button">
+      <i class="bx bx-menu sidebarBtn" (click)="onOpensidebar()"></i>
+      <span class="dashboard">Dashboard</span>
     </div>
+    <div class="search-box">
+      <input
+        type="text"
+        placeholder="Search..."
+        (keyup)="updateSearch($event.target.value)"
+      />
+      <i class="bx bx-search"></i>
+    </div>
+    <div class="profile-details">
+      <img
+        style="width: 30%; height: 90%; object-fit: cover"
+        *ngIf="user.user?.photo != 'null'"
+        src="{{ user.user?.photo }}"
+        id="image"
+      />
+      <img
+        style="width: 30%; height: 90%; object-fit: cover"
+        *ngIf="user?.photo!"
+        src="{{ user.user?.photo }}"
+        id="imagedisplay"
+      />
+      <span class="admin_name"
+        >{{ user?.user?.firstName }} {{ user.user?.lastName }}</span
+      >
+      <i class="bx bx-chevron-down"></i>
+    </div>
+  </nav>
+
+  <div class="home-content">
+    <router-outlet></router-outlet>
+  </div>
 </section>

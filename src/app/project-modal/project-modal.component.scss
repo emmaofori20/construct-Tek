@@ -22,12 +22,14 @@
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 200px auto;
+    background-color: #003366;
+    margin: 250px 600px;
     padding: 20px;
     border: 1px solid #888;
     width: 350px;
     border-radius: 10px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.9);
+    z-index: 1;
 }
 
 // h4 {
@@ -40,10 +42,12 @@
 }
 
 input {
-    width: 85%;
+    width: 99%;
     height: 50px;
     border: none;
     border-bottom: 2px solid black;
+    margin-bottom: 20px;
+    border-radius: 5px;
 }
 
 .submit {
@@ -51,19 +55,26 @@ input {
     grid-gap: 0.94rem;
     margin: 40px auto;
     justify-content: center;
+    
 }
 
 button {
-    height: 4.5rem;
-    width: 12.25rem;
-    border-radius: 1rem;
-    font-size: 1.5rem;
+    background-color: #ff6801;
+    color: white;
+    height: 40px;
+    width: 140px;
+    font-size: 13px;
     border: 2px solid;
     outline: transparent;
     cursor: pointer;
-    background-color: rgb(39, 145, 39);
-    color: aliceblue;
+    display: inline-block;
+    font-family: "Poppins";
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
     border: none;
+    margin-left: 45px;
+   
 }
 
 p {
