@@ -48,8 +48,8 @@ export class ProfileComponent implements OnInit {
       this.workerservice
         ._detailsWorker(this._workerid)
         .subscribe((results: any) => {
-          console.log('these are the results', results.data());
-          this.workerdetails = results.data();
+          console.log('these are the results', results);
+          this.workerdetails = results;
           this.loaderService.setHttpProgressStatus(false);
         });
     });
@@ -118,6 +118,7 @@ export class ProfileComponent implements OnInit {
   onsend() {
     // console.log('the comment to be sent', this.ReviewForm.value);
     this.workerservice.addreview(this._workerid, this.ReviewForm.value);
+    this.ReviewForm.reset();
   }
 
   //toggling the timeline

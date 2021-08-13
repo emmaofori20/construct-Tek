@@ -184,6 +184,10 @@ button {
     }
 }
 
+.review {
+    display: none;
+}
+
 .comment {
     display: grid;
     grid-template-columns: auto 1fr;
