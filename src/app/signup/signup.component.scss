@@ -10,6 +10,7 @@ h1 {
     font-weight: 800;
     margin-bottom: 40px;
     font-family: 'Poppins';
+    color: #081d45;
 }
 
 .right-side {
@@ -30,15 +31,15 @@ h1 {
     align-items: flex-end;
     grid-gap: 20px;
     img {
-        width: 57px;
-        height: 50px;
+        width:63px;
+        height: 47px;
         margin-top: 1.63rem;
         margin-left: 2.5rem;
     }
     h2 {
         font-size: 26px;
         font-weight: 600;
-        color: #00000094;
+        color: #2697ff;
         font-family: 'Poppins';
     }
 }
@@ -91,7 +92,8 @@ select {
     font-style: normal;
     font-weight: 400;
     border: none;
-    border-bottom: 2px solid #000000b5;
+    border-radius: 5px;
+    border-bottom: 2px solid #081d45;
 }
 
 .show {
@@ -131,7 +133,7 @@ select {
 button {
     height: 50px;
     border-radius: 8px;
-    background: #459ce3;
+    background: #081d45;
     border: transparent;
     font-family: "Poppins";
     font-size: 16px;
@@ -172,7 +174,7 @@ button:hover {
 
 .psw {
     a {
-        color: #009CAA;
+        color: #2697ff;
     }
 }
 

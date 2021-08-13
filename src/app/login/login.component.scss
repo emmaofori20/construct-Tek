@@ -8,6 +8,7 @@
 h1 {
     font-size: 30px;
     font-weight: 800;
+   color: #081d45
 }
 
 // .right-side {
@@ -60,7 +61,7 @@ h1 {
     h2 {
         font-size: 26px;
         font-weight: 600;
-        color: #00000094;
+        color: #2697ff;
         font-family: 'Poppins';
     }
 }
@@ -126,7 +127,8 @@ input[type=password] {
     line-height: 30px;
     letter-spacing: 0em;
     border: none;
-    border-bottom: 2px solid #00000085;
+    border-radius: 5px;
+    border-bottom: 2px solid #081d45;
 }
 
 .forgot-password {
@@ -146,7 +148,7 @@ input[type=password] {
 button {
     height: 50px;
     border-radius: 8px;
-    background: #459ce3;
+    background: #081d45;
     border: transparent;
     font-family: "Poppins";
     font-size: 16px;
@@ -169,7 +171,7 @@ button:hover {
 
 .psw {
     a {
-        color: #009CAA;
+        color: #2697ff;
         font-size: 1rem;
     }
 }
@@ -213,7 +215,7 @@ button:hover {
     }
     .psw {
         a {
-            color: #009CAA;
+            color: #2697ff;
             font-size: 12px;
         }
     }

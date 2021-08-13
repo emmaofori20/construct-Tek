@@ -107,7 +107,7 @@
 
 
             </div>
-            <pagination-controls style="    float: right;margin-bottom:16px" (pageChange)="c = $event"></pagination-controls>
+            <pagination-controls style="    float: right;margin-bottom:16px; margin-top: 10px;" (pageChange)="c = $event"></pagination-controls>
         </div>
 
         <h1>Top rated Artisans</h1>
@@ -120,15 +120,14 @@
                     </div>
 
                     <h4 style="    position: absolute;
-                    top: 1px;
-                    right: 5px;
+                    top: 0px;
+                    right: 0px;
                     width: 63px;
                     background-color: #006bd8;
                     text-align: center;
                     color: white;
                     padding: 3px 4px;
-                    font-size: 14px;
-                    border-radius: 5px;">{{worker.user?.skill.ratings}} <span class="fa fa-star"></span></h4>
+                    font-size: 14px;">{{worker.user?.skill.ratings}} <span class="fa fa-star"></span></h4>
 
                     <div class="overlay">
                         <div class="text">{{worker.user.skill.name}}</div>
@@ -137,7 +136,8 @@
 
 
             </div>
-            <pagination-controls (pageChange)="p = $event" style=" float: right;margin-bottom:16px"></pagination-controls>
+            <pagination-controls (pageChange)="p = $event" style=" float: right;margin-bottom:16px;
+            margin-top:5px;"></pagination-controls>
 
         </div>
 
