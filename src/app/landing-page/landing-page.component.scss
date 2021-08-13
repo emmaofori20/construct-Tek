@@ -2,6 +2,10 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 $border-color: #dadce0;
+* {
+    box-sizing: border-box!important
+}
+
 // @mixin flex($side: "none") {
 //     display: flex;
 //     @if ($side=="none") {

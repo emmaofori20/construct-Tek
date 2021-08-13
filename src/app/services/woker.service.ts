@@ -51,7 +51,7 @@ export class WorkerService {
 
   //reloading a worker details
   _detailsWorker(workerid){
-    return this.afs.collection('Users').doc(workerid).get();
+    return this.afs.collection('Users').doc(workerid).valueChanges();
   }
 
   //projects assifned to a worker

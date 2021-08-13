@@ -23,7 +23,7 @@
 
 .modal-content {
     background-color: #003366;
-    margin: 250px 600px;
+    margin: 200px auto;
     padding: 20px;
     border: 1px solid #888;
     width: 350px;
@@ -42,7 +42,7 @@
 }
 
 input {
-    width: 99%;
+    width: 90%;
     height: 50px;
     border: none;
     border-bottom: 2px solid black;
@@ -55,7 +55,6 @@ input {
     grid-gap: 0.94rem;
     margin: 40px auto;
     justify-content: center;
-    
 }
 
 button {
@@ -74,7 +73,6 @@ button {
     font-weight: 400;
     border: none;
     margin-left: 45px;
-   
 }
 
 p {
