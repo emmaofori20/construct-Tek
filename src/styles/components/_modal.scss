@@ -33,7 +33,8 @@
 /* Modal Content */
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: #fff;
+    flex-direction: column;
     margin: 200px auto;
     padding: 20px;
     border: 1px solid #888;
@@ -51,7 +52,7 @@ button {
     width: 87px;
     height: 35px;
     border-radius: 5px;
-    background: #4c9847;
+    background: #2980b9;
     border: none;
 }
 
