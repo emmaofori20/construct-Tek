@@ -21,7 +21,7 @@
           <div class="right-side">
             <input
               type="text"
-              placeholder="Name or Name of Company"
+              placeholder="Name of Company"
               formControlName="name"
             />
 
@@ -61,6 +61,7 @@
             <div style="display: block">
               <label for="gender">Select Gender: </label>
               <select name="Gender" id="Gender" formControlName="gender">
+        
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
               </select>
@@ -70,9 +71,9 @@
             <div
               (click)="onAddpic()"
               style="
-                margin-top: 20px;
+                margin-top: 5px;
                 display: flex;
-                color: rgb(119, 202, 23);
+                color: #ff6801;
                 cursor: pointer;
                 grid-gap: 5px;
               "
@@ -92,7 +93,7 @@
             <img
               *ngFor="let url of images"
               [src]="url"
-              style="margin: 3px; height: 150px; width: 200px"
+              style="margin: 3px; height: 35px; width: 60px;"
             />
             <br />
           </div>

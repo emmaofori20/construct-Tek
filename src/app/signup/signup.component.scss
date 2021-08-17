@@ -3,6 +3,7 @@
     grid-auto-flow: column;
     grid-template-columns: 1fr 1fr;
     height: 100vh;
+    background-color: #003366;
 }
 
 h1 {
@@ -10,7 +11,7 @@ h1 {
     font-weight: 800;
     margin-bottom: 40px;
     font-family: 'Poppins';
-    color: #081d45;
+    color: #fff;
 }
 
 .right-side {
@@ -23,6 +24,7 @@ h1 {
     grid-template-rows: 1fr 6fr;
     box-sizing: border-box;
     padding-left: 40px;
+    background-color: #003366;
 }
 
 .logo {
@@ -39,14 +41,14 @@ h1 {
     h2 {
         font-size: 26px;
         font-weight: 600;
-        color: #2697ff;
+        color: #fff;
         font-family: 'Poppins';
     }
 }
 
 form {
     font-family: 'Poppins';
-    background: #FFFFFF;
+    background: #003366;
     width: 90%;
     margin-top: 1.13rem;
     border-radius: 1.25rem;
@@ -70,7 +72,7 @@ form {
         line-height: 30px;
         letter-spacing: 0em;
         text-align: left;
-        color: #009CAA;
+        color: #fff;
     }
 }
 
@@ -93,7 +95,7 @@ select {
     font-weight: 400;
     border: none;
     border-radius: 5px;
-    border-bottom: 2px solid #081d45;
+    border-bottom: 2px solid #ff6600;
 }
 
 .show {
@@ -133,7 +135,7 @@ select {
 button {
     height: 50px;
     border-radius: 8px;
-    background: #081d45;
+    background: #ff6600;
     border: transparent;
     font-family: "Poppins";
     font-size: 16px;
@@ -147,7 +149,7 @@ button {
 }
 
 button:hover {
-    background: #215681;
+    background: #be5a16;
     -webkit-box-shadow: -1px -1px 5px -2px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: -1px -1px 5px -2px rgba(0, 0, 0, 0.75);
     box-shadow: -1px -1px 5px -2px rgba(0, 0, 0, 0.75);
@@ -162,6 +164,7 @@ button:hover {
         font-style: normal;
         font-weight: 400;
         line-height: 60px;
+        color: #FFFFFF;
     }
     a:hover {
         color: #009CAA;
@@ -174,7 +177,7 @@ button:hover {
 
 .psw {
     a {
-        color: #2697ff;
+        color: #fff;
     }
 }
 
