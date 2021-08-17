@@ -93,9 +93,9 @@ export class ProfileComponent implements OnInit {
       'worker id',
       this._workerid
     );
-    // this.projectservice.addworker(project.projectId, this._workerid);
-    // //assign the project to the worker
-    // this.projectservice.assignproject(this._workerid, project.projectId);
+    this.projectservice.addworker(project.projectId, this._workerid);
+    //assign the project to the worker
+    this.projectservice.assignproject(this._workerid, project.projectId);
 
     //sending the mail to a worker
     Email.send({
