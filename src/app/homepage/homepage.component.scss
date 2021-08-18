@@ -1,9 +1,12 @@
 .contents {
-  background: #fff !important;
-  background-repeat: no-repeat;
-  padding: 15px 0px 70px 0px;
-  background-size: 300px 100px;
-  display: block !important;
+  background-image: url("../../assets/pop.jpg");
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  display: block;
+
   .search-box {
     position: relative;
     text-align: center;
@@ -30,10 +33,10 @@
     display: flex;
     flex-wrap: wrap;
     grid-gap: 20px;
-    padding: 0px 60px;
+    padding: 100px 60px;
    
     .worker {
-      background: #a9a9a9;
+      background: #fff;
       position: relative;
       /* height: 300px; */
       display: grid;
@@ -63,6 +66,7 @@
       img {
         height: 100%;
         width: 100%;
+        object-fit: cover;
       }
     }
     .details {
