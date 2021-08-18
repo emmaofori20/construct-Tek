@@ -10,6 +10,7 @@
     // border: 1px solid black;
     // height: 500px;
     padding: 30px 0px 0px 0px;
+    width: auto;
     .container_top {
         display: flex;
         grid-gap: 22px;
@@ -75,10 +76,11 @@
     margin-top: 20px;
     // flex-direction: row-reverse;
     // justify-content: flex-end;
-    width: 94%;
+    // width: 94%;
     /* border: 1px solid; */
     overflow: auto;
-    height: 80vh;
+    width: auto;
+    height: 100vh;
     .add {
         display: flex;
         cursor: pointer;
@@ -122,8 +124,8 @@
     .cardname {
         input {
             border: none;
-            width :96%;
-            padding :5px;
+            width: 96%;
+            padding: 5px;
             border-radius: 5px;
             background-color: white;
             margin-bottom: 10px;
@@ -158,12 +160,11 @@
 .cardname {
     input {
         border: none;
-        width :96%;
-        padding :5px;
+        width: 96%;
+        padding: 5px;
         border-radius: 5px;
         background-color: white;
         margin-bottom: 10px;
-        
     }
 }
 
@@ -187,11 +188,13 @@
     align-items: center;
     background: #C4C4C4;
     /* padding: 5px 15px; */
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 10px 10px 10px 10px;
     /* height: 30px; */
     /* width: 130px; */
     justify-content: space-between;
     color: #000000b3;
+    padding: 5px 10px;
+    margin-bottom: 5px;
 }
 
 //tooltip styling
@@ -218,7 +221,7 @@
 }
 
 .example-list {
-    border: solid 1px #ccc;
+    // border: solid 1px #ccc;
     min-height: 60px;
     // background: white;
     border-radius: 4px;
