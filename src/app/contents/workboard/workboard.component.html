@@ -1,4 +1,5 @@
-<div class="content" [style.background-image]="'url(/img/' +  _projects?.backgroundImage + ')'" [ngStyle]="{'background-size': 'cover', 'background-repeat':'repeat'}">
+<div class="content" [style.background-image]="'url(/img/' +  _projects?.backgroundImage + ')'"
+    [ngStyle]="{'background-size': 'cover', 'background-repeat':'repeat'}">
     <div class="container">
         <div class="container_top">
             <h1>{{_projects?.project?.name}}</h1>
@@ -15,13 +16,13 @@
 
         <div class="workarea">
             <div class="add" (click)="Addlist()">
-                <h3>Add list</h3>
-                <i class="fas fa-plus"></i>
+                <h3 style="color: #003366; font-weight: bold; padding-left: 5px;">Add list</h3>
+                <i style="color: #ff6600;" class="fas fa-plus"></i>
             </div>
 
             <div class="Taskadd" id="newTasklist">
                 <div *ngIf="listname;else listdata" (click)=" toggle()">
-                    <h3>{{Tittle}}</h3>
+                    <h3 style="color:#003366">{{Tittle}}</h3>
                 </div>
 
 
@@ -72,7 +73,8 @@
                         <!-- template for list of Task title -->
                         <ng-template #Data>
                             <div class="Listname">
-                                <input (keydown.enter)="onlistname(i)" type="text" placeholder="New title" #changeListname>
+                                <input (keydown.enter)="onlistname(i)" type="text" placeholder="New title"
+                                    #changeListname>
                             </div>
                         </ng-template>
                         <!-- template for list of Task title -->
@@ -81,7 +83,7 @@
 
                     <div>
                         <div class="add1" (click)="Addcard(i)" *ngIf="!hooks2[i];else carddata">
-                            <h3>Add card</h3>
+                            <h3 style="margin-left: 5px;">Add card</h3>
                             <i class="fas fa-plus"></i>
                         </div>
 
@@ -95,7 +97,8 @@
                     </div>
 
 
-                    <div cdkDropList #task.taskname="cdkDropList" [cdkDropListData]="task.taskname" class="example-list" (cdkDropListDropped)="drop($event,i)" *ngIf="task.task!=0">
+                    <div cdkDropList #task.taskname="cdkDropList" [cdkDropListData]="task.taskname" class="example-list"
+                        (cdkDropListDropped)="drop($event,i)" *ngIf="task.task!=0">
                         <div>
                             <div *ngFor="let item of task.task; let a=index" cdkDrag>
                                 <div class="example-box1" style=" margin-bottom: 5px;">
@@ -106,12 +109,16 @@
                                             <i class="fas fa-ellipsis-v" style="padding: 5px ; cursor: pointer;"></i>
 
                                             <h3 class="smart-tooltip stay-left stick-300 stayonhover" id="tts">
-                                                <span (click)="deletecard(item,a,i)">Delete card<i class="fas fa-trash"></i></span>
+                                                <span (click)="deletecard(item,a,i)">Delete card<i
+                                                        class="fas fa-trash"></i></span>
                                                 <hr>
-                                                <span (click)="assigntaskmodal(a,i)">Assign to<i class="fas fa-tasks"></i></span>
+                                                <span (click)="assigntaskmodal(a,i)">Assign to<i
+                                                        class="fas fa-tasks"></i></span>
                                                 <hr>
-                                                <span (click)="uploadimage(a,i)">Add Image <i class="fas fa-camera"></i></span>
-                                                <input id="file-upload5" type="file" accept="image/*" (change)="onChange($event)" style="display:none" />
+                                                <span (click)="uploadimage(a,i)">Add Image <i
+                                                        class="fas fa-camera"></i></span>
+                                                <input id="file-upload5" type="file" accept="image/*"
+                                                    (change)="onChange($event)" style="display:none" />
                                             </h3>
                                         </div>
                                     </div>
@@ -160,7 +167,8 @@
 
 <div id="myModal" class="Modal" *ngIf="modalstate">
     <!-- forgot password details -->
-    <div (click)="onBack(false)" style="position: absolute; left: 0; top: 0;width: 100%; height: 100%;background-color: rgba(0, 0, 0, 0.4); z-index: -1;">
+    <div (click)="onBack(false)"
+        style="position: absolute; left: 0; top: 0;width: 100%; height: 100%;background-color: rgba(0, 0, 0, 0.4); z-index: -1;">
 
     </div>
     <div class="modal-content">
@@ -170,7 +178,8 @@
             <div class="woker-content" *ngFor="let item of Team" (click)="assigntask(item)">
                 <div class="nameworker">
                     <h3>{{item.user.skill.name}}</h3>
-                    <h4>{{item.user.skill.ratings}}<span class="fa fa-star checked" style="    color: orange;"></span></h4>
+                    <h4>{{item.user.skill.ratings}}<span class="fa fa-star checked" style="    color: orange;"></span>
+                    </h4>
                 </div>
                 <div class="controls">
                     <i class="fas fa-user-minus"></i>

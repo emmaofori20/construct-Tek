@@ -5,7 +5,6 @@
     overflow: hidden;
     padding: 60px 0px;
 }
-
 .container {
     // border: 1px solid black;
     // height: 500px;
@@ -17,23 +16,24 @@
         align-items: center;
         h1 {
             font-size: 19px;
-            color: #111010c7;
-            background: #ffffffa6;
+            border-radius: 8px;
+            color: #fff;
+            background: #ff6600;
             padding: 10px;
             font-weight: 700;
             font-family: sans-serif;
         }
         h2 {
-            color: #111010;
-            background: #ffffffa3;
+            color: #ff6600;
+            background: #fff;
             padding: 10px;
-            font-size: 13px;
-            font-family: fangsong;
+            font-size: 16px;
+            font-family: sans-serif;
             font-weight: 600;
+            border-radius: 8px;
         }
     }
 }
-
 .teamcontainer {
     display: flex;
     position: relative;
@@ -48,7 +48,7 @@
         // padding: 0px 10px;
         // background: white;
     }
-    img+p::first-letter {
+    img + p::first-letter {
         color: white;
         overflow: hidden;
         width: 40px;
@@ -61,7 +61,6 @@
         // float: left;
     }
 }
-
 .team {
     height: 48px;
     border-radius: 50%;
@@ -69,7 +68,6 @@
     margin-right: -11px;
     border: 1px solid white;
 }
-
 .workarea {
     display: flex;
     grid-gap: 10px;
@@ -86,7 +84,7 @@
         cursor: pointer;
         grid-gap: 5px;
         align-items: center;
-        background: #C4C4C4;
+        background: #fff;
         padding: 5px 15px;
         border-radius: 10px 10px 0px 0px;
         height: 30px;
@@ -95,15 +93,14 @@
     }
     i {
         // background-color: rgb(252 251 251 / 82%);
-        color: rgba(0, 0, 0, 0.788);
+        color:#ff6600;
         padding: 10px;
         border-radius: 50%;
     }
 }
-
 .newlist-container {
     display: none;
-    background: #C4C4C4;
+    background: #c4c4c4;
     padding: 5px 15px;
     border-radius: 10px 10px 0px 0px;
     width: 130px;
@@ -132,13 +129,12 @@
         }
     }
 }
-
 .list {
-    background-color: #2697ff;
+    background-color: #fff;
     /* min-height: 56px; */
     min-width: 250px;
     padding: 10px 15px;
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 15px 15px 0px 0px;
     height: max-content;
     .control-button {
         display: flex;
@@ -151,9 +147,12 @@
     input {
         border: none;
         height: 26px;
-        border-radius: 7px;
+        border-radius: 15px 15px 0px 0px;
         padding: 5px;
         width: 96%;
+        margin-bottom: 10px;
+        background-color: #003366;
+        color:white;
     }
 }
 
@@ -162,9 +161,17 @@
         border: none;
         width: 96%;
         padding: 5px;
+<<<<<<< HEAD
         border-radius: 5px;
         background-color: white;
         margin-bottom: 10px;
+=======
+        border-radius: 0 0 15px 15px;
+        background-color: #003366;
+        margin-bottom: 10px;
+        color: white;
+        
+>>>>>>> e25dc42b14b79639acaaf73f90a024d26a5faa71
     }
 }
 
@@ -173,7 +180,7 @@
     cursor: pointer;
     grid-gap: 5px;
     align-items: center;
-    background: #C4C4C4;
+    background: #c4c4c4;
     padding: 5px 15px;
     border-radius: 10px 10px 0px 0px;
     height: fit-content;
@@ -186,7 +193,7 @@
     cursor: pointer;
     /* grid-gap: 5px; */
     align-items: center;
-    background: #C4C4C4;
+    background: #c4c4c4;
     /* padding: 5px 15px; */
     border-radius: 10px 10px 10px 10px;
     /* height: 30px; */
@@ -199,15 +206,17 @@
 
 //tooltip styling
 #tts {
+    
     width: 105px;
-    background-color: #fcfafa;
-    color: black;
+    background-color: #003366;
+    color: white;
     font-size: 14px;
     span {
-        color: rgb(91, 91, 148);
+        color: #fff;
     }
     span:hover {
         cursor: pointer;
+        color: #ff6600;
     }
 }
 
@@ -287,7 +296,8 @@
 .cdk-drag-preview {
     box-sizing: border-box;
     border-radius: 4px;
-    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+        0 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
 .cdk-drag-placeholder {
