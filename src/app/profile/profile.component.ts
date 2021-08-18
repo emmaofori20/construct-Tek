@@ -7,7 +7,6 @@ import '../../assets/smtp.js'; // file path
 import { FormControl, FormGroup } from '@angular/forms';
 import { UserServiceService } from '../services/user-service.service';
 import { LoaderService } from 'src/interceptors/loader.service';
-import { SnotifyService } from 'ng-snotify';
 
 declare let Email: any;
 
@@ -33,7 +32,7 @@ export class ProfileComponent implements OnInit {
     private activatedroute: ActivatedRoute,
     private workerservice: WorkerService,
     private dataservice: DataService,
-    private projectservice: ProjectService
+    private projectservice: ProjectService,
   ) {
     // requesting a worker to join your project
     this.projectservice.getUserproject().subscribe((res: any) => {
@@ -297,6 +296,7 @@ export class ProfileComponent implements OnInit {
 </html>`,
     }).then((message) => {
       console.log('message is sent')
+
       alert(message);
     });
 
