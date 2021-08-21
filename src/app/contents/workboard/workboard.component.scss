@@ -5,6 +5,7 @@
     overflow: hidden;
     padding: 60px 0px;
 }
+
 .container {
     // border: 1px solid black;
     // height: 500px;
@@ -34,6 +35,7 @@
         }
     }
 }
+
 .teamcontainer {
     display: flex;
     position: relative;
@@ -48,7 +50,7 @@
         // padding: 0px 10px;
         // background: white;
     }
-    img + p::first-letter {
+    img+p::first-letter {
         color: white;
         overflow: hidden;
         width: 40px;
@@ -61,6 +63,7 @@
         // float: left;
     }
 }
+
 .team {
     height: 48px;
     border-radius: 50%;
@@ -68,6 +71,7 @@
     margin-right: -11px;
     border: 1px solid white;
 }
+
 .workarea {
     display: flex;
     grid-gap: 10px;
@@ -93,11 +97,12 @@
     }
     i {
         // background-color: rgb(252 251 251 / 82%);
-        color:#ff6600;
+        color: #ff6600;
         padding: 10px;
         border-radius: 50%;
     }
 }
+
 .newlist-container {
     display: none;
     background: #c4c4c4;
@@ -129,6 +134,7 @@
         }
     }
 }
+
 .list {
     background-color: #fff;
     /* min-height: 56px; */
@@ -152,7 +158,7 @@
         width: 96%;
         margin-bottom: 10px;
         background-color: #003366;
-        color:white;
+        color: white;
     }
 }
 
@@ -161,17 +167,9 @@
         border: none;
         width: 96%;
         padding: 5px;
-<<<<<<< HEAD
-        border-radius: 5px;
+        // border-radius: 5px;
         background-color: white;
         margin-bottom: 10px;
-=======
-        border-radius: 0 0 15px 15px;
-        background-color: #003366;
-        margin-bottom: 10px;
-        color: white;
-        
->>>>>>> e25dc42b14b79639acaaf73f90a024d26a5faa71
     }
 }
 
@@ -206,7 +204,6 @@
 
 //tooltip styling
 #tts {
-    
     width: 105px;
     background-color: #003366;
     color: white;
@@ -296,8 +293,7 @@
 .cdk-drag-preview {
     box-sizing: border-box;
     border-radius: 4px;
-    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
-        0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
 .cdk-drag-placeholder {

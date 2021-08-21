@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { UserServiceService } from 'src/app/services/user-service.service';
 import { WorkerService } from 'src/app/services/woker.service';
+import { LoaderService } from 'src/interceptors/loader.service';
 
 @Component({
   selector: 'app-worker',
@@ -26,7 +27,9 @@ export class WorkerComponent implements OnInit {
     private dataservice: DataService,
     private workerservice: WorkerService,
     private afs: AngularFirestore,
-    private router:Router
+    private router:Router,
+    private loaderService: LoaderService,
+
   ) {
     this._userId = this.dataservice.getuserid();
     //getting the workerDetails
@@ -42,6 +45,8 @@ export class WorkerComponent implements OnInit {
   private idofuser;
   ngOnInit(): void {
     //getting all the assigned projects of a worker
+    this.loaderService.setHttpProgressStatus(true);
+
    this.workerservice.assignedprojects().subscribe((results: any) => {
     // console.log("res", results.docs[1].data())
     for (let index = 0; index < results.docs.length; index++) {
@@ -59,6 +64,7 @@ export class WorkerComponent implements OnInit {
 
 
       }
+      this.loaderService.setHttpProgressStatus(false);
 
     })
 
@@ -95,6 +101,11 @@ export class WorkerComponent implements OnInit {
   imagedelete(image){
     console.log("image url", image);
     this.workerservice.onImagedelete(image)
+  }
+
+  //setting image feature
+  setfeaturedimage(image){
+    console.log('the image link', image)
   }
 
   //uploadingimage for the workers profile

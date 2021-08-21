@@ -101,7 +101,7 @@
                 // width: 75%;
                 // box-sizing: border-box;
                 overflow: auto;
-                height: 220px;
+                height: 330px;
                 display: flex;
                 flex-wrap: wrap;
                 grid-gap: 20px;
@@ -175,6 +175,39 @@
             }
         }
     }
+}
+
+.ccnn {
+    position: relative
+}
+
+.ccnn:hover .image {
+    opacity: 0.3;
+}
+
+.ccnn:hover .middle {
+    opacity: 1;
+}
+
+.middle {
+    transition: 0.5s ease;
+    opacity: 0;
+    position: absolute;
+    // top: 50%;
+    top: 165px;
+    left: 50%;
+    // bottom: 2px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.text {
+    background-color: #04AA6D;
+    color: white;
+    font-size: 14px;
+    padding: 5px 10px;
+    width: 100%;
 }
 
 .controls_button:hover {

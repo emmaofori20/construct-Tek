@@ -1,93 +1,75 @@
 <div class="container" *ngIf="!workerDetails?.user?.isWorker">
-  <h1>Worker</h1>
+    <h1>Worker</h1>
 
-  <div class="add" (click)="onWorker()">
-    <i class="fas fa-plus"></i>
-    <h3>Add a worker profile</h3>
-  </div>
+    <div class="add" (click)="onWorker()">
+        <i class="fas fa-plus"></i>
+        <h3>Add a worker profile</h3>
+    </div>
 </div>
 
 <div class="container" *ngIf="workerDetails.user?.isWorker">
-  <h1>Account</h1>
+    <h1>Account</h1>
 
-  <div class="profile">
-    <div>
-      <div class="right_side">
-        <div class="top">
-          <span *ngIf="!workerDetails.user.photo" class="material-icons">
+    <div class="profile">
+        <div>
+            <div class="right_side">
+                <div class="top">
+                    <span *ngIf="!workerDetails.user.photo" class="material-icons">
             account_circle
           </span>
-          <img
-            *ngIf="workerDetails.user.photo"
-            [src]="workerDetails.user.photo"
-          />
-          <div>
-            <div class="controls">
-              <div
-                class="controls_button"
-                (click)="onEdit()"
-                style="
+                    <img *ngIf="workerDetails.user.photo" [src]="workerDetails.user.photo" />
+                    <div>
+                        <div class="controls">
+                            <div class="controls_button" (click)="onEdit()" style="
                   background-color: #006bd8;
                   width: 125px;
                   height: 36px;
                   margin-left: 15px;
                   border-radius: 5px;
-                "
-              >
-                <i
-                  class="far fa-edit"
-                  style="color: white; margin-left: 10px"
-                ></i>
-                <h3>Edit Details</h3>
-              </div>
-              <div
-                class="controls_button"
-                (click)="onDelete()"
-                style="
+                ">
+                                <i class="far fa-edit" style="color: white; margin-left: 10px"></i>
+                                <h3>Edit Details</h3>
+                            </div>
+                            <div class="controls_button" (click)="onDelete()" style="
                   background-color: #003366;
                   height: 36px;
                   width: 140px;
                   margin-left: 15px;
                   border-radius: 5px;
                   color: white;
-                "
-              >
-                <i
-                  class="far fa-trash-alt"
-                  style="color: white; margin-left: 10px"
-                ></i>
-                <h3>Delete Details</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="down">
-          <div class="details">
-            <div class="details_section">
-              <h4>Display Name</h4>
-              <h3>{{ workerDetails.user.skill.name }}</h3>
-            </div>
-            <div class="details_section">
-              <h4>Location</h4>
-              <h3>{{ workerDetails.user.skill.location }}</h3>
-            </div>
+                ">
+                                <i class="far fa-trash-alt" style="color: white; margin-left: 10px"></i>
+                                <h3>Delete Details</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="down">
+                    <div class="details">
+                        <div class="details_section">
+                            <h4>Display Name</h4>
+                            <h3>{{ workerDetails.user.skill.name }}</h3>
+                        </div>
+                        <div class="details_section">
+                            <h4>Location</h4>
+                            <h3>{{ workerDetails.user.skill.location }}</h3>
+                        </div>
 
-            <div class="details_section">
-              <h4>Email</h4>
-              <h3>{{ workerDetails.user.skill.email }}</h3>
-            </div>
-            <div class="details_section">
-              <h4>Profession</h4>
-              <h3>{{ workerDetails.user.skill.profession }}</h3>
-            </div>
-          </div>
-        </div>
-        <div class="timeline">
-          <h3>Timeline Photos</h3>
-          <hr />
+                        <div class="details_section">
+                            <h4>Email</h4>
+                            <h3>{{ workerDetails.user.skill.email }}</h3>
+                        </div>
+                        <div class="details_section">
+                            <h4>Profession</h4>
+                            <h3>{{ workerDetails.user.skill.profession }}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline">
+                    <h3>Timeline Photos</h3>
+                    <hr />
 
-          <div
-            style="
+                    <div style="
               display: flex;
               align-items: center;
               grid-gap: 5px;
@@ -99,87 +81,63 @@
 
               border-radius: 5px;
               margin-top: 25px;
-            "
-            (click)="Uploadimage($event)"
-          >
-            <h3 style="margin-left: 10px; color: white">Upload images</h3>
-            <i class="fa fa-camera" style="color: white; margin-left: 10px"></i>
+            " (click)="Uploadimage($event)">
+                        <h3 style="margin-left: 10px; color: white">Upload images</h3>
+                        <i class="fa fa-camera" style="color: white; margin-left: 10px"></i>
 
-            <input
-              style
-              id="file-upload3"
-              type="file"
-              accept="image/*"
-              (change)="onChange($event)"
-              style="display: none"
-              multiple
-            />
-          </div>
+                        <input style id="file-upload3" type="file" accept="image/*" (change)="onChange($event)" style="display: none" multiple />
+                    </div>
 
-          <div class="img_container">
-            <div
-              *ngFor="let image of workerDetails.user.skill.Wokerimages"
-              style="position: relative"
-            >
-              <i class="fas fa-times" (click)="imagedelete(image)"></i>
-              <img style="width: 300px" [src]="image" alt="img.jpg" />
+                    <div class="img_container">
+                        <div *ngFor="let image of workerDetails.user.skill.Wokerimages" class="ccnn">
+                            <i class="fas fa-times" title="Delete image" (click)="imagedelete(image)"></i>
+                            <img [src]="image" alt="img.jpg" />
+
+                            <div class="middle">
+                                <div class="text" (click)=" setfeaturedimage(image)">set image</div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="left_side">
-      <h2>Assigned projects</h2>
-
-      <div
-        class="container1"
-        *ngFor="let item of asignedprojects; let i = index"
-      >
-        <div class="nameproject">
-          <h3>{{ item.project.name }}</h3>
-          <h4>{{ item.project.description }}</h4>
         </div>
 
-        <div class="controlsproject">
-          <button
-            style="background-color: rgba(42, 177, 42, 0.836)"
-            (click)="joinproject(item, i)"
-          >
+        <div class="left_side">
+            <h2>Assigned projects</h2>
+
+            <div class="container1" *ngFor="let item of asignedprojects; let i = index">
+                <div class="nameproject">
+                    <h3>{{ item.project.name }}</h3>
+                    <h4>{{ item.project.description }}</h4>
+                </div>
+
+                <div class="controlsproject">
+                    <button style="background-color: rgba(42, 177, 42, 0.836)" (click)="joinproject(item, i)">
             Join
           </button>
-          <button
-            style="background-color: rgba(199, 43, 43, 0.815)"
-            (click)="leaveproject(item, i)"
-          >
+                    <button style="background-color: rgba(199, 43, 43, 0.815)" (click)="leaveproject(item, i)">
             Leave
           </button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 
 <div *ngIf="worker">
-  <app-woker-modal (onResultWorker)="onModalResult($event)"></app-woker-modal>
+    <app-woker-modal (onResultWorker)="onModalResult($event)"></app-woker-modal>
 </div>
 
 <div *ngIf="Editworker">
-  <app-edit-worker-modal
-    (onResultWorker)="onModalResult($event)"
-  ></app-edit-worker-modal>
+    <app-edit-worker-modal (onResultWorker)="onModalResult($event)"></app-edit-worker-modal>
 </div>
 
 <div class="Modal" *ngIf="modalState">
-  <app-deletemodal
-    [title]="message"
-    (onResult)="onModalResultdelete($event)"
-  ></app-deletemodal>
+    <app-deletemodal [title]="message" (onResult)="onModalResultdelete($event)"></app-deletemodal>
 </div>
 
 <div class="Modal" *ngIf="modalState2">
-  <app-deletemodal
-    [title]="message"
-    (onResult)="onModalprojectdelete($event)"
-  ></app-deletemodal>
+    <app-deletemodal [title]="message" (onResult)="onModalprojectdelete($event)"></app-deletemodal>
 </div>

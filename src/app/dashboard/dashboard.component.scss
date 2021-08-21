@@ -150,7 +150,7 @@ nav .sidebar-button i {
 
 nav .search-box input {
     height: 100%;
-    width: 95%;
+    width: 100%;
     outline: none;
     background: #081d45;
     border: 2px solid #efeef1;
@@ -188,8 +188,8 @@ nav .search-box .bx-search {
     border-radius: 6px;
     height: 50px;
     min-width: 190px;
-    padding: 0 1px 0 2px;
-    margin-right: 34px;
+    padding: 0 15px 0 2px;
+    // margin-right: 34px;
 }
 
 nav.profile-details img {
