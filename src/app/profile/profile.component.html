@@ -167,7 +167,10 @@
 <div style="    padding: 80px 0px;
 ">
     <div class="profile-container">
+
+
         <div class="profile-container-wrapper">
+
             <div class="profile-photo">
 
                 <i *ngIf="!workerdetails.user?.photo" class="far fa-user"></i>
@@ -183,48 +186,73 @@
                 <br>
                 <span class="join-date">Joined August 2010</span>
             </div>
+
+            <div class="controlqwee">
+                <div class="control">
+                    <div smart-tooltip-container class=" control clicktoshow">
+                        <i class="fas fa-plus"></i>
+                        <h3>Request</h3>
+
+                        <h2 class="smart-tooltip stay-buttom stick-300 stayonhover" id="requests">
+                            <div *ngIf=" projects !=0;else pppp">
+                                <span *ngFor="let item of projects">
+              <h5 (click)="onRequest(item)">{{item.project.name}}</h5>
+            </span>
+                            </div>
+
+                            <ng-template #pppp>
+                                <h5>No projects </h5>
+                            </ng-template>
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="message_worker" (click)="messageworker(workerdetails.user?.skill?.phoneNumber)">
+                    <button>message</button>
+                </div>
+            </div>
             <div class="profile-bio">
                 <span>Profession</span>
                 <p>{{workerdetails.user.skill.profession}}</p>
             </div>
+
+
         </div>
 
 
-        <div class="control">
-            <div smart-tooltip-container class=" control clicktoshow">
-                <i class="fas fa-plus"></i>
-                <h3>Request</h3>
 
-                <h2 class="smart-tooltip stay-buttom stick-300 stayonhover" id="requests">
-                    <div *ngIf=" projects !=0;else pppp">
-                        <span *ngFor="let item of projects">
-                    <h5 (click)="onRequest(item)">{{item.project.name}}</h5>
-                  </span>
-                    </div>
-
-                    <ng-template #pppp>
-                        <h5>No projects </h5>
-                    </ng-template>
-                </h2>
-            </div>
-        </div>
     </div>
 
     <div class="profile-links-container">
         <ul>
             <li>
-                <h4 class="active"><a id="tweets-link">REVIEWS</a></h4>
+                <h4 class="active" (click)="onReviews()" id="reviewfont"><a id="tweets-link">REVIEWS</a></h4>
             </li>
             <li>
-                <h4><a id="media-link">MEDIA</a></h4>
+                <h4 (click)="ontimeline()" id="timefont"><a id="media-link">MEDIA</a></h4>
             </li>
             <li>
-                <h4><a id="likes-link">ABOUT</a></h4>
+                <h4 (click)="onAbout()" id="aboutfont"><a id="likes-link">ABOUT</a></h4>
             </li>
         </ul>
     </div>
 
-    <div class="tweets">
+    <div class="tweets" id="tweets">
+        <div class="tweet-block" *ngFor="let review of workerdetails.user.skill.reviews">
+            <div *ngIf="!workerdetails.user.skill.reviews">
+                <i class="far fa-user-circle"></i>
+            </div>
+            <div *ngIf="workerdetails.user.skill.reviews">
+                <img [src]="review.image" alt="image">
+            </div>
+            <span class="tweet-content"><span class="display-name">{{review.name}}</span>•<span class="username">@{{review.name}}</span><br>{{review.comment}}</span>
+            <div class="tweet-links">
+                <span class="reply-tweet-link"><a ><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/speech-bubble.png" alt="reply tweet" /></a></span>
+                <span class="retweet-tweet-link"><a ><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134296/retweet.png" alt="retweet tweet" /></a></span>
+                <span class="like-tweet-link"><a><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/star.png" alt="like tweet" /></a></span>
+            </div>
+        </div>
+
         <div class="tweet-block">
             <img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533122246/profile-picture.jpg" alt="profile photo" />
             <span class="tweet-content"><span class="display-name">John James</span>•<span class="username">@JohnJames</span><span class="timestamp">5s</span><br>Going to church together is the most beautiful and unspoken form of intimacy</span>
@@ -234,42 +262,56 @@
                 <span class="like-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/star.png" alt="like tweet" /></a></span>
             </div>
         </div>
-        <div class="tweet-block">
-            <img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533122246/profile-picture.jpg" alt="profile photo" />
-            <span class="tweet-content"><span class="display-name">John James</span>•<span class="username">@JohnJames</span><span class="timestamp">45s</span><br>Are u single — If you have to ask, you’re not reckless enough for me. Don’t sweat it.</span>
-            <div class="tweet-links">
-                <span class="reply-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/speech-bubble.png" alt="reply tweet" /></a></span>
-                <span class="retweet-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134296/retweet.png" alt="retweet tweet" /></a></span>
-                <span class="like-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/star.png" alt="like tweet" /></a></span>
-            </div>
-        </div>
-        <div class="tweet-block">
-            <img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533122246/profile-picture.jpg" alt="profile photo" />
-            <span class="tweet-content"><span class="display-name">John James</span>•<span class="username">@JohnJames</span><span class="timestamp">2m</span><br>I’m honestly fatigued by expenses, haven’t enjoyed my life in a long ass time.</span>
-            <div class="tweet-links">
-                <span class="reply-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/speech-bubble.png" alt="reply tweet" /></a></span>
-                <span class="retweet-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134296/retweet.png" alt="retweet tweet" /></a></span>
-                <span class="like-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/star.png" alt="like tweet" /></a></span>
-            </div>
-        </div>
-        <div class="tweet-block">
-            <img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533122246/profile-picture.jpg" alt="profile photo" />
-            <span class="tweet-content"><span class="display-name">John James</span>•<span class="username">@JohnJames</span><span class="timestamp">3m</span><br>A professional video game player broke up with "the world's sexiest weather girl" because
-            he had to focus on the new Call of Duty game.</span>
-            <div class="tweet-links">
-                <span class="reply-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/speech-bubble.png" alt="reply tweet" /></a></span>
-                <span class="retweet-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134296/retweet.png" alt="retweet tweet" /></a></span>
-                <span class="like-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/star.png" alt="like tweet" /></a></span>
-            </div>
-        </div>
-        <div class="tweet-block">
-            <img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533122246/profile-picture.jpg" alt="profile photo" />
-            <span class="tweet-content"><span class="display-name">John James</span>•<span class="username">@JohnJames</span><span class="timestamp">5m</span><br>I just need a woman to take me out and spoil me mercilessly.</span>
-            <div class="tweet-links">
-                <span class="reply-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/speech-bubble.png" alt="reply tweet" /></a></span>
-                <span class="retweet-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134296/retweet.png" alt="retweet tweet" /></a></span>
-                <span class="like-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/star.png" alt="like tweet" /></a></span>
-            </div>
+
+        <div class="add-comment">
+            <img [src]="reviewimage" alt="">
+            <form [formGroup]="ReviewForm" (ngSubmit)="onsend()">
+                <input type="text" placeholder="Add a review" formControlName="comment">
+                <i style="cursor: pointer;" class="far fa-paper-plane" (click)="onsend()"></i>
+            </form>
         </div>
     </div>
+
+    <div class="timeline" id="timeline">
+        <h3 style="    margin: 10px 105px !important;
+        ">Timeline Photos</h3>
+        <div class="img-container" *ngIf="workerdetails.user.skill.Wokerimages.length > 0; else name">
+            <div *ngFor="let item of workerdetails.user.skill.Wokerimages;" class="divdiv">
+                <img [src]="item" alt="">
+            </div>
+        </div>
+        <ng-template #name>
+            <h3 style="    color: #00000099;
+          margin: 200px;">No timeline photos available</h3>
+        </ng-template>
+
+
+    </div>
+
+    <div class="about" id="about">
+        <h3>Contact info</h3>
+
+        <div>
+            <div class="qqqq">
+                <h4>Phone:</h4>
+                <span>0{{workerdetails.user?.skill?.phoneNumber}}</span>
+            </div>
+
+            <div class="qqqq">
+                <h4>Email:</h4>
+                <span>{{workerdetails.user?.skill?.email}}</span>
+            </div>
+        </div>
+
+        <h3>Other information</h3>
+        <div>
+
+            <div class="qqqq">
+                <h4>Gender:</h4>
+                <span>{{workerdetails.user?.skill?.gender}}</span>
+            </div>
+
+        </div>
+    </div>
+
 </div>

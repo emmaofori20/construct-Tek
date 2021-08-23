@@ -3,7 +3,7 @@
     // margin: 12px 12px 12px 40px;
     padding: 85px 12px;
     // width: 100% important;
-    margin: 0px 22px;
+    margin: 0px auto;
     h1 {
         font-family: "poppins";
         font-size: 18px;
@@ -28,9 +28,10 @@
     position: relative;
     flex-wrap: wrap;
     display: flex;
-    grid-gap: 43px 60px;
-    height: 83VH;
-    overflow: hidden;
+    grid-gap: 20px 60px;
+    height: 86vh;
+    overflow: auto;
+    width: 100%;
     .project {
         position: relative;
         background: #FFFFFF;

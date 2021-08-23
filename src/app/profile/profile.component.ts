@@ -318,27 +318,30 @@ export class ProfileComponent implements OnInit {
   //toggling the timeline
   ontimeline() {
     document.getElementById('timeline').style.display = 'block';
-    document.getElementById('timefont').style.color = 'blue';
-    document.getElementById('aboutfont').style.color = 'black';
+    // document.getElementById('timefont').style.color = 'blue';
+    // document.getElementById('aboutfont').style.color = 'black';
     document.getElementById('about').style.display = 'none';
-    document.getElementById('review').style.display = 'none';
+    document.getElementById('tweets').style.display = 'none';
   }
 
   //on about
   onAbout() {
     document.getElementById('about').style.display = 'block';
-    document.getElementById('timefont').style.color = 'black';
-    document.getElementById('aboutfont').style.color = 'blue';
     document.getElementById('timeline').style.display = 'none';
-    document.getElementById('review').style.display = 'none';
+    document.getElementById('tweets').style.display = 'none';
   }
 
   onReviews() {
-    document.getElementById('review').style.display = 'block';
-    document.getElementById('reviewfont').style.color = 'blue';
-    document.getElementById('aboutfont').style.color = 'black';
-    document.getElementById('timefont').style.color = 'black';
+    document.getElementById('tweets').style.display = 'block';
     document.getElementById('timeline').style.display = 'none';
     document.getElementById('about').style.display = 'none';
   }
+
+  //message worker
+  messageworker(number){
+    console.log('the number', "0"+number)
+
+    window.open(
+      `https://wa.me/c/233${number}`, "_blank");
+   }
 }

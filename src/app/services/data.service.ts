@@ -99,6 +99,7 @@ export class DataService {
 
               //clearing the link that holds the url
               this.downloadURL = [];
+              confirm('Please register your number with Whatsapp business😊')
             });
             console.log('setting worker field successful', workerres);
           })

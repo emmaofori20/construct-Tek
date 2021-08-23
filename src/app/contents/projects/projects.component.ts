@@ -17,6 +17,8 @@ export class ProjectsComponent implements OnInit {
   isEdit:boolean;
   @Output() message: string;
 
+  c:Number=2
+  count: Number = 3;
   constructor(private projectservice: ProjectService, private router:Router,private loaderService: LoaderService,
     ) { }
 
