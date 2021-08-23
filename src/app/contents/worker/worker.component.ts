@@ -22,6 +22,7 @@ export class WorkerComponent implements OnInit {
   modalState: boolean;
   modalState2:boolean;
   itemproject:any;
+  AssignedModal=false;
 
   constructor(
     private dataservice: DataService,
@@ -139,6 +140,12 @@ export class WorkerComponent implements OnInit {
 
   }
 
+  //for calling teh modal with the assigned model
+
+  assignedmodalbutton(){
+    this.AssignedModal=true;
+  }
+
   //deleteing profession details
   onDelete(){
     this.modalState=true;
@@ -180,5 +187,11 @@ export class WorkerComponent implements OnInit {
     else{
       this.modalState2=results;
     }
+  }
+
+
+  onBack(f){
+    this.AssignedModal=f;
+
   }
 }

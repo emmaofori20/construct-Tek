@@ -22,7 +22,7 @@
                         <div class="controls">
                             <div class="controls_button" (click)="onEdit()" style="
                   background-color: #006bd8;
-                  width: 125px;
+                  width: 160px;
                   height: 36px;
                   margin-left: 15px;
                   border-radius: 5px;
@@ -33,7 +33,7 @@
                             <div class="controls_button" (click)="onDelete()" style="
                   background-color: #003366;
                   height: 36px;
-                  width: 140px;
+                  width: 160px;
                   margin-left: 15px;
                   border-radius: 5px;
                   color: white;
@@ -41,6 +41,8 @@
                                 <i class="far fa-trash-alt" style="color: white; margin-left: 10px"></i>
                                 <h3>Delete Details</h3>
                             </div>
+
+                            <div class="special_button" (click)="assignedmodalbutton()">Assigned Projects</div>
                         </div>
                     </div>
                 </div>
@@ -140,4 +142,39 @@
 
 <div class="Modal" *ngIf="modalState2">
     <app-deletemodal [title]="message" (onResult)="onModalprojectdelete($event)"></app-deletemodal>
+</div>
+
+
+<!-- Assigned project modal -->
+
+<div id="myModal" class="Modal" *ngIf="AssignedModal">
+    <!-- forgot password details -->
+    <div (click)="onBack(false)" style="position: absolute; left: 0; top: 0;width: 100%; height: 100%;background-color: rgba(0, 0, 0, 0.4); z-index: -1;">
+
+    </div>
+    <div class="modal-content">
+
+
+        <div class="left_side">
+            <h2>Assigned projects</h2>
+
+            <div class="container1" *ngFor="let item of asignedprojects; let i = index">
+                <div class="nameproject">
+                    <h3>{{ item.project.name }}</h3>
+                    <h4>{{ item.project.description }}</h4>
+                </div>
+
+                <div class="controlsproject">
+                    <button style="background-color: rgba(42, 177, 42, 0.836)" (click)="joinproject(item, i)">
+        Join
+      </button>
+                    <button style="background-color: rgba(199, 43, 43, 0.815)" (click)="leaveproject(item, i)">
+        Leave
+      </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 </div>

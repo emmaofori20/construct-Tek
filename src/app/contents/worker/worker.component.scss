@@ -27,9 +27,9 @@
 .profile {
     margin-top: 30px;
     display: grid;
-    grid-template-columns: 1fr auto;
-    // max-height: 81.5vh;
+    grid-template-columns: auto auto;
     overflow: auto;
+    grid-gap: 10px;
     .right_side {
         // border: 1px solid black;
         .top {
@@ -172,6 +172,8 @@
                 height: 20px;
                 border-radius: 6px;
                 cursor: pointer;
+                font-size: 10px;
+                margin: 0px;
             }
         }
     }
@@ -181,12 +183,76 @@
     position: relative
 }
 
+.left_side {
+    height: 600px;
+    // width: 300px;
+    padding: 10px;
+    // background-color: #006bd8;
+    border-radius: 25px;
+    h2 {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 500;
+        font-family: 'Roboto';
+        color: white;
+        text-transform: capitalize;
+    }
+    .container1 {
+        grid-gap: 10px;
+        /* border: 1px solid black; */
+        height: 50px;
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        padding: 5px 10px;
+        justify-content: center;
+        align-items: center;
+        background-color: #b0b0b066;
+        border-radius: 5px;
+    }
+    .nameproject {
+        h3 {
+            font-size: 20px;
+            font-weight: 500;
+            font-family: 'Roboto';
+        }
+    }
+    .controlsproject {
+        display: flex;
+        justify-content: center;
+        grid-gap: 10px;
+        button {
+            padding: 5px;
+            border: none;
+            width: 50px;
+            height: 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 10px;
+            margin: 0px;
+        }
+    }
+}
+
 .ccnn:hover .image {
     opacity: 0.3;
 }
 
 .ccnn:hover .middle {
     opacity: 1;
+}
+
+.special_button {
+    display: none;
+    background-color: #4e9030;
+    height: 25px;
+    width: 140px;
+    margin-left: 15px;
+    border-radius: 5px;
+    color: white;
+    padding: 7px 11px;
+    align-items: center;
+    cursor: pointer;
 }
 
 .middle {
@@ -214,3 +280,124 @@
     // color: rgb(0, 132, 255);
     cursor: pointer;
 }
+
+// MODAL FOR WORKER ///////////////////////////////////////////////////////////////////////
+.Modal {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    float: left;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    position: fixed;
+}
+
+.modal-content {
+    background: #003366;
+    /* padding-left: 35px; */
+    /* padding-right: 10px; */
+    /* padding-top: 35px; */
+    /* padding-bottom: 35px; */
+    padding: 30px 20px;
+    width: 450px;
+    /* float: left; */
+    /* left: 60%; */
+    margin: 75px auto;
+    /* position: absolute; */
+    /* margin-top: 20%; */
+    /* margin-left: -260px; */
+    /* z-index: 1; */
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgb(0 0 0 / 40%);
+}
+
+// h4 {
+//     text-align: center;
+//     color: #ED1E23;
+//     font-size: 20px;
+// }
+input {
+    font-family: "Poppins";
+    color: #000;
+    font-weight: 300;
+    font-size: 14px;
+    border-radius: 4px;
+    line-height: 10px;
+    background-color: #fff;
+    padding: 13px 13px 13px 13px;
+    margin-bottom: 10px;
+    width: 80%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 0px solid transparent;
+    border: 1px solid #000;
+}
+
+.submit {
+    display: flex;
+    grid-gap: 0.94rem;
+    margin: 40px 20px;
+    justify-content: center;
+}
+
+button {
+    background-color: #ff6801;
+    color: white;
+    /* float: left; */
+    font-family: "Poppins";
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    /* font-weight: 400; */
+    width: 37%;
+    /* border: 0px solid transparent; */
+    cursor: pointer;
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition: all 0.3s;
+    /* margin-top: 5px; */
+    border-radius: 4px;
+    /* margin-left: 7%; */
+    margin: 4px 25%;
+}
+
+p {
+    padding: 10px;
+    color: red;
+}
+
+// MEDIA QUERIES
+@media screen and (max-width: 800px) {
+    .special_button {
+        display: block;
+    }
+    .profile {
+        .left_side {
+            display: none;
+        }
+        .right_side {
+            .down {
+                margin: 0px;
+                .details {
+                    display: block;
+                }
+            }
+            .controls {
+                display: flex;
+                grid-gap: 5px;
+                flex-direction: column;
+            }
+            .top {
+                display: grid;
+                grid-template-columns: auto auto;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {}
