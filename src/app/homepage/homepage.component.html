@@ -1,45 +1,46 @@
-<div style="padding: 0px 1px">
-  <!-- <app-navbar></app-navbar> -->
-
-  <div class="contents" style="background: url('../../assets/background.png')">
-    <!-- <div class="search-box">
+<div style="padding: 85px 1px">
+    <!-- <app-navbar></app-navbar> -->
+    <div class="contents" style="background: url('../../assets/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;">
+        <!-- <div class="search-box">
             <span class="material-icons"> search </span>
             <input type="search" name="search-box" id="search" placeholder="Search for a worker" (keyup)="updateSearch($event.target.value)" />
         </div> -->
 
-    <div class="workers-container" id="workers">
-      <div
-        class="worker"
-        *ngFor="let worker of allWokers"
-        (click)="openWorker(worker)"
-      >
-        <div class="img-container">
-          <img [src]="worker.user.photo" alt="" />
-        </div>
-        <h4>
-          {{ worker.user?.skill.ratings }} <span class="fa fa-star"></span>
-        </h4>
+        <h3 style="    padding: 20px 62px;
+        font-size: 30px;
+        font-weight: 500;
+        color: white;
+        font-family: 'Roboto';">{{nameofCategory}}s Category</h3>
 
-        <div class="details">
-          <h3>
-            Name: <span>{{ worker.user?.skill.name }}</span>
-          </h3>
-          <h3>
-            Profession: <span>{{ worker.user?.skill.profession }}</span>
-          </h3>
-        </div>
 
-        <button
-          style="
+        <div class="workers-container" id="workers">
+            <div class="worker" *ngFor="let worker of allWokers" (click)="openWorker(worker)">
+                <div class="img-container">
+                    <img [src]="worker.user.photo" alt="" />
+                </div>
+                <h4>
+                    {{ worker.user?.skill.ratings }} <span class="fa fa-star"></span>
+                </h4>
+
+                <div class="details">
+                    <h3>
+                        Name: <span>{{ worker.user?.skill.name }}</span>
+                    </h3>
+                    <h3>
+                        Profession: <span>{{ worker.user?.skill.profession }}</span>
+                    </h3>
+                </div>
+
+                <button style="
             background-color: #006bd8;
             width: 80%;
             height: 36px;
             margin-left: 20px;
             border-radius: 5px;
             color: white;
-          "
-          smart-tooltip-container
-        >
+          " smart-tooltip-container>
           Add
           <span
             class="smart-tooltip stay-buttom stick-300 stayonhover"
@@ -47,8 +48,7 @@
             >{{ item.project.name }}</span
           >
         </button>
-        <button
-          style="
+                <button style="
             background-color: #003366;
             height: 36px;
             width: 80%;
@@ -56,14 +56,13 @@
             border-radius: 5px;
             color: white;
             margin-bottom: 10px;
-          "
-        >
+          ">
           View Profile
         </button>
-      </div>
+            </div>
+        </div>
+        <app-search id="searchResults" style="display: none"></app-search>
     </div>
-    <app-search id="searchResults" style="display: none"></app-search>
-  </div>
 
-  <!-- <app-chatbox></app-chatbox> -->
+    <!-- <app-chatbox></app-chatbox> -->
 </div>

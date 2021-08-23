@@ -75,7 +75,7 @@
     </div>
 
     <div class="displayworkers">
-        <h1 >Categories</h1>
+        <h1>Categories</h1>
 
         <div class="theworkers">
             <div class="worker-con">
@@ -110,7 +110,9 @@
             <pagination-controls style="    float: right;margin-bottom:16px; margin-top: 10px;" (pageChange)="c = $event"></pagination-controls>
         </div>
 
-        <h1>Top rated Artisans</h1>
+        <h1 style="
+        margin: 26px 0px 20px 260px!important;
+    ">Top rated Artisans</h1>
         <div class="theworkers">
             <div class="worker-con">
                 <div (click)="openWorker(worker)" class="worker" *ngFor="let worker of highlyratedworkers | paginate: { itemsPerPage: count, currentPage: p }

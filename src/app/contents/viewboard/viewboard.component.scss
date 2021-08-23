@@ -369,3 +369,19 @@
         }
     }
 }
+
+.smallscrren {
+    display: none;
+    // margin: 200px auto;
+    // padding: 60px 0;
+}
+
+@media screen and (max-width: 750px) {
+    .content {
+        display: none;
+    }
+    .smallscrren {
+        display: block;
+        padding: 200px 10px;
+    }
+}

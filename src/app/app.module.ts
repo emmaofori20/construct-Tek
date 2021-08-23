@@ -24,9 +24,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LoaderService } from '../interceptors/loader.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderInterceptor } from 'src/interceptors/loading.interceptor';
-import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { TopmenuComponent } from './topmenu/topmenu.component';
 import { MenuComponent } from './menu/menu.component';
 import { ContentsComponent } from './contents/contents.component';
 import { HomeComponent } from './contents/home/home.component';
@@ -37,7 +35,6 @@ import { SearchComponent } from './search/search.component';
 import { ProjectModalComponent } from './project-modal/project-modal.component';
 import { WorkboardComponent } from './contents/workboard/workboard.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ChatboxComponent } from './chatbox/chatbox.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditWorkerModalComponent } from './edit-worker-modal/edit-worker-modal.component';
 import { ViewboardComponent } from './contents/viewboard/viewboard.component';
@@ -45,7 +42,6 @@ import { DeletemodalComponent } from './deletemodal/deletemodal.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { IsLoggedInPipe } from './is-logged-in.pipe';
-import { LoginSignupComponent } from './login-signup/login-signup.component';
 import { CategoriesComponent } from './categories/categories.component';
 @NgModule({
   declarations: [
@@ -54,9 +50,7 @@ import { CategoriesComponent } from './categories/categories.component';
     SignupComponent,
     PasswordComponent,
     HomepageComponent,
-    NavbarComponent,
     DashboardComponent,
-    TopmenuComponent,
     MenuComponent,
     ContentsComponent,
     HomeComponent,
@@ -67,14 +61,12 @@ import { CategoriesComponent } from './categories/categories.component';
     ProjectModalComponent,
     WorkboardComponent,
     ProfileComponent,
-    ChatboxComponent,
     EditWorkerModalComponent,
     ViewboardComponent,
     DeletemodalComponent,
     EditProjectComponent,
     LandingPageComponent,
     IsLoggedInPipe,
-    LoginSignupComponent,
     CategoriesComponent,
 
   ],

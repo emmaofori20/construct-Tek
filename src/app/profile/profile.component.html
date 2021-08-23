@@ -1,10 +1,16 @@
-<div style="    padding: 54px 0px;
+<!-- <div style="    padding: 54px 0px;
 ">
-    <!-- <app-navbar></app-navbar> -->
-    <!-- <hr> -->
+
     <div class="content">
         <div class="worker-container">
             <div class="left">
+                <div class="img-container">
+                    <i *ngIf="!workerdetails.user?.photo" class="far fa-user"></i>
+                    <img *ngIf="workerdetails.user?.photo" [src]="workerdetails.user.photo" alt="">
+                </div>
+            </div>
+
+            <div class="left2">
                 <div class="img-container">
                     <i *ngIf="!workerdetails.user?.photo" class="far fa-user"></i>
                     <img *ngIf="workerdetails.user?.photo" [src]="workerdetails.user.photo" alt="">
@@ -58,7 +64,6 @@
                     </div>
                     <h2>{{workerdetails.user.skill.ratings}}</h2>
                 </div>
-                <!-- <button (click)="chat.OpenChat()">Message a worker <i class="far fa-comments"></i></button> -->
                 <div class="details">
                     <div class="headings">
                         <h3 (click)="ontimeline()" id="timefont">Timeline</h3>
@@ -145,6 +150,126 @@
 
     </div>
 
-    <!-- <app-chatbox #chat></app-chatbox> -->
+</div> -->
 
+
+<!-- <div class="top-bar">
+    <div class="mobile-toggle-container">
+        <img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533118808/menu-button-of-three-horizontal-lines.png" alt="menu-icon" />
+    </div>
+    <div class="logo-container">
+        <img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533121745/man-user.png" alt="profile logo" />
+    </div>
+    <div class="search-container">
+        <img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533118681/musica-searcher.png" alt="search-icon" />
+    </div>
+</div> -->
+<div style="    padding: 80px 0px;
+">
+    <div class="profile-container">
+        <div class="profile-container-wrapper">
+            <div class="profile-photo">
+
+                <i *ngIf="!workerdetails.user?.photo" class="far fa-user"></i>
+                <img *ngIf="workerdetails.user?.photo" [src]="workerdetails.user.photo" alt="">
+
+            </div>
+            <div class="profile-info">
+                <!-- <span class="following-count"><b>FOLLOWING</b> 357</span>•<span class="follower-count"><b>FOLLOWERS</b> 1012</span> -->
+                <br>
+                <span class="display-name">{{workerdetails.user?.skill?.name}}</span>
+                <!-- <span class="username">@JohnJames</span> -->
+                <!-- <span class="website"><a href="#">www.jorpdesigns.com</a></span> -->
+                <br>
+                <span class="join-date">Joined August 2010</span>
+            </div>
+            <div class="profile-bio">
+                <span>Profession</span>
+                <p>{{workerdetails.user.skill.profession}}</p>
+            </div>
+        </div>
+
+
+        <div class="control">
+            <div smart-tooltip-container class=" control clicktoshow">
+                <i class="fas fa-plus"></i>
+                <h3>Request</h3>
+
+                <h2 class="smart-tooltip stay-buttom stick-300 stayonhover" id="requests">
+                    <div *ngIf=" projects !=0;else pppp">
+                        <span *ngFor="let item of projects">
+                    <h5 (click)="onRequest(item)">{{item.project.name}}</h5>
+                  </span>
+                    </div>
+
+                    <ng-template #pppp>
+                        <h5>No projects </h5>
+                    </ng-template>
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-links-container">
+        <ul>
+            <li>
+                <h4 class="active"><a id="tweets-link">REVIEWS</a></h4>
+            </li>
+            <li>
+                <h4><a id="media-link">MEDIA</a></h4>
+            </li>
+            <li>
+                <h4><a id="likes-link">ABOUT</a></h4>
+            </li>
+        </ul>
+    </div>
+
+    <div class="tweets">
+        <div class="tweet-block">
+            <img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533122246/profile-picture.jpg" alt="profile photo" />
+            <span class="tweet-content"><span class="display-name">John James</span>•<span class="username">@JohnJames</span><span class="timestamp">5s</span><br>Going to church together is the most beautiful and unspoken form of intimacy</span>
+            <div class="tweet-links">
+                <span class="reply-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/speech-bubble.png" alt="reply tweet" /></a></span>
+                <span class="retweet-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134296/retweet.png" alt="retweet tweet" /></a></span>
+                <span class="like-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/star.png" alt="like tweet" /></a></span>
+            </div>
+        </div>
+        <div class="tweet-block">
+            <img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533122246/profile-picture.jpg" alt="profile photo" />
+            <span class="tweet-content"><span class="display-name">John James</span>•<span class="username">@JohnJames</span><span class="timestamp">45s</span><br>Are u single — If you have to ask, you’re not reckless enough for me. Don’t sweat it.</span>
+            <div class="tweet-links">
+                <span class="reply-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/speech-bubble.png" alt="reply tweet" /></a></span>
+                <span class="retweet-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134296/retweet.png" alt="retweet tweet" /></a></span>
+                <span class="like-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/star.png" alt="like tweet" /></a></span>
+            </div>
+        </div>
+        <div class="tweet-block">
+            <img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533122246/profile-picture.jpg" alt="profile photo" />
+            <span class="tweet-content"><span class="display-name">John James</span>•<span class="username">@JohnJames</span><span class="timestamp">2m</span><br>I’m honestly fatigued by expenses, haven’t enjoyed my life in a long ass time.</span>
+            <div class="tweet-links">
+                <span class="reply-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/speech-bubble.png" alt="reply tweet" /></a></span>
+                <span class="retweet-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134296/retweet.png" alt="retweet tweet" /></a></span>
+                <span class="like-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/star.png" alt="like tweet" /></a></span>
+            </div>
+        </div>
+        <div class="tweet-block">
+            <img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533122246/profile-picture.jpg" alt="profile photo" />
+            <span class="tweet-content"><span class="display-name">John James</span>•<span class="username">@JohnJames</span><span class="timestamp">3m</span><br>A professional video game player broke up with "the world's sexiest weather girl" because
+            he had to focus on the new Call of Duty game.</span>
+            <div class="tweet-links">
+                <span class="reply-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/speech-bubble.png" alt="reply tweet" /></a></span>
+                <span class="retweet-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134296/retweet.png" alt="retweet tweet" /></a></span>
+                <span class="like-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/star.png" alt="like tweet" /></a></span>
+            </div>
+        </div>
+        <div class="tweet-block">
+            <img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533122246/profile-picture.jpg" alt="profile photo" />
+            <span class="tweet-content"><span class="display-name">John James</span>•<span class="username">@JohnJames</span><span class="timestamp">5m</span><br>I just need a woman to take me out and spoil me mercilessly.</span>
+            <div class="tweet-links">
+                <span class="reply-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/speech-bubble.png" alt="reply tweet" /></a></span>
+                <span class="retweet-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134296/retweet.png" alt="retweet tweet" /></a></span>
+                <span class="like-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/star.png" alt="like tweet" /></a></span>
+            </div>
+        </div>
+    </div>
 </div>
