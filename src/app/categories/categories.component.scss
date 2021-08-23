@@ -129,6 +129,10 @@ q {
     color: cornflowerblue;
 }
 
+.tra {
+    margin: 26px 0px 20px 260px!important;
+}
+
 /// SLIDE SHOW//////////////////////////////////////////////////////////////////////////////////
 .worker-con {
     display: flex;
@@ -261,5 +265,14 @@ q {
     }
     .displayworkers {
         margin: -70px 15px;
+    }
+}
+
+@media (max-width:500px) {
+    .tra {
+        margin: -1px -2px 0px 0px !important;
+        /* font-size: 19px !important; */
+        text-align: initial;
+        padding-top: 40px;
     }
 }
