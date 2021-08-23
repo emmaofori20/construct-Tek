@@ -16,6 +16,10 @@ export class HomepageComponent implements OnInit {
   allWokers: any = [];
   nameofCategory:any;
   projects: any;
+  p: Number = 1;
+  c:Number=1
+  count: Number = 4;
+
   constructor(
     private worker: WorkerService,
     private activatedroute: ActivatedRoute,

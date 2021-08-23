@@ -1,4 +1,4 @@
-<div style="padding: 85px 1px">
+<div style="padding: 0px 1px">
     <!-- <app-navbar></app-navbar> -->
     <div class="contents" style="background: url('../../assets/background.png');
     background-repeat: no-repeat;
@@ -16,7 +16,7 @@
 
 
         <div class="workers-container" id="workers">
-            <div class="worker" *ngFor="let worker of allWokers" (click)="openWorker(worker)">
+            <div class="worker" *ngFor="let worker of allWokers | paginate: { itemsPerPage: count, currentPage: c}" (click)="openWorker(worker)">
                 <div class="img-container">
                     <img [src]="worker.user.photo" alt="" />
                 </div>
@@ -60,8 +60,12 @@
           View Profile
         </button>
             </div>
+
+
         </div>
-        <app-search id="searchResults" style="display: none"></app-search>
+        <!-- <app-search id="searchResults" style="display: none"></app-search> -->
+        <pagination-controls (pageChange)="c = $event"></pagination-controls>
+
     </div>
 
     <!-- <app-chatbox></app-chatbox> -->

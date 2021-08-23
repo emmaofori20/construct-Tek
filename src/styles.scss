@@ -16,6 +16,7 @@
     font-family: 'Roboto', sans-serif;
     // overflow: hidden;
     min-width: 0px;
+    box-sizing: border-box;
 }
 
 html,
@@ -39,11 +40,12 @@ body {
 
 html,
 body {
-    height: 100%;
+    height: 100% !important;
     font-size: 1.50rem;
 }
 
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    min-width: 0!important;
 }

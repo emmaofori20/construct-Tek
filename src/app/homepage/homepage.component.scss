@@ -1,11 +1,12 @@
 .contents {
     background-image: url("../../assets/pop.jpg");
     background-size: cover;
-    height: 100%;
+    // height: 100%;
     width: 100%;
     background-position: center;
     /* Center the image */
     background-repeat: no-repeat;
+    padding: 84px 0px 47px 0px;
     /* Do not repeat the image */
     display: block;
     .search-box {

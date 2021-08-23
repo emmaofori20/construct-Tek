@@ -1,7 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-$border-color: #dadce0;
+// $border-color: #dadce0;
 * {
     box-sizing: border-box!important
 }
@@ -109,6 +109,3 @@ $border-color: #dadce0;
 //         }
 //     }
 // }
-.bg-white {
-    background-color: none!important;
-}

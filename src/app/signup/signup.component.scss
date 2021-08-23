@@ -25,6 +25,7 @@ h1 {
     box-sizing: border-box;
     padding-left: 40px;
     background-color: #003366;
+    height: 100vh;
 }
 
 .logo {
@@ -33,7 +34,7 @@ h1 {
     align-items: flex-end;
     grid-gap: 20px;
     img {
-        width:63px;
+        width: 63px;
         height: 47px;
         margin-top: 1.63rem;
         margin-left: 2.5rem;
