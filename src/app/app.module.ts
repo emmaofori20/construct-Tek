@@ -83,7 +83,7 @@ import { CategoriesComponent } from './categories/categories.component';
     BrowserAnimationsModule,
     DragDropModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
 
   ],
   providers: [
