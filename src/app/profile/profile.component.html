@@ -238,20 +238,23 @@
     </div>
 
     <div class="tweets" id="tweets">
-        <div class="tweet-block" *ngFor="let review of workerdetails.user.skill.reviews">
-            <div *ngIf="!workerdetails.user.skill.reviews">
-                <i class="far fa-user-circle"></i>
-            </div>
-            <div *ngIf="workerdetails.user.skill.reviews">
-                <img [src]="review.image" alt="image">
-            </div>
-            <span class="tweet-content"><span class="display-name">{{review.name}}</span>•<span class="username">@{{review.name}}</span><br>{{review.comment}}</span>
-            <div class="tweet-links">
-                <span class="reply-tweet-link"><a ><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/speech-bubble.png" alt="reply tweet" /></a></span>
-                <span class="retweet-tweet-link"><a ><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134296/retweet.png" alt="retweet tweet" /></a></span>
-                <span class="like-tweet-link"><a><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/star.png" alt="like tweet" /></a></span>
+        <div *ngIf="workerdetails.user.skill.reviews!=0">
+            <div class="tweet-block" *ngFor="let review of workerdetails.user.skill.reviews">
+                <!-- <div *ngIf="!workerdetails.user.skill.reviews">
+              <i class="far fa-user-circle"></i>
+          </div> -->
+                <div *ngIf="workerdetails.user.skill.reviews">
+                    <img [src]="review.image" alt="image">
+                </div>
+                <span class="tweet-content"><span class="display-name">{{review.name}}</span>•<span class="username">@{{review.name}}</span><br>{{review.comment}}</span>
+                <div class="tweet-links">
+                    <span class="reply-tweet-link"><a ><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/speech-bubble.png" alt="reply tweet" /></a></span>
+                    <span class="retweet-tweet-link"><a ><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134296/retweet.png" alt="retweet tweet" /></a></span>
+                    <span class="like-tweet-link"><a><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/star.png" alt="like tweet" /></a></span>
+                </div>
             </div>
         </div>
+
 
         <div class="tweet-block">
             <img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533122246/profile-picture.jpg" alt="profile photo" />
