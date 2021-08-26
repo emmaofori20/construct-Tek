@@ -32,7 +32,7 @@
 
 
     <!-- New CAtegories page -->
-    <div style="background-image: url(../../assets/backgroundslide.jpg);   ;
+    <div style="background-image: url(assets/backgroundslide.jpg);   ;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 47%;
@@ -82,22 +82,22 @@
                 <div (click)="opencategory(worker.name)" class="worker" *ngFor="let worker of allProfessionCategory | paginate: { itemsPerPage: count, currentPage: c }
                  ">
                     <div *ngIf="worker.name=='Carpenter'">
-                        <img src="../../assets/carpenter.jpg" alt="Avatar" class="image">
+                        <img src="assets/carpenter.jpg" alt="Avatar" class="image">
                     </div>
 
                     <div *ngIf="worker.name=='Plumber'">
-                        <img src="../../assets/plumber.jpg" alt="Avatar" class="image">
+                        <img src="assets/plumber.jpg" alt="Avatar" class="image">
                     </div>
 
                     <div *ngIf="worker.name=='Bricklayer'">
-                        <img src="../../assets/bricklayer.jpg" alt="Avatar" class="image">
+                        <img src="assets/bricklayer.jpg" alt="Avatar" class="image">
                     </div>
 
                     <div *ngIf="worker.name=='Acoustics consultant'">
-                        <img src="../../assets/consultant.jpg" alt="Avatar" class="image">
+                        <img src="assets/consultant.jpg" alt="Avatar" class="image">
                     </div>
                     <div *ngIf="worker.name=='Stonemason'">
-                        <img src="../../assets/stone.jpg" alt="Avatar" class="image">
+                        <img src="assets/stone.jpg" alt="Avatar" class="image">
                     </div>
                     <div class="overlay">
                         <div class="text">{{worker.name}}</div>

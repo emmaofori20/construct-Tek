@@ -34,6 +34,7 @@ export class DataService {
 
   getuserid() {
     let _userid = localStorage.getItem('user');
+    console.log('the user id', _userid)
     return _userid;
   }
 

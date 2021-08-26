@@ -18,6 +18,8 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
 
+    debugger;
+
     this._userId= this.dataservice.getuserid();
     //getting the current user id
     this.user=this.userservice.getActiveUser(this.dataservice.getuserid()).subscribe(res=>{
