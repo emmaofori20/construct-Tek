@@ -1,20 +1,22 @@
 .displayworkers {
-    width: 92%;
-    margin: -69px 48px;
-    border: 1px solid #ccc;
-    background-color: #d0e6fa;
-    /* border-radius: 20px; */
-    // height: 300px;
+    width: 100%;
+    background-color: #282831;
     padding: 10px 0px;
     height: max-content;
     z-index: 1;
-    h1 {
-        color: black;
-        font-size: 1.7em;
-        font-family: 'Lato', sans-serif;
-        font-weight: 600;
-        text-align: center;
+ overflow: hidden;
+   h1 {
+       color: white;
+       font-size: 1.7em;
+        font-family: "Lato", sans-serif;
+        font-weight: bolder;
+        text-align: center !important;
         text-transform: uppercase;
+        padding: 20px 20px 20px 20px;
+       
+        
+       
+       
     }
     .theworkers {
         width: 90%;
@@ -29,22 +31,17 @@
 ///SLIDE SHOW///////////////////////////////////////////////////////////////////
 
 /* Slideshow container */
-
 .slideshow-container {
     position: relative;
     background: #00000094;
-    margin-top: 80px;
+    margin-top: -1px;
 }
-
-
 /* Slides */
-
 .mySlides {
     display: none;
-    padding: 80px;
+    padding: 105px;
     text-align: center;
 }
-
 
 /* Next & previous buttons */
 
@@ -58,11 +55,11 @@
     margin-top: -30px;
     padding: 16px;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 24px;
     border-radius: 0 3px 3px 0;
     user-select: none;
+    color: white;
 }
-
 
 /* Position the "next button" to the right */
 
@@ -73,7 +70,6 @@
     font-weight: bold;
 }
 
-
 /* On hover, add a black background color with a little bit see-through */
 
 .prev:hover,
@@ -81,15 +77,14 @@
     color: white;
 }
 
-
 /* The dot/bullet/indicator container */
 
 .dot-container {
     text-align: center;
     // padding: 20px;
     // background: #ddd;
+    margin-top: -43px;
 }
-
 
 /* The dots/bullets/indicators */
 
@@ -104,14 +99,12 @@
     transition: background-color 0.6s ease;
 }
 
-
 /* Add a background color to the active dot/circle */
 
 .active,
 .dot:hover {
     background-color: #717171;
 }
-
 
 /* Add an italic font style to all quotes */
 
@@ -122,7 +115,6 @@ q {
     color: white;
 }
 
-
 /* Add a blue color to the author */
 
 .author {
@@ -130,13 +122,14 @@ q {
 }
 
 .tra {
-    margin: 26px 0px 20px 260px!important;
+    margin: 26px 0px 20px 260px !important;
 }
 
 /// SLIDE SHOW//////////////////////////////////////////////////////////////////////////////////
 .worker-con {
     display: flex;
-    grid-gap: 10px;
+    grid-gap: 15px;
+    padding-left: 35px;
 }
 
 .worker {
@@ -146,10 +139,10 @@ q {
 }
 
 .image {
-    display: block;
     width: 100%;
     height: 300px;
     object-fit: cover;
+    border-radius: 15px;
 }
 
 .overlay {
@@ -161,8 +154,9 @@ q {
     height: 100%;
     width: 100%;
     opacity: 1;
-    transition: .5s ease;
+    transition: 0.5s ease;
     background-color: #24222277;
+    border-radius: 15px;
 }
 
 .worker:hover .overlay {
@@ -221,7 +215,7 @@ q {
     text-align: right;
 }
 
-@media (max-width:767px) {
+@media (max-width: 767px) {
     .footer-clean .item {
         text-align: center;
         padding-bottom: 20px;
@@ -234,7 +228,7 @@ q {
     }
 }
 
-.footer-clean .item.social>a {
+.footer-clean .item.social > a {
     font-size: 24px;
     width: 40px;
     height: 40px;
@@ -249,12 +243,12 @@ q {
     opacity: 0.75;
 }
 
-.footer-clean .item.social>a:hover {
+.footer-clean .item.social > a:hover {
     opacity: 0.9;
 }
 
-@media (max-width:991px) {
-    .footer-clean .item.social>a {
+@media (max-width: 991px) {
+    .footer-clean .item.social > a {
         margin-top: 40px;
     }
     .worker-con {
@@ -265,10 +259,11 @@ q {
     }
     .displayworkers {
         margin: -70px 15px;
+      
     }
 }
 
-@media (max-width:500px) {
+@media (max-width: 500px) {
     .tra {
         margin: -1px -2px 0px 0px !important;
         /* font-size: 19px !important; */
