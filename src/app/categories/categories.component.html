@@ -32,13 +32,16 @@
 
 
     <!-- New CAtegories page -->
-    <div style="background-image: url(../../assets/backgroundslide.jpg);   ;
+    <div style="background-image: url(../../assets/Woodwork.jpg);   ;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 47%;
     background-color: #e7e7e7;
-    height: 430px;
-    padding: 60px 0px;">
+    height: 250px;
+    width: 100%;
+    padding: 1px 0px;
+    ">
+    
         <!-- SLIDE SHOW/////////////////////////////////////////////////////////////// -->
         <div class="slideshow-container">
 
@@ -75,7 +78,7 @@
     </div>
 
     <div class="displayworkers">
-        <h1>Categories</h1>
+        <h1 >Categories</h1>
 
         <div class="theworkers">
             <div class="worker-con">
@@ -114,7 +117,7 @@
 
                 </div>
             </div>
-            <pagination-controls style="    float: right;margin-bottom:16px; margin-top: 10px;" (pageChange)="c = $event"></pagination-controls>
+            <pagination-controls style="   margin-right: 40px; float: right;margin-bottom:16px; margin-top: 10px;" (pageChange)="c = $event"></pagination-controls>
         </div>
 
         <h1 class="tra">Top rated Artisans</h1>
@@ -130,8 +133,11 @@
                     top: 0px;
                     right: 0px;
                     width: 63px;
-                    background-color: #006bd8;
+                    background-color: #fd926f;
                     text-align: center;
+                    z-index: 2;
+                    border-top-right-radius: 15px;
+                    border-bottom-left-radius: 15px;
                     color: white;
                     padding: 3px 4px;
                     font-size: 14px;">{{worker.user?.skill.ratings}} <span class="fa fa-star"></span></h4>
@@ -144,7 +150,7 @@
 
             </div>
             <pagination-controls (pageChange)="p = $event" style=" float: right;margin-bottom:16px;
-            margin-top:5px;"></pagination-controls>
+            margin-top:5px; margin-right: 40px;"></pagination-controls>
 
         </div>
 
@@ -178,9 +184,7 @@
                             <li><a href="#">Benefits</a></li>
                         </ul>
                     </div>
-                    <div class="col-lg-3 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
-                        <p class="copyright">Construct-Tek © 2018</p>
-                    </div>
+                  
                 </div>
             </div>
         </footer>

@@ -6,6 +6,7 @@
         <i class="bx bxl-c-plus-plus"></i>
         <span class="logo_name">Con-Tek</span>
     </div>
+
     <ul class="nav-links">
         <li>
             <a routerLink="/dashboard/content/home-page" routerLinkActive="active">
@@ -43,24 +44,25 @@
 <section class="home-section">
     <nav>
         <div class="sidebar-button">
-            <i class="bx bx-menu sidebarBtn" (click)="onOpensidebar()"></i>
-            <span class="dashboard">Dashboard</span>
+            <i class="bx bx-menu sidebarBtn" style="color: white;" (click)="onOpensidebar()"></i>
+            
         </div>
         <div class="search-box">
             <input type="text" placeholder="Search..." (keyup)="updateSearch($event.target.value)" />
             <i class="bx bx-search"></i>
         </div>
         <div class="profile-details" smart-tooltip-container>
-            <img style="width: 30%;
-            height: 90%;
+            <img style="width: 45px;border-radius: 30px; margin: 0px 0px 0px 62%;
+            height: 45px;
             object-fit: cover;" *ngIf="user.user?.photo!='null'" src={{user.user?.photo}} id="image">
-            <img style="width: 30%;
+            <img style="width: 20%;
             height: 90%;
             object-fit: cover;" *ngIf="user?.photo!" src={{user.user?.photo}} id="imagedisplay">
-            <span class="admin_name">{{user?.user?.firstName}} {{user.user?.lastName}}</span>
-            <i class="bx bx-chevron-down"></i>
+            <!--- <span class="admin_name">{{user?.user?.firstName}} {{user.user?.lastName}}</span>-->
+            <i class="bx bx-chevron-down" style="color: white;"></i>
 
-            <h3 style="top: 0px; right: 1px; text-align: center" class="smart-tooltip stay-left stick-300 stayonhover" id="hiddenText">
+            <h3 style="top: 60px; right: 30px; text-align: center"
+                class="smart-tooltip stay-left stick-300 stayonhover" id="hiddenText">
                 <div class="profile">
                     <i style="position: relative;
                   top: 0px;
@@ -68,10 +70,11 @@
                   font-size: 75px;
                   color: black;
                   padding: 0px;" *ngIf="user.user?.photo=='null'" class="fas fa-user-circle"></i>
-                    <div class="imgdisp">
-                        <img *ngIf="user.user?.photo!='null'" style="height: 70px;width: 70px;border-radius: 50%;" src={{user.user?.photo}} id="image">
+                   <div class="imgdisp">
+                        <img *ngIf="user.user?.photo!='null'" style="height: 70px;width: 70px;border-radius: 50%;"
+                            src={{user.user?.photo}} id="image">
                         <img *ngIf="user?.photo!" src={{user.user?.photo}} id="imagedisplay">
-                    </div>
+                    </div>-->
                     <i class="fa fa-camera" (click)="changeProfile($event)"></i>
                     <span class="iconify" data-icon="fa:home"></span>
 
