@@ -43,7 +43,6 @@ import { EditProjectComponent } from './edit-project/edit-project.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { IsLoggedInPipe } from './is-logged-in.pipe';
 import { CategoriesComponent } from './categories/categories.component';
-import { SettingsComponent } from './contents/settings/settings.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +68,7 @@ import { SettingsComponent } from './contents/settings/settings.component';
     LandingPageComponent,
     IsLoggedInPipe,
     CategoriesComponent,
-    SettingsComponent,
+
 
   ],
   imports: [
