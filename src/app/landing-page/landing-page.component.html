@@ -46,18 +46,22 @@
         <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
             <!-- Nav Left Side -->
             <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-                <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase text-white">
+                <a style="font-size: 22px; color:#fff !important"
+                    class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase text-white">
                     <!-- Nav Title -->
                     Construction-Tek
                 </a>
                 <!-- Hamburger Menu (Mobile) -->
-                <button class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" (click)="toggleNavbar('example-collapse-navbar')">
-          <!-- Icon -->
-          <i class="text-white fas fa-bars"></i>
-        </button>
+                <button
+                    class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+                    type="button" (click)="toggleNavbar('example-collapse-navbar')">
+                    <!-- Icon -->
+                    <i class="text-white fas fa-bars"></i>
+                </button>
             </div>
             <!-- Nav Flex Row -->
-            <div class="lg:flex flex-grow items-center  lg:bg-transparent lg:shadow-none hidden" id="example-collapse-navbar">
+            <div class="lg:flex flex-grow items-center  lg:bg-transparent lg:shadow-none hidden"
+                id="example-collapse-navbar">
                 <!-- <ul class="flex flex-col lg:flex-row list-none mr-auto">
               <li class="flex items-center">
                 <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
@@ -72,14 +76,16 @@
                 <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
                     <!-- Social Media Button -->
                     <li class="flex items-center">
-                        <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold">
-                            <span class="inline-block ml-2" style="color: white;" routerLink="/login">Login</span>
+                        <a
+                            class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold">
+                            <span class="inline-block ml-2" style="color: #fff;cursor: pointer;font-size: 17px;" routerLink="/login">Login</span>
                         </a>
                     </li>
                     <!-- Social Media Button -->
                     <li class="flex items-center">
                         <a>
-                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" routerLink="/sign-up">Sign up</button>
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" style="font-size: 17px;"
+                                routerLink="/sign-up">Sign up</button>
                         </a>
                     </li>
                     <!-- Social Media Button -->
@@ -104,7 +110,8 @@
     <main>
         <div class="relative pt-16 pb-32 flex content-center items-center justify-center" style="min-height: 75vh;">
             <!-- Background Image -->
-            <div class="absolute top-0 w-full h-full bg-center bg-cover" style='background-image: url("../../assets/dashboard.jpg");'>
+            <div class="absolute top-0 w-full h-full bg-center bg-cover"
+                style='background-image: url("../../assets/dashboard.jpg");'>
                 <!-- Overlay -->
                 <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"></span>
             </div>
@@ -113,57 +120,66 @@
                 <div class="items-center flex flex-wrap">
                     <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
                         <div class="pr-12">
-                            <h1 class="text-white font-semibold text-5xl" data-aos="fade-up">
+                            <h1 style="color: #fff !important;" class="text-white font-semibold text-5xl" data-aos="fade-up">
                                 Welcome to Construction Tek
                             </h1>
                             <p class="mt-4 text-lg text-gray-300" data-aos="fade-right" data-aos-delay="1000">
-                                Are you a constructor, a forman or an individual looking for atisians with the requsite skills to work on your Project(s)? Then you are at the right place</p>
+                                Are you a constructor, a forman or an individual looking for atisians with the requsite
+                                skills to work on your Project(s)? Then you are at the right place</p>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Making Polygon Shape in Background -->
-            <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden" style="height: 70px; transform: translateZ(0);">
-                <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-          <polygon class="text-gray-300 fill-current" points="2560 0 2560 100 0 100"></polygon>
-        </svg>
+            <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
+                style="height: 70px; transform: translateZ(0);">
+                <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
+                    <polygon class="text-gray-300 fill-current" points="2560 0 2560 100 0 100"></polygon>
+                </svg>
             </div>
         </div>
         <!-- End of Splash Page -->
 
         <!-- Services Section -->
-        <section class="pb-20 bg-gray-300 -mt-24">
+        <section class="pb-20 bg-gray-300 -mt-24" >
             <!-- 3 Card Section -->
             <div class="container mx-auto px-4">
                 <div class="flex flex-wrap">
                     <!-- Card -->
-                    <div class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center" data-aos="fade-right" data-aos-delay="1200">
-                        <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                            <div class="px-4 py-5 flex-auto">
-                                <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
+                    <div class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center" data-aos="fade-right"
+                        data-aos-delay="1200">
+                        <div
+                            class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                            <div class="px-4 py-5 flex-auto" style="background-color:#2a2a2a;">
+                                <div
+                                    class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
                                     <!-- Icon -->
                                     <i class="fas fa-robot"></i>
                                 </div>
                                 <!-- Text Box -->
-                                <h6 class="text-xl font-bold">Artisans</h6>
-                                <p class="mt-2 mb-4 text-gray-600">
+                                <h1 style="color: #fd926f;font-weight: bold;" class="text-xl font-bold">Artisans</h1>
+                                <p style="font-size: 17px; color: white;"class="mt-2 mb-4 text-gray-600">
                                     Easily search for artisans within a specific category.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <!-- Card -->
-                    <div class="w-full md:w-4/12 px-4 text-center" data-aos="fade-up" data-aos-delay="1400">
-                        <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                            <div class="px-4 py-5 flex-auto">
-                                <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-400">
+                    <div class="w-full md:w-4/12 px-4 text-center" data-aos="fade-up" data-aos-delay="1400" >
+                        <div
+                            class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                            <div class="px-4 py-5 flex-auto" style="background-color:#2a2a2a;">
+                                <div
+                                    class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-400">
                                     <!-- Icon -->
                                     <i class="fas fa-atom"></i>
                                 </div>
                                 <!-- Text Box -->
-                                <h6 class="text-xl font-semibold">Create a Project</h6>
-                                <p class="mt-2 mb-4 text-gray-600">
-                                    Create a project as many as you want and send invite to the artisans you are willing to work it.
+                                <h1 style="color: #fd926f; font-weight: bold;"class="text-xl font-semibold">Create a Project</h1>
+                                <p style="font-size: 17px;color: white;"class="mt-2 mb-4 text-gray-600">
+                                    Create a project as many as you want and send invite to the artisans you are willing
+                                    to work it.
 
                                 </p>
                             </div>
@@ -171,16 +187,19 @@
                     </div>
                     <!-- Card -->
                     <div class="pt-6 w-full md:w-4/12 px-4 text-center" data-aos="fade-left" data-aos-delay="1600">
-                        <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                            <div class="px-4 py-5 flex-auto">
-                                <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-green-400">
+                        <div
+                            class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                            <div class="px-4 py-5 flex-auto" style="background-color:#2a2a2a;">
+                                <div
+                                    class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-green-400">
                                     <!-- Icon -->
                                     <i class="fas fa-bolt"></i>
                                 </div>
                                 <!-- Text Box -->
-                                <h6 class="text-xl font-semibold">Manage Project</h6>
-                                <p class="mt-2 mb-4 text-gray-600">
-                                    A simple project tracker where the foreman can track all the artisans tasks assiged to them.
+                                <h1 style="color:#fd926f;font-weight: bold;"class="text-xl font-semibold">Manage Project</h1>
+                                <p style="font-size: 17px;color: white; "class="mt-2 mb-4 text-gray-600">
+                                    A simple project tracker where the foreman can track all the artisans tasks assiged
+                                    to them.
                                 </p>
                             </div>
                         </div>
@@ -192,39 +211,43 @@
                     <!-- Text Box Container -->
                     <div class="w-full md:w-5/12 px-4 mr-auto ml-auto" data-aos="zoom-in-right">
                         <!-- Text Box -->
-                        <div class="text-gray-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-gray-100">
+                        <div
+                            class="text-gray-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-gray-100">
                             <!-- Icon -->
                             <i class="fas fa-star text-xl"></i>
                         </div>
-                        <h3 class="text-3xl mb-2 font-semibold leading-normal">
-                            Trying New Things is Great!
+                        <h3 style="color: #2a2a2a;font-size: 17px; font-weight: 700;" class="text-3xl mb-2 font-semibold leading-normal">
+                            If it`s worth building, It`s worth building well.
                         </h3>
-                        <p class="text-lg font-light leading-relaxed mt-4 mb-4 text-gray-700">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, dolores? Saepe aspernatur necessitatibus explicabo.
+                        <p  style="color:#2a2a2a;"class="text-lg font-light leading-relaxed mt-4 mb-4 text-gray-700">
+                            We encourage our employees to develop and improve their skills so that they could benefit
+                            from their work at our company.
                         </p>
-                        <p class="text-lg font-light leading-relaxed mt-0 mb-4 text-gray-700">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. At repellat obcaecati tenetur officia distinctio! A voluptates numquam, neque libero molestiae natus facere temporibus!
-                        </p>
-                        <a href="https://www.creative-tim.com/framework/tailwind-starter-kit" class="font-bold text-gray-800 mt-8">Check Tailwind Starter Kit!
-            </a>
+
+
                     </div>
 
                     <!-- Image Cap & Text Card -->
                     <div class="w-full md:w-4/12 px-4 mr-auto ml-auto" data-aos="flip-left" data-aos-delay="1000">
-                        <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-orange-500">
+                        <div
+                            class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-orange-500">
                             <!-- Image -->
-                            <img alt="..." src="https://images.unsplash.com/photo-1512572525676-f9b59951929e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1252&q=80" class="w-full align-middle rounded-t-lg" />
+                            <img alt="..." src="../../assets/home-02-485x526.jpg" style="height: 300px;width: 400px;"
+                                class="w-full align-middle rounded-t-lg" />
                             <blockquote class="relative p-8 mb-4">
                                 <!-- Making Polygon Shape in Card -->
-                                <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95" class="absolute left-0 w-full block" style="height: 95px; top: -94px;">
-                  <polygon points="-30,95 583,95 583,65" class="text-orange-500 fill-current"></polygon>
-                </svg>
+                                <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95"
+                                    class="absolute left-0 w-full block" style="height: 95px; top: -94px;">
+                                    <polygon points="-30,95 583,95 583,65" class="text-orange-500 fill-current">
+                                    </polygon>
+                                </svg>
                                 <!-- Text Box -->
                                 <h4 class="text-xl font-bold text-white">
                                     More Than Meets The Eye
                                 </h4>
                                 <p class="text-md font-light mt-2 text-white">
-                                    I feel like I've mentioned before that I'm a robot and that continues to be true, even to this day.
+                                    I feel like I've mentioned before that I'm a robot and that continues to be true,
+                                    even to this day.
                                 </p>
                             </blockquote>
                         </div>
@@ -237,74 +260,39 @@
         <!-- About Section -->
         <section class="relative py-20">
             <!-- Making Polygon Shape in Background -->
-            <div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20" style="height: 80px; transform: translateZ(0);">
-                <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-          <polygon class="text-white fill-current" points="2560 0 2560 100 0 100"></polygon>
-        </svg>
+            <div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
+                style="height: 80px; transform: translateZ(0);">
+                <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
+                    <polygon class="text-white fill-current" points="2560 0 2560 100 0 100"></polygon>
+                </svg>
             </div>
             <!-- Section Container -->
-            <div class="container mx-auto px-4">
+            <div class="container mx-auto px-4" >
                 <div class="items-center flex flex-wrap">
                     <div class="w-full md:w-4/12 ml-auto mr-auto px-4" data-aos="flip-right" data-aos-delay="1000">
                         <!-- Image -->
-                        <img alt="..." class="max-w-full rounded-lg shadow-lg" src="https://images.unsplash.com/photo-1553678324-f84674bd7b24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" />
+                        <img alt="..." class="max-w-full rounded-lg shadow-lg" style="height: 450px; width: 600px;"
+                            src="../../assets/blog-post-01-610x408.jpg" />
                     </div>
                     <!-- Text Box Container-->
                     <div class="w-full md:w-5/12 ml-auto mr-auto px-4" data-aos="zoom-in-left">
                         <div class="md:pr-12">
-                            <div class="text-pink-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-pink-300">
+                            <div
+                                class="text-pink-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-pink-300">
                                 <!-- Icon -->
                                 <i class="fas fa-rocket text-xl"></i>
                             </div>
                             <!-- Text Box -->
-                            <h3 class="text-3xl font-semibold">A growing company</h3>
-                            <p class="mt-4 text-lg leading-relaxed text-gray-600">
-                                The extension comes with three pre-built pages to help you get started faster. You can change the text and images and you're good to go.
+                            <h3 style="color: #2a2a2a !important; font-weight: bold;" class="text-3xl font-semibold">Managing projects of any complexity</h3>
+                            <p style="color: #2a2a2a !important;"class="mt-4 text-lg leading-relaxed text-gray-600">
+                                Our diverse capabilities provide clients the ability to work on projects of all sizes
+                                and types . Whether you want to estimate a project, create schedules, or transform
+                                drawings to reality, we provide opportunities to suit a
+                                wide range of interests and specialties.
                             </p>
                             <!-- List -->
-                            <ul class="list-none mt-6">
-                                <li class="py-2">
-                                    <div class="flex items-center">
-                                        <div>
-                                            <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
-                        <!-- Icon -->
-                        <i class="fas fa-fingerprint"></i>
-                      </span>
-                                        </div>
-                                        <div>
-                                            <h4 class="text-gray-600">
-                                                Carefully crafted components
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="py-2">
-                                    <div class="flex items-center">
-                                        <div>
-                                            <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
-                        <!-- Icon -->
-                        <i class="fab fa-html5"></i>
-                      </span>
-                                        </div>
-                                        <div>
-                                            <h4 class="text-gray-600">Amazing page examples</h4>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="py-2">
-                                    <div class="flex items-center">
-                                        <div>
-                                            <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
-                        <!-- Icon -->
-                        <i class="far fa-paper-plane"></i>
-                      </span>
-                                        </div>
-                                        <div>
-                                            <h4 class="text-gray-600">Dynamic components</h4>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+
                         </div>
                     </div>
                 </div>
@@ -321,7 +309,8 @@
                     <div class="w-full lg:w-6/12 px-4">
                         <h2 class="text-4xl font-semibold">Here are the brains behind Construct-Tek</h2>
                         <p class="text-lg leading-relaxed m-4 text-gray-600">
-                            This software is built by Final year Computer Engineering students of Kwame Nkrumah University of Science and Technology (KNUST) as their final year project
+                            This software is built by Final year Computer Engineering students of Kwame Nkrumah
+                            University of Science and Technology (KNUST) as their final year project
                         </p>
                     </div>
                 </div>
@@ -331,7 +320,8 @@
                     <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4" data-aos="fade-in">
                         <div class="px-6">
                             <!-- Image -->
-                            <img alt="..." src="../../assets/emma.jpg" class="shadow-lg rounded-full max-w-full mx-auto" style="max-width: 120px;" />
+                            <img alt="..." src="../../assets/emma.jpg" class="shadow-lg rounded-full max-w-full mx-auto"
+                                style="max-width: 120px;" />
                             <div class="pt-6 text-center">
                                 <h5 class="text-xl font-bold">Emmanuel Ofori</h5>
                                 <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
@@ -339,18 +329,24 @@
                                 </p>
                                 <!-- Social Media Buttons -->
                                 <div class="mt-6">
-                                    <button class="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1" type="button">
-                    <!-- Icon -->
-                    <i class="fab fa-twitter"></i>
-                  </button>
-                                    <button class="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1" type="button">
-                    <!-- Icon -->
-                    <i class="fa fa-envelope"></i>
-                  </button>
-                                    <button class="bg-black text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1" type="button">
-                    <!-- Icon -->
-                    <i class="fab fa-github"></i>
-                  </button>
+                                    <button
+                                        class="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                                        type="button">
+                                        <!-- Icon -->
+                                        <i class="fab fa-twitter"></i>
+                                    </button>
+                                    <button
+                                        class="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                                        type="button">
+                                        <!-- Icon -->
+                                        <i class="fa fa-envelope"></i>
+                                    </button>
+                                    <button
+                                        class="bg-black text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                                        type="button">
+                                        <!-- Icon -->
+                                        <i class="fab fa-github"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -359,26 +355,33 @@
                     <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4" data-aos="fade-in" data-aos-delay="400">
                         <div class="px-6">
                             <!-- Image -->
-                            <img alt="..." src="../../assets/andy.jpg" class="shadow-lg rounded-full max-w-full mx-auto" style="max-width: 120px;" />
+                            <img alt="..." src="../../assets/andy.jpg" class="shadow-lg rounded-full max-w-full mx-auto"
+                                style="max-width: 120px;" />
                             <div class="pt-6 text-center">
                                 <h5 class="text-xl font-bold">Asamoah Andrews</h5>
                                 <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
-                                    Frontend Developer
+                                    UI/UX DEVELOPER
                                 </p>
                                 <!-- Social Media Buttons -->
                                 <div class="mt-6">
-                                    <button class="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1" type="button">
-                    <!-- Icon -->
-                    <i class="fab fa-twitter"></i>
-                  </button>
-                                    <button class="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1" type="button">
-                    <!-- Icon -->
-                    <i class="fa fa-envelope"></i>
-                  </button>
-                                    <button class="bg-black text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1" type="button">
-                    <!-- Icon -->
-                    <i class="fab fa-github"></i>
-                  </button>
+                                    <button
+                                        class="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                                        type="button">
+                                        <!-- Icon -->
+                                        <i class="fab fa-twitter"></i>
+                                    </button>
+                                    <button
+                                        class="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                                        type="button">
+                                        <!-- Icon -->
+                                        <i class="fa fa-envelope"></i>
+                                    </button>
+                                    <button
+                                        class="bg-black text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                                        type="button">
+                                        <!-- Icon -->
+                                        <i class="fab fa-github"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -387,26 +390,33 @@
                     <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4" data-aos="fade-in" data-aos-delay="600">
                         <div class="px-6">
                             <!-- Image -->
-                            <img alt="..." src="../../assets/ernest.jpg" class="shadow-lg rounded-full max-w-full mx-auto" style="max-width: 120px;" />
+                            <img alt="..." src="../../assets/ernest.jpg"
+                                class="shadow-lg rounded-full max-w-full mx-auto" style="max-width: 120px;" />
                             <div class="pt-6 text-center">
-                                <h5 class="text-xl font-bold">Ernest Apauh</h5>
+                                <h5 class="text-xl font-bold">Ernest Apau</h5>
                                 <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
-                                    UI/UX Designer
+                                    FRONTEND DEVELOPER
                                 </p>
                                 <!-- Social Media Buttons -->
                                 <div class="mt-6">
-                                    <button class="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1" type="button">
-                    <!-- Icon -->
-                    <i class="fab fa-twitter"></i>
-                  </button>
-                                    <button class="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1" type="button">
-                    <!-- Icon -->
-                    <i class="fa fa-envelope"></i>
-                  </button>
-                                    <button class="bg-black text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1" type="button">
-                    <!-- Icon -->
-                    <i class="fab fa-github"></i>
-                  </button>
+                                    <button
+                                        class="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                                        type="button">
+                                        <!-- Icon -->
+                                        <i class="fab fa-twitter"></i>
+                                    </button>
+                                    <button
+                                        class="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                                        type="button">
+                                        <!-- Icon -->
+                                        <i class="fa fa-envelope"></i>
+                                    </button>
+                                    <button
+                                        class="bg-black text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                                        type="button">
+                                        <!-- Icon -->
+                                        <i class="fab fa-github"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -419,63 +429,66 @@
         <!-- Contact Section -->
         <section class="pb-20 relative block bg-gray-900">
             <!-- Making Polygon Shape in Background -->
-            <div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20" style="height: 80px; transform: translateZ(0);">
-                <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-          <polygon class="text-gray-900 fill-current" points="2560 0 2560 100 0 100"></polygon>
-        </svg>
+            <div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
+                style="height: 80px; transform: translateZ(0);">
+                <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
+                    <polygon class="text-gray-900 fill-current" points="2560 0 2560 100 0 100"></polygon>
+                </svg>
             </div>
             <!-- Section Container -->
             <div class="container mx-auto px-4 lg:pt-24 lg:pb-64">
                 <!-- Text Box -->
                 <div class="flex flex-wrap text-center justify-center">
                     <div class="w-full lg:w-6/12 px-4">
-                        <h2 class="text-4xl font-semibold text-white">Build something</h2>
-                        <p class="text-lg leading-relaxed mt-4 mb-4 text-gray-500">
-                            Put the potentially record low maximum sea ice extent tihs year down to low ice. According to the National Oceanic and Atmospheric Administration, Ted, Scambos.
-                        </p>
+                        <h2 class="text-4xl font-semibold text-white">What clients say about our company</h2>
+
                     </div>
                 </div>
                 <!-- Flex Row Container -->
                 <div class="flex flex-wrap mt-12 justify-center">
                     <!-- Item -->
                     <div class="w-full lg:w-3/12 px-4 text-center" data-aos="fade-in" data-aos-delay="600">
-                        <div class="text-gray-900 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
+                        <div
+                            class="text-gray-900 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
                             <!-- Icon -->
                             <i class="fas fa-medal text-xl"></i>
                         </div>
                         <!-- Text Box -->
-                        <h5 class="text-xl mt-5 font-semibold text-white">
-                            Excelent Services
-                        </h5>
-                        <p class="mt-2 mb-4 text-gray-500">
-                            Some quick example text to build on the card title and make up the bulk of the card's content.
-                        </p>
+                        <h4 class="text-xl mt-5 font-semibold text-white">
+                            "It's not the first time that i deal with this company. Their top-notch quality of their
+                            services impressed me from the first time i started using their application. The team of
+                            true professionals helped me with the decision making a lot."
+                        </h4>
+
                     </div>
                     <!-- Item -->
                     <div class="w-full lg:w-3/12 px-4 text-center" data-aos="fade-in" data-aos-delay="400">
-                        <div class="text-gray-900 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
+                        <div
+                            class="text-gray-900 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
                             <!-- Icon -->
                             <i class="fas fa-poll text-xl"></i>
                         </div>
                         <!-- Text Box -->
-                        <h5 class="text-xl mt-5 font-semibold text-white">
-                            Grow your market
-                        </h5>
-                        <p class="mt-2 mb-4 text-gray-500">
-                            Some quick example text to build on the card title and make up the bulk of the card's content.
-                        </p>
+                        <h4 class="text-xl mt-5 font-semibold text-white">
+                            "When we needed a design and construction specialists, Construck-Tek was there for us. We
+                            had a vision and an idea and they made all of that happen."
+                        </h4>
+
                     </div>
                     <!-- Item -->
                     <div class="w-full lg:w-3/12 px-4 text-center" data-aos="fade-in">
-                        <div class="text-gray-900 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
+                        <div
+                            class="text-gray-900 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
                             <!-- Icon -->
                             <i class="fas fa-lightbulb text-xl"></i>
                         </div>
                         <!-- Text Box -->
-                        <h5 class="text-xl mt-5 font-semibold text-white">Launch time</h5>
-                        <p class="mt-2 mb-4 text-gray-500">
-                            Some quick example text to build on the card title and make up the bulk of the card's content.
-                        </p>
+                        <h4 class="text-xl mt-5 font-semibold text-white"> "Construct-Tek knows
+                            how to create new possibilities for artisans and businesses, while saving the initial
+                            potential of the area"
+                            .</h4>
+
                     </div>
                 </div>
             </div>
@@ -486,7 +499,8 @@
             <div class="container mx-auto px-4" data-aos="fade-in">
                 <div class="flex flex-wrap justify-center lg:-mt-64 -mt-48">
                     <div class="w-full lg:w-6/12 px-4">
-                        <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
+                        <div
+                            class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
                             <div class="flex-auto p-5 lg:p-10">
                                 <h4 class="text-2xl font-semibold">Want to work with us?</h4>
                                 <p class="leading-relaxed mt-1 mb-4 text-gray-600">
@@ -494,29 +508,38 @@
                                 </p>
                                 <form [formGroup]='WorkwithusForm' (ngSubmit)='onsubmit()'>
                                     <div class="relative w-full mb-3 mt-8">
-                                        <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="full-name">
-                  Full Name
-                </label><input type="text" class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full" placeholder="Full Name" style="transition: all 0.15s ease 0s;"
+                                        <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                            for="full-name">
+                                            Full Name
+                                        </label><input type="text"
+                                            class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                                            placeholder="Full Name" style="transition: all 0.15s ease 0s;"
                                             formControlName='name' />
                                     </div>
                                     <!-- Email -->
                                     <div class="relative w-full mb-3">
                                         <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="email">
-                  Email
-                </label><input type="email" class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full" placeholder="Email" style="transition: all 0.15s ease 0s;"
+                                            Email
+                                        </label><input type="email"
+                                            class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                                            placeholder="Email" style="transition: all 0.15s ease 0s;"
                                             formControlName='email' />
                                     </div>
                                     <!-- Message -->
                                     <div class="relative w-full mb-3">
-                                        <label class="block uppercase text-gray-700 text-xs font-bold mb-2" for="message">
-                  Message
-                </label><textarea rows="4" cols="80" class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full" placeholder="Type a message..."
-                                            formControlName='message'></textarea>
+                                        <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                            for="message">
+                                            Message
+                                        </label><textarea rows="4" cols="80"
+                                            class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                                            placeholder="Type a message..." formControlName='message'></textarea>
                                     </div>
                                     <div class="text-center mt-6">
-                                        <button class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1" type="submit" style="transition: all 0.15s ease 0s;">
-                  Send Message
-                </button>
+                                        <button
+                                            class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                                            type="submit" style="transition: all 0.15s ease 0s;">
+                                            Send Message
+                                        </button>
                                     </div>
                                 </form>
                                 <!-- Name -->
@@ -533,10 +556,12 @@
     <!-- Footer Section -->
     <footer class="relative bg-gray-300 pt-8 pb-6">
         <!-- Making Polygon Shape in Background -->
-        <div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20" style="height: 80px; transform: translateZ(0);">
-            <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-        <polygon class="text-gray-300 fill-current" points="2560 0 2560 100 0 100"></polygon>
-      </svg>
+        <div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
+            style="height: 80px; transform: translateZ(0);">
+            <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"
+                version="1.1" viewBox="0 0 2560 100" x="0" y="0">
+                <polygon class="text-gray-300 fill-current" points="2560 0 2560 100 0 100"></polygon>
+            </svg>
         </div>
         <!-- Section Container -->
         <div class="container mx-auto px-4">
@@ -549,14 +574,14 @@
                     </h5>
                     <!-- Social Media Buttons -->
                     <div class="mt-6">
-                        <a href="https://www.twitter.com/creativetim" target="_blank"><i
-                class="fab fa-twitter  bg-white text-blue-400 shadow-lg font-lg p-3 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 inline-block text-center"></i></a>
-                        <a href="https://www.facebook.com/creativetim" target="_blank"><i
-                class="fab fa-facebook-square bg-white text-blue-600 shadow-lg font-lg p-3 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 inline-block text-center"></i></a>
-                        <a href="https://www.dribbble.com/creativetim" target="_blank"><i
-                class="fab fa-dribbble bg-white text-pink-400 shadow-lg font-lg p-3 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 inline-block text-center"></i></a>
-                        <a href="https://www.github.com/creativetimofficial" target="_blank"><i
-                class="fab fa-github bg-white text-gray-900 shadow-lg font-lg p-3 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 inline-block text-center"></i></a>
+                        <a href="#" target="_blank"><i
+                                class="fab fa-twitter  bg-white text-blue-400 shadow-lg font-lg p-3 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 inline-block text-center"></i></a>
+                        <a href="#" target="_blank"><i
+                                class="fab fa-facebook-square bg-white text-blue-600 shadow-lg font-lg p-3 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 inline-block text-center"></i></a>
+                        <a href="#" target="_blank"><i
+                                class="fab fa-dribbble bg-white text-pink-400 shadow-lg font-lg p-3 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 inline-block text-center"></i></a>
+                        <a href="#" target="_blank"><i
+                                class="fab fa-github bg-white text-gray-900 shadow-lg font-lg p-3 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 inline-block text-center"></i></a>
                     </div>
                 </div>
                 <!-- List Container -->
@@ -567,35 +592,44 @@
                             <span class="block uppercase text-gray-600 text-sm font-semibold mb-2">Useful Links</span>
                             <ul class="list-unstyled">
                                 <li>
-                                    <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://www.creative-tim.com/presentation">About Us</a>
+                                    <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                                        href="#">About Us</a>
                                 </li>
                                 <li>
-                                    <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://blog.creative-tim.com">Blog</a>
+                                    <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                                        href="#">Blog</a>
                                 </li>
                                 <li>
-                                    <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://www.github.com/creativetimofficial">Github</a>
+                                    <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                                        href="#">Github</a>
                                 </li>
                                 <li>
-                                    <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://www.creative-tim.com/bootstrap-themes/free">Free Products</a>
+                                    <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                                        href="#">Free Products</a>
                                 </li>
                             </ul>
                         </div>
                         <!-- List 2 -->
                         <div class="w-full lg:w-4/12 px-4">
-                            <span class="block uppercase text-gray-600 text-sm font-semibold mb-2">Other Resources</span>
+                            <span class="block uppercase text-gray-600 text-sm font-semibold mb-2">Other
+                                Resources</span>
                             <ul class="list-unstyled">
                                 <li>
-                                    <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://github.com/creativetimofficial/argon-design-system/blob/master/LICENSE.md">MIT
-                    License</a>
+                                    <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                                        href="#">MIT
+                                        License</a>
                                 </li>
                                 <li>
-                                    <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://creative-tim.com/terms">Terms &amp; Conditions</a>
+                                    <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                                        href="#">Terms &amp; Conditions</a>
                                 </li>
                                 <li>
-                                    <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://creative-tim.com/privacy">Privacy Policy</a>
+                                    <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                                        href="#">Privacy Policy</a>
                                 </li>
                                 <li>
-                                    <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://creative-tim.com/contact-us">Contact Us</a>
+                                    <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
+                                        href="#">Contact Us</a>
                                 </li>
                             </ul>
                         </div>
@@ -608,8 +642,9 @@
             <div class="flex flex-wrap items-center md:justify-between justify-center">
                 <div class="w-full md:w-4/12 px-4 mx-auto text-center">
                     <div class="text-sm text-gray-600 font-semibold py-1">
-                        Copyright © 2019 Tailwind Starter Kit by
-                        <a href="https://www.creative-tim.com" class="text-gray-600 hover:text-gray-900">Creative Tim</a>.
+                        Copyright © 2021 Construct-Tek
+                    <a href="" class="text-gray-600 hover:text-gray-900">KNUST
+                            </a>.
                     </div>
                 </div>
             </div>
