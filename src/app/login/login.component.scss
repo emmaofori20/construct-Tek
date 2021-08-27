@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.Mycontainer {
+    padding-bottom: 10px;
+}
+
 .login-container {
     background-image: url("../../assets/Login.jpg");
     background-position: center;
@@ -15,48 +19,60 @@
     align-items: center;
     background-size: cover;
 }
+
 .login-box {
     background-color: #ff6627;
     width: 400px;
-    height: 450px;
-    box-shadow: -5px 5px 50px rgba(0, 0, 0, 0.3), 5px -5px 50px rgba(0, 0, 0, 0.1);
-    margin: 0 15px;
+    /* height: 450px; */
+    box-shadow: -5px 5px 50px rgb(0 0 0 / 30%), 5px -5px 50px rgb(0 0 0 / 10%);
+    /* margin: 0 15px; */
     border-radius: 10px;
     opacity: 0.9;
+    padding: 20px;
 }
+
 form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // flex-direction: column;
+    a {
+        color: white;
+        margin-left: 5px;
+        &:hover {
+            cursor: pointer;
+            color: green;
+        }
+    }
 }
+
 .login-box h1 {
     font-family: "Poppins";
-    font-weight: 300;
+    /* font-weight: 300; */
     font-size: 24px;
-    padding: 20px 16px;
-    text-align: start;
+    padding: 13px 10px 5px 3px;
+    /* text-align: start; */
     color: white;
 }
+
 .login-box h4 {
-    margin: 0px 22px;
+    margin: 0px 8px;
 }
 
 input[type="email"],
-input[type="password"]
-{
+input[type="password"] {
     width: 90%;
     border-radius: 4px;
     padding: 10px;
     font-size: 16px;
-    color: black;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
+    /* color: black; */
+    /* letter-spacing: 1px; */
+    /* margin-bottom: 20px; */
     border: none;
-    outline: none;
-    margin: 10px 22px;
+    /* outline: none; */
+    margin: 10px 5px;
     color: black;
-    font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
+    /* font-family: FontAwesome, "Open Sans", Verdana, sans-serif; */
     background: white;
 }
 
@@ -64,9 +80,6 @@ input[type="email"]::placeholder,
 input[type="password"]::placeholder {
     color: black !important;
 }
-
-
-
 
 form .psw a {
     font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
@@ -78,33 +91,36 @@ form .psw a {
     margin-right: 18px;
     float: right;
 }
+
 form button {
     height: 2.5rem;
-    width: 90%;
-    font-size: 22px;
+    width: 30%;
+    font-size: 16px;
     font-weight: 300;
-    margin: 20px 22px;
-    padding: 2px;
+    /* margin: 20px 22px; */
+    /* padding: 2px; */
     background-color: white;
-    border: none;
-    outline: none;
+    /* border: none; */
+    /* outline: none; */
     color: black;
     cursor: pointer;
     font-family: "Poppins";
     border-radius: 4px;
+    margin: 12px 7px;
 }
+
 .email-checker {
     text-align: center;
     margin: 1.5rem;
     color: red;
 }
+
 .change {
     display: contents;
     a {
         // height: 6.5rem;
         // width: 18rem;
         margin-left: 25%;
-
         // background: rgb(111, 202, 224);
         font-family: "Poppins";
         font-size: 16px;
@@ -112,7 +128,6 @@ form button {
         font-weight: 400;
         line-height: 60px;
         color: white;
-
         // margin-right: 65px;
         // border-radius: 20px;
         // margin-top: 20px;
@@ -125,6 +140,7 @@ form button {
         }
     }
 }
+
 @media (max-width: 520px) {
     form {
         padding: 20px 30px;
@@ -135,6 +151,7 @@ form button {
         }
     }
 }
+
 @media (max-width: 400px) {
     .change {
         a {
