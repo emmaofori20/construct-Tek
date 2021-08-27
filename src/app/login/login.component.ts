@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationsService } from 'angular2-notifications';
 import { LoaderService } from 'src/interceptors/loader.service';
 import { AuthService } from '../services/auth.service';
 import { DataService } from '../services/data.service';
@@ -20,7 +21,9 @@ export class LoginComponent implements OnInit {
     private auth: AuthService,
     private router: Router,
     private loaderService: LoaderService,
-    private dataservice: DataService
+    private dataservice: DataService,
+    private _service: NotificationsService,
+
   ) {
     if (auth.isLoggedIn()) {
       router.navigate(['home-page']);
@@ -46,12 +49,24 @@ export class LoginComponent implements OnInit {
         //setting a user after login
         await this.dataservice._setActiveUser(res);
         this.router.navigate(['dashboard/content/home-page']);
+        this._service.success('Success','Login sucessful',{
+          position:['bottom','right'],
+          timeOut: 4000,
+          animate: 'fade',
+          showProgressBar:true
+        })
         this.loaderService.setHttpProgressStatus(false);
       })
       .catch((err) => {
         console.log('error', err);
         this.loaderService.setHttpProgressStatus(false);
         this._errormessage = err.message;
+        this._service.error('Error',err.message,{
+          position:['bottom','right'],
+          timeOut: 2000,
+          animate: 'fade',
+          showProgressBar:true
+        })
         this.errorMessage = true;
         this.isValid = true;
       });
