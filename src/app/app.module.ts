@@ -7,7 +7,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { SmartTooltipAngularModule } from 'smart-tooltip-angular';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-
+import { SimpleNotificationsModule } from 'angular2-notifications';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
@@ -83,7 +83,8 @@ import { CategoriesComponent } from './categories/categories.component';
     BrowserAnimationsModule,
     DragDropModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    SimpleNotificationsModule.forRoot()
 
   ],
   providers: [

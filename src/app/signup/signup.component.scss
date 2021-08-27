@@ -15,29 +15,34 @@
     align-items: center;
     background-size: cover;
 }
+
 .login-box {
     background-color: #ff6627;
-    width: 450px;
-    height: 500px;
-    box-shadow: -5px 5px 50px rgba(0, 0, 0, 0.3), 5px -5px 50px rgba(0, 0, 0, 0.1);
-    margin: 0 15px;
+    width: 400px;
+    /* height: 450px; */
+    box-shadow: -5px 5px 50px rgb(0 0 0 / 30%), 5px -5px 50px rgb(0 0 0 / 10%);
+    /* margin: 0 15px; */
     border-radius: 10px;
     opacity: 0.9;
+    padding: 20px;
 }
+
 form {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
+
 .login-box h1 {
     font-family: "Poppins";
     font-weight: 300;
     font-size: 24px;
-    padding: 20px 15px;
-    text-align: start;
+    padding: 10px 15px;
+    // text-align: start;
     color: white;
 }
+
 input[type="email"],
 input[type="password"],
 input[type="text"] {
@@ -50,22 +55,24 @@ input[type="text"] {
     margin-bottom: 20px;
     border: none;
     outline: none !important;
-    margin: 10px 22px;
+    margin: 7px 10px;
     color: black;
     font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
     background-color: #fff;
 }
+
 input[type="email"]::placeholder,
 input[type="password"]::placeholder,
 input[type="text"]::placeholder {
     color: black !important;
 }
+
 form button {
     height: 2.5rem;
-    width: 90%;
-    font-size: 22px;
-    font-weight: 300;
-    margin: 20px 22px;
+    width: 33%;
+    font-size: 16px;
+    /* font-weight: 300; */
+    margin: 20px 12px;
     background-color: white;
     border: none;
     outline: none;
@@ -75,13 +82,13 @@ form button {
     border-radius: 4px;
     //float: center;
 }
+
 .change {
     display: contents;
     a {
         // height: 6.5rem;
         // width: 18rem;
         margin-left: 25%;
-
         // background: rgb(111, 202, 224);
         font-family: "Poppins";
         font-size: 16px;
@@ -89,7 +96,6 @@ form button {
         font-weight: 400;
         line-height: 60px;
         color: white;
-
         // margin-right: 65px;
         // border-radius: 20px;
         // margin-top: 20px;
@@ -102,6 +108,7 @@ form button {
         }
     }
 }
+
 @media (max-width: 520px) {
     form {
         padding: 20px 30px;
@@ -112,6 +119,7 @@ form button {
         }
     }
 }
+
 @media (max-width: 400px) {
     .change {
         a {

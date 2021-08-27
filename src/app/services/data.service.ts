@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { NotificationsService } from 'angular2-notifications';
 import { Subject } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { LoaderService } from 'src/interceptors/loader.service';
@@ -21,7 +22,9 @@ export class DataService {
     private userservice: UserServiceService,
     private afs: AngularFirestore,
     private afStorage: AngularFireStorage,
-    private loaderService: LoaderService
+    private loaderService: LoaderService,
+    private _service: NotificationsService,
+
   ) {}
 
   async _setActiveUser(userInfo) {
@@ -69,6 +72,7 @@ export class DataService {
 
     //getting link to the images
     this.downloadURL.push(await storageRef.getDownloadURL().toPromise());
+
     console.log('url', this.downloadURL);
   }
 
@@ -95,6 +99,12 @@ export class DataService {
                   ['user.skill.Wokerimages']: this.downloadURL,
                 });
               console.log('wokerresponse', res1);
+              this._service.success('Success','Details Added',{
+                position:['bottom','right'],
+                timeOut: 4000,
+                animate: 'fade',
+                showProgressBar:true
+              })
               this.loaderService.setHttpProgressStatus(false);
 
               //clearing the link that holds the url
@@ -120,7 +130,13 @@ export class DataService {
     this.afs
           .collection('Users')
           .doc(_userid)
-          .update({ 'user.skill': worker })
+          .update({ 'user.skill': worker });
+          this._service.success('Success','Details updated',{
+            position:['bottom','right'],
+            timeOut: 3000,
+            animate: 'fade',
+            showProgressBar:true
+          })
           this.loaderService.setHttpProgressStatus(false);
 
   }

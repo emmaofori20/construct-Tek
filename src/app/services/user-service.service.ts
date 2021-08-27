@@ -5,6 +5,7 @@ import {
 } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Router } from '@angular/router';
+import { NotificationsService } from 'angular2-notifications';
 import { finalize } from 'rxjs/operators';
 import { LoaderService } from 'src/interceptors/loader.service';
 import { SystemUser, User } from '../model/model';
@@ -25,7 +26,9 @@ export class UserServiceService {
     private afs: AngularFirestore,
     private afStorage: AngularFireStorage,
     private loaderService: LoaderService,
-    private router: Router
+    private router: Router,
+    private _service: NotificationsService,
+
   ) {}
 
   //setting up a new user to firebase
@@ -71,6 +74,12 @@ export class UserServiceService {
           this.loaderService.setHttpProgressStatus(true);
           console.log('user log in ID', res.user.uid)
           localStorage.setItem('user', res.user.uid);
+          this._service.success('Success','Sign Up successful',{
+            position:['bottom','right'],
+            timeOut: 4000,
+            animate: 'fade',
+            showProgressBar:true
+          })
           this.router.navigate(['dashboard/content/home-page']);
           this.loaderService.setHttpProgressStatus(false);
 
@@ -81,6 +90,12 @@ export class UserServiceService {
       })
       .catch((err) => {
         console.log(err);
+        this._service.error('Error',err.message,{
+          position:['bottom','right'],
+          timeOut: 4000,
+          animate: 'fade',
+          showProgressBar:true
+        })
         this.loaderService.setHttpProgressStatus(false);
       });
   }
@@ -112,8 +127,18 @@ export class UserServiceService {
               .collection('Users')
               .doc(userid)
               .update({ 'user.photo': downloadURL });
-          });
-        })
+
+              this._service.success('Success','Profile updated',{
+                position:['bottom','right'],
+                timeOut: 3000,
+                animate: 'fade',
+                showProgressBar:true
+              })
+          }
+          );
+        }
+
+        )
       )
       .subscribe();
   }

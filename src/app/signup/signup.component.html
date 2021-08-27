@@ -1,6 +1,6 @@
 <div class="login-container">
     <div class="login-box">
-        
+
         <form [formGroup]="signupForm" (ngSubmit)="onSubnmit()">
             <div class="Mycontainer">
                 <h1>SignUp</h1>
@@ -17,9 +17,11 @@
 
                 <div class="change">
                     <button type="submit"> Sign Up</button>
-                    <a routerLink="/login"> Have an account? <strong> Login</strong></a>
                 </div>
             </div>
+
+            <a routerLink="/login"> Have an account? <strong> Login</strong></a>
+
         </form>
     </div>
     <div style="background-image: url(../../assets/signup.jpg);   background-size: cover;
