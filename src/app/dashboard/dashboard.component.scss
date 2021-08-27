@@ -123,9 +123,15 @@
     //left: 240px;
     //padding: 0 20px;
     // box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+<<<<<<< HEAD
     //transition: all 0.5s ease;
     //box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
     //z-index: 2;
+=======
+    transition: all 0.5s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+>>>>>>> 49abff4ecac30f39cd614e0b03f15e8e7e42fee0
 }
 
 .sidebar.active~.home-section nav {
