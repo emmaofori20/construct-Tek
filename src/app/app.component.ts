@@ -1,5 +1,7 @@
 import { Component, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
+import { NotificationsService } from 'angular2-notifications';
+import { ConnectionService } from 'ng-connection-service';
 import { LoaderService } from 'src/interceptors/loader.service';
 import { DataService } from './services/data.service';
 import { UserServiceService } from './services/user-service.service';
@@ -12,10 +14,17 @@ import { UserServiceService } from './services/user-service.service';
 export class AppComponent {
   title = 'construct-tek';
   user: any;
+
+  isConnected = true;
+  noInternetConnection: boolean;
+
+
   constructor(private loaderService: LoaderService,
     private renderer: Renderer2,
     private router: Router,
-    private dataservice: DataService
+    private dataservice: DataService,
+    private connectionService: ConnectionService,
+    private _service: NotificationsService,
   ) {
     this.loaderService.httpProgress().subscribe((status: boolean) => {
       if (status) {
@@ -26,6 +35,31 @@ export class AppComponent {
     });
 
     this.CheckingUser();
+
+    //Checking internet connection
+    this.connectionService.monitor().subscribe(isConnected => {
+      this.isConnected = isConnected;
+      if (this.isConnected) {
+        this.noInternetConnection=false;
+        this._service.success('Success','Internet access',{
+          position:['bottom','right'],
+          timeOut: 4000,
+          animate: 'fade',
+          showProgressBar:true
+        })
+      }
+      else {
+        this.noInternetConnection=true;
+        this._service.error('Error','No internet connection',{
+          position:['bottom','right'],
+          timeOut: 4000,
+          animate: 'fade',
+          showProgressBar:true
+        })
+      }
+    })
+
+
   }
 
   async CheckingUser() {
