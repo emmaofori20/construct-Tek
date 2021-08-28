@@ -45,6 +45,8 @@ export class LandingPageComponent implements OnInit {
 
   toggleNavbar(collapseID) {
     document.getElementById(collapseID).classList.toggle("hidden");
+    document.getElementById(collapseID).style.backgroundColor='white';
+    document.getElementById('login').style.color="black";
     document.getElementById(collapseID).classList.toggle("block");
   }
 }
