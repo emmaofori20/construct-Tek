@@ -1,4 +1,6 @@
-<div>
+<div style="
+padding: 80px 0px 0px 0px;
+">
     <!-- <app-navbar></app-navbar> -->
 
     <!-- <div class="contents" style="background: url('../../assets/background.png')">
@@ -41,7 +43,7 @@
     width: 100%;
     padding: 1px 0px;
     ">
-    
+
         <!-- SLIDE SHOW/////////////////////////////////////////////////////////////// -->
         <div class="slideshow-container">
 
@@ -76,85 +78,87 @@
         <!-- SLIDE SHOW/////////////////////////////////////////////////////////////// -->
 
     </div>
+    <div style="padding: 0px 20px;">
+        <div class="displayworkers">
+            <h1>Categories</h1>
 
-    <div class="displayworkers">
-        <h1 >Categories</h1>
+            <div class="theworkers">
+                <div class="worker-con">
+                    <div (click)="opencategory(worker.name)" class="worker" *ngFor="let worker of allProfessionCategory | paginate: { itemsPerPage: count, currentPage: c }
+             ">
+                        <div *ngIf="worker.name=='Carpenter'">
+                            <img src="../../assets/carpenter.jpg" alt="Avatar" class="image">
+                        </div>
 
-        <div class="theworkers">
-            <div class="worker-con">
-                <div (click)="opencategory(worker.name)" class="worker" *ngFor="let worker of allProfessionCategory | paginate: { itemsPerPage: count, currentPage: c }
-                 ">
-                    <div *ngIf="worker.name=='Carpenter'">
-                        <img src="../../assets/carpenter.jpg" alt="Avatar" class="image">
-                    </div>
+                        <div *ngIf="worker.name=='Plumber'">
+                            <img src="../../assets/plumber.jpg" alt="Avatar" class="image">
+                        </div>
 
-                    <div *ngIf="worker.name=='Plumber'">
-                        <img src="../../assets/plumber.jpg" alt="Avatar" class="image">
-                    </div>
+                        <div *ngIf="worker.name=='Bricklayer'">
+                            <img src="../../assets/bricklayer.jpg" alt="Avatar" class="image">
+                        </div>
 
-                    <div *ngIf="worker.name=='Bricklayer'">
-                        <img src="../../assets/bricklayer.jpg" alt="Avatar" class="image">
-                    </div>
+                        <div *ngIf="worker.name=='Acoustics consultant'">
+                            <img src="../../assets/consultant.jpg" alt="Avatar" class="image">
+                        </div>
+                        <div *ngIf="worker.name=='Stonemason'">
+                            <img src="../../assets/stone.jpg" alt="Avatar" class="image">
+                        </div>
+                        <div *ngIf="worker.name=='Tiler'">
+                            <img src="../../assets/pexels-kinga-longa-1652544.jpg" alt="Avatar" class="image">
+                        </div>
+                        <div *ngIf="worker.name=='Welder'">
+                            <img src="../../assets/pexels-movidagrafica-barcelona-1474993.jpg" alt="Avatar" class="image">
+                        </div>
+                        <div *ngIf="worker.name=='Wood machinist'">
+                            <img src="../../assets/394213-woodmachinist.jpg" alt="Avatar" class="image">
+                        </div>
+                        <div class="overlay">
+                            <div class="text">{{worker.name}}</div>
+                        </div>
 
-                    <div *ngIf="worker.name=='Acoustics consultant'">
-                        <img src="../../assets/consultant.jpg" alt="Avatar" class="image">
-                    </div>
-                    <div *ngIf="worker.name=='Stonemason'">
-                        <img src="../../assets/stone.jpg" alt="Avatar" class="image">
-                    </div>
-                    <div *ngIf="worker.name=='Tiler'">
-                        <img src="../../assets/pexels-kinga-longa-1652544.jpg" alt="Avatar" class="image">
-                    </div>
-                    <div *ngIf="worker.name=='Welder'">
-                        <img src="../../assets/pexels-movidagrafica-barcelona-1474993.jpg" alt="Avatar" class="image">
-                    </div>
-                    <div *ngIf="worker.name=='Wood machinist'">
-                        <img src="../../assets/394213-woodmachinist.jpg" alt="Avatar" class="image">
-                    </div>
-                    <div class="overlay">
-                        <div class="text">{{worker.name}}</div>
-                    </div>
-
-                </div>
-            </div>
-            <pagination-controls style="   margin-right: 40px; float: right;margin-bottom:16px; margin-top: 10px;" (pageChange)="c = $event"></pagination-controls>
-        </div>
-
-        <h1 class="tra">Top rated Artisans</h1>
-        <div class="theworkers">
-            <div class="worker-con">
-                <div (click)="openWorker(worker)" class="worker" *ngFor="let worker of highlyratedworkers | paginate: { itemsPerPage: count, currentPage: p }
-               ">
-                    <div>
-                        <img [src]="worker.user.photo" alt="Avatar" class="image">
-                    </div>
-
-                    <h4 style="    position: absolute;
-                    top: 0px;
-                    right: 0px;
-                    width: 63px;
-                    background-color: #fd926f;
-                    text-align: center;
-                    z-index: 2;
-                    border-top-right-radius: 15px;
-                    border-bottom-left-radius: 15px;
-                    color: white;
-                    padding: 3px 4px;
-                    font-size: 14px;">{{worker.user?.skill.ratings}} <span class="fa fa-star"></span></h4>
-
-                    <div class="overlay">
-                        <div class="text">{{worker.user.skill.name}}</div>
                     </div>
                 </div>
+                <pagination-controls style="   margin-right: 40px; float: right;margin-bottom:16px; margin-top: 10px;" (pageChange)="c = $event"></pagination-controls>
+            </div>
 
+            <h1 class="tra">Top rated Artisans</h1>
+            <div class="theworkers">
+                <div class="worker-con">
+                    <div (click)="openWorker(worker)" class="worker" *ngFor="let worker of highlyratedworkers | paginate: { itemsPerPage: count, currentPage: p }
+           ">
+                        <div>
+                            <img [src]="worker.user.photo" alt="Avatar" class="image">
+                        </div>
+
+                        <h4 style="    position: absolute;
+                top: 0px;
+                right: 0px;
+                width: 63px;
+                background-color: #fd926f;
+                text-align: center;
+                z-index: 1;
+                border-top-right-radius: 15px;
+                border-bottom-left-radius: 15px;
+                color: white;
+                padding: 3px 4px;
+                font-size: 14px;">{{worker.user?.skill.ratings}} <span class="fa fa-star"></span></h4>
+
+                        <div class="overlay">
+                            <div class="text">{{worker.user.skill.name}}</div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <pagination-controls (pageChange)="p = $event" style=" float: right;margin-bottom:16px;
+        margin-top:5px; margin-right: 40px;"></pagination-controls>
 
             </div>
-            <pagination-controls (pageChange)="p = $event" style=" float: right;margin-bottom:16px;
-            margin-top:5px; margin-right: 40px;"></pagination-controls>
 
         </div>
-
     </div>
+
 
     <div class="footer-clean">
         <footer>
@@ -163,28 +167,28 @@
                     <div class="col-sm-4 col-md-3 item">
                         <h3>Services</h3>
                         <ul>
-                            <li><a href="#">Manage workers</a></li>
-                            <li><a href="#">Create Project</a></li>
-                            <li><a href="#">Find skilled personnels</a></li>
+                            <li><a>Manage workers</a></li>
+                            <li><a>Create Project</a></li>
+                            <li><a>Find skilled personnels</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-4 col-md-3 item">
                         <h3>About</h3>
                         <ul>
-                            <li><a href="#">Company</a></li>
-                            <li><a href="#">Team</a></li>
-                            <li><a href="#">Legacy</a></li>
+                            <li><a>Company</a></li>
+                            <li><a>Team</a></li>
+                            <li><a>Legacy</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-4 col-md-3 item">
                         <h3>Careers</h3>
                         <ul>
-                            <li><a href="#">Job openings</a></li>
-                            <li><a href="#">Employee success</a></li>
-                            <li><a href="#">Benefits</a></li>
+                            <li><a>Job openings</a></li>
+                            <li><a>Employee success</a></li>
+                            <li><a>Benefits</a></li>
                         </ul>
                     </div>
-                  
+
                 </div>
             </div>
         </footer>

@@ -11,7 +11,7 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
-
+import {ConnectionServiceModule} from 'ng-connection-service';
 
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 
@@ -69,6 +69,7 @@ import { CategoriesComponent } from './categories/categories.component';
     IsLoggedInPipe,
     CategoriesComponent,
 
+
   ],
   imports: [
     BrowserModule,
@@ -84,7 +85,8 @@ import { CategoriesComponent } from './categories/categories.component';
     DragDropModule,
     HttpClientModule,
     NgxPaginationModule,
-    SimpleNotificationsModule.forRoot()
+    SimpleNotificationsModule.forRoot(),
+    ConnectionServiceModule
 
   ],
   providers: [

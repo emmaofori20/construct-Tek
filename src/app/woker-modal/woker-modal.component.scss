@@ -7,11 +7,12 @@
     float: left;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1;
+    z-index: 2;
     position: fixed;
     justify-content: center;
     align-items: center;
 }
+
 .modal-content {
     background-color: #fd926f;
     text-align: center;
@@ -20,13 +21,14 @@
     border-radius: 10px;
     opacity: 0.9;
     margin: 50px auto;
+    padding: 20px;
 }
 
 .wokerbox {
     h1 {
         font-size: 24px;
         font-family: "Poppins";
-        font-weight: bolder;
+        // font-weight: bolder;
         padding: 20px 16px;
         color: white;
     }
@@ -37,6 +39,7 @@
         grid-auto-flow: row;
     }
 }
+
 .right-side {
     input[type="email"],
     input[type="text"],
@@ -45,20 +48,20 @@
         border-radius: 4px;
         font-size: 16px;
         border: none;
-        outline: none;
-        font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
+        // outline: none;
+        // font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
         color: black;
         letter-spacing: 1px;
         margin-bottom: 10px;
     }
-    select{
-        width: 84%;
+    select {
+        width: 82%;
         border-radius: 4px;
         margin-bottom: 10px;
         border: none;
         outline: none;
     }
-    label{
+    label {
         float: left;
         padding-left: 15px;
         color: white;
@@ -66,22 +69,21 @@
         font-size: 16px;
     }
 }
+
 button {
     height: 2.5rem;
-    width: 90%;
-    font-size: 22px;
+    width: 69%;
+    font-size: 16px;
     font-weight: 300;
-    margin: 0px 25px;
-    //padding: 2px;
+    margin: 0px 7px;
     background-color: #1e1e25;
-    border: none;
-    outline: none;
+    /* border: none; */
+    /* outline: none; */
     color: white;
     cursor: pointer;
-    //text-align: center;
-    width: 90%;
+    width: 37%;
     border-radius: 4px;
-    font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
+    /* font-family: FontAwesome, "Open Sans", Verdana, sans-serif; */
     letter-spacing: 1px;
     margin-bottom: 10px;
 }
