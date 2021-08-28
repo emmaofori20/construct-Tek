@@ -76,7 +76,7 @@
                         <img *ngIf="user.user?.photo!='null'" style="height: 70px;width: 70px;border-radius: 50%;" src={{user.user?.photo}} id="image">
                         <img *ngIf="user?.photo!" src={{user.user?.photo}} id="imagedisplay">
                     </div>
-                    <i class="fa fa-camera" (click)="changeProfile($event)"></i>
+                    <i style="color: orange;" class='bx bxs-camera' (click)="changeProfile($event)"></i>
                     <span class="iconify" data-icon="fa:home"></span>
 
 
