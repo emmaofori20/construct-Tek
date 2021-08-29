@@ -163,7 +163,7 @@ q {
     right: 0;
     height: 100%;
     width: 100%;
-    opacity: .5;
+    opacity: .7;
     transition: 0.5s ease;
     background-color: #24222277;
     border-radius: 15px;
@@ -176,7 +176,8 @@ q {
 .text {
     color: rgb(255, 255, 255);
     font-size: 20px;
-    font-weight: 500;
+    
+    font-weight: bolder;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -184,6 +185,7 @@ q {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
+    cursor: pointer;
 }
 
 //footer
