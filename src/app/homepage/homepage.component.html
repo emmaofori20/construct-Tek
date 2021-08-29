@@ -42,7 +42,7 @@
             color: white;
           " smart-tooltip-container>
           Add
-          <span
+          <span (click)="AddWorkertoProject(item, worker, $event)"
             class="smart-tooltip stay-buttom stick-300 stayonhover"
             *ngFor="let item of projects"
             >{{ item.project.name }}</span
