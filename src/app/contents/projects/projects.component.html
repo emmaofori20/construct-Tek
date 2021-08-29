@@ -43,12 +43,12 @@
 
                 <div class="hl"></div>
                 <div class="controls">
-                    <i class="fas fa-hard-hat"><span >{{ item?.Teams?.length}}</span></i>
+                    <i class="fas fa-hard-hat" title="Number of workers"><span >{{ item?.Teams?.length}}</span></i>
                     <div *ngIf="it">
 
                     </div>
-                    <i class="fas fa-tasks"><span>{{item?.Tasks?.length}}</span></i>
-                    <i style="padding: 5px; " class="far fa-trash-alt" (click)="deleteproject($event, item)"></i>
+                    <i class="fas fa-tasks" title="Number of tasks"><span>{{item?.Tasks?.length}}</span></i>
+                    <i style="padding: 5px; " class="far fa-trash-alt" title="Delete project" (click)="deleteproject($event, item)"></i>
                 </div>
             </div>
         </div>

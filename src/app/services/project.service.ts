@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { NotificationsService } from 'angular2-notifications';
 import * as firebase from 'firebase/app';
 import { BehaviorSubject } from 'rxjs';
 import { finalize } from 'rxjs/operators';
@@ -38,6 +39,7 @@ export class ProjectService {
     private data: DataService,
     private userservice: UserServiceService,
     private afStorage: AngularFireStorage,
+    private _service: NotificationsService,
 
   ) {
     this._userid = this.data.getuserid();
@@ -99,8 +101,20 @@ export class ProjectService {
           });
         console.log('Document written with ID: ', docRef.id);
         this.image = 0;
+        this._service.success('Success','Project created',{
+          position:['bottom','right'],
+          timeOut: 4000,
+          animate: 'fade',
+          showProgressBar:true
+        })
       }).catch(res=>{
         console.log("error occured",res)
+        this._service.error('Error','An error occured',{
+          position:['bottom','right'],
+          timeOut: 4000,
+          animate: 'fade',
+          showProgressBar:true
+        })
       });
   }
 
@@ -319,11 +333,23 @@ async UpdateTasksworkers(updatedtasks:any, projectId, userid){
 }
 
 //editting a project
-  editproject(projectid){
-console.log('the id of the project to be editted', projectid);
-// this.afs.collection('Users').doc(this.Userid).collection('Projects').doc(projectid).update({
+  editproject(projectid, name,description){
+console.log('Recieved project data', projectid, name, description, this.Userid);
+this.afs.collection('Users').doc(this.Userid).collection('Projects').doc(projectid).update({
+  'project.name' : name,
+}).then((res:any)=>{
+  this.afs.collection('Users').doc(this.Userid).collection('Projects').doc(projectid).update({
+    'project.description': description
+  })
 
-// });
+  this._service.success('Success','Upated',{
+    position:['bottom','right'],
+    timeOut: 4000,
+    animate: 'fade',
+    showProgressBar:true
+  })
+});
+
 }
 
 //setting image in a task

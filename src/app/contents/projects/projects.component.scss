@@ -60,6 +60,10 @@
                 font-weight: 100;
                 font-family: 'emoji';
                 padding-top: 12px;
+                width: 245px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
             }
             i {
                 padding: 8px;
