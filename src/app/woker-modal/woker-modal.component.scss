@@ -55,7 +55,7 @@
         margin-bottom: 10px;
     }
     select {
-        width: 82%;
+        width: 84%;
         border-radius: 4px;
         margin-bottom: 10px;
         border: none;
@@ -86,4 +86,41 @@ button {
     /* font-family: FontAwesome, "Open Sans", Verdana, sans-serif; */
     letter-spacing: 1px;
     margin-bottom: 10px;
+}
+
+@media (max-width: 800px) {
+    .right-side {
+        select {
+            width: 80%;
+        }
+    }
+}
+
+@media (max-width: 670px) {
+    .right-side {
+        select {
+            width: 77%;
+        }
+    }
+}
+
+@media (max-width: 520px) {
+    .wokerbox {
+        form {
+            display: block;
+        }
+    }
+    .right-side {
+        select {
+            width: 83%;
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .right-side {
+        select {
+            width: 81%;
+        }
+    }
 }
