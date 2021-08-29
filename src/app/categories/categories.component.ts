@@ -17,7 +17,8 @@ export class CategoriesComponent implements OnInit {
   public employeedata = [];
   // Pagination parameters.
   p: Number = 1;
-  c:Number=1
+  c:Number=2;
+  b=1
   count: Number = 4;
 
   //slideshow parameters
