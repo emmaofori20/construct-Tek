@@ -111,8 +111,16 @@
 
             <div class="container1" *ngFor="let item of asignedprojects; let i = index">
                 <div class="nameproject">
-                    <h3>{{ item.project.name }}</h3>
-                    <h4>{{ item.project.description }}</h4>
+                    <h3 style="    text-overflow: ellipsis;
+
+                    overflow: hidden;
+                    height: 23px;
+                    white-space: nowrap;">{{ item.project.name }}</h3>
+                    <h4 style="    text-overflow: ellipsis;
+
+                    overflow: hidden;
+                    height: 23px;
+                    white-space: nowrap;">{{ item.project.description }}</h4>
                 </div>
 
                 <div class="controlsproject">
