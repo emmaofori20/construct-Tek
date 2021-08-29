@@ -174,7 +174,7 @@
             <div class="profile-photo">
 
                 <i *ngIf="!workerdetails.user?.photo" class="far fa-user"></i>
-                <img *ngIf="workerdetails.user?.photo" [src]="workerdetails.user.photo" alt="">
+                <img *ngIf="workerdetails.user?.photo" [src]="workerdetails.user.photo" alt="" style="border-radius: 100px;">
 
             </div>
             <div class="profile-info">
@@ -208,7 +208,7 @@
                 </div>
 
                 <div class="message_worker" (click)="messageworker(workerdetails.user?.skill?.phoneNumber)">
-                    <button>message</button>
+                    <button style="background-color: coral;">message</button>
                 </div>
             </div>
             <div class="profile-bio">
@@ -297,7 +297,7 @@
         <div>
             <div class="qqqq">
                 <h4>Phone:</h4>
-                <span>0{{workerdetails.user?.skill?.phoneNumber}}</span>
+                <span>{{workerdetails.user?.skill?.phoneNumber}}</span>
             </div>
 
             <div class="qqqq">
