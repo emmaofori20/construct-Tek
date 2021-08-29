@@ -51,6 +51,7 @@
     position: relative;
     list-style: none;
     height: 50px;
+    padding: 5px 0px;
 }
 
 .sidebar .nav-links li a {
@@ -114,8 +115,7 @@
 .home-section nav {
     justify-content: space-around;
     height: 80px;
-    background:#282831;
-  
+    background: #282831;
     display: flex;
     align-items: center;
     position: fixed;
