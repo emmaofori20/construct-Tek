@@ -1,22 +1,21 @@
 <div id="myModal" class="Modal">
     <!-- forgot password details -->
-    <div (click)="onBack(false)" style="position: absolute; left: 0; top: 0;width: 100%; height: 100%;background-color: rgba(0, 0, 0, 0.4); z-index: -1;">
+    <div (click)="onBack(false)"
+        style="position: absolute; left: 0; top: 0;width: 100%; height: 100%;background-color: rgba(0, 0, 0, 0.4); z-index: -1;">
 
     </div>
     <div class="modal-content">
         <form [formGroup]="editProjectForm" (ngSubmit)="onSubmit()">
 
-            <div>
-                <h3 style="    text-align: center;
-                font-size: 16px;
-                color: green;">Edit your project</h3>
+            <div class="details">
+                <h2>Edit your project</h2>
             </div>
             <input type="email" placeholder="Name" formControlName="name">
             <input type="email" placeholder="Description" formControlName="description">
 
-            <div class="psd">
+            
                 <button type="submit">send</button>
-            </div>
+            
 
         </form>
     </div>
