@@ -14,7 +14,7 @@
         </div>
 
         <div class="workarea">
-            <div class="add" (click)="Addlist()">
+            <!-- <div class="add" (click)="Addlist()">
                 <h3 style="color: #003366; font-weight: bold; padding-left: 5px;">Add list</h3>
                 <i style="color: #ff6600;" class="fas fa-plus"></i>
             </div>
@@ -31,7 +31,7 @@
                         <input (keydown.enter)="onaddlistname()" type="text" placeholder="Title" #Listname>
                     </div>
                 </ng-template>
-            </div>
+            </div> -->
 
 
             <div style="    display: flex;
@@ -95,7 +95,7 @@
                     </div>
 
 
-                    <div cdkDropList #task.taskname="cdkDropList" [cdkDropListData]="task.taskname" class="example-list" (cdkDropListDropped)="drop($event,i)" *ngIf="task.task!=0">
+                    <div cdkDropList #task.taskname="cdkDropList" [cdkDropListData]="task.taskname" class="example-list" (cdkDropListDropped)="drop($event,i)">
                         <div>
                             <div *ngFor="let item of task.task; let a=index" cdkDrag>
                                 <div class="example-box1" style=" margin-bottom: 5px;">

@@ -65,9 +65,8 @@ export class ProjectService {
     };
 
     // seeting a default task
-
     let task:Task= {
-      taskname: 'New task',
+      taskname: 'Negotiation',
       task: [
         {
           issuedby: 'user',
@@ -75,6 +74,39 @@ export class ProjectService {
           task: 'my first task',
           img: '',
         },
+      ],
+    };
+    let task1:Task= {
+      taskname: 'Inprogress',
+      task: [
+        // {
+        //   issuedby: 'user',
+        //   assignedto: 'worker',
+        //   task: 'my first task',
+        //   img: '',
+        // },
+      ],
+    };
+    let task2:Task= {
+      taskname: 'Completed',
+      task: [
+        // {
+        //   // issuedby: 'user',
+        //   // assignedto: 'worker',
+        //   // task: 'my first task',
+        //   // img: '',
+        // },
+      ],
+    };
+    let task3:Task= {
+      taskname: 'Review',
+      task: [
+        // {
+        //   issuedby: 'user',
+        //   assignedto: 'worker',
+        //   task: 'my first task',
+        //   img: '',
+        // },
       ],
     };
     console.log('background image', this.backgroundImage[this.image]);
@@ -95,7 +127,7 @@ export class ProjectService {
           .set({
             projectId: docRef.id,
             project,
-            Tasks: [task],
+            Tasks: [task,task1,task2,task3],
             backgroundImage: this.backgroundImage[this.image],
             'isProjectComplete': false
           });
@@ -336,7 +368,7 @@ async UpdateTasksworkers(updatedtasks:any, projectId, userid){
   editproject(projectid, name,description){
 console.log('Recieved project data', projectid, name, description, this.Userid);
 this.afs.collection('Users').doc(this.Userid).collection('Projects').doc(projectid).update({
-  'project.name' : name,
+  'project.name' : description,
 }).then((res:any)=>{
   this.afs.collection('Users').doc(this.Userid).collection('Projects').doc(projectid).update({
     'project.description': description
