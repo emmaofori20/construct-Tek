@@ -101,12 +101,28 @@ export class WokerModalComponent implements OnInit {
   async onsubmit() {
     console.log('this is the workers details', this.workerForm.value);
 
+    // if (
+    //       this.workerForm.value.name == '' ||
+    //       this.workerForm.value.phoneNumber == '' ||
+    //       this.workerForm.value.profession == '' ||
+    //       this.workerForm.value.location == '' ||
+    //       this.workerForm.value.email == ''
+
+    //     ) {
+    //       this._service.error('Error', 'Please add your details', {
+    //         position: ['bottom', 'right'],
+    //         timeOut: 4000,
+    //         animate: 'fade',
+    //         showProgressBar: true,
+    //       });
+    //     }
     try {
       if (
-        this.workerForm.value.name === null ||
-        this.workerForm.value.phoneNumber === null ||
-        this.workerForm.value.profession === null ||
-        this.workerForm.value.location === null
+        this.workerForm.value.name == '' ||
+        this.workerForm.value.phoneNumber == '' ||
+        this.workerForm.value.profession == '' ||
+        this.workerForm.value.location == '' ||
+        this.workerForm.value.email == ''
       ) {
         this._service.error('Error', 'Please add your details', {
           position: ['bottom', 'right'],
