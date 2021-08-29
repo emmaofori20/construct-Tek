@@ -97,3 +97,12 @@
     cursor: pointer;
     // transform: scale(1.04, 1.04);
 }
+@media (max-width: 400px) {
+    .details{
+        white-space: nowrap;
+        overflow: hidden;
+        width: 150px;
+        text-overflow: ellipsis;
+        
+    }
+}
