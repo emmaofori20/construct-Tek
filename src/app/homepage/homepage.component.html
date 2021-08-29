@@ -16,7 +16,7 @@
 
 
         <div class="workers-container" id="workers">
-            <div class="worker" *ngFor="let worker of allWokers | paginate: { itemsPerPage: count, currentPage: c}" (click)="openWorker(worker)">
+            <div class="worker" *ngFor="let worker of allWokers | paginate: { itemsPerPage: 4, currentPage: c}" (click)="openWorker(worker)">
                 <div class="img-container">
                     <img [src]="worker.user.photo" alt="" />
                 </div>
