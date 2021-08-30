@@ -299,6 +299,16 @@ deletecardonlistworker(card,indexofcard, indexoflistoflistoftasks,listoftasks, p
       'project.projectProgress': Math.round(Projectprogress)
     })
 
+    //Checking to see if progress is 100 percent
+    if( Math.round(Projectprogress)==100){
+      this.afs.collection("Users").doc(this.Userid).collection('Projects').doc(projectId).update({
+        'isProjectComplete': true,
+        'OnSetmeasure':false
+      })
+    }else{
+
+    }
+
 
   })
 }
@@ -458,4 +468,16 @@ let total= (y/x)*100;
 console.log('teh final total', total)
 return(total);
 }
+
+ //check if project is complete
+_checkifcomplete(projectprogress, projectcomplete){
+  if(projectprogress==100){
+
+  }
+    // this.rate=true
+
+  console.log('tracking progress',projectprogress,projectcomplete)
+}
+
+
 }

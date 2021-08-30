@@ -1,0 +1,230 @@
+.Modal {
+    /*display: none;*/
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 2;
+    /* Sit on top */
+    // padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+.modal-content {
+    background: white;
+    text-align: center;
+    width: 80%;
+    border-radius: 10px;
+    opacity: 1;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+HTML CSS BabelResult Skip Results Iframe EDIT ON body {
+    margin-top: 50px;
+    font-family: sans-serif;
+    background: #f1f1f1;
+}
+
+table {
+    margin: 0 auto;
+    text-align: center;
+    border-collapse: collapse;
+    border: 1px solid #d4d4d4;
+    font-size: 20px;
+    background: #fff;
+}
+
+table th,
+table tr:nth-child(2n+2) {
+    background: #e7e7e7;
+}
+
+table th,
+table td {
+    padding: 5px 20px;
+}
+
+table th {
+    border-bottom: 1px solid #d4d4d4;
+}
+
+.stars-outer {
+    display: inline-block;
+    position: relative;
+    font-family: FontAwesome;
+}
+
+.stars-outer::before {
+    content: "\f006 \f006 \f006 \f006 \f006";
+}
+
+.stars-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+}
+
+.stars-inner::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    color: #f8ce0b;
+}
+
+.attribution {
+    font-size: 12px;
+    color: #444;
+    text-decoration: none;
+    text-align: center;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    z-index: -1;
+}
+
+.attribution:hover {
+    color: #1fa67a;
+}
+
+.right {
+    overflow: auto;
+    /* height: 440px; */
+    max-height: 440px;
+    padding: 20px 0px;
+}
+
+.details {
+    display: flex;
+    grid-gap: 10px;
+    // padding: 10px 17px !important;
+    img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+    }
+    .side {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        h2 {
+            width: 166px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        h3 {
+            width: 140px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+.star-rating {
+    font-size: 0;
+    white-space: nowrap;
+    display: inline-block;
+    width: 110px;
+    height: 22px;
+    overflow: hidden;
+    position: relative;
+    background: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjREREREREIiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=');
+    background-size: contain;
+    i {
+        opacity: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 20%;
+        z-index: 1;
+        background: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cG9seWdvbiBmaWxsPSIjRkZERjg4IiBwb2ludHM9IjEwLDAgMTMuMDksNi41ODMgMjAsNy42MzkgMTUsMTIuNzY0IDE2LjE4LDIwIDEwLDE2LjU4MyAzLjgyLDIwIDUsMTIuNzY0IDAsNy42MzkgNi45MSw2LjU4MyAiLz48L3N2Zz4=');
+        background-size: contain;
+    }
+    input {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        opacity: 0;
+        display: inline-block;
+        width: 20%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        z-index: 2;
+        position: relative;
+        &:hover+i,
+        &:checked+i {
+            opacity: 1;
+        }
+    }
+    i~i {
+        width: 40%;
+    }
+    i~i~i {
+        width: 60%;
+    }
+    i~i~i~i {
+        width: 80%;
+    }
+    i~i~i~i~i {
+        width: 100%;
+    }
+}
+
+//JUST COSMETIC STUFF FROM HERE ON. THESE AREN'T THE DROIDS YOU ARE LOOKING FOR: MOVE ALONG.
+//just styling for the number
+// .choice {
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     text-align: center;
+//     padding: 20px;
+//     display: block;
+// }
+//reset, center n shiz (don't mind this stuff)
+*,
+ ::after,
+ ::before {
+    // height: 100%;
+    // padding: 0;
+    // margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+    vertical-align: middle;
+}
+
+body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    &::before {
+        height: 100%;
+        content: '';
+        width: 0;
+        background: red;
+        vertical-align: middle;
+        display: inline-block;
+    }
+}
+
+/////////////////////////////////////////////////////////
+button {
+    background: #ff9800;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    margin: 0px auto;
+}

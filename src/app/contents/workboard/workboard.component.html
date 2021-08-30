@@ -158,6 +158,9 @@
         </div>
     </div>
 </div>
+<div *ngIf="rate">
+    <app-ratings (onResult)='onModalResult($event)'></app-ratings>
+</div>
 
 <!-- modal to display the list  of members -->
 

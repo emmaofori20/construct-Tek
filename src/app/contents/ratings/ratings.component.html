@@ -1,0 +1,72 @@
+<div id="myModal" class="Modal">
+    <div (click)="onBack(false)" style="position: absolute; left: 0; top: 0;width: 100%; height: 100%;background-color: rgba(0, 0, 0, 0.4); z-index: -1;">
+
+    </div>
+    <div class="modal-content">
+        <h1>Rate Workers</h1>
+
+        <div class="team">
+            <div class="right">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Worker</th>
+                            <th>Rating</th>
+                            <th>Review</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="hotel_a" *ngFor="let item of Team;let i= index">
+
+                            <td class="details">
+                                <img [src]="item.user.photo" alt="">
+                                <div class="side">
+                                    <h2>{{item.user.skill.name}}</h2>
+                                    <h3>{{item.user.skill.location}}</h3>
+                                </div>
+                            </td>
+
+                            <td *ngIf="hooks[i];else Data;">
+                                <div>
+                                    <span class="star-rating">
+                                  <input id="myinput" type="radio" name="rating" value="1" (change)='Addrating(1,item,i,item.user.skill.ratings)'><i></i>
+                                  <input  id="myinput" type="radio" name="rating" value="2" (change)='Addrating(2,item,i,item.user.skill.ratings)'><i></i>
+                                  <input   id="myinput"type="radio" name="rating" value="3" (change)='Addrating(3,item,i,item.user.skill.ratings)'><i></i>
+                                  <input  id="myinput" type="radio" name="rating" value="4" (change)='Addrating(4,item,i,item.user.skill.ratings)'><i></i>
+                                  <input  id="myinput" type="radio" name="rating" value="5" (change)='Addrating(5,item,i,item.user.skill.ratings)'><i></i>
+                                </span>
+                                </div>
+                            </td>
+
+                            <ng-template #Data>
+                                <td>
+                                    <h2 class="choice">Rated</h2>
+                                </td>
+                            </ng-template>
+
+
+                            <td *ngIf="hooks2[i];else reviewed;">
+                                <form [formGroup]="ReviewForm">
+                                    <input (keydown.enter)="onAddreview(i,item.id)" placeholder="Add a review" formControlName="comment">
+                                </form>
+
+                            </td>
+
+                            <ng-template #reviewed>
+                                <td>
+                                    <h2 class="choice">Reviewed</h2>
+                                </td>
+                            </ng-template>
+
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <button (click)="onBack(false)">Done</button>
+    </div>
+
+</div>

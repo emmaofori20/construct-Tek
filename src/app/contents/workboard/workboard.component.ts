@@ -32,7 +32,7 @@ export class WorkboardComponent implements OnInit {
   hooks:any;
   hooks2:any;
   Team:any[]=[];//varaible for the team
-
+  rate=false;// for calling the rateing modal
   listoftasks=[];
 
   //variable for teh team id's
@@ -44,7 +44,12 @@ export class WorkboardComponent implements OnInit {
   MainTaskindex:any;
   Subtaskindex:any;
 
-  //
+  //for  checking if project is complted
+  projectmeasure;
+  projectprogress;
+
+
+
   modalstate:boolean;
 
   constructor(
@@ -66,9 +71,14 @@ export class WorkboardComponent implements OnInit {
       console.log('projectId',this._projectid);
       this.projectservice.userproject(this._projectid,Userid).subscribe((results:any) => {
         console.log('these are the results', results);
+        this.projectmeasure=results.OnSetmeasure;
+        this.projectprogress=results.isProjectComplete;
+        // this.checkifcomplete(this.projectprogress,this.projectcomplete)
+
         this._projects = results;
         this.listoftasks=this._projects.Tasks;
         console.log("all the task", this.listoftasks);
+        this.check();
         this.loaderService.setHttpProgressStatus(false);
 
         //laoding the team members
@@ -138,7 +148,6 @@ loadTeamMembers(TeamMembers:any){
      }
 
   }
-
 
   toggle3(index){
 
@@ -276,8 +285,7 @@ loadTeamMembers(TeamMembers:any){
     });
   }
 
-
-    drop(event: CdkDragDrop<string[]>,i) {
+  drop(event: CdkDragDrop<string[]>,i) {
       if (event.previousContainer === event.container) {
         console.log('event container', event.container)
         moveItemInArray(this.listoftasks[i].task, event.previousIndex, event.currentIndex);
@@ -288,14 +296,28 @@ loadTeamMembers(TeamMembers:any){
                           this.listoftasks[i].task,//container
                           event.previousIndex,
                           event.currentIndex);
+                          // this.checkifcomplete(this.projectprogress,this.projectcomplete)
                           this.projectservice.UpdateTasks(this.listoftasks, this._projectid);
-
+                          this.check()
                           console.log('event previous container', event.previousContainer.data)
 
       }
+  }
+
+  onModalResult(result: boolean){
+    console.log(result);
+    this.rate=result;
+  }
+
+  check(){
+
+    if(this.projectmeasure==false && this.projectprogress ==true){
+      console.log('checking if true')
+      console.log('call modal');
+      this.rate=true;
+    }else{
+      this.rate=false
     }
-
-
-
+  }
 
 }
