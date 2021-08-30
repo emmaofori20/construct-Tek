@@ -6,12 +6,15 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { SmartTooltipAngularModule } from 'smart-tooltip-angular';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
 import {ConnectionServiceModule} from 'ng-connection-service';
+
 
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 
@@ -72,6 +75,7 @@ import { RatingsComponent } from './contents/ratings/ratings.component';
     RatingsComponent,
 
 
+
   ],
   imports: [
     BrowserModule,
@@ -84,6 +88,7 @@ import { RatingsComponent } from './contents/ratings/ratings.component';
     FormsModule,
     SmartTooltipAngularModule,
     BrowserAnimationsModule,
+    MatProgressSpinnerModule,
     DragDropModule,
     HttpClientModule,
     NgxPaginationModule,

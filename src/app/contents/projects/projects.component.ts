@@ -2,6 +2,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProjectService } from 'src/app/services/project.service';
 import { LoaderService } from 'src/interceptors/loader.service';
+import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-projects',
@@ -10,6 +11,7 @@ import { LoaderService } from 'src/interceptors/loader.service';
 })
 export class ProjectsComponent implements OnInit {
 
+  mode: ProgressSpinnerMode = 'determinate';
   toggle= false;
   allprojects=[];
   modalState: boolean;
@@ -19,6 +21,8 @@ export class ProjectsComponent implements OnInit {
 
   c:Number=2
   count: Number = 3;
+
+
   constructor(private projectservice: ProjectService, private router:Router,private loaderService: LoaderService,
     ) { }
 
