@@ -6,6 +6,7 @@ import { DataService } from 'src/app/services/data.service';
 import { ProjectService } from 'src/app/services/project.service';
 import { UserServiceService } from 'src/app/services/user-service.service';
 import { WorkerService } from 'src/app/services/woker.service';
+import { LoaderService } from 'src/interceptors/loader.service';
 
 @Component({
   selector: 'app-ratings',
@@ -33,6 +34,7 @@ export class RatingsComponent implements OnInit {
     private userservice: UserServiceService,
     private dataservice:DataService,
     private workerservice: WorkerService,
+    private loaderService: LoaderService,
 
 
     ) {
@@ -57,12 +59,15 @@ export class RatingsComponent implements OnInit {
      }
 
   ngOnInit(): void {
+    this.loaderService.setHttpProgressStatus(true);
     this.Userid = localStorage.getItem('user');
     this.activatedroute.params.subscribe((params)=>{
       console.log('the activated route',params);
       this._projectid = params['projectId'];
       this.projectservice.userproject(this._projectid,this.Userid).subscribe((results:any) => {
         console.log('these are rating results', results);
+        this.loaderService.setHttpProgressStatus(true);
+
         if(results.Teams!=null){
           this.loadTeamMembers(results.Teams);
          }else{
