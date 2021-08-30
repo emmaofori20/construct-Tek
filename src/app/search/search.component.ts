@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 import { WorkerService } from '../services/woker.service';
 
@@ -10,7 +11,7 @@ import { WorkerService } from '../services/woker.service';
 export class SearchComponent implements OnInit {
   listwokers=[];
 
-  constructor(private data:DataService, private worker:WorkerService) { }
+  constructor(private data:DataService, private worker:WorkerService,private router:Router) { }
 
   ngOnInit(): void {
 
@@ -35,6 +36,12 @@ export class SearchComponent implements OnInit {
     })
 
 
+  }
+
+
+  openWorker(worker) {
+    console.log('worker', worker);
+    this.router.navigate(['dashboard/content/worker', worker.id]);
   }
 
 }

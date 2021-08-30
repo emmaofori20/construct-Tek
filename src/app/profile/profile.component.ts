@@ -250,9 +250,9 @@ export class ProfileComponent implements OnInit {
                         <tr>
                           <td align="center" valign="top">
                             <img src="https://api.elasticemail.com/userfile/a18de9fc-4724-42f2-b203-4992ceddc1de/security_illu.png" alt="#">
-                            <h2>Security
+                            <h2>Work
                             </h2>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+                            <p>Search for skilled and qualified personnels
                             </p>
                           </td>
                         </tr>
@@ -261,15 +261,13 @@ export class ProfileComponent implements OnInit {
                             <img src="https://api.elasticemail.com/userfile/a18de9fc-4724-42f2-b203-4992ceddc1de/Mask_Group_2.png" alt="#">
                             <h2>Settings
                             </h2>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+                            <p>Manage your project with ease
                             </p>
                           </td>
                         </tr>
                         <tr>
                           <td align="center" valign="top">
-                            <a target="_blank"><button class="blueButton">See more</button></a> <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                            sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.
-                            </p>
+
                             <div class="greyLine">
                             </div>
                             <div class="footer">
