@@ -66,7 +66,7 @@ export class RatingsComponent implements OnInit {
       this._projectid = params['projectId'];
       this.projectservice.userproject(this._projectid,this.Userid).subscribe((results:any) => {
         console.log('these are rating results', results);
-        this.loaderService.setHttpProgressStatus(true);
+        this.loaderService.setHttpProgressStatus(false);
 
         if(results.Teams!=null){
           this.loadTeamMembers(results.Teams);
