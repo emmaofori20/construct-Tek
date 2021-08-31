@@ -7,7 +7,6 @@
     float: left;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.7);
-    z-index: 2;
     position: fixed;
     justify-content: center;
     align-items: center;
@@ -37,6 +36,7 @@
         grid-gap: 10px;
         grid-template-columns: 7fr 6fr;
         grid-auto-flow: row;
+        align-items: center;
     }
 }
 

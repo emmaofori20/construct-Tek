@@ -77,7 +77,7 @@ export class ProjectService {
       ],
     };
     let task1:Task= {
-      taskname: 'Inprogress',
+      taskname: 'In progress',
       task: [
         // {
         //   issuedby: 'user',
