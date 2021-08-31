@@ -23,9 +23,12 @@ export class SearchComponent implements OnInit {
           this.listwokers=[];
           console.log(results," THIS IS THE ACCESS LIST");
           results.forEach((doc:any)=>{
-            if (doc.user.skill.name.toLowerCase().includes(searchparam.toLowerCase())){
+            if (doc.user.skill.profession.toLowerCase().includes(searchparam.toLowerCase())){
               this.listwokers.push(doc);
 
+            }
+            else if(doc.user.skill.name.toLowerCase().includes(searchparam.toLowerCase())){
+              this.listwokers.push(doc);
             }
             console.log("the lsit of woker", this.listwokers);
           })
