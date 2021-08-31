@@ -29,6 +29,9 @@ export class ProjectService {
     '../../../assets/image4.jpg',
     '../../../assets/image1.jpg',
   ];
+  color =[
+    '#ffa372','#d6d660', 'f0a500', '#Cf7500'
+  ]
   image;
   project = new BehaviorSubject<any>({});
   Userid = localStorage.getItem('user');
@@ -43,7 +46,8 @@ export class ProjectService {
 
   ) {
     this._userid = this.data.getuserid();
-    this.randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    //this.randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    this.randomColor= Math.floor(Math.random() * 5);
     this.image = Math.floor(Math.random() * 5);
 
     //getting the user details
@@ -60,10 +64,11 @@ export class ProjectService {
       description: description,
       tasks: 0,
       workers: 0,
-      color: '#' + this.randomColor,
+      color: this.color[this.randomColor],
       projectProgress: '0'
     };
 
+    console.log('the color', this.color[this.randomColor] )
     // seeting a default task
     let task:Task= {
       taskname: 'Negotiation',
