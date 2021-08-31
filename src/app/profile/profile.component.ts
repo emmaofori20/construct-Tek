@@ -7,6 +7,7 @@ import '../../assets/smtp.js'; // file path
 import { FormControl, FormGroup } from '@angular/forms';
 import { UserServiceService } from '../services/user-service.service';
 import { LoaderService } from 'src/interceptors/loader.service';
+import { NotificationsService } from 'angular2-notifications';
 
 declare let Email: any;
 
@@ -33,6 +34,8 @@ export class ProfileComponent implements OnInit {
     private workerservice: WorkerService,
     private dataservice: DataService,
     private projectservice: ProjectService,
+    private _service: NotificationsService,
+
   ) {
     // requesting a worker to join your project
     this.projectservice.getUserproject().subscribe((res: any) => {
@@ -95,7 +98,12 @@ export class ProfileComponent implements OnInit {
     this.projectservice.addworker(project.projectId, this._workerid);
     //assign the project to the worker
     this.projectservice.assignproject(this._workerid, project.projectId);
-
+    this._service.success('Success','Added to project',{
+      position:['bottom','right'],
+      timeOut: 4000,
+      animate: 'fade',
+      showProgressBar:true
+    })
     //sending the mail to a worker
     Email.send({
       Host: 'smtp.elasticemail.com',
@@ -293,9 +301,12 @@ export class ProfileComponent implements OnInit {
   </body>
 </html>`,
     }).then((message) => {
-      console.log('message is sent')
-
-      alert(message);
+      this._service.success('Success','Added to project',{
+        position:['bottom','right'],
+        timeOut: 4000,
+        animate: 'fade',
+        showProgressBar:true
+      })
     });
 
     // confirm(

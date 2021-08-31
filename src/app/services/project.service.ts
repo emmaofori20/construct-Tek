@@ -378,7 +378,7 @@ async UpdateTasksworkers(updatedtasks:any, projectId, userid){
   editproject(projectid, name,description){
 console.log('Recieved project data', projectid, name, description, this.Userid);
 this.afs.collection('Users').doc(this.Userid).collection('Projects').doc(projectid).update({
-  'project.name' : description,
+  'project.name' : name,
 }).then((res:any)=>{
   this.afs.collection('Users').doc(this.Userid).collection('Projects').doc(projectid).update({
     'project.description': description
