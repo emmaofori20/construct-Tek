@@ -11,7 +11,7 @@
         <li>
             <a routerLink="/dashboard/content/home-page" routerLinkActive="active">
                 <i class="bx bx-grid-alt"></i>
-                <span class="links_name">Dashboard</span>
+                <span class="links_name">Home</span>
             </a>
         </li>
         <li>
@@ -56,9 +56,9 @@
             height: 45px;
             object-fit: cover;" *ngIf="user.user?.photo!='null'" src={{user.user?.photo}} id="image">
 
-<i style="color: white; font-size: 44px;"class='bx bx-user-circle' *ngIf="user.user?.photo=='null'" ></i>
+            <i style="color: white; font-size: 44px;" class='bx bx-user-circle' *ngIf="user.user?.photo=='null'"></i>
 
-           <!-- <img style="width: 20%;
+            <!-- <img style="width: 20%;
             height: 90%;
             object-fit: cover;
             background-color: green;" *ngIf="user.user?.photo=='null'" src='../../assets/usericon.png'>

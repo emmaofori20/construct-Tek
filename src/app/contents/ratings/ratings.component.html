@@ -26,7 +26,7 @@
                                 </div>
                             </td>
 
-                            <td>
+                            <td *ngIf="!rated">
                                 <div>
                                     <span class="star-rating">
                                   <input id="myinput" type="radio" name="rating" value="1" (change)='Addrating(1,worker,worker.user.skill.ratings)'><i></i>
@@ -38,25 +38,25 @@
                                 </div>
                             </td>
 
-                            <ng-template #Data>
-                                <td>
-                                    <h2 class="choice">Rated</h2>
-                                </td>
-                            </ng-template>
+
+                            <td *ngIf="rated">
+                                <h2 class="choice">Rated</h2>
+                            </td>
 
 
-                            <td>
-                                <form [formGroup]="ReviewForm">
-                                    <input placeholder="Add a review" formControlName="comment">
-                                </form>
+
+                            <td *ngIf="!reviewed">
+                                <!-- <form [formGroup]="ReviewForm"> -->
+                                <input (keydown.enter)='onAddreview(worker.id)' placeholder="Add a review" formControlName="comment">
+                                <!-- </form> -->
 
                             </td>
 
-                            <ng-template #reviewed>
-                                <td>
-                                    <h2 class="choice">Reviewed</h2>
-                                </td>
-                            </ng-template>
+
+                            <td *ngIf="reviewed">
+                                <h2 class="choice">Reviewed</h2>
+                            </td>
+
 
 
                         </tr>
@@ -66,7 +66,7 @@
             </div>
         </div>
 
-        <button (click)="onAddreview(worker.id)">Done</button>
+        <button (click)="onBack(false)">Done</button>
     </div>
 
 </div>

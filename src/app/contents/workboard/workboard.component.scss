@@ -143,7 +143,6 @@
     border-radius: 15px 15px 15px 15px;
     height: max-content;
     color: white;
-    
     .control-button {
         display: flex;
         justify-content: space-between;
@@ -173,6 +172,7 @@
         background-color: white;
         margin-bottom: 10px;
         border-radius: 15px;
+        color: black;
     }
 }
 
@@ -282,7 +282,7 @@
 .example-box {
     padding: 20px 10px;
     border-bottom: solid 1px #ccc;
-   color: rgba(0, 0, 0, 0.87);
+    color: rgba(0, 0, 0, 0.87);
     display: flex;
     flex-direction: row;
     align-items: center;

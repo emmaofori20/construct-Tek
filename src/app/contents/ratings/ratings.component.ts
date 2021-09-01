@@ -27,7 +27,8 @@ export class RatingsComponent implements OnInit {
   @Output('onResult') onResult:EventEmitter<boolean>=new EventEmitter();
   Userid: string;
   worker:any
-  reviewed=true;
+  reviewed=false;
+  rated=false;
   constructor(    private activatedroute: ActivatedRoute,
     private projectservice: ProjectService,
     private afs:AngularFirestore,
@@ -132,6 +133,7 @@ onBack(boolean){
     let roudedvalue = Math.round(rvalue * 10) / 10;
     console.log('the rated value is', roudedvalue);
     // this.hooks[index] = false;
+    this.rated=!this.rated
 
     this.afs.collection('Users').doc(item.id).update({
       'user.skill.ratings': roudedvalue
@@ -141,16 +143,14 @@ onBack(boolean){
 
   //adding comment
   onAddreview(workerid){
-    if(this.ReviewForm.value.comment === null){
-      this.onBack(false);
-      console.log('no commentqwertyuio')
-    }else{
+
        console.log('form details',this.ReviewForm.value.comment);
+       this.reviewed=!this.reviewed;
       // this.workerservice.addreview(workerid, this.ReviewForm.value);
       // this.ReviewForm.reset();
       // // this.hooks2[index] = false;
-      this.onBack(false)
-    }
+      //this.onBack(false)
+
 
 
 
