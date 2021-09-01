@@ -296,9 +296,11 @@ loadTeamMembers(TeamMembers:any){
                           this.listoftasks[i].task,//container
                           event.previousIndex,
                           event.currentIndex);
+                          console.log( 'the name of the current container',  this.listoftasks[i].task, event.currentIndex)
                           // this.checkifcomplete(this.projectprogress,this.projectcomplete)
+                          this.checkReview(this.listoftasks[i].taskname,event.currentIndex,this.listoftasks,i);
                           this.projectservice.UpdateTasks(this.listoftasks, this._projectid);
-                          this.check()
+                          // this.check()
                           console.log('event previous container', event.previousContainer.data)
 
       }
@@ -309,15 +311,35 @@ loadTeamMembers(TeamMembers:any){
     this.rate=result;
   }
 
+  checkReview(listname,indexofcard,listoftask,i){
+    if(listname==='Review'){
+      console.log('review card', listoftask[i].task[indexofcard])
+      console.log('list of team memebers',this.Team)
+      for (let index = 0; index < this.Team.length; index++) {
+        if(this.Team[index].user.skill.name.toLowerCase()===(listoftask[i].task[indexofcard].assignedto.toLowerCase())){
+            console.log('ready for review');
+            this.projectservice._rateworker(this.Team[index]);
+            console.log('the worker to be rated', this.Team[index])
+            this.rate=true;
+        }else{
+
+        }
+
+      }
+
+    }else{
+      console.log('it is not review')
+    }
+  }
   check(){
 
-    if(this.projectmeasure==false && this.projectprogress ==true){
-      console.log('checking if true')
-      console.log('call modal');
-      this.rate=true;
-    }else{
-      this.rate=false
-    }
+    // if(this.projectmeasure==false && this.projectprogress ==true){
+    //   console.log('checking if true')
+    //   console.log('call modal');
+    //   this.rate=true;
+    // }else{
+    //   this.rate=false
+    // }
   }
 
 }

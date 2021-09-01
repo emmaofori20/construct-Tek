@@ -80,7 +80,7 @@
                     </div>
 
 
-                    <div cdkDropList #task.taskname="cdkDropList" [cdkDropListData]="task.taskname" class="example-list" (cdkDropListDropped)="drop($event,i)" *ngIf="task.task!=0">
+                    <div cdkDropList #task.taskname="cdkDropList" [cdkDropListData]="task.taskname" class="example-list" (cdkDropListDropped)="drop($event,i)">
                         <div>
                             <div *ngFor="let item of task.task; let a=index" cdkDrag>
                                 <div class="example-box1" style=" margin-bottom: 5px;">

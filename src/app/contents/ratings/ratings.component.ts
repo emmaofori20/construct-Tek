@@ -15,7 +15,7 @@ import { LoaderService } from 'src/interceptors/loader.service';
 })
 export class RatingsComponent implements OnInit {
   private _projectid: any;
-  Team: any[];
+  Team: any[]=[{}];
   hooks;
   hooks2;
   // @ViewChild('changeListname') changeListname: ElementRef;
@@ -26,8 +26,8 @@ export class RatingsComponent implements OnInit {
   reviewimage: any;
   @Output('onResult') onResult:EventEmitter<boolean>=new EventEmitter();
   Userid: string;
-
-
+  worker:any
+  reviewed=true;
   constructor(    private activatedroute: ActivatedRoute,
     private projectservice: ProjectService,
     private afs:AngularFirestore,
@@ -56,25 +56,33 @@ export class RatingsComponent implements OnInit {
       });
     });
 
+    this.projectservice.Rateworker.subscribe((res:any)=>{
+      console.log('please rate mewwwwwwwwwwwwwwwwwwwwwww',res);
+      this.Team.push(res)
+      this.worker=res;
+    })
+
      }
 
   ngOnInit(): void {
     this.loaderService.setHttpProgressStatus(true);
     this.Userid = localStorage.getItem('user');
-    this.activatedroute.params.subscribe((params)=>{
-      console.log('the activated route',params);
-      this._projectid = params['projectId'];
-      this.projectservice.userproject(this._projectid,this.Userid).subscribe((results:any) => {
-        console.log('these are rating results', results);
-        this.loaderService.setHttpProgressStatus(false);
 
-        if(results.Teams!=null){
-          this.loadTeamMembers(results.Teams);
-         }else{
 
-         }
-      })
-    })
+    // this.activatedroute.params.subscribe((params)=>{
+    //   console.log('the activated route',params);
+    //   this._projectid = params['projectId'];
+    //   this.projectservice.userproject(this._projectid,this.Userid).subscribe((results:any) => {
+    //     console.log('these are rating results', results);
+    //     this.loaderService.setHttpProgressStatus(false);
+
+    //     if(results.Teams!=null){
+    //       this.loadTeamMembers(results.Teams);
+    //      }else{
+
+    //      }
+    //   })
+    // })
 
 
 
@@ -82,48 +90,48 @@ export class RatingsComponent implements OnInit {
 
 
     //loading the team
-loadTeamMembers(TeamMembers:any){
-  let members=[];
-  this.Team=[]
+// loadTeamMembers(TeamMembers:any){
+//   let members=[];
+//   this.Team=[]
 
-  for (let i = 0; i < TeamMembers.length; i++) {
-   this.afs.collection('Users').doc(TeamMembers[i]).get().subscribe((results)=>{
-     members.push(results.data())
-     this.Team.push(results.data())
-     console.log("members of the team", members)
-     console.log("membersssssss of the team", this.Team)
+//   for (let i = 0; i < TeamMembers.length; i++) {
+//    this.afs.collection('Users').doc(TeamMembers[i]).get().subscribe((results)=>{
+//      members.push(results.data())
+//      this.Team.push(results.data())
+//      console.log("members of the team", members)
+//      console.log("membersssssss of the team", this.Team)
 
-   });
-  };
-setTimeout(()=>{
-  this.hooks= this.Team.map(i=>true);
-  this.hooks2=this.Team.map(i=>true)
-  console.log('the all hooks',this.hooks)
-},1000)
+//    });
+//   };
+// setTimeout(()=>{
+//   this.hooks= this.Team.map(i=>true);
+//   this.hooks2=this.Team.map(i=>true)
+//   console.log('the all hooks',this.hooks)
+// },1000)
 
 
 
-}
+// }
 
 onBack(boolean){
     this.onResult.emit(boolean);
     console.log('onBack',boolean);
 
-    this.afs.collection("Users").doc(this.Userid).collection('Projects').doc(this._projectid).update({
-      'isProjectComplete': false,
-      'OnSetmeasure': false
-    })
+    // this.afs.collection("Users").doc(this.Userid).collection('Projects').doc(this._projectid).update({
+    //   'isProjectComplete': false,
+    //   // 'OnSetmeasure': false
+    // })
   }
 
 
-  Addrating(value,item,index, prating){
+  Addrating(value,item, prating){
 
     let rvalue = (prating+value)/2
     console.log('the value', value, 'the item is',item, prating);
     console.log('the rated value is', rvalue);
     let roudedvalue = Math.round(rvalue * 10) / 10;
     console.log('the rated value is', roudedvalue);
-    this.hooks[index] = false;
+    // this.hooks[index] = false;
 
     this.afs.collection('Users').doc(item.id).update({
       'user.skill.ratings': roudedvalue
@@ -132,12 +140,20 @@ onBack(boolean){
 
 
   //adding comment
-  onAddreview(index,workerid){
+  onAddreview(workerid){
+    if(this.ReviewForm.value.comment === null){
+      this.onBack(false);
+      console.log('no commentqwertyuio')
+    }else{
+       console.log('form details',this.ReviewForm.value.comment);
+      // this.workerservice.addreview(workerid, this.ReviewForm.value);
+      // this.ReviewForm.reset();
+      // // this.hooks2[index] = false;
+      this.onBack(false)
+    }
 
-    console.log('form details',this.ReviewForm.value);
-    this.workerservice.addreview(workerid, this.ReviewForm.value);
-    this.ReviewForm.reset();
-    this.hooks2[index] = false;
+
+
   }
 
 

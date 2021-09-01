@@ -3,7 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { NotificationsService } from 'angular2-notifications';
 import * as firebase from 'firebase/app';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { Card, project, Task } from '../model/model';
 import { DataService } from './data.service';
@@ -15,8 +15,7 @@ import { UserServiceService } from './user-service.service';
 })
 export class ProjectService {
 
-
-
+  Rateworker= new BehaviorSubject<any>({});
   private arrayUnion = firebase.default.firestore.FieldValue.arrayUnion;
   private arrayRemove = firebase.default.firestore.FieldValue.arrayRemove;
 
@@ -270,7 +269,6 @@ for (let i = 0; i < listoftasks.length; i++) {
 //worker deleting tasks on a list
 deletecardonlistworker(card,indexofcard, indexoflistoflistoftasks,listoftasks, projectid,userid){
   console.log("cliked",  listoftasks[indexoflistoflistoftasks].task);
-    debugger;
   for (let index = 0; index < listoftasks[indexoflistoflistoftasks].task.length; index++) {
           if( index == indexofcard){
             console.log("card and index", index, listoftasks[indexoflistoflistoftasks].task)
@@ -308,10 +306,13 @@ deletecardonlistworker(card,indexofcard, indexoflistoflistoftasks,listoftasks, p
     if( Math.round(Projectprogress)==100){
       this.afs.collection("Users").doc(this.Userid).collection('Projects').doc(projectId).update({
         'isProjectComplete': true,
-        'OnSetmeasure':false
+
       })
     }else{
+      this.afs.collection("Users").doc(this.Userid).collection('Projects').doc(projectId).update({
+        'isProjectComplete': false,
 
+      })
     }
 
 
@@ -484,5 +485,10 @@ _checkifcomplete(projectprogress, projectcomplete){
   console.log('tracking progress',projectprogress,projectcomplete)
 }
 
+_rateworker(worker){
+
+  this.Rateworker.next(worker);
+  console.log('worker recieved',worker)
+}
 
 }

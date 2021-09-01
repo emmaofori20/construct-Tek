@@ -1,7 +1,10 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NotificationsService } from 'angular2-notifications';
+import { DataService } from 'src/app/services/data.service';
 import { ProjectService } from 'src/app/services/project.service';
+import { UserServiceService } from 'src/app/services/user-service.service';
 import { WorkerService } from 'src/app/services/woker.service';
 
 @Component({
@@ -31,9 +34,16 @@ export class ViewboardComponent implements OnInit {
   listoftasks=[];
   MainTaskindex: any;
   Subtaskindex: any;
+  _userId: any;
+  user: any;
 
   constructor(private projectservice: ProjectService,
-    private activatedroute: ActivatedRoute,private workerservice:WorkerService) {
+    private activatedroute: ActivatedRoute,
+    private userservice: UserServiceService,
+    private dataservice:DataService,
+    private workerservice:WorkerService,
+    private _service: NotificationsService,
+    ) {
       this.workerservice.useridproject.subscribe(id=>{
         console.log("user id of the viewed project", id)
         this.useridproject=id;
@@ -55,6 +65,14 @@ export class ViewboardComponent implements OnInit {
         this.listoftasks=this._projects.Tasks;
         console.log("list of tasks", this.listoftasks);
       });
+    });
+
+
+    this._userId= this.dataservice.getuserid();
+    //getting the current user id
+    this.user=this.userservice.getActiveUser(this.dataservice.getuserid()).subscribe(res=>{
+      this.user=res;
+      console.log("user", this.user.user.firstName)
     });
 
      //hooks
@@ -191,12 +209,31 @@ deletelist(i){
         this.projectservice.UpdateTasksworkers(this.listoftasks,this._projectid,this.useridproject);
 
       } else {
-        transferArrayItem( this.listoftasks[i-1].task,//previous container
-                          this.listoftasks[i].task,//container
-                          event.previousIndex,
-                          event.currentIndex);
-                          this.projectservice.UpdateTasksworkers(this.listoftasks,this._projectid,this.useridproject);
-                          console.log('event previous container', event.previousContainer.data)
+        if(this.listoftasks[i].taskname==='Review'){
+          this._service.error('Error','Card can only be moved by Admin',{
+            position:['bottom','right'],
+            timeOut: 4000,
+            animate: 'fade',
+            showProgressBar:true
+          })
+        }else if(
+          this.listoftasks[i].task[event.currentIndex].assignedto.toLowerCase() != this.user.user.skill.name.toLowerCase()
+        ){
+          this._service.error('Error','Please move the card assigned to you',{
+            position:['bottom','right'],
+            timeOut: 4000,
+            animate: 'fade',
+            showProgressBar:true
+          })
+        }else{
+          transferArrayItem( this.listoftasks[i-1].task,//previous container
+            this.listoftasks[i].task,//container
+            event.previousIndex,
+            event.currentIndex);
+            this.projectservice.UpdateTasksworkers(this.listoftasks,this._projectid,this.useridproject);
+            console.log('event previous container', event.previousContainer.data)
+        }
+
 
       }
     }
