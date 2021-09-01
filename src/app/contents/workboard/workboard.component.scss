@@ -19,13 +19,13 @@
             font-size: 19px;
             border-radius: 8px;
             color: #fff;
-            background: #ff6600;
+            background: #fd7014;
             padding: 10px;
             font-weight: 700;
             font-family: sans-serif;
         }
         h2 {
-            color: #ff6600;
+            color: #fd7014;
             background: #fff;
             padding: 10px;
             font-size: 16px;
@@ -97,7 +97,7 @@
     }
     i {
         // background-color: rgb(252 251 251 / 82%);
-        color: #ff6600;
+        color: #fd7014;
         padding: 10px;
         border-radius: 50%;
     }
@@ -136,12 +136,13 @@
 }
 
 .list {
-    background-color: #8b8b8b;
+    background-color: #393e46;
     /* min-height: 56px; */
     min-width: 230px;
     padding: 10px 15px;
     border-radius: 15px 15px 15px 15px;
     height: max-content;
+    color: white;
     
     .control-button {
         display: flex;
@@ -158,8 +159,8 @@
         padding: 5px;
         width: 96%;
         margin-bottom: 10px;
-        background-color: #fd926f;
-        color: white;
+        background-color: #eeeeee;
+        color: black;
     }
 }
 
@@ -207,7 +208,7 @@
 //tooltip styling
 #tts {
     width: 105px;
-    background-color: #003366;
+    background-color: #fd7014;
     color: white;
     font-size: 14px;
     span {
@@ -215,7 +216,7 @@
     }
     span:hover {
         cursor: pointer;
-        color: #ff6600;
+        color: #003366;
     }
 }
 
@@ -265,6 +266,7 @@
     padding: 13px 10px;
     /* border-bottom: solid 1px #ccc; */
     color: rgb(0 0 0 / 58%);
+    //color: #eeeeee;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -280,14 +282,14 @@
 .example-box {
     padding: 20px 10px;
     border-bottom: solid 1px #ccc;
-    color: rgba(0, 0, 0, 0.87);
+   color: rgba(0, 0, 0, 0.87);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
     cursor: move;
-    background: white;
+    background: #eeeeee;
     font-size: 14px;
     border-radius: 10px 10px 0px 0px;
 }
@@ -374,7 +376,7 @@
         h4 {
             span {
                 .checked {
-                    color: orange;
+                    color: #fd7014;
                 }
             }
         }

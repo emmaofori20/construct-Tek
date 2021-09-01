@@ -45,19 +45,20 @@
             align-items: stretch;
             flex-direction: column;
             border: 1px solid #ccc;
-            box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.8);
+           // box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.8);
             border-radius: 20px;
             h4 {
                 position: absolute;
                 top: 0px;
                 right: 0px;
                 width: 33px;
-                background-color: #006bd8;
+                background-color:  #fd7014;
                 text-align: center;
                 color: #fff;
                 padding: 3px 4px;
                 font-size: 14px;
                 border-top-right-radius: 20px;
+                border-bottom-left-radius: 20px;
             }
         }
         .img-container {
